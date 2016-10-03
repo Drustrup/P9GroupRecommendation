@@ -1,1 +1,46 @@
 \section{Aggregation} \label{bg:aggregation}
+When working with a group recommender system, it is hard to avoid using aggregation to . While recent research has shown that aggregation is not a perfect substitute for group based decisions \todo{insert ref}, it is not our goal to find a suitable substitution for aggregation. We will instead use existing aggregation strategies to find suitable recommendations for the group. While specific strategies are as numerous as the number of recommenders, they are derived from only a few common strategies. These strategies are:
+
+\begin{itemize}
+	\item Plurality Voting
+	\item Average
+	\item Multiplicative
+	\item Approval Voting
+	\item Least Misery
+	\item Most Pleasure
+	\item Average Without Misery
+	\item Fairness
+	\item Dictatorship
+\end{itemize}
+
+\textbf{Plurality Voting}
+This strategy attempts to gain satisfaction by selecting the items with the highest ratings for the majority of the group first, and then repeating this strategy removing any items already selected. Outlier cases can result in a minority of highly dissatisfied users, simply because there ratings are insignificant.
+
+\textbf{Average}
+One of the simplest ways of aggregating, by simply taking the average of the ratings for an item. As with any averaging, this is not necessarily the best approach as both high and low ratings can be overshadowed by a significantly higher amount of middle ratings.
+
+\textbf{Multiplicative}
+By multiplying each rating for an item with each other, outlier ratings at either end of the rating scale becomes more significant. This is especially true for the lowest rating, commonly adjusted to be 1, as the rating adds nothing to combined rating. Thereby items receiving the lowest rating by even a small amount of group members quickly fall towards the bottom of the recommendation.
+
+\textbf{Approval Voting}
+This strategy transforms the ratings into points for each item. The points are awarded for each group member who have a rating for the item above a certain threshold. In small groups the strategy leads to many ties, in larger groups these ties become more uncommon.
+
+\textbf{Least Misery}
+This strategy attempts to reduce the amount of misery felt by the group by using the lowest rating for an item. This leaves the items to be easily be sorted by how well they are liked by the person who likes them the least. However it also has outlier cases with items well liked by the vast majority but disliked by a single person leaving it with a low rating.
+
+\textbf{Most Pleasure}
+This strategy attempts to maximize the satisfaction of the group by only using the highest rating for an item. Like the Least Misery strategy, this suffers from outlier cases going in the other direction, a single person rating an item disliked by the vast majority leaves the item with a high rating.
+
+\textbf{Average Without Misery}
+Working on the concept of removing as much misery as possible, this strategy removes items who have any ratings below a certain threshold, before averaging the ratings of the remaining items. However Average Without Misery suffers from outlier cases just as much as Least Misery and Most Pleasure.
+
+\textbf{Fairness}
+Going by the principle of everyone-gets-a-choice, is the essence of Fairness. The items are selected in turn by each group member, and in the purest form the selection is based purely on that member's terms without regarding ratings from others. However ratings from other group members are typically used in case the selecting member has a tie between two or more items. 
+
+\textbf{Dictatorship}
+The strategy is also called Most Respected Decides. Letting one person and their ratings decide everything is an approach often used in real world scenarios, for instance music being decided by a dj or the movie to watch being decided by the host. However deciding which person to use as the “dictator” is typically handled using trust, hence the alternative name for the strategy. Trust is difficult to measure, especially the more randomly put together the group is.
+
+\subsection{Simulating Group Behavior}
+In the study conducted by Judith Masthoff, it was found that some of the aggregation strategies were used when a group made decisions on which items to recommend, while other strategies provided better recommendations according to the groups. The strategies groups seemed to make use of were, Average, Average Without Misery, and Least Misery. In contrast to this strategies such as Multiplicative, Average, and Most Pleasure gave reasonable recommendations, showing some mismatch between what the group would recommend themselves, and what they retroactively think is best.
+
+However these strategies were looked at independently. By combining different strategies, not only does it reduce or remove some of the downsides to using a specific strategy, it can also improve the recommendations and the satisfaction they lead to.
