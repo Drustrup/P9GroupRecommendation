@@ -1,1 +1,40 @@
 \section{Matrix Factorization} \label{bg:matrixfactorization}
+Function
+Decomposing the rating matrix/Latent Semantic Indexing
+Approximating a matrix of ratings
+Users, u x Items, i, matrix R of rank n, approximated to two matrices of P, of size u x k, and Q, of size i x k, with k < n.
+k is the dimensional latent space.
+Performance
+Faster than both. Scales better.
+"for x<0.5 SVD-based prediction is
+better than the CF-Predict predictions. For x>0.5,
+however, the CF-Predict predictions are slightly
+better. This suggests that nearest-neighbor based
+collaborative filtering algorithms are susceptible to
+data sparsity as the neighborhood formation process
+is hindered by the lack of enough training data. On
+the other hand, SVD based prediction algorithms can
+overcome the sparsity problem by utilizing the latent
+relationships. However, as the training data is
+increased both SVD and CF-Predict prediction
+quality improve but the improvement in case of CFPredict
+surpasses the SVD improvement"
+Performance vs other techniques (pearson and cosine, describe other techniques)
+Scales better than nearest neighbor since our matrices are approximated (smaller)
+As noted in the 2011 SysRec book - neighborhood methods have 2 flaws: Limited coverage, Sensitivity to sparse data. MF counteracts this via approximation and dimensionality reduction.
+Cosine Similarity > Pearson Correlation (Collaborative Filtering Recommender Systems by Michael D. Ekstrand)
+Reduced coverage makes pearson/cosine nearest neighbor weak (source 2000)
+\subsection{Collective Matrix Factorization}
+Problem/specialcase introducing necessity of extension
+"Collective matrix factorization is a very general technique
+for revealing low-rank representations for arbitrary
+matrix collections. However, the practical applicability
+of earlier solutions has been limited since
+they implicitly assume all factors to be relevant for all
+matrices" (https://arxiv.org/pdf/1312.5921v2.pdf)
+Function
+MF is single-view
+Multi-view are many matrices
+Augmented Multi-view is CMF
+Performance vs normal MF
+???
