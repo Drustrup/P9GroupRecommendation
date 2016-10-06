@@ -26,27 +26,27 @@ When working with a group recommender system, it is hard to avoid using aggregat
 	\label{aggregation:tbl:table_of_ratings}
 \end{table}
 
-\textbf{Plurality Voting} attempts to gain satisfaction by selecting the items with the highest ratings for the majority of the group first, and then repeating this strategy removing any items already selected. Outlier cases can result in a minority of highly dissatisfied users, simply because their ratings are insignificant.\\
+\textbf{Plurality Voting} attempts to gain satisfaction by selecting the items with the highest ratings for the majority of the group first, and then repeating this strategy removing any items already selected. Outlier cases can result in a minority of highly dissatisfied users, simply because their ratings are insignificant. For instance items A being rather highly scored despite two people hating it.\\
 
-\textbf{Average} is one of the simplest ways of aggregating, by simply taking the average of the ratings for an item. As with any averaging, this is not necessarily the best approach as both high and low ratings can be overshadowed by a significantly higher amount of middle ratings.\\
+\textbf{Average} is one of the simplest ways of aggregating, by simply taking the average of the ratings for an item. As with any averaging, this is not necessarily the best approach as low ratings can be overshadowed by a significantly higher amount of high ratings. This is for instance the case with item F, where the low rating from John is overlooked in favor of the other people's ratings.\\
 
-\textbf{Multiplicative} attempts to improve satisfaction by multiplying each rating for an item with each other, so outlier ratings at either end of the rating scale becomes more significant. This is especially true for the lowest rating, commonly adjusted to be 1, as the rating adds nothing to combined rating. Thereby items receiving the lowest rating by even a small amount of group members quickly fall towards the bottom of the recommendation.\\
+\textbf{Multiplicative} attempts to improve satisfaction by multiplying each rating for an item with each other, so outlier ratings at either end of the rating scale becomes more significant. This is especially true for the lowest rating, commonly adjusted to be 1, as the rating adds nothing to combined rating. Thereby items receiving the lowest rating by even a small amount of group members quickly fall towards the bottom of the recommendation. For instance this is seen in item D, where Jane's low rating drags the overall score down.\\
 
-\textbf{Approval Voting} transforms the ratings into points for each item. The points are awarded for each group member who have a rating for the item above a certain threshold. In small groups the strategy leads to many ties, in larger groups these ties become more uncommon.\\
+\textbf{Approval Voting} transforms the ratings into points for each item. The points are awarded for each group member who have a rating for the item above a certain threshold. In small groups the strategy leads to many ties, in larger groups these ties become more uncommon. In the example item E is approved by every member, and with the threshold set at 5 this is an indication that no member would be dissatisfied with this item.\\
 
-\textbf{Least Misery} attempts to reduce the amount of misery felt by the group by using the lowest rating for an item. This leaves the items to be easily be sorted by how well they are liked by the person who likes them the least. However it also has outlier cases with items well liked by the vast majority but disliked by a single person leaving it with a low rating.\\
+\textbf{Least Misery} attempts to reduce the amount of misery felt by the group by using the lowest rating for an item. This leaves the items to be easily be sorted by how well they are liked by the person who likes them the least. However it also has outlier cases with items well liked by the vast majority but disliked by a single person leaving it with a low rating. This is clearly seen in item F, where John's low rating makes the item seem irrelevant despite it being highly regarded by the other three.\\
 
-\textbf{Most Pleasure} attempts to maximize the satisfaction of the group by only using the highest rating for an item. Like the Least Misery strategy, this suffers from outlier cases going in the other direction, a single person rating an item disliked by the vast majority leaves the item with a high rating.\\
+\textbf{Most Pleasure} attempts to maximize the satisfaction of the group by only using the highest rating for an item. Like the Least Misery strategy, this suffers from outlier cases going in the other direction, a single person rating an item disliked by the vast majority leaves the item with a high rating. This can be seen in item A, where it ends up with a tie for best choice, despite being hated by half the group members.\\
 
-\textbf{Average Without Misery} works on the concept of removing as much misery as possible, this strategy removes items who have any ratings below a certain threshold, before averaging the ratings of the remaining items. However Average Without Misery suffers from outlier cases just as much as Least Misery and Most Pleasure.\\
+\textbf{Average Without Misery} works on the concept of removing as much misery as possible, this strategy removes items who have any ratings below a certain threshold, before averaging the ratings of the remaining items. However Average Without Misery suffers from outlier cases just as much as Least Misery and Most Pleasure. The example showcases another problem, where even if one person has given a rating below the threshold, then the item is completely disregarded, therefore this strategy is unsuitable at even small group sizes. In the example only two out of seven items are left for consideration.\\
 
-\textbf{Fairness} goes by the principle of everyone-gets-a-choice, is the essence of Fairness. The items are selected in turn by each group member, and in the purest form the selection is based purely on that member's terms without regarding ratings from others. However ratings from other group members are typically used in case the selecting member has a tie between two or more items.\\
+\textbf{Fairness} goes by the principle of everyone-gets-a-choice, is the essence of Fairness. The items are selected in turn by each group member, and in the purest form the selection is based purely on that member's terms without regarding ratings from others. However ratings from other group members are typically used in case the selecting member has a tie between two or more items. In the example the pure form is used and notable items include item E, which has fairly high ratings from everyone but not the highest rating from anyone, leaving it to be selected second to last.\\
 
-\textbf{Dictatorship} is also called Most Respected Decides. Letting one person and their ratings decide everything is an approach often used in real world scenarios, for instance music being decided by a dj or the movie to watch being decided by the host. However deciding which person to use as the “dictator” is typically handled using trust, hence the alternative name for the strategy. Trust is difficult to measure, especially the more randomly put together the group is.
+\textbf{Dictatorship} is also called Most Respected Decides. Letting one person and their ratings decide everything is an approach often used in real world scenarios, for instance music being decided by a dj or the movie to watch being decided by the host. However deciding which person to use as the “dictator” is typically handled using trust or respect, hence the alternative name for the strategy. Trust is difficult to measure, especially the more randomly put together the group is.
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{ | p{2cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | } \hline
+	\begin{tabular}{ | p{2.5cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | } \hline
 		& \textbf{A} & \textbf{B} & \textbf{E} & \textbf{D} & \textbf{E} & \textbf{F} & \textbf{G}  \\ \hline
 		Plurality Voting & 5 & 4 & 2 & 6 & 3 & 7 & 1 \\ \hline
 		Average & 5.25 & 7.25 & 4.5 & 6 & 6 & 7 & 3.75 \\ \hline
@@ -58,7 +58,7 @@ When working with a group recommender system, it is hard to avoid using aggregat
 		Fairness (Start at John) & 6 & 4 & 3 & 7 & 2 & 5 & 1 \\ \hline
 		Dictatorship (Hilda) & 1 & 7 & 2 & 9 & 5 & 10 & 3 \\ \hline
 	\end{tabular}
-	\caption{Examples of the scores that results from applying the individual aggregation strategies to the ratings from Table \ref{aggregation:tbl:table_of_ratings}. All values have been adjusted so the highest value is the 'best'.}
+	\caption{Examples of the scores that results from applying the individual aggregation strategies to the ratings from Table \ref{aggregation:tbl:table_of_ratings}. All values have been adjusted so the highest value is the 'best'. \todo{center the content of the table?}}
 	\label{aggregation:tbl:examples_of_strategies}
 \end{table}
 
