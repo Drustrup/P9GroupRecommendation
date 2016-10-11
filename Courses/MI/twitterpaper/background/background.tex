@@ -1,0 +1,55 @@
+\section{Background}
+
+\begin{frame}
+        \centering
+        \huge Background
+        \note{
+                \begin{itemize}
+                	\item Twitter
+                	\item Data Stream Model
+                	\item Firehose
+                \end{itemize}
+                }
+\end{frame}
+
+\begin{frame}
+	\frametitle{Contributions}
+	\begin{itemize}
+		\item Value of Twitter Streaming data
+		\item Covering challenges of Twitter streaming data
+		\item Sliding window Kappa Statistic
+		\item Recommendation of a classifier
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Twitter}
+	\begin{itemize}
+		\item 106 million users, 2010
+		\item Firehose
+		\item Data Stream Model
+	\end{itemize}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.5]{datastream.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Twitter Streaming API}
+	\begin{block}{JSON}
+		"user":\{\\
+		\quad "statuses\_count":3080,\\
+		\quad "favourites\_count":22,\\
+		\quad "name":"Twitter API",\\
+		\quad "following":true,\\
+		\quad "description":"The Real Twitter API. I tweet about API \\ \quad changes, service issues and happily answer questions\\ \quad  about Twitter and our API. Don't get an answer? It's on my \\ \quad website.",\\
+		\quad "location":"San Francisco, CA"\\
+		\}
+	\end{block}
+	\note{
+		\begin{itemize}
+			\item The twitter API returns results in JSON that looks like this
+			\item This has been shortened
+		\end{itemize}}
+\end{frame}
