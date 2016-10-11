@@ -20,3 +20,5 @@ Report/chapters/conclusion/conclusion.aux
 Report/chapters/introduction/introduction.aux
 Report/graphics/tikz/master-figure0.md5
 Report/chapters/background/clustering.log
+Dataset/lastfm-dataset-360k/usersha1-artmbid-artname-plays.tsv
+Dataset/lastfm-dataset-1K/userid-timestamp-artid-artname-traid-traname.tsv

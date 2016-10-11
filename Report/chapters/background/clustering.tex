@@ -7,10 +7,25 @@ Looking at the dataset we get when we have to make group recommendations, it is 
 
 Although using clustering in general give some good results, clustering when recommending to groups is not the most suitable solution, unless the group members are compared to a large database of users, where clustering becomes a decent if not great method to improve the execution time of the comparison.
 
-%\begin{figure}[H]
-%	\includegraphics[scale=1]{graphics/Clustering_1.png}
-%\end{figure}
+When using clustering for recommendation systems typically they are used in collaborative filtering to find users with similar interests and predict new items based on users in the same clusters. However we initially thought of using clustering in another way. Starting with the individual members, as seen on Figure \ref{fig:bg:clustering_1}, we wanted to group them together in small groups and treat them as if they were one user, as seen on Figure \ref{fig:bg:clustering_2}. This way the aggregations can be performed on smaller groups with the intend to make the aggregation faster. The grouping does not need to stop after just one iteration but can be continued, as seen on Figure \ref{fig:bg:clustering_3}. However the size of the groups intended to benefit from the recommender is not large enough to get a significant impact from using this method. \todo{Make the figures smaller}
 
-%When using clustering for recommendation systems typically they are used in collaborative filtering to find users with similar interests and predict new items based on users in the same clusters.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{graphics/Clustering_1.png}
+	\caption{Initial members of the group in a graphical representation of how similar they are to each other.}
+	\label{fig:bg:clustering_1}
+\end{figure}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{graphics/Clustering_2.png}
+	\caption{The members have been grouped together with those they resemble most, indicated by the blue rings.}
+	\label{fig:bg:clustering_2}
+\end{figure}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{graphics/Clustering_3.png}
+	\caption{Groupings of members are grouped together in larger groupings, indicated by the red rings.}
+	\label{fig:bg:clustering_3}
+\end{figure}
