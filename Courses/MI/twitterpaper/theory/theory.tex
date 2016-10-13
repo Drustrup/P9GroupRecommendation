@@ -29,6 +29,18 @@
 \end{frame}
 
 \begin{frame}
+	\frametitle{Evaluating Data Stream in Real Time}
+	\begin{block}{Holdout set}
+		Performance is measured using on single hold-out set.
+	\end{block}
+	\begin{block}{Prequential}
+		 Each individual example
+		 is used to test the model before it is used for training, and accuracy is
+		 incrementally updated.
+	\end{block}
+\end{frame}
+
+\begin{frame}
 	\frametitle{Unbalanced Classes}
 	\begin{table}[htb]
 		\centering
@@ -40,7 +52,6 @@
 		\end{tabular}
 		\caption{Confusion matrix for hypothetical classifier}
 	\end{table}
-
 	\begin{table}[htb]
 		\centering
 		\begin{tabular}{llll}
@@ -51,7 +62,10 @@
 		\end{tabular}
 		\caption{Confusion matrix for chance predictor}
 	\end{table}
-	\note{$(75+7)*(75+8)/100 = 68.06$}
+	\note{
+			$(75+7)*(75+8)/100 = 68.06$\\
+			$(10+7)*(10+8)/100 = 3.06$
+		}
 \end{frame}
 
 \begin{frame}
@@ -211,7 +225,8 @@
 	\end{block}
 \note{To avoid the zero-frequency problem, it is
 	common to use the Laplace correction for all conditional probabilities involved,
-	which means all counts are initialized to value one instead of zero.}
+	which means all counts are initialized to value one instead of zero.
+}
 \end{frame}
 
 \begin{frame}
