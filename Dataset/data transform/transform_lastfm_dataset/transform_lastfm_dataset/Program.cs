@@ -11,6 +11,7 @@ namespace transform_lastfm_dataset
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hello, reading your data!");
             string pattern = @"\t| \r | \n | \' ";
 
             string[] datasetUsers = File.ReadAllLines(@"e:/projects/p9/dataset/america/1kusers_america.tsv");
@@ -19,7 +20,7 @@ namespace transform_lastfm_dataset
             for (int i = 0; i < datasetUsers.Length; i++)
             {
                 string[] temp = Regex.Split(datasetUsers[i], pattern);
-                userList[i] = temp[0].Replace("\"","");
+                userList[i] = temp[0].Replace("\"", "");
             }
             datasetUsers = null;
 
@@ -41,11 +42,11 @@ namespace transform_lastfm_dataset
             int count = 0;
             for (int i = 0; i < datasetUsersAndTracks.Length; i++)
             {
-                string[] temp = Regex.Split(datasetUsersAndTracks[i].Replace("\"", ""), pattern);                
-                
-                if(temp.Length <= 1)
+                string[] temp = Regex.Split(datasetUsersAndTracks[i].Replace("\"", ""), pattern);
+
+                if (temp.Length <= 1)
                 {
-                   string[] temp1 = { temp[0], "Ukendt" };
+                    string[] temp1 = { temp[0], "Ukendt" };
                     temp = temp1;
                 }
 
@@ -59,7 +60,7 @@ namespace transform_lastfm_dataset
                 {
                     count = count + 1;
                 }
-                else if((!temp[1].Equals(track) || !temp[0].Equals(user)) && track != null)
+                else if ((!temp[1].Equals(track) || !temp[0].Equals(user)) && track != null)
                 {
                     userAndTrackList.Add(new Tuple<string, string, int>(user, track, count));
                     count = 1;
@@ -68,104 +69,70 @@ namespace transform_lastfm_dataset
                 }
             }
             datasetUsersAndTracks = null;
-            userAndTrackList = userAndTrackList.OrderBy(n => n.Item1).ThenBy(n =>n.Item2).ToList();
+            userAndTrackList = userAndTrackList.OrderBy(n => n.Item1).ThenBy(n => n.Item2).ToList();
 
             int rowLength = userList.Length;
             int columnLength = trackList.Length;
 
-            int[,] ratingArray = new int[rowLength, columnLength];
             int secondCount = 0;
-            count = 0;
-            /**
-            for(int i = 0; i < userAndTrackList.Count; i++)
+
+            Console.WriteLine("Done reading data, saving to file");
+
+            string path = @"e:/projects/p9/dataset/america/matrix.txt";
+            if (!File.Exists(path))
             {
-                user = userList[count];
-                track = trackList[secondCount];
-                string tempTrack = userAndTrackList[i].Item2;
-                string tempUser = userAndTrackList[i].Item1;
-                if(track == tempTrack && user == tempUser)
+                using (StreamWriter sw = File.CreateText(path))
                 {
-                    while (track.Equals(tempTrack) && user.Equals(tempUser))
-                    {
-                        i++;
-                        tempTrack = userAndTrackList[i].Item2;
-                        tempUser = userAndTrackList[i].Item1;
-                    }
-                    ratingArray[count, secondCount] = userAndTrackList[i-1].Item3;
                 }
-                else if(!track.Equals(tempTrack))
-                {
-                    secondCount++;
-                }
-                else if(!user.Equals(tempUser))
-                {
-                    count++;
-                    secondCount = 0;
-                }
-                
             }
-            **/
-            for(int i = 0; i < userList.Length; i++)
+
+            for (int i = 0; i < userList.Length; i++)
             {
+                count = 0;
                 string tempUser = userList[i];
                 string tempTrack = trackList[count];
+                //string ratings = null;
+
 
                 user = userAndTrackList[secondCount].Item1;
                 track = userAndTrackList[secondCount].Item2;
-                
-
-                while (user == tempUser)
-                {
-                    tempTrack = trackList[count];
-                    if (track.Equals(tempTrack))
-                    {
-                        ratingArray[i, count] = userAndTrackList[secondCount].Item3;
-                        secondCount++;
-                        if (secondCount < userAndTrackList.Count)
-                        {
-                            user = userAndTrackList[secondCount].Item1;
-                            track = userAndTrackList[secondCount].Item2;
-                        }
-                        else if(secondCount == userAndTrackList.Count)
-                        {
-                            user = null;
-                        }
-
-                    }
-                    else if (!track.Equals(trackList[count]))
-                    {
-                        ratingArray[i, count] = 0;
-
-                    }
-                    count++;
-                }
-                count = 0;
-            }
-
-            string path = @"e:/projects/p9/dataset/america/matrix.txt";
-            
-            string output = "";
-
-            for (int i = 0; i < ratingArray.GetUpperBound(0); i++)
-            {
-                for (int j = 0; j < ratingArray.GetUpperBound(1); j++)
-                {
-                    output += ratingArray[i, j].ToString() + "\t";
-                }
-
-                if (!File.Exists(path))
-                {
-                    using (StreamWriter sw = File.CreateText(path))
-                    {
-                        sw.WriteLine(output);
-                    }
-                }
-
                 using (StreamWriter sw = File.AppendText(path))
                 {
-                    sw.WriteLine(output);
+                    while (user == tempUser)
+                    {
+                        tempTrack = trackList[count];
+                        if (track.Equals(tempTrack))
+                        {
+                            sw.Write(userAndTrackList[secondCount].Item3 + "\t");
+                            secondCount++;
+                            if (secondCount < userAndTrackList.Count)
+                            {
+                                user = userAndTrackList[secondCount].Item1;
+                                track = userAndTrackList[secondCount].Item2;
+                            }
+                            else if (secondCount == userAndTrackList.Count)
+                            {
+                                user = null;
+                            }
+
+                        }
+                        else if (!track.Equals(trackList[count]))
+                        {
+                            sw.Write(0 + "\t");
+                        }
+
+                        count++;
+                    }
+
+                    while (count < trackList.Length)
+                    {
+                        sw.Write(0 + "\t");
+                        count++;
+                    }
+                    sw.WriteLine(Environment.NewLine);
                 }
-                output = "";
+
+                Console.WriteLine("User " + (i + 1) + " out of " + userList.Length);
             }
 
             Console.ReadKey();
