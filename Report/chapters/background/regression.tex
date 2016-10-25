@@ -1,1 +1,26 @@
-\subsection{Regression}
+\subsection{Regression} \label{bg:sub:regression}
+Regression is first and foremost known from statistics where Linear Regression uses the basis of designing a prediction function based on a dataset. This function can then be used to predict a value given a variable.
+The prediction function generally looks like Equation \ref{eq:regression_general_prediction_function}.
+
+\begin{equation} \label{eq:regression_general_prediction_function}
+	Y' = bX + A
+\end{equation}
+
+Where \textit{b} is the slope of the function, \textit{A} is the interception with the y-axis, and \textit{Y'} is the predicted score or rating.
+To calculate \textit{b} and \textit{A} it is necessary to define several additional values, first and foremost the means of values of \textit{x} and \textit{y} from the dataset. These means are denoted as \textit{$M_{X}$} and \textit{$M_{Y}$} respectively. Then it is possible to calculate the the correlation \textit{r} using Pearson's method seen in Equation \ref{eq:regression_pearsons_correlation}.
+
+\begin{equation} \label{eq:regression_pearsons_correlation}
+	r = \frac{\sum x'y'}{\sqrt{\sum x'^{2}\sum y'^{2}}}
+\end{equation}
+
+Here \textit{x'} and \textit{y'} are the values of  \textit{x} and \textit{y} minus their respective means \textit{$M_{X}$} and \textit{$M_{Y}$}. Now \textit{r} can be used in Equation \ref{eq:regression_slope_calculation} to get \textit{b}.
+
+\begin{equation} \label{eq:regression_slope_calculation}
+	b = r\frac{S_{Y}}{S_{X}}
+\end{equation}
+
+Here there is still a need to calculate \textit{$S_{X}$} and \textit{$S_{Y}$} that are the standard deviations for \textit{x} and \textit{y} respectively. However this is trivial. When \textit{b} has been computed it can be used to finally calculate \textit{A} using Equation \ref{eq:regression_intersection_calculation}.
+
+\begin{equation} \label{eq:regression_intersection_calculation}
+	A = M_{Y} - bM_{X}
+\end{equation}
