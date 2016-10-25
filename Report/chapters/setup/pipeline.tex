@@ -11,13 +11,17 @@ As a part of the analysis, we also perform any aggregation needed.
 After the analysis, the recommendation must be interpreted from the result, as to find the group recommendation.
 \subsection{Evaluation}
 For the evaluation we use k-fold validation to ascertain the performance and efficiency of our analysis.
-To find the accuracy we will be using Root Mean Square Error (RMSE) as the metric for evaluation, as it is the baseline method.
+To find the accuracy we will be using Root Mean Square Error (RMSE) as the metric for evaluation, as it is the baseline method. The calculation method for RMSE can be seen in Equation \ref{eq:setup_rmse}
 
-\begin{figure}
-	\centering
-	$\text{RMSE} = \sqrt{\frac{1}{|\tau|}\sum_{(u,i)\in \tau}(\hat{r}_{ui}-r_{ui})}$
-	\caption{Equation for calculating the RMSE. \label{equa:setup_rmse}}
-\end{figure}
+\begin{equation} \label{eq:setup_rmse}
+	\text{RMSE} = \sqrt{\frac{1}{|\tau|}\sum_{(u,i)\in \tau}(\hat{r}_{ui}-r_{ui})}
+\end{equation}
+
+%\begin{figure}
+%	\centering
+%	$\text{RMSE} = \sqrt{\frac{1}{|\tau|}\sum_{(u,i)\in \tau}(\hat{r}_{ui}-r_{ui})}$
+%	\caption{Equation for calculating the RMSE. \label{equa:setup_rmse}}
+%\end{figure}
 
 \begin{figure}
 	\centering
