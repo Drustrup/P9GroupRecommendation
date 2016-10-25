@@ -1,10 +1,27 @@
 \section{Pipeline}	\label{st:pipeline}
-The group recommender is split into different stages, 
+The group recommender is split into four different stages, data preprocessing, analysis, interpretation, and evaluation.
+
+\subsection{Data Preprocessing}
+This step includes handling the raw data directly from the source, and preparing it for analysis.
+\subsection{Analysis}
+At the analysis step a method is applied on the data. The pipeline is designed with the purpose of having this step be the interchangeable part, as to enable testing of multiple methods in the same system. To enable this, all the methods will adhere to some fundamentals. They will all be working on the same input format, as this makes a static data preprocessing step possible. Additionally, all methods will give out the same output for the interpretation step.
+
+As a part of the analysis, we also perform any aggregation needed.
+\subsection{Interpretation}
+After the analysis, the recommendation must be interpreted from the result, as to find the group recommendation.
+\subsection{Evaluation}
+For the evaluation we use k-fold validation to ascertain the performance and efficiency of our analysis.
+To find the accuracy we will be using Root Mean Square Error (RMSE) as the metric for evaluation, as it is the baseline method.
 
 \begin{figure}
 	\centering
-	\begin{tikzpicture}
-	\fill circle (1.5);
-	\end{tikzpicture}
-	\caption{Efficiency evaluation of near-duplicate detection on the DS1 dataset \label{fig:neardup_performance}}
+	$\text{RMSE} = \sqrt{\frac{1}{|\tau|}\sum_{(u,i)\in \tau}(\hat{r}_{ui}-r_{ui})}$
+	\caption{Equation for calculating the RMSE. \label{equa:setup_rmse}}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5]{pipeline.png}
+	\caption{The setup of the pipeline. \label{fig:setup_pipeline}}
+	\todo{Analysis part has 2 Matrix Factorization boxes}
 \end{figure}

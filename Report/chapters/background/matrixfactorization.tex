@@ -1,6 +1,9 @@
-\section{Matrix Factorization} \label{bg:matrixfactorization}
+\section{Latent Factor Models} \label{bg:matrixfactorization}
+Latent Factor models are a subgroup of Collective Filtering techniques used for recommendation. Popular techniques consist of 
+
+\subsection{Matrix Factorization}
 %Function
-Matrix Factorization(MF) is an dimensionality reduction technique in recommendation that finds latent features for items, and the propensity for users towards each latent feature. 
+Matrix Factorization(MF) is an dimensionality reduction technique in recommendation that finds latent features for items, and the propensity for users towards each latent feature.
 %Decomposing the rating matrix/Latent Semantic Indexing
 %Approximating a matrix of ratings
 Matrix Factorization allows for an approximation of a matrix of ratings.
@@ -8,7 +11,9 @@ Matrix Factorization allows for an approximation of a matrix of ratings.
 %k is the dimensional latent space.
 %Performance
 %Faster than both. Scales better.
-Since MF approximates matrices, it scales better compared to contemporary Collective Filtering techniques and SVD, and is faster. It performs well even when data sparsity is a concern due to the matrix approximation and the dimensionality reduction.
+Since MF approximates matrices in an offline step, it scales better compared to contemporary Collective Filtering techniques during recommendation. It performs well even when data sparsity is a concern due to the matrix approximation and the dimensionality reduction.
+
+%A GroupLens \todo{First mention?} research team compared SVD-based nearest neighbor with CFpredict.
 %"for x<0.5 SVD-based prediction is
 %better than the CF-Predict predictions. For x>0.5,
 %however, the CF-Predict predictions are slightly
@@ -22,13 +27,18 @@ Since MF approximates matrices, it scales better compared to contemporary Collec
 %increased both SVD and CF-Predict prediction
 %quality improve but the improvement in case of CFPredict
 %surpasses the SVD improvement"
-As data sparsity grows in a set, the more accurate every method gets, however MF has better accuracy when more than half the data is unknown, but with more than half the data known, SVD performs better.
+As data sparsity grows in a set, the less accurate every method gets. Factorization methods counteract this by compressing the data, making it less sparse, and easier to cluster.
 %Performance vs other techniques (pearson and cosine, describe other techniques)
 %Scales better than nearest neighbor since our matrices are approximated (smaller)
 %As noted in the 2011 SysRec book - neighborhood methods have 2 flaws: Limited coverage, Sensitivity to sparse data. MF counteracts this via approximation and dimensionality reduction.
 %Cosine Similarity > Pearson Correlation (Collaborative Filtering Recommender Systems by Michael D. Ekstrand)
 %Reduced coverage makes pearson/cosine nearest neighbor weak (source 2000)
-\subsection{Collective Matrix Factorization}
+\subsubsection{Singular Value Decomposition}
+Most famously known by its acronym, SVD, was made popular during Netflix's movie recommender contest.
+
+%http://buzzard.ups.edu/courses/2014spring/420projects/math420-UPS-spring-2014-gower-netflix-SVD.pdf
+
+\subsubsection{Collective Matrix Factorization}
 %Problem/specialcase introducing necessity of extension
 As an extension to the MF method, Collective Matrix Factorization adds on more matrices.
 %"Collective matrix factorization is a very general technique
