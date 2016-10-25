@@ -28,3 +28,7 @@ Dataset/america/1k_america_usersandtracks.tsv
 Dataset/america/1k_america_usersandtracks_edited.tsv
 Dataset/america/1kusers_america.tsv
 Dataset/america/matrix.txt
+Report/graphics/tikz/master-figure0.dpth
+Report/graphics/tikz/master-figure0.log
+Report/graphics/tikz/master-figure0.pdf
+Report/graphics/tikz/master-figure0.run.xml
