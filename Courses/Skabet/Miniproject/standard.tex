@@ -1,0 +1,84 @@
+% Common packages
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xspace}
+\usepackage{todonotes}
+
+% Colours
+
+\definecolor{dkblue}{rgb}{0,0.1,0.5}
+\definecolor{dkgreen}{rgb}{0,0.4,0}
+\def\Red{\color{\ifdraft red\else black\fi}}
+\def\Green{\color{\ifdraft green\else black\fi}}
+\def\Blue{\color{\ifdraft blue\else black\fi}}
+\def\Black{\color{black}}
+\newcommand{\details}[1]{\iffull{\Blue#1}\fi}
+\definecolor{linkColor}{rgb}{0,0,0.5}
+
+% Theorems and such
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\newtheorem{saetning}{S{\ae}tning}
+\newtheorem{proposition}{Proposition}
+\newtheorem{korollar}{Korollar}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{eksempel}{Eksempel}
+\newtheorem{problem}[theorem]{Problem}
+
+\newenvironment{bevis}{\begin{proof}[Bevis:]}{\end{proof}}
+
+% Various Turing machine notation
+
+\newcommand{\defin}{\stackrel{\rm def}{=}}
+\newcommand{\qaccept}{q_{\mathit{accept}}}
+\newcommand{\qreject}{q_{\mathit{reject}}}
+\newcommand{\blank}{\ensuremath{\sqcup}}
+
+% Brackets and arrows
+
+\newcommand{\lag}{\langle}
+\newcommand{\rag}{\rangle}
+\newcommand{\setof}[2]{\ensuremath{\{ #1 \mid #2 \}}}
+\newcommand{\set}[1]{\ensuremath{\{ #1 \}}}
+\newcommand{\besk}[1]{\ensuremath{\lag #1 \rag}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\Ra}{\Rightarrow}
+
+% Set notation
+
+\newcommand{\pow}[1]{\mathcal{P}(#1)}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Nat}{{\mathbb N}}
+\newcommand{\Binary}{{\mathcal B}}
+\newcommand{\defeq}{\stackrel{\mathrm{def}}{=}}
+
+\newcommand{\dom}[1]{\mbox{dom}(#1)}
+\newcommand{\ran}[1]{\mbox{ran}(#1)}
+
+% Propositional logic
+
+\newcommand{\logand}{\wedge}
+\newcommand{\logor}{\vee}
+\newcommand{\True}{\mathbf{t \! t}}
+
+% Answer environment
+
+\newenvironment{answer}{\begin{quote}\noindent\textbf{Answer:}}{\end{quote}}
+\newenvironment{svar}{\begin{quote}\noindent\textbf{Svar:}}{\end{quote}}
+
+% ATM-agtige forkortelser
+
+\newcommand{\prob}[2]{\ensuremath{#1_{\mathsf{#2}}}\xspace}
+\newcommand{\mytm}[1]{\prob{#1}{TM}}
+\newcommand{\atm}{\mytm{A}}
