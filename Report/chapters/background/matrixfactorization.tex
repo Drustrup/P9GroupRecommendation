@@ -21,8 +21,20 @@ As data sparsity grows in a set, the less accurate every method gets. Factorizat
 %Overview
 Commonly referred to by its acronym, SVD, was popular during Netflix's movie recommender contest amongst the top performing entrants.
 
-%Function
+On its own, SVD is a dimensionality reduction technique. However in 2006 Simon Funk popularized it as a recommender method when he used it as a learning model.
 
+%Function
+SVD works by splitting a matrix of ratings up into two matrices and a matrix of eigenvalues.
+
+\begin{equation} \label{eq:svd_AB_squeezing}
+	\centering
+	M = U\times \Sigma \times V^T = U\Sigma^{1/2} \Sigma^{1/2}V^T = AB
+\end{equation}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.75]{svd_ab_squeeze.png}
+\end{figure}
 
 %Challenges
 SVD has a few challenges to overcome to make it effective, but is among the most accurate methods at the time. First of all, it requires a dense matrix to function. So in the case of missing ratings, 
