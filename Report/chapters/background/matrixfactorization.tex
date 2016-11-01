@@ -11,7 +11,7 @@ As data sparsity grows in a set, the less accurate every method gets. Factorizat
 %Overview
 Commonly referred to by its acronym, SVD, was popular during Netflix's movie recommender contest amongst the top performing entrants.
 
-On its own, SVD is a dimensionality reduction technique. However in 2006 Simon Funk popularized it as a recommender method with some modifications.
+On its own, SVD is a dimensionality reduction technique. However in 2006 Simon Funk\todo{ref til funk} popularized it as a recommender method with some modifications.
 %Function
 SVD works by for a matrix of user ratings, splitting up the matrix into two matrices called the left and right singular vectors and a matrix with the singular values on the diagonal, as per the SVD theorem\todo{find source: Golub and Kahan 1965}. For this example, the left singular vector would hold the users on one side, and their inclination towards each latent feature. The right vector would conversely hold all the rated items, and their inclination towards each latent feature.
 The number of features can be limited to the largest few singular value to keep the matrices smaller and traversable without losing accuracy.
