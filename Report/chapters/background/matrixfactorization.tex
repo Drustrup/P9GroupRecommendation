@@ -1,7 +1,7 @@
 \subsection{Matrix Factorization Models} \label{bg:sub:factorizationmodels}
 %Function
 Matrix Factorization Model methods are dimensionality reduction techniques used for recommendation that generally find latent features for items, and the propensity for users towards each latent feature.
-Matrix Factorization makes an approximation of a matrix of ratings by decomposing it into multiple matrices.
+Matrix Factorization (MF) makes an approximation of a matrix of ratings by decomposing it into multiple matrices.
 Since MF approximates matrices in an offline step before recommendation, it scales better compared to contemporary Collective Filtering techniques during recommendation. It performs well even when data sparsity is a concern due to the matrix approximation and the dimensionality reduction.
 As data sparsity grows in a set, the less accurate every method gets. Factorization methods counteract this by compressing the data, making it less sparse, and easier to cluster.
 
@@ -22,11 +22,11 @@ At this point, it is possible to find some interesting similarities, however to 
 	M = U\times \Sigma \times V^T = U\Sigma^{1/2} \Sigma^{1/2}V^T = AB
 \end{equation}
 
-\begin{figure}
+\begin{figure} [H]
 	\centering
 	\includegraphics[scale=0.75]{svd_ab_squeeze.png}
 \end{figure}
-
+\todo{Touch up on this figure, it needs caption, and a reference to it in the text, etc.}
 Having moved to the dense subspace of each rated item and user being defined by their features rather than their explicit ratings, data sparsity becomes less of a problem, as missing ratings are squeezed out.
 
 %However this alone is not enough
