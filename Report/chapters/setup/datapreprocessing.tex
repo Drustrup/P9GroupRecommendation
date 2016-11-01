@@ -1,23 +1,23 @@
 \subsection{Data Preprocessing}
 \subsubsection{Dataset}
-The dataset we have chosen to use is the Last.fm\cite{lastfm} dataset called 1K users\parencite{lastfmdataset}. This dataset is a collection of 1000 users listening habits from 14-02-2005 to 13-06-2009. The dataset consists of a little over 1 million distinct songs which have been listened to over 19 million times. The raw data can be seen in Listing \ref{lst:rawdata} were the structure is: userid, timestamp, artistid, artist, trackit, track.
+The dataset we have chosen to use is the Last.fm\cite{lastfm} dataset called 1K users\parencite{lastfmdataset}. This dataset is a collection of 1000 users listening habits from 14-02-2005 to 13-06-2009. The dataset consists of a little over 1 million distinct tracks, which have been listened to over 19 million times. The raw data can be seen in Listing \ref{lst:rawdata} were the structure is: userid, timestamp, artistid, artist, trackid, track.
 
 \begin{lstlisting}[caption={An example of the raw data from the 1K dataset},label=lst:rawdata]	
 user_000285	2005-02-14T00:02:10Z	95e1ead9-4d31-4808-a7ac-32c3614c116b	The Killers	46909ba9-46c7-461e-a2ef-280eacd550e4	Jenny Was A Friend Of Mine
 user_000525	2005-02-14T00:03:04Z	9c9f1380-2516-4fc9-a3e6-f9f61941d090	Muse	137d6675-2cb0-4ba0-926e-b6cee5d33906	Butterflies And Hurricanes
 \end{lstlisting}
 
-With the dataset comes a list of all the users within the dataset. The format of this data can be seen in Listing \ref{lst:rawdatausers}.
+With the dataset comes a list of all the users within the dataset. The format of this data can be seen in Listing \ref{lst:rawdatausers}, the format being: userid, gender, age, country, registrationdate.
 
  \begin{lstlisting}[caption={An example of the representation of users in the dataset},label=lst:rawdatausers]	
 user_000006		24	Russian Federation	May 18, 2006
-user_000007	f	  	United States	Jan 22, 2006
+user_000007	f	  	United States		Jan 22, 2006
 user_000009	f	19	United States		Jan 13, 2007
 \end{lstlisting}
-
+\todo{fix formating in the listing}
 \subsubsection{Formatting the Data}
-Since we have no explicit ratings we have to get them implicitly. We have an assumption about that the more time a user have heard a certain track the better it likes that track. With this assumption we have chosen to use the listening frequency as our rating measure. Furthermore we want to represent the listening frequence in a $userid \times track$ matrix in order to remove redundant data. 
+Since we have no explicit ratings, we have to get them implicitly. We have an assumption about that the more time a user have heard a certain track the better they likes that track. With this assumption we have chosen to use the listening frequency as our rating measure. Furthermore we want to represent the listening frequency in a $userid \times track$ matrix in order to remove redundant data. 
 
-As the dataset is rather big, we have decided to only work on a sample of it as it makes it easier when running tests during development. The sample consist of the American users in the dataset which we extracted be loading the dataset into a MySQL database. 
+As the dataset is rather big, we have decided to only work on a sample of it, as it makes it easier when running tests during development. The sample consist of the American users in the dataset which we extracted by loading the dataset into a MySQL database. 
 
 \note{Remember to add how and when we normalize} 
