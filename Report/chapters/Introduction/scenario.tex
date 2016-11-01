@@ -6,13 +6,11 @@ For the purposes of this project, the scenario we will be working on is defined 
 %Motivate the group recommender for this scenario
 The group recommender is necessary in this scenario because sorting through the preferences of even 4 people is an exhausting task. By removing the people from the decision making process and automating it, not only are the group members free to do other things, but the choice of recommendation does not rely on the initiative of the group, which would lead to no selection or a few individuals taking charge in dictatorial fashion.
 
-To summarize, for a group, M, ranging from diverse to homogeneous of random members, each with T tracks listing how each user rates each track.
-%much they have listened to each track, of which we can derive an implicit rating of each track for each user. 
-With the goal of maximizing satisfaction of the members, S, overall, the group's satisfaction is a product of each individual user's satisfaction, $s_m$, as shown in \ref{eq:satisfaction}, with $f$ being an function that aggregates over all the satisfaction values.
+To summarize, for a group, $M$, ranging from diverse to homogeneous of random members, each with $T$ tracks listing how each user rates each track, we will find the track such that everyone are as satisfied as can be. With the goal of maximizing satisfaction of the members, $S$, overall, the group's satisfaction is a product of each individual user's satisfaction with a track, $s_mt$, as shown in \ref{eq:satisfaction}, with $f$ being an function that aggregates over all the satisfaction values.
 
 \begin{equation}\label{eq:satisfaction}
 	\centering
-	S = \sum_{m=1}^{M} f(s_m)
+	\max_{t \in T} S_t = \sum_{m=1}^{M} f(s_{mt})
 \end{equation}
 
 %There are no demographic differences noted, such as age or gender, instead the members are defined solely by the music they listen to.
