@@ -1,11 +1,11 @@
 USE lastfm;
 SELECT 
-	DISTINCT 1k_america.track 
+	DISTINCT track
 FROM
-	1k_america
+	1k_random
 ORDER BY 
-	track
+	track asc
 INTO OUTFILE 
-	'e:/projects/p9/dataset/1kusers_america_different_tracks.tsv'
-FIELDS TERMINATED BY '\t' OPTIONALLY ENCLOSED BY '"'
+	'e:/projects/p9/dataset/1k_random_different_tracks.tsv'
+FIELDS TERMINATED BY '\t' 
 LINES TERMINATED BY '\n';
