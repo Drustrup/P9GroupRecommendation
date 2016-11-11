@@ -1,7 +1,7 @@
 
-SELECT userid, track
-FROM lastfm.1k_america
-ORDER BY userid, track ASC
-INTO OUTFILE 'e:/projects/p9/dataset/1k_america_usersandtracks.tsv'
+SELECT userid
+FROM lastfm.1kusers_random
+ORDER BY userid ASC
+INTO OUTFILE 'e:/projects/p9/dataset/1k_random_users.tsv'
 FIELDS TERMINATED BY '\t'
 LINES TERMINATED BY '\n'

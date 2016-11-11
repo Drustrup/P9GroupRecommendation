@@ -1,5 +1,6 @@
+clear all;
 %Import commands for files
-oneKUsers = importdata('../dataset/lastfm-dataset-1K/userid-profile.tsv');
+%oneKUsers = importdata('../dataset/lastfm-dataset-1K/userid-profile.tsv');
 b = importdata('../dataset/test.txt');
 %disp command for printing the variables
 %disp(oneKUsers);
