@@ -10,7 +10,7 @@ As data sparsity grows in a set, the less accurate every method gets. Factorizat
 %Overview
 Commonly referred to by its acronym, SVD, was popular during Netflix's movie recommender contest amongst the top performing entrants.
 
-On its own, SVD is a dimensionality reduction technique. However in 2006 Simon Funk\todo{ref til funk} popularized it as a recommender method with some modifications.
+On its own, SVD is a dimensionality reduction technique. However in 2006 Simon Funk \cite{svdsimonfunk} popularized it as a recommender method with some modifications.
 %Function
 Given a matrix of user ratings, SVD works by decomposing the matrix as seen in \ref{eq:svd_decomp} into two matrices called the left and right singular vectors, $U$ and $V$, and a matrix with the singular values on the diagonal, $\Sigma$, as per the SVD theorem\todo{find source: Golub and Kahan 1965}. For this example, the left singular vector would hold the users on one side, and their inclination towards each latent feature. The right vector would conversely hold all the rated items, and their inclination towards each latent feature.
 
@@ -18,21 +18,22 @@ Given a matrix of user ratings, SVD works by decomposing the matrix as seen in \
 \centering
 M = U\times \Sigma \times V^T
 \end{equation}
+
 SVD considers as many features as there are ranks, but not all of them are influential. Reducing the number of features to consider is trivial, as the largest singular values stored in $\Sigma$ have the most influence.
 
-At this point, it is possible to find some interesting similarities among the users, however to use SVD for recommendation, we must account for the missing ratings. By slightly tweaking the equation, as seen in \ref{eq:svd_AB_squeezing}, we get an A and B matrix, holding users and items respectively. This is results in three matrices looking like \ref{fig:svd_ab_squeeze}.
+At this point, it is possible to find some interesting similarities among the users, however to use SVD for recommendation, we must account for the missing ratings. By slightly tweaking the equation, as seen in \ref{eq:svd_AB_squeezing}, we get an A and B matrix, holding users and items respectively. This is results in three matrices looking like \ref{fig:svd-ab-squeeze}\todo{Fix ref to figure below}.
 
 \begin{equation} \label{eq:svd_AB_squeezing}
 	\centering
 	U\times \Sigma \times V^T = U\Sigma^{1/2} \Sigma^{1/2}V^T = AB
 \end{equation}
 
-\begin{figure} [H] \label{fig:svd_ab_squeeze}
+\begin{figure} [H] \label{fig:svd-ab-squeeze}
 	\centering
 	\includegraphics[scale=0.75]{svd_ab_squeeze.png}
-	\caption{The decomposition of a rating matrix using SVD.}
+	\caption{The decomposition of a rating matrix using SVD}
 \end{figure}
-\todo{Touch up on this figure, it needs caption, and a reference to it in the text, etc.}
+\todo{Temporary figure from course slides - replace with own}
 Having moved to the dense subspace of each rated item and user being defined by their features rather than their explicit ratings, data sparsity becomes less of a problem, as missing ratings are squeezed out.
 
 However this alone is not enough to get useful predictions. SVD functions by extending the knowledge of the latent factors from the known ratings onto the unknown ratings.
@@ -48,6 +49,8 @@ Non-negative Matrix factorization is a constraint on the usual matrix factorizat
 \begin{equation} \label{eq:nmf}
 	V \approx W H
 \end{equation}
+
+
 
 %http://www.kyb.mpg.de/fileadmin/user_upload/files/publications/attachments/CFEMF_KDDW2007_4614[0].pdf
 
