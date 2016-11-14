@@ -36,11 +36,16 @@ At this point, it is possible to find some interesting similarities among the us
 \todo{Temporary figure from course slides - replace with own}
 Having moved to the dense subspace of each rated item and user being defined by their features rather than their explicit ratings, data sparsity becomes less of a problem, as missing ratings are squeezed out.
 
-However this alone is not enough to get useful predictions. SVD functions by extending the knowledge of the latent factors from the known ratings onto the unknown ratings.
-
 \subsubsection{Gradient Descent}
 
-%http://buzzard.ups.edu/courses/2014spring/420projects/math420-UPS-spring-2014-gower-netflix-SVD.pdf
+SVD functions by extending the knowledge of the latent factors from the known ratings onto the unknown ratings, however doing so requires the approximations to be adjusted to minimize the error in the approximation of the rating matrix.
+
+In Funk's blog, he used the gradient descent optimization algorithm to optimize the A and B matrices to minimize the error.
+
+\begin{equation}
+	\text{Error} = \sqrt{\frac{|\hat{M} - M|^2}{n}}
+\end{equation}
+\todo{n is currently undefined. Split M into 2 loops.}
 
 \subsubsection{Non-negative Matrix Factorization}
 
