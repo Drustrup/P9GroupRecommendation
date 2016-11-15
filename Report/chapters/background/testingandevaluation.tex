@@ -1,3 +1,6 @@
 \section{Testing and Evaluation}
 \subsection{K-fold Testing}
-\subsection{F1 Measure}
+\subsection{Root Mean Square Error}
+\begin{equation}\label{eq:rmse}
+	\text{RMSE} = \sqrt{\frac{\sum_{u=1}^{U}\sum_{i=1}^{I}(\sum_{k=1}^{K}(A_{uk} B_{ki}) - M_{ui})^2}{UIK}}
+\end{equation}
