@@ -37,15 +37,23 @@ At this point, it is possible to find some interesting similarities among the us
 Having moved to the dense subspace of each rated item and user being defined by their features rather than their explicit ratings, data sparsity becomes less of a problem, as missing ratings are squeezed out.
 
 \subsubsection{Gradient Descent}
+Funk-SVD extends the knowledge of the latent factors from the known ratings onto the unknown ratings, however doing so requires the A and B matrices to be adjusted to minimize the error in the approximation of the rating matrix.
 
-SVD functions by extending the knowledge of the latent factors from the known ratings onto the unknown ratings, however doing so requires the approximations to be adjusted to minimize the error in the approximation of the rating matrix.
+In Funk's blog, the gradient descent optimization algorithm is used to learn the A and B matrices to minimize the error, as seen in Equation \ref{eq:gradient_descent_error}.
 
-In Funk's blog, he used the gradient descent optimization algorithm to optimize the A and B matrices to minimize the error.
-
-\begin{equation}
-	\text{Error} = \sqrt{\frac{|\hat{M} - M|^2}{n}}
+\begin{equation}\label{eq:gradient_descent_error}
+\text{Error} = |R-\hat{R}| = |R - AB|
 \end{equation}
-\todo{n is currently undefined. Split M into 2 loops.}
+\todo{Not finished - needs to be expanded and properly explained}
+
+%\begin{equation}\label{eq:rmse}
+%	\text{RMSE} = \sqrt{\frac{\sum_{u=1}^{U}\sum_{i=1}^{I}(\sum_{k=1}^{K}(A_{uk} B_{ki}) - M_{ui})^2}{UIK}}
+%\end{equation}
+
+For the cost function, gradient descent moves towards the local minimum over several iterations.
+\todo{Subsection still getting written}
+
+\todo{Merits of using stochastic gradient descent}
 
 \subsubsection{Non-negative Matrix Factorization}
 
@@ -54,8 +62,6 @@ Non-negative Matrix factorization is a constraint on the usual matrix factorizat
 \begin{equation} \label{eq:nmf}
 	V \approx W H
 \end{equation}
-
-
 
 %http://www.kyb.mpg.de/fileadmin/user_upload/files/publications/attachments/CFEMF_KDDW2007_4614[0].pdf
 
