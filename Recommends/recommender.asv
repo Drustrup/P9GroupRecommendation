@@ -81,12 +81,10 @@ for i=1:numel(cols)
     
     k = find(cols(i)==baseMovie);
     if isempty(k)
-        validationArray(i) = 0;
-        totalArray(i) = 0;
-        predictionArray(i) = 0;
-    else
-        predictionArray(i) = valPred(rows(i), valMovie(k));
+        validationArray(i) = [];
+        
     end
+    predictionArray(i) = valPred(rows(i), valMovie(k));
     %{
     while totalMovie(j) ~= valMovie(cols(i)) && j < numel(totalMovie)
         j = j + 1;
