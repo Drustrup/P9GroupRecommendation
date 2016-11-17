@@ -36,16 +36,22 @@ At this point, it is possible to find some interesting similarities among the us
 \todo{Temporary figure from course slides - replace with own}
 Having moved to the dense subspace of each rated item and user being defined by their features rather than their explicit ratings, data sparsity becomes less of a problem, as missing ratings are squeezed out.
 
-\subsubsection{Gradient Descent}
+\subsubsection{Gradient descent}
 
-SVD functions by extending the knowledge of the latent factors from the known ratings onto the unknown ratings, however doing so requires the approximations to be adjusted to minimize the error in the approximation of the rating matrix.
+In Funk's blog, he used the gradient descent optimization algorithm to learn the A and B matrices to minimize the error.
 
-In Funk's blog, he used the gradient descent optimization algorithm to optimize the A and B matrices to minimize the error.
+Given a function, steps are taken towards the negative of the gradient of the function.
 
 \begin{equation}
 	\text{Error} = \sqrt{\frac{|\hat{M} - M|^2}{n}}
 \end{equation}
 \todo{n is currently undefined. Split M into 2 loops.}
+
+Taking the average error when finding the derivative is a costly operation.
+
+\begin{equation}\label{eq:}
+	\text{Running time of Gradient Descent}
+\end{equation}
 
 \subsubsection{Non-negative Matrix Factorization}
 
