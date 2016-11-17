@@ -1,3 +1,24 @@
 \section{Testing and Evaluation}
+This section covers the testing and evaluation methods we will use. In specific k-fold testing and Root Mean Square Error will be explained.
+
 \subsection{K-fold Testing}
-\subsection{F1 Measure}
+Stemming from cross validation in the field of statistics, k-fold testing is a commonly used technique in regards to recommender systems. The basic principle in the method is to split the dataset into $k$ equally sized parts or folds, and then use one of the folds as the testing or validation set, while the rest of the folds are used as training data. This process is then repeated $k$ times, so each fold is used as the validation once. After it has been repeated all $k$ times, the results can then be average to end up with a single estimation. An example of how the k-fold ordering could be structured can be seen in Table \ref{tbl:bg_k-fold}. Typically either 5-fold or 10-fold testing is what is used.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		& \multicolumn{3}{l|}{Training} & \multicolumn{1}{l|}{Validation} \\ \hline
+		First  & 1        & 2        & 3       & 4                               \\ \hline
+		Second & 2        & 3        & 4       & 1                               \\ \hline
+		Third  & 3        & 4        & 1       & 2                               \\ \hline
+		Forth  & 4        & 1        & 2       & 3                               \\ \hline
+	\end{tabular}
+	\caption{Example of the rotation of folds in a 4-fold dataset.}
+	\label{tbl:bg_k-fold}
+\end{table}
+
+\subsection{Root Mean Square Error}
+\begin{equation}\label{eq:rmse}
+	\text{RMSE} = \sqrt{\frac{\sum_{u=1}^{U}\sum_{i=1}^{I}(\sum_{k=1}^{K}(A_{uk} B_{ki}) - M_{ui})^2}{UIK}}
+\end{equation}

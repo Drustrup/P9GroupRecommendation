@@ -2,7 +2,7 @@
 %Function
 Matrix Factorization Model methods are dimensionality reduction techniques used for recommendation that generally find latent features for items, and the propensity for users towards each latent feature.
 Matrix Factorization (MF) makes an approximation of a matrix of ratings by decomposing it into multiple matrices. Since MF approximates matrices in an offline step before recommendation, it scales better compared to contemporary Collective Filtering techniques during recommendation. It performs well even when data sparsity is a concern due to the matrix approximation and the dimensionality reduction.
-As data sparsity grows in a set, the less accurate every method gets. Factorization methods counteract this by compressing the data, making it less sparse, and easier to cluster.
+As data sparsity grows in a set, the less accurate every method gets. Factorization methods counteract this by compressing the data, making it less sparse, and easier to cluster.\todo{Make more concrete}
 
 %Cosine Similarity > Pearson Correlation (Collaborative Filtering Recommender Systems by Michael D. Ekstrand)
 %Reduced coverage makes pearson/cosine nearest neighbor weak (source 2000)
@@ -12,7 +12,7 @@ Commonly referred to by its acronym, SVD, was popular during Netflix's movie rec
 
 On its own, SVD is a dimensionality reduction technique. However in 2006 Simon Funk \cite{svdsimonfunk} popularized it as a recommender method with some modifications.
 %Function
-Given a matrix of user ratings, SVD works by decomposing the matrix as seen in \ref{eq:svd_decomp} into two matrices called the left and right singular vectors, $U$ and $V$, and a matrix with the singular values on the diagonal, $\Sigma$, as per the SVD theorem\todo{find source: Golub and Kahan 1965}. For this example, the left singular vector would hold the users on one side, and their inclination towards each latent feature. The right vector would conversely hold all the rated items, and their inclination towards each latent feature.
+Given a matrix of user ratings, SVD works by decomposing the matrix as seen in \ref{eq:svd_decomp} into two matrices called the left and right singular vectors, $U$ and $V$, and a matrix with the singular values on the diagonal, $\Sigma$, as per the SVD theorem\todo{find source: Golub and Kahan 1965}. For this example, the left singular vector would hold the users on one side, and their inclination towards each latent feature. The right vector would conversely hold all the rated items, and their inclination towards each latent feature.\todo{Make more concrete}
 
 \begin{equation} \label{eq:svd_decomp}
 \centering
@@ -37,15 +37,15 @@ At this point, it is possible to find some interesting similarities among the us
 Having moved to the dense subspace of each rated item and user being defined by their features rather than their explicit ratings, data sparsity becomes less of a problem, as missing ratings are squeezed out.
 
 \subsubsection{Gradient descent}
-
-In Funk's blog, he used the gradient descent optimization algorithm to learn the A and B matrices to minimize the error.
+In Funk's blog, the gradient descent optimization algorithm is used to learn the A and B matrices to minimize the error, as seen in Equation \ref{eq:gradient_descent_error}.
 
 Given a function, steps are taken towards the negative of the gradient of the function.
-
-\begin{equation}
-	\text{Error} = \sqrt{\frac{|\hat{M} - M|^2}{n}}
+\begin{equation}\label{eq:gradient_descent_error}
+\text{Error} = |R-\hat{R}| = |R - AB|
 \end{equation}
-\todo{n is currently undefined. Split M into 2 loops.}
+\todo{Not finished - needs to be expanded and properly explained}
+
+For the cost function, gradient descent moves towards the local minimum over several iterations.
 
 Taking the average error when finding the derivative is a costly operation.
 
@@ -61,21 +61,6 @@ Non-negative Matrix factorization is a constraint on the usual matrix factorizat
 	V \approx W H
 \end{equation}
 
-
+\todo{Expand}
 
 %http://www.kyb.mpg.de/fileadmin/user_upload/files/publications/attachments/CFEMF_KDDW2007_4614[0].pdf
-
-\subsubsection{Collective Matrix Factorization}
-%Problem/specialcase introducing necessity of extension
-%"Collective matrix factorization is a very general technique
-%for revealing low-rank representations for arbitrary
-%matrix collections. However, the practical applicability
-%of earlier solutions has been limited since
-%they implicitly assume all factors to be relevant for all
-%matrices" (https://arxiv.org/pdf/1312.5921v2.pdf)
-%Function
-%MF is single-view
-%Multi-view are many matrices
-%Augmented Multi-view is CMF
-%Performance vs normal MF
-%???
