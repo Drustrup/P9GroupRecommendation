@@ -32,11 +32,7 @@ while threshold < 0
         %{ 
 
         %This kinda works
-        for i=1:numel(vectorA)
-        tempA = A(rows(x),i);
-           A(rows(x),i) = A(rows(x),i) + learn * (error * B(i,cols(x)) - reg * A(rows(x),i));
-           B(i,cols(x)) = B(i,cols(x)) + learn * (error * tempA - reg * B(i,cols(x)));
-        end
+        
         
         %From slides       
 

@@ -1,23 +1,23 @@
 clear all;
-ratings = importdata('../dataset/movielens/u2_base_matrix.txt');
-baseMovies = importdata('../dataset/movielens/u2_base_different_movies.txt');
-baseUsers = importdata('../dataset/movielens/u2_base_different_users.txt');
+ratings = importdata('../dataset/movielens/u2_matrix.txt');
+movies = importdata('../dataset/movielens/u_different_movies.txt');
+users = importdata('../dataset/movielens/u_different_users.txt');
 k = 10;
-A = ones(numel(baseUsers),k);
-B = ones(k,numel(baseMovies));
+A = ones(numel(users),k);
+B = ones(k,numel(movies));
 lowA = A;
 lowB = B;
 
 valUsers = importdata('../dataset/movielens/u2_test_different_users.txt');
-valMovie = importdata('../dataset/movielens/u2_test_different_movies.txt');
+valMovies = importdata('../dataset/movielens/u2_test_different_movies.txt');
 val = importdata('../dataset/movielens/u2_test_matrix.txt');
 
-totalRatings = importdata('../dataset/movielens/u_matrix.txt');
+%totalRatings = importdata('../dataset/movielens/u_matrix.txt');
 
 validationArray = nonzeros(val);
 [row, col] = find(val);
 
-reg = 0.01;
+reg = 0.02;
 learn = 0.005;
 
 [rows, cols] = find(ratings);
@@ -45,15 +45,10 @@ while threshold < 3000000 && rmse < pRmse
             lowB = B;
         end
         predRatings = A * B;
-        valPred = ones(numel(valUsers),numel(baseMovies));
         predictionArray = ones(numel(col),1);
-
-        for i=1:numel(valUsers)
-            valPred(i,:) = predRatings(valUsers(i),:);
-        end
-
+        
         for i=1:numel(col)
-            predictionArray(i) = valPred(row(i), valMovie(col(i)));
+            predictionArray(i) = predRatings(valUsers(row(i)),valMovies(col(i)));
         end
    
         rmse = sqrt(immse(validationArray, predictionArray)); 
@@ -63,9 +58,9 @@ while threshold < 3000000 && rmse < pRmse
 end
 %{
 predRatings = A * B;
-valUsers = importdata('../dataset/movielens/u1_test_different_users.txt');
-valMovie = importdata('../dataset/movielens/u1_test_different_movies.txt');
-validation = importdata('../dataset/movielens/u1_test_matrix.txt');
+valUsers = importdata('../dataset/movielens/u2_test_different_users.txt');
+valMovie = importdata('../dataset/movielens/u2_test_different_movies.txt');
+validation = importdata('../dataset/movielens/u2_test_matrix.txt');
 
 totalRatings = importdata('../dataset/movielens/u_matrix.txt');
 totalUsers = importdata('../dataset/movielens/u_different_users.txt');

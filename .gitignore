@@ -120,3 +120,12 @@ Dataset/movielens/u.genre
 Dataset/movielens/u.info
 Dataset/movielens/u.item
 Dataset/movielens/u.occupation
+Dataset/movielens/u1_matrix.txt
+Dataset/movielens/u2_matrix.txt
+Dataset/movielens/u3_matrix.txt
+Dataset/movielens/u4_matrix.txt
+Dataset/movielens/u5_matrix.txt
+Dataset/movielens/u5_test_different_movies.txt
+Dataset/movielens/u5_test_different_users.txt
+Dataset/movielens/u5_test_matrix.txt
+Dataset/u_matrix.txt
