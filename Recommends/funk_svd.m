@@ -18,14 +18,14 @@ validationArray = nonzeros(val);
 [row, col] = find(val);
 
 reg = 0.02;
-learn = 0.005;
+learn = 0.01;
 
 [rows, cols] = find(ratings);
 rmse = k;
 pRmse = k + 1;
 lowRmse = 10;
 threshold = 0;
-while threshold < 3000000 && rmse < pRmse
+while threshold < 1000000 && rmse < pRmse
     x = randi([1 80000], 1,1);
     
     vectorA = A(rows(x),:);
@@ -56,37 +56,7 @@ while threshold < 3000000 && rmse < pRmse
     
    threshold = threshold + 1;  
 end
-%{
-predRatings = A * B;
-valUsers = importdata('../dataset/movielens/u2_test_different_users.txt');
-valMovie = importdata('../dataset/movielens/u2_test_different_movies.txt');
-validation = importdata('../dataset/movielens/u2_test_matrix.txt');
 
-totalRatings = importdata('../dataset/movielens/u_matrix.txt');
-totalUsers = importdata('../dataset/movielens/u_different_users.txt');
-totalMovie = importdata('../dataset/movielens/u_different_movies.txt');
-
-
-validationArray = nonzeros(validation);
-[rows, cols] = find(validation);
-
-valTotal = [];
-valPred = [];
-predictionArray = [];
-totalArray = [];
-
-for i=1:numel(valUsers)
-    valPred = [valPred;predRatings(valUsers(i),:)];
-    valTotal = [valTotal;totalRatings(valUsers(i),:)];
-end
-
-j = 1;
-for i=1:numel(cols)
-    totalArray = [totalArray;valTotal(rows(i), valMovie(cols(i)))];
-    predictionArray = [predictionArray;valPred(rows(i), valMovie(cols(i)))];
-    
-end
-   
 %{
 fid1 = fopen('prediction.txt','wt');
 fid = fopen('validationNew.txt','wt');
@@ -94,7 +64,4 @@ fprintf(fid,'%f\n',validationArray);
 fprintf(fid1,'%f\n',predictionArray);
 fclose(fid);
 fclose(fid1);
-%}
-rmse = sqrt(immse(validationArray, predictionArray)); 
-trmse = sqrt(immse(validationArray, totalArray));
 %}

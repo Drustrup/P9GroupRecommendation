@@ -3,7 +3,7 @@ ratings = importdata('../dataset/movielens/u2_matrix.txt');
 movies = importdata('../dataset/movielens/u_different_movies.txt');
 users = importdata('../dataset/movielens/u_different_users.txt');
 
-k = 100;
+k = 10;
 
 [U, S, V] = svds(ratings, k);
 A = U * S^0.5;
@@ -19,8 +19,8 @@ val = importdata('../dataset/movielens/u2_test_matrix.txt');
 validationArray = nonzeros(val);
 [row, col] = find(val);
 
-reg = 0.2;
-learn = 0.005;
+reg = 0.02;
+learn = 0.01;
 
 [rows, cols] = find(ratings);
 rmse = k;

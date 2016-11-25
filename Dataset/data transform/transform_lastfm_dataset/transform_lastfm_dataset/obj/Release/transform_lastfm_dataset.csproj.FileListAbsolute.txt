@@ -1,0 +1,6 @@
+E:\Projects\P9\Dataset\data transform\transform_lastfm_dataset\transform_lastfm_dataset\bin\Release\transform_lastfm_dataset.exe.config
+E:\Projects\P9\Dataset\data transform\transform_lastfm_dataset\transform_lastfm_dataset\bin\Release\transform_lastfm_dataset.exe
+E:\Projects\P9\Dataset\data transform\transform_lastfm_dataset\transform_lastfm_dataset\bin\Release\transform_lastfm_dataset.pdb
+E:\Projects\P9\Dataset\data transform\transform_lastfm_dataset\transform_lastfm_dataset\obj\Release\transform_lastfm_dataset.exe
+E:\Projects\P9\Dataset\data transform\transform_lastfm_dataset\transform_lastfm_dataset\obj\Release\transform_lastfm_dataset.pdb
+E:\Projects\P9\Dataset\data transform\transform_lastfm_dataset\transform_lastfm_dataset\obj\Release\transform_lastfm_dataset.csprojResolveAssemblyReference.cache

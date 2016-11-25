@@ -1,0 +1,111 @@
+\section{Evaluation}
+
+\begin{frame}
+\begin{center}
+     	\huge Evaluation
+     \end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Dataset}
+	The datasets used are Meetup and Plancast consisting of implicit feedback from individual users and groups watching TV
+	\begin{itemize}
+		\item 7921 users, 119 channels and 21194 distinct programs
+		\item There are almost 5 million entries 
+		\begin{itemize}
+			\item 3.5 million individual users
+			\item 1.5 million groups
+		\end{itemize}
+	\end{itemize}
+	The groups are split into training and testing sets 84/16%.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Compared Methods}
+	In order to determine the recommendation performance the method is compared against excising solutions which is:
+	\begin{itemize}
+		\item Average scoring
+		\item Least misery 
+		\item Maximum satisfaction 
+		\item Disagreement 
+		\item Expertise
+	\end{itemize}
+	Expertise uses weighted average where the weight is based upon how much a user have watched.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Evaluation and Comparison Metrics}
+	They us recall the see how well the methods match the preferences from the test set. Test are made where the size of $TopK$ is from 1-3.
+	\begin{block}{\small Recall}
+		\centering
+		$Recall@K= \frac{\text{true positive}}{\text{true positive + false negative}} =\frac{| v \in \text{Test Set} : v_i \in TopK(v_G,v_c,v_t)|}{| v \in \text{Test Set}|}$
+	\end{block}
+	
+	Spearman's footrule is used to measure the heterogeneity of the group based on the $TopK$ of each user, where $K=3$. If users $TopK$ are identical the value is 0 but if they are all disjoint the value is 12.
+
+	\begin{block}{\small Spearman's footrule}
+		\centering
+		$F(\sigma)=\sum_{i}i - \sigma(i)$
+	\end{block}	
+	
+\end{frame}
+
+
+\begin{frame}
+\begin{table}
+\footnotesize
+\centering
+\makebox[0pt][c]{\parbox{1.2\textwidth}{%
+    \begin{minipage}[b]{0.49\hsize}\centering
+        \caption{Recall@1}
+\begin{tabular}{|c|c|c|c|}\hline
+Test set             & CtxInfl & Infl    & EXP     \\ \hline
+All                  & 34.12\% & 32.85\% & 31.31\% \\ \hline
+Group size = 2       & 34.81\% & 33.66\% & 32.38\% \\
+Group size = 3       & 31.18\% & 29.39\% & 26.87\% \\
+Group size = 4       & 31.71\% & 29.98\% & 27.24\% \\
+Group size = 5       & 31.89\% & 30.58\% & 26.24\% \\ \hline
+$h \leq 4 $            & 44.44\% & 44.03\% & 42.60\% \\
+$4 \textless h \leq 8$ & 36.13\% & 34.88\% & 33.70\% \\
+$h \textgreater 8$     & 26.71\% & 24.99\% & 23.03\%\\ \hline
+\end{tabular}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.49\hsize}\centering
+         \caption{Recall@3}
+			\begin{tabular}{|c|c|c|c|}\hline
+			Test set             & CtxInfl & Infl    & EXP     \\ \hline
+			All                  & 62.48\% & 61.58\% & 60.67\% \\ \hline
+			Group size = 2       & 63.36\% & 62.61\% & 61.90\% \\
+			Group size = 3       & 59.25\% & 57.72\% & 56.11\% \\
+			Group size = 4       & 57.88\% & 56.31\% & 53.84\% \\
+			Group size = 5       & 58.91\% & 56.21\% & 55.52\% \\ \hline
+			$h \leq 4 $            & 75.25\% & 75.08\% & 74.72\% \\
+			$4 \textless h \leq 8$ & 65.41\% & 64.84\% & 64.16\% \\
+			$h \textgreater 8$     & 52.86\% & 51.21\% & 49.77\%\\ \hline
+		\end{tabular}
+    \end{minipage}
+    
+}}
+\end{table}
+\end{frame}
+
+\begin{frame}
+These recalls are based on a subset of the test set where every user have in a group have provided feedback for the 
+current context in a given time instance. 
+\begin{table}[]
+\centering
+			\begin{tabular}{|c|c|c|}\hline
+			\multirow{2}{*}{Test set }  & \multicolumn{2}{c|}{Recall@3}  \\ \hhline{~--}
+			            		 & CtxInfl     	&	Infl\\ \hline
+			All                  &  64.60\% 	&	63.40\%\\ \hline
+			Group size = 2       &  65.35\% 	&	64.38\%\\
+			Group size = 3       &  61.90\% 	&	59.77\%\\
+			Group size = 4       &  59.44\% 	&	57.18\%\\
+			Group size = 5       &  61.95\% 	&	57.92\%\\ \hline
+			$h \leq 4 $             & 79.06\%&	78.83\% \\
+			$4 \textless h \leq 8$ & 67.44\%&	66.70\% \\
+			$h \textgreater 8$     & 54.48\%&	52.30\%\\ \hline
+		\end{tabular}
+\end{table}
+\end{frame}

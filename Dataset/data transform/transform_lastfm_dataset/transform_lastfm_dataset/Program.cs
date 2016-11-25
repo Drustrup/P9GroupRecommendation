@@ -7,13 +7,106 @@ using System.Linq;
 
 namespace transform_lastfm_dataset
 {
+    public class Rating
+    {
+
+        public Rating(string uid, string track)
+        {
+            this.userId = uid;
+            this.track = track;
+        }
+
+        public string userId;
+        public string track;
+    }
     class Program
     {
+        
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, reading your data!");
             string pattern = @"\t| \r | \n | \' ";
 
+            string line;
+            StreamReader file = new StreamReader(@"e:/projects/p9/dataset/lastfm-dataset-1k/1k_data.tsv");
+
+            List<string[]> userAndTracks = new List<string[]>();
+            while ((line = file.ReadLine()) != null)
+            {
+                string[] temp = Regex.Split(line.Replace("\"", ""), pattern);
+
+                if (temp.Length <= 1)
+                {
+                    string[] temp1 = { temp[0], "Ukendt" };
+                    temp = temp1;
+                    userAndTracks.Add(temp);
+                }
+                else
+                {
+                    userAndTracks.Add(temp);
+                }
+            }
+
+            file.Close();
+
+            
+            Console.WriteLine("Finding unknown tracks done, now ordering");
+            userAndTracks = userAndTracks.OrderBy(n => n[0]).ThenBy(n => n[1]).ToList();
+
+            Console.WriteLine("Ordering done, now finding listening rate");
+
+            List<Tuple<string, string, int>> userAndTrackList = new List<Tuple<string, string, int>>();
+            string track = null;
+            string user = null;
+            int count = 0;
+            int k = 0;
+            while (k < userAndTracks.Count)
+            {
+                string[] temp = userAndTracks[k];
+
+                if (track == null)
+                {
+                    count = 1;
+                    user = temp[0];
+                    track = temp[1];
+                }
+                else if (temp[1].Equals(track) && temp[0].Equals(user))
+                {
+                    count = count + 1;
+                }
+                else if ((!temp[1].Equals(track) || !temp[0].Equals(user)) && track != null)
+                {
+                    userAndTrackList.Add(new Tuple<string, string, int>(user, track, count));
+                    count = 1;
+                    user = temp[0];
+                    track = temp[1];
+                }
+                k++;
+            }
+            userAndTracks = null;
+
+            Console.WriteLine("Listening rate found, now saving to file");
+            string path = @"e:/projects/p9/dataset/lastfm-dataset-1k/1k_with_ratings.txt";
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                }
+            }
+            
+            using(StreamWriter sw = File.AppendText(path))
+            {
+                foreach (Tuple<string, string, int> t in userAndTrackList)
+                {
+                    user = t.Item1;
+                    track = t.Item2;
+                    int rating = t.Item3;
+                    sw.WriteLine(user + "\t" + track + "\t" + rating);
+
+                }
+            }
+            Console.WriteLine("Done");
+            /**
             string[] datasetUsers = File.ReadAllLines(@"e:/projects/p9/dataset/random/1k_random_users.tsv");
             string[] userList = new string[datasetUsers.Length];
 
@@ -33,8 +126,8 @@ namespace transform_lastfm_dataset
                 trackList.Add(temp[0].Replace("\"", ""));
             }
             datasetTracks = null;
-
-            string[] datasetUsersAndTracks = File.ReadAllLines(@"e:/projects/p9/dataset/random/1k_random_usersandtracks_edited.tsv");
+            
+            string[] datasetUsersAndTracks = File.ReadAllLines(@"e:/projects/p9/dataset/lastfm-dataset-1k/1k_data.tsv");
 
             List<string[]> userAndTracks = new List<string[]>();
 
@@ -87,13 +180,13 @@ namespace transform_lastfm_dataset
                     track = temp[1];
                 }
             }
-            userAndTracks = null;            
-
+            userAndTracks = null;
+            
             int rowLength = userList.Length;
             int columnLength = trackList.Count;
 
             int secondCount = 0;
-
+            
             Console.WriteLine("Done reading data, saving to file");
             string path = @"e:/projects/p9/dataset/random/matrix.txt";
             if (!File.Exists(path))
@@ -155,65 +248,6 @@ namespace transform_lastfm_dataset
                         double temp = element * 100 / ratingSum;
                         string con = Convert.ToString(temp).Replace(',', '.');
                         sw.Write(con + "\t");
-                    }
-                    sw.WriteLine(Environment.NewLine);
-                }
-
-                Console.WriteLine("User " + (i + 1) + " out of " + userList.Length);
-            }
-
-            /**
-            string path = @"e:/projects/p9/dataset/random/matrix.txt";
-            if (!File.Exists(path))
-            {
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                }
-            } 
-             
-            for (int i = 0; i < userList.Length; i++)
-            {
-                count = 0;
-                string tempUser = userList[i];
-                string tempTrack = trackList[count];
-                //string ratings = null;
-
-
-                user = userAndTrackList[secondCount].Item1;
-                track = userAndTrackList[secondCount].Item2;
-
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    while (user == tempUser)
-                    {
-                        tempTrack = trackList[count];
-                        if (track.Equals(tempTrack))
-                        {
-                            sw.Write(userAndTrackList[secondCount].Item3 + "\t");
-                            secondCount++;
-                            if (secondCount < userAndTrackList.Count)
-                            {
-                                user = userAndTrackList[secondCount].Item1;
-                                track = userAndTrackList[secondCount].Item2;
-                            }
-                            else if (secondCount == userAndTrackList.Count)
-                            {
-                                user = null;
-                            }
-
-                        }
-                        else if (!track.Equals(trackList[count]))
-                        {
-                            sw.Write(0 + "\t");
-                        }
-
-                        count++;
-                    }
-
-                    while (count < trackList.Length)
-                    {
-                        sw.Write(0 + "\t");
-                        count++;
                     }
                     sw.WriteLine(Environment.NewLine);
                 }

@@ -1,0 +1,184 @@
+\section{Methodology}
+
+\begin{frame}
+\begin{center}
+     	\huge Methodology
+     \end{center}
+\end{frame}
+\begin{frame}
+	\frametitle{Setup Based on the Scenario}
+	Making recommendations based on TV programs limits the available items to given time instances. 
+\begin{table}[]
+\footnotesize
+\centering
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+Time  & Context & Group                &  \begin{tabular}[c]{@{}l@{}}Chosen\\ Item\end{tabular} & \begin{tabular}[c]{@{}l@{}}Available\\ Items\end{tabular} \\ \hline
+$t_1$ & day     & \{a, b, c\} &	 $i_1$ & $\{i_1, i_2, i_3 \}$                                      \\
+$t_2$ & day     & \{a, c\}    &  $i_5$	& $\{i_4, i_5, i_6 \}$                                      \\
+$t_3$ & day     & \{a, b, c\} & $i_8$ & $\{i_7, i_8, i_9 \}$                                      \\
+$t_4$ & night   & \{a, b\}    & $i_{11}$ & $\{i_{10}, i_{11}, i_{12}\}$                            \\ 
+$t_5$ & night   & \{a, b\}    & $i_{15}$ & $\{i_{13}, i_{14}, i_{15}\}$   	                    	\\ \hline
+\end{tabular}
+\end{table}
+At each time instance $t$ each user have a preferred list of items denoted as:
+\begin{block}{\small List of User Preferences}
+		\centering
+		$TopK(u,c,t)$
+\end{block}
+In this article $K$ is in the range from 1 to 3.
+\end{frame}
+\begin{frame}
+	\frametitle{Influence}
+	The log is used to calculate a users influence by either using a context aware or unaware approach based on available data.
+	
+	\begin{block}{\small Influence with Context}
+		\centering
+		$infl\_ctx(u,c)= \frac{|l_j \in L : c = c_j \wedge u \in G_j \wedge i_j \in TopK(u,c,t_j)|}{|l_j \in L : c = c_j \wedge u \in G_j|}$
+	\end{block}
+	
+	\begin{block}{\small Influence with No Context}
+		\centering
+		$infl\_no\_ctx(u)= \frac{|l_j \in L : \wedge u \in G_j \wedge i_j \in TopK(u,c,t_j)|}{|l_j \in L : \wedge u \in G_j|}$
+	\end{block}
+		
+\end{frame}
+
+\begin{frame}
+	\frametitle{Example on Influence with Context}
+		\begin{block}{\small Influence with Context}
+		\centering
+		$infl\_ctx(u,c)= \frac{|l_j \in L : c = c_j \wedge u \in G_j \wedge i_j \in TopK(u,c,t_j)|}{|l_j \in L : c = c_j \wedge u \in G_j|}$
+	\end{block}
+\begin{table}[]
+\footnotesize
+\centering
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+Time  & Context & Group                & User Preference	& \begin{tabular}[c]{@{}l@{}}Chosen\\ Item\end{tabular} & \begin{tabular}[c]{@{}l@{}}Available\\ Items\end{tabular} \\ \hline
+$t_1$ & day     & \{a, b, c\} &	$a \rightarrow i_1, b \rightarrow i_1, c \rightarrow i_2$ 	& $i_1$ & $\{i_1, i_2, i_3 \}$                                      \\
+$t_2$ & day     & \{a, c\}    & $a \rightarrow i_5, c \rightarrow i_5$						& $i_5$	& $\{i_4, i_5, i_6 \}$                                      \\
+$t_3$ & day     & \{a, b, c\}    & $a \rightarrow i_9, b \rightarrow i_8, c \rightarrow i_9$ 	&$i_8$ & $\{i_7, i_8, i_9 \}$                                      \\
+$t_4$ & night   & \{a, b\}    & $a \rightarrow i_{11}, b \rightarrow i_{11}$ 					&$i_{11}$ & $\{i_{10}, i_{11}, i_{12}\}$                            \\ 
+$t_5$ & night   & \{a, b\}    & $a \rightarrow i_{15}, b \rightarrow i_{13}$					&$i_{15}$ & $\{i_{13}, i_{14}, i_{15}\}$   	                    	\\ \hline
+\end{tabular}
+\end{table}
+
+The contextual influence where the context is $day$:
+\begin{itemize}
+\item \small{$infl\_ctx(a,day)=\frac{2}{3}$ }
+\item \small{$infl\_ctx(b,day)=\frac{2}{2}$}
+\item \small{ $infl\_ctx(c,day)=\frac{1}{3}$}
+\end{itemize}
+
+The contextual influence where the context is $night$:
+\begin{itemize}
+\item\small{$infl\_ctx(a,night)=\frac{2}{2}$}
+\item \small{$infl\_ctx(b,night)=\frac{1}{2}$}
+\end{itemize}
+\small{Since there are no feedback from user $c$ when the context is night, no context influence value can be calculated, hence the need of the non-contextual equation}
+\end{frame}
+
+\begin{frame}
+
+	\frametitle{Example on Influence with No Context}
+\begin{block}{\small Influence with No Context}
+		\centering
+		$infl\_no\_ctx(u)= \frac{|l_j \in L : \wedge u \in G_j \wedge i_j \in TopK(u,c,t_j)|}{|l_j \in L : \wedge u \in G_j|}$
+	\end{block}
+\begin{table}[]
+\footnotesize
+\centering
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+Time  & Context & Group                & User Preference	& \begin{tabular}[c]{@{}l@{}}Chosen\\ Item\end{tabular} & \begin{tabular}[c]{@{}l@{}}Available\\ Items\end{tabular} \\ \hline
+$t_1$ & day     & \{a, b, c\} &	$a \rightarrow i_1, b \rightarrow i_1, c \rightarrow i_2$ 	& $i_1$ & $\{i_1, i_2, i_3 \}$                                      \\
+$t_2$ & day     & \{a, c\}    & $a \rightarrow i_5, c \rightarrow i_5$						& $i_5$	& $\{i_4, i_5, i_6 \}$                                      \\
+$t_3$ & day     & \{a, b, c\}    & $a \rightarrow i_9, b \rightarrow i_8, c \rightarrow i_9$ 	&$i_8$ & $\{i_7, i_8, i_9 \}$                                      \\
+$t_4$ & night   & \{a, b\}    & $a \rightarrow i_{11}, b \rightarrow i_{11}$ 					&$i_{11}$ & $\{i_{10}, i_{11}, i_{12}\}$                            \\ 
+$t_5$ & night   & \{a, b\}    & $a \rightarrow i_{15}, b \rightarrow i_{13}$					&$i_{15}$ & $\{i_{13}, i_{14}, i_{15}\}$   	                    	\\ \hline
+\end{tabular}
+\end{table}
+The influence with no regard to context:
+\begin{itemize}
+\item $infl\_no\_ctx(a)=\frac{4}{5}$
+\item $infl\_no\_ctx(b)=\frac{3}{4}$
+\item $infl\_no\_ctx(c)=\frac{1}{3}$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Group Preference}
+	Now that we have the item score and the influence value given by:
+	\begin{itemize}
+	\item $score\_ctx(u,i,c)$ and $infl\_ctx(u,c)$ for context-aware
+	\item $score\_no\_ctx(u,i)$ and $infl\_\_ctx(u)$ for context-unaware
+	\end{itemize}	  
+	we can make the aggregation in order to get a group score. 
+	\begin{block}{\small Context-aware Scoring for Groups}
+		\centering
+		$score\_ctx(G,i,c) = \frac{\sum_{u \in G} infl\_ctx(u,c) \times score\_ctx(u,i,c)}{\sum_{u \in G} infl\_ctx(u,c)}$
+	\end{block}
+	
+		\begin{block}{\small Context-unaware Scoring for Groups}
+		\centering
+		$score\_no\_ctx(G,i) = \frac{\Sigma_{u \in G} infl\_no\_ctx(u) \times score\_no\_ctx(u,i)}{\Sigma_{u \in G} infl\_no\_ctx(u)}$
+	\end{block}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Example on Context-aware Scoring}
+		\begin{block}{\small Context-aware Scoring for Groups}
+		\centering
+		$score\_ctx(G,i,c) = \frac{\sum_{u \in G} infl\_ctx(u,c) \times score\_ctx(u,i,c)}{\sum_{u \in G} infl\_ctx(u,c)}$
+	\end{block}
+	\begin{table}[]
+\footnotesize
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Time  & Context & Group     &  \begin{tabular}[c]{@{}l@{}}Chosen\\ Item\end{tabular} & \begin{tabular}[c]{@{}l@{}}Available\\ Items\end{tabular} \\ \hline
+$t_6$ & day     & \{b, c\} 	   & ?? & $\{i_{16}, i_{17}, i_{18} \}$                                      \\ \hline
+\end{tabular}
+\end{table}
+The users individual preferences for $t_6$ are:
+\begin{itemize}
+	\item $b, i_{16} = 0.8$, $b, i_{17} = 0.2$, $b, i_{18} = 0.3$
+	\item $c, i_{16} = 0.2$, $c, i_{17} = 0.5$, $c, i_{18} = 0.9$
+\end{itemize}
+This individual scores are then aggregated together with the individual users context influence:
+\begin{itemize}
+	\item $score\_ctx(\{b,c\},i_{16},day)= \frac{1 \times 0.8 + \frac{1}{3} \times 0.2}{1 + \frac{1}{3}}  = 0.65 $
+	\item $score\_ctx(\{b,c\},i_{17},day)= \frac{1 \times 0.2 + \frac{1}{3} \times 0.5}{1 + \frac{1}{3}}  = 0.275 $
+	\item $score\_ctx(\{b,c\},i_{18},day)= \frac{1 \times 0.3 + \frac{1}{3} \times 0.9}{1 + \frac{1}{3}}  = 0.450 $
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Example on Context-unaware Scoring}
+	\begin{block}{\small Context-unaware Scoring for Groups}
+		\centering
+		$score\_no\_ctx(G,i) = \frac{\Sigma_{u \in G} infl\_no\_ctx(u) \times score\_no\_ctx(u,i)}{\Sigma_{u \in G} infl\_no\_ctx(u)}$
+	\end{block}
+		\begin{table}[]
+\footnotesize
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Time  & Context & Group     &  \begin{tabular}[c]{@{}l@{}}Chosen\\ Item\end{tabular} & \begin{tabular}[c]{@{}l@{}}Available\\ Items\end{tabular} \\ \hline
+$t_7$ & night     & \{a, b, c\}  &  ?? & $\{i_{19}, i_{20}, i_{21} \}$                                      \\ \hline
+\end{tabular}
+\end{table}
+The users individual preferences for $t_7$ are:
+\begin{itemize}
+	\item $a, i_{19} = 0.9$, $a, i_{20} = 0.1$, $b, i_{21} = 0.6$
+	\item $b, i_{19} = 0.2$, $b, i_{20} = 0.9$, $b, i_{21} = 0.7$
+	\item $c, i_{19} = 0.3$, $c, i_{20} = 0.7$, $c, i_{21} = 0.5$
+\end{itemize}
+
+This individual scores are then aggregated together with the individual users influence:
+\begin{itemize}
+	\item $score\_no\_ctx(\{a,b,c\},i_{19})= \frac{0.8 \times 0.9 + 0.75 \times 0.2 + \frac{1}{3} \times 0.3}{0.8 + 0.75 + \frac{1}{3}} = 0.515 $
+	\item $score\_no\_ctx(\{a,b,c\},i_{20})= \frac{0.8 \times 0.1 + 0.75 \times 0.9 + \frac{1}{3} \times 0.7}{0.8 + 0.75 + \frac{1}{3}} = 0.525 $
+	\item $score\_no\_ctx(\{a,b,c\},i_{21})= \frac{0.8 \times 0.6 + 0.75 \times 0.7 + \frac{1}{3} \times 0.5}{0.8 + 0.75 + \frac{1}{3}} = 0.622$
+\end{itemize}
+\end{frame}

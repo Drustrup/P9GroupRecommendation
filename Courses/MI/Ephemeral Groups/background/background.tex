@@ -1,0 +1,55 @@
+\section{Motivation}
+
+\begin{frame}
+     \begin{center}
+     	\huge Motivation
+     \end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Why Recommendations for Groups?}
+	Some scenarios where group recommendations could be preferable
+	\begin{itemize}
+		\item Choosing a restaurant 
+		\item Choosing which movie to watch in the cinema
+		\item Choosing a TV program
+	\end{itemize}
+	In this article they choose to work with the TV scenario.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Why Ephemeral Groups?}
+	The article discuss two kinds of groups being persistent groups and ephemeral groups.
+	
+	\begin{itemize}
+		\item Persistent groups have a significant history and can be treated at one user
+		\item Ephemeral groups have little to no history is individual preferences is needed
+	\end{itemize}
+	
+	The argument for selecting the ephemeral approach is that it is more general and is applicable in more scenarios.
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Why Concern About Contextual User Influence?}
+	The article argues that some group members are more influential than others depending on the context.\\ 
+	
+	A scenario from the article considers a family with the users parents and kids and the contexts early and late afternoon:
+	\begin{itemize}
+	\item Early afternoon - The children have most influence
+	\item Late afternoon - The parents have most influence
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{The Essence of the Article}
+	Let $Users$ be a set of users, $Items$ be a set of items and $Contexts$ be a set of contexts and let $u$, $i$ and $c$ be subsets thereof. Supposing that the following data are known: 
+	\begin{itemize}
+		\item $score\_ctx(u,i,c)$, assigning score to items based in contexts
+		\item $score\_no\_ctx(u,i,c)$, assigning score to items regardless of context
+		\item A log $L$ recording the history of items chosen by the groups
+	\end{itemize}	 
+	Then a recommendation of $K$ items, which is available in a given time instance, will be presented for a Group of users based on their given context. 
+	
+\end{frame}
