@@ -52,7 +52,9 @@ The randomized ratings presented in Table \ref{tbl:randomdatasample}, are used t
 This aggregation strategy focusses on the difference between the highest rating given to an item and the lowest. The idea is that a small difference indicates that the group is in agreement about the item.
 The average rating for the item should then be amplified by a percentage based on how small the difference is, so as to avoid items that are universally disliked by the group being selected. The increase has been arbitrarily chosen to be 50\% for the item with most agreement, with the increase diminishing gradually.
 
-The difference or agreement could be calculated in several different ways, the importance being that it should somehow reflect how much the group members agree with one another.
+The difference or agreement could be calculated in several different ways, the importance being that it should somehow reflect how much the group members agree with one another. One such method could be using Spearman's Footrule to find how similar the opinion of the members are.
+
+% Use spearman on 2 users ranked ratings, do this for all user-pairs 
 
 \begin{enumerate}
 	\item Find the average rating for the item
