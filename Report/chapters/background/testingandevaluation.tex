@@ -19,6 +19,8 @@ Stemming from cross validation in the field of statistics, k-fold testing is a c
 \end{table}
 
 \subsection{Root Mean Square Error}
+The root mean square error is a common accuracy measure for recommender systems. For the algorithm, RMSE is calculated using the equation shown in \ref{eq:rmse}. As opposed to the other common measure, Mean Absolute Error, RMSE penalizes larger errors relatively more harshly.
+
 \begin{equation}\label{eq:rmse}
 	\text{RMSE} = \sqrt{\frac{\sum_{u=1}^{U}\sum_{i=1}^{I}(\sum_{k=1}^{K}(A_{uk} B_{ki}) - M_{ui})^2}{UIK}}
 \end{equation}
