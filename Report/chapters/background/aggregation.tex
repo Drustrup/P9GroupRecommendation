@@ -1,18 +1,6 @@
 \section{Aggregation} \label{bg:aggregation}
 When working with a group recommender system, it is hard to avoid using aggregation to make group-like decisions. While recent research has shown that aggregation is not a perfect substitute for group based decisions \todo{insert cite}, it is not our goal to find a suitable substitution for aggregation. We will instead use existing aggregation strategies to find suitable recommendations for the group. While specific strategies are as numerous as the number of recommenders, they are derived from only a few common strategies. Most of these strategies will here be presented using the ratings in Table \ref{aggregation:tbl:table_of_ratings}, while the full overview of the results of aggregation can be seen in Table \ref{aggregation:tbl:examples_of_strategies}.
 
-%\begin{itemize}
-%	\item Plurality Voting
-%	\item Average
-%	\item Multiplicative
-%	\item Approval Voting
-%	\item Least Misery
-%	\item Most Pleasure
-%	\item Average Without Misery
-%	\item Fairness
-%	\item Dictatorship
-%\end{itemize}
-
 \begin{table}[H]
 	\centering
 	\begin{tabular}{ | p{2cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | p{1cm} | } \hline
@@ -61,6 +49,23 @@ When working with a group recommender system, it is hard to avoid using aggregat
 	\caption{Examples of the scores that results from applying the individual aggregation strategies to the ratings from Table \ref{aggregation:tbl:table_of_ratings}. All values have been adjusted so the highest value is the 'best'.}
 	\label{aggregation:tbl:examples_of_strategies}
 \end{table}
+
+\subsection{Rank Aggregation}
+Another aspect of aggregation is Rank Aggregation, where the input is lists of preferences. The goal as with any aggregation is then to find the best ordering possible. The best ordering is also known as the Kemeny Optimal.
+Rank aggregation has to the best of our knowledge settled on three main methods, Borda, Footrule, and Markov Chains, all of which are good approximations of Kemeny optimal aggregation.
+
+
+Borda, works by assigning a score for each member to each item based on the item's placement on the members ordered list. Then the total score for an item is the sum of scores it got from each user.
+%example Borda
+
+
+Footrule
+%example Footrule
+
+
+Markov Chains
+%example Markov
+
 
 \subsection{Simulating Group Behavior} \label{bg:aggregation:groupbehavior}
 In the study conducted by Judith Masthoff, it was found that some of the aggregation strategies were used when a group made decisions on which items to recommend, while other strategies provided better recommendations according to the groups. The strategies groups seemed to make use of were, Average, Average Without Misery, and Least Misery. In contrast to this strategies such as Multiplicative, Average, and Most Pleasure gave reasonable recommendations, showing some mismatch between what the group would recommend themselves, and what they retroactively think is best.
