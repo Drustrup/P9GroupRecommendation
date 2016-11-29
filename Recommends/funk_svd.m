@@ -1,3 +1,4 @@
+%Funk SVD
 clear all;
 ratings = importdata('../dataset/movielens/u2_matrix.txt');
 movies = importdata('../dataset/movielens/u_different_movies.txt');
