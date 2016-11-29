@@ -19,14 +19,14 @@ validationArray = nonzeros(val);
 [row, col] = find(val);
 
 reg = 0.02;
-learn = 0.01;
+learn = 0.005;
 
 [rows, cols] = find(ratings);
 rmse = k;
 pRmse = k + 1;
 lowRmse = 10;
 threshold = 0;
-while threshold < 1000000 && rmse < pRmse
+while threshold < 10000000 && rmse < pRmse
     x = randi([1 80000], 1,1);
     
     vectorA = A(rows(x),:);

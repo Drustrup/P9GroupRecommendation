@@ -1,11 +1,12 @@
 %Find user preferences
-function result = groupRecommendation(list)
-ratings = importdata('../dataset/test.txt');
+function result = groupRecommendation(list,k)
+ratings = importdata('../dataset/trained_matrix.txt');
 [row,col] = size(ratings);
 group = ones(numel(list),col);
 for i=1:numel(list)
     user = ratings(list(i),:);
     group(i,:) = user;
 end
-result = average(group);
+%Average aggregation
+result = average(group,k);
 end
