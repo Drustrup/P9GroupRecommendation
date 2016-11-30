@@ -20,7 +20,9 @@ for i=1:row
        temp(i,j) = mean(list(:,topK(i,j)));
    end
 end
-result = zeros(1,k);
+result = bordaCount(topK);
+
+%{
 temp = temp(:);
 topK = topK(:);
 i = 1;
@@ -32,10 +34,10 @@ while i <= k
         i = i + 1;
     end
 end
-end
+%}
 
 %%Normal aggregation
-%{
+
 avg = mean(list);
 
 temp = ones(1,k);
@@ -44,9 +46,4 @@ for i=1:k
    temp(i)= I;
    avg(I) = 0;
 end
-
-temp = temp(:);
-
-avg = mean(list);
-%}
-
+end

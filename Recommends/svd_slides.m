@@ -19,7 +19,7 @@ val = importdata('../dataset/movielens/u2_test_matrix.txt');
 validationArray = nonzeros(val);
 [row, col] = find(val);
 
-reg = 0.02;
+reg = 0.001;
 learn = 0.01;
 
 [rows, cols] = find(ratings);
@@ -34,10 +34,10 @@ while threshold < 1000000 && rmse < pRmse
     vectorB = B(:,cols(x));
     error = ratings(rows(x),cols(x)) - sum(vectorA * vectorB);
    
-     for i=1:numel(vectorA)
+     for i=1:k
         tempA = A(rows(x),i);
-           A(rows(x),i) = A(rows(x),i) + learn * (error * B(i,cols(x)) - reg * A(rows(x),i));
-           B(i,cols(x)) = B(i,cols(x)) + learn * (error * tempA - reg * B(i,cols(x)));
+           A(rows(x),i) = A(rows(x),i) + learn * error * B(i,cols(x)) - reg * A(rows(x),i);
+           B(i,cols(x)) = B(i,cols(x)) + learn * error * tempA - reg * B(i,cols(x));
         end
     if mod(threshold, 1000) == 0
         if rmse < lowRmse
