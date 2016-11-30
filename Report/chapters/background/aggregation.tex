@@ -52,14 +52,19 @@ When working with a group recommender system, it is hard to avoid using aggregat
 
 \subsection{Rank Aggregation}
 Another aspect of aggregation is Rank Aggregation, where the input is lists of preferences. The goal as with any aggregation is then to find the best ordering possible. The best ordering is also known as the Kemeny Optimal.
-Rank aggregation has to the best of our knowledge settled on three main methods, Borda, Footrule, and Markov Chains, all of which are good approximations of Kemeny optimal aggregation.
+Rank aggregation has to the best of our knowledge settled on three main methods, Borda, Footrule, and Markov Chains, all of which are good approximations of Kemeny optimal aggregation.\\
 
 
-Borda, works by assigning a score for each member to each item based on the item's placement on the members ordered list. Then the total score for an item is the sum of scores it got from each user.
-%example Borda
+Borda or Borda Count, works by assigning a score for each member to each item based on the item's placement on the members ordered list. Then the total score for an item is the sum of scores it got from each user. Often the individual scores are inversely proportional to the placement, so on a top $n$ list item 1 would get a score of $n$, item 2 a score of $n-1$ etc..\\
+
+Performing Borda of two given ranked lists $L_{1} = {a,b,c,d,e}$ and $L_{2} = {c,a,f,e,d}$ would work as follows. Assign scores to each item in each list $S_{1} = {a = 5, b = 4, c = 3, d = 2, e = 1}$ and $S_{2} = {c = 5, a = 4, f = 3, e = 2, d = 1}$. Then sum up the scores for each item: $a = 9, b = 4, c = 8, d = 3, e = 3, f = 3$. According to Borda the best ordering would then be ${a, c, b, def}$, where $d, e,$ and $f$ are interchangeable.\\
 
 
-Footrule
+Footrule or Spearman’s Footrule, is an aggregation method where the average Spearman footrule distance is minimized on the input rankings.
+Between two lists, the Spearman footrule distance is the sum of absolute difference of the rank positions of each item between the two lists. If an item is present in one list of top $n$ items but not in another, the item is placed in the list it is missing from at rank $n + 1$.
+For instance take the two ranked lists $L_{1}$ and $L_{2}$ from earlier. First $L_{1}$ is designated as what is called the pattern-vector which has coordinates based on the ranking in the list, e.g. a = 1, b = 2, etc.. As the item $f$ is present in $L_{2}$ but is missing in $L_{1}$ it is added as f = 6. Subsequently item $b$ is also added to $L_{2}$. This results in $L_{1}$ being the pattern-vector $(1,2,3,4,5,6)$ while $L_{2}$ becomes the vector $(3,1,6,5,4,2)$. The footrule distance between these are now easily calculated as:
+$|3-1| + |1-2| + |6-3| + |5-4| + |4-5| + |2-6| = 12$
+
 %example Footrule
 
 
