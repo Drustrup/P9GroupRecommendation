@@ -1,14 +1,14 @@
-function result = bordaCount(lists)
-movies = unique(lists);
+function result = bordaCount(topK)
+movies = unique(topK);
 points = zeros(1,numel(movies));
-[row,col] = size(lists);
-lists = fliplr(lists);
+[row,col] = size(topK);
+topK = fliplr(topK);
 
 for j=1:numel(movies)
     point = 0;
     for i=1:row
-       if ~isempty(find(lists(i,:)==movies(j)))
-           point = point + find(lists(i,:)==movies(j));
+       if ~isempty(find(topK(i,:)==movies(j)))
+           point = point + find(topK(i,:)==movies(j));
        end
     end
     points(j) = point;
