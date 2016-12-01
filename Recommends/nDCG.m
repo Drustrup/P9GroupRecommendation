@@ -1,0 +1,48 @@
+function result = nDCG(recommendations, users, k)
+
+[rRow,rCol] = size(recommendations);
+
+ratings = importdata('../dataset/trained_matrix.txt');
+[row,col] = size(ratings);
+group = ones(numel(users),col);
+
+for i=1:numel(users)
+    user = ratings(users(i),:);
+    group(i,:) = user;
+end
+
+[gRow,gCol] = size(group);
+topK = ones(gRow,k);
+temp = group;
+for i=1:gRow
+    for j=1:k
+        [M,I] = max(temp(i,:));
+        topK(i,j)= I;
+        temp(i,I) = 0;
+    end
+end
+topK = fliplr(topK);
+rankList = zeros(numel(users),rCol);
+
+for i=1:gRow
+    for j=1:k
+        x = find(recommendations==topK(i,j));
+        rankList(i,x) = j;
+    end    
+end
+ideal = sort(rankList(1,:), 'descend');
+IDCG = ideal(1);
+for i=2:rCol
+    IDCG = IDCG + (ideal(i)/log2(i));
+end
+
+nDCGList = zeros(1,numel(users));
+for i=1:numel(users)
+    DCG = rankList(i,1);
+    for j=2:rCol
+        DCG = DCG + (rankList(i,j)/log2(j));
+    end
+    nDCGList(i) = DCG/IDCG;
+end
+result = nDCGList;
+end
