@@ -30,10 +30,14 @@ for i=1:gRow
         rankList(i,x) = j;
     end    
 end
-ideal = sort(rankList(1,:), 'descend');
-IDCG = ideal(1);
-for i=2:rCol
-    IDCG = IDCG + (ideal(i)/log2(i));
+IDCGList = zeros(1, numel(users));
+for i=1:numel(users)
+    ideal = sort(rankList(i,:), 'descend');
+    IDCG = ideal(1);
+    for j=2:rCol
+        IDCG = IDCG + (ideal(j)/log2(j));
+    end
+    IDCGList(i) = IDCG;
 end
 
 nDCGList = zeros(1,numel(users));
@@ -42,7 +46,7 @@ for i=1:numel(users)
     for j=2:rCol
         DCG = DCG + (rankList(i,j)/log2(j));
     end
-    nDCGList(i) = DCG/IDCG;
+    nDCGList(i) = DCG/IDCGList(i);
 end
 result = nDCGList;
 end
