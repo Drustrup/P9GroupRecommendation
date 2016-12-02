@@ -3,7 +3,7 @@
 ratings = importdata('../dataset/movielens/u5_matrix.txt');
 movies = importdata('../dataset/movielens/u_different_movies.txt');
 users = importdata('../dataset/movielens/u_different_users.txt');
-k = 10;
+k = 100;
 %{
 [U, S, V] = svds(ratings, k);
 A = U * S^0.5;
@@ -34,7 +34,7 @@ rmse = k;
 pRmse = k + 1;
 lowRmse = 10;
 threshold = 0;
-while threshold < 2000000 && rmse < pRmse
+while threshold < 1000000 && rmse < pRmse
     x = randi([1 80000], 1,1);
     
     vectorA = A(rows(x),:);
