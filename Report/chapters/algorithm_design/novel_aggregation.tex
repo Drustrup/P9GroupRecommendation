@@ -1,5 +1,5 @@
 \section{Novel Aggregation Methods}
-In this section new, and to the best of our knowledge, novel aggregation methods are presented. The methods are described and exemplified using the a small randomly generated dataset seen in Table \ref{tbl:randomdatasample}.
+In this section new, and to the best of our knowledge, novel aggregation methods are presented. The methods are described and exemplified using the a small randomly generated dataset seen in Table \ref{tbl:randomdatasample}. \todo{Clean up this section and remove all irrelevant parts}
 
 \subsection{Top Ratings Influence Selection}
 \todo{Change name of section, preferably to something with a catchy acronym}
@@ -94,7 +94,52 @@ The difference or agreement could be calculated in several different ways, the i
 		\multicolumn{1}{|c|}{}                       & U5 & 2.3 & 3.5 & 4.6 & 3.5 & 3.4 & 3.0 & 4.5 & 4.7 & 3.0 & 3.9 \\ \hline
 	\end{tabular}
 	\caption{Randomized table of ratings for 5 users with 10 items.}
-	\label{randomratingstable}
+	\label{tbl:randomratingstable}
+\end{table}
+
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|}
+		\cline{2-11}
+		& T1 & T2 & T3 & T4 & T5 & T6 & T7 & T8 & T9 & T10 \\ \hline
+		\multicolumn{1}{|l|}{U1} & 2 & 4 & 5 & 9 & 1 & 3 & 7 & 9 & 8 & 6 \\ \hline
+		\multicolumn{1}{|l|}{U2} & 5 & 8 & 9 & 4 & 3 & 6 & 2 & 10 & 1 & 7 \\ \hline
+		\multicolumn{1}{|l|}{U3} & 4 & 6 & 2 & 7 & 8 & 3 & 1 & 4 & 10 & 9 \\ \hline
+		\multicolumn{1}{|l|}{U4} & 10 & 8 & 2 & 7 & 1 & 4 & 6 & 5 & 8 & 3 \\ \hline
+		\multicolumn{1}{|l|}{U5} & 1 & 5 & 9 & 5 & 4 & 2 & 8 & 10 & 2 & 7 \\ \hline
+		\multicolumn{1}{|l|}{Total} & 22 & 31 & 27 & 32 & 17 & 18 & 24 & 38 & 29 & 32 \\ \hline
+	\end{tabular}
+	\caption{Borda Count results from the randomized example}
+	\label{tbl:bordacount}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l|l|l|l|l|}
+		\cline{2-5}
+		& Rank 1 & Rank 2 & Rank 3 & Rank 4 \\ \hline
+		\multicolumn{1}{|l|}{U1} & T4 (3) & T8 (3) & T9 (2) & T7 (1) \\ \hline
+		\multicolumn{1}{|l|}{U2} & T8 (4) & T3 (3) & T2 (2) & T10 (1) \\ \hline
+		\multicolumn{1}{|l|}{U3} & T9 (4) & T10 (3) & T5 (2) & T4 (1) \\ \hline
+		\multicolumn{1}{|l|}{U4} & T1 (4) & T2 (2) & T9 (2) & T4 (1) \\ \hline
+		\multicolumn{1}{|l|}{U5} & T8 (4) & T3 (3) & T7 (2) & T10 (1) \\ \hline
+	\end{tabular}
+	\caption{Ranking of the top 4 items for each user from Table \ref{tbl:randomratingstable}, Borda score in parenthesis }
+	\label{tbl:top4borda}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l|l|l|l|l|l|l|l|l|l|}
+		\cline{2-10}
+		& T1 & T2 & T3 & T4 & T5 & T7 & T8 & T9 & T10 \\ \hline
+		\multicolumn{1}{|l|}{Borda} & 4 & 4 & 6 & 5 & 2 & 3 & 11 & 8 & 5 \\ \hline
+		\multicolumn{1}{|l|}{WBC} & 5 & 6 & 8 & 8 & 3 & 5 & 14 & 11 & 8 \\ \hline
+		\multicolumn{1}{|l|}{EBC} & 7 & 6 & 8 & 8 & 3 & 4 & 18 & 13 & 6 \\ \hline
+	\end{tabular}
+	\caption{Scores from each method on top 4.}
+	\label{tbl:novelscoresexample}
 \end{table}
 
 \subsection{Weighted Borda Count}
