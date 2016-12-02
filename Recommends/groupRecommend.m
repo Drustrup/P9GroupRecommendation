@@ -19,7 +19,8 @@ for i=1:row
         temp(i,I) = 0;
     end
 end
-result = bordaCount(topK);
+result = bordaTransferableCount(topK);
+%result = bordaCount(topK);
 %result = bordaCountAverage(topK,k,group);
 %result = bordaCountWeighted(topK);
 %result = bordaCountEscalating(topK,k);

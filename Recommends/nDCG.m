@@ -46,7 +46,11 @@ for i=1:numel(users)
     for j=2:rCol
         DCG = DCG + (rankList(i,j)/log2(j));
     end
-    nDCGList(i) = DCG/IDCGList(i);
+    if DCG > 0
+        nDCGList(i) = DCG/IDCGList(i);
+    else
+        nDCGList(i) = DCG;
+    end
 end
 result = nDCGList;
 end
