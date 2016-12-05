@@ -1,85 +1,82 @@
 \section{Novel Aggregation Methods}
-In this section new, and to the best of our knowledge, novel aggregation methods are presented. The methods are described and exemplified using the a small randomly generated dataset seen in Table \ref{tbl:randomdatasample}. \todo{Clean up this section and remove all irrelevant parts}
+In this section new, and to the best of our knowledge, novel aggregation methods are presented. The methods are described and exemplified using the a small randomly generated dataset seen in Table \ref{tbl:randomratingstable}. \todo{Clean up this section and remove all irrelevant parts}
 
-\subsection{Top Ratings Influence Selection}
-\todo{Change name of section, preferably to something with a catchy acronym}
-Encompassing the findings in Section \ref{bg:aggregation:groupbehavior}, we construct our own novel approach to the selection process in a group recommender. The approach is intended to put emphasis on the ratings from group members that like the tracks the most. This will be accomplished by using the multiplicative aggregation strategy on a small number of the highest ratings , while the remaining ratings are handled with the average strategy.
+%\subsection{Top Ratings Influence Selection}
+%\todo{Change name of section, preferably to something with a catchy acronym}
+%Encompassing the findings in Section \ref{bg:aggregation:groupbehavior}, we construct our own novel approach to the selection process in a group recommender. The approach is intended to put emphasis on the ratings from group members that like the tracks the most. This will be accomplished by using the multiplicative aggregation strategy on a small number of the highest ratings , while the remaining ratings are handled with the average strategy.
+%
+%With this approach we hope to increase the overall satisfaction of the group by projecting the predicted satisfaction of those with the highest ratings for an item onto the rest of the group. We are disregarding accounting specifically for misery and dissatisfaction as it was discovered in \cite{d} \todo{Add citation to the article/study used in aggregation section} that such strategies performed poorly.
+%
+%A step by step guide to the aggregation would be as follows:
+%\begin{enumerate}
+%	\item For each item, split the ratings from the group members into one of two sets
+%	\begin{enumerate}
+%		\item Set 1 with the highest x ratings
+%		\item Set 2 with the rest of the ratings
+%	\end{enumerate}
+%	\item Find the average of the ratings in set 2, and add that average to set 1
+%	\item Multiply all the ratings in set 1 with each-other to get the score for the item
+%\end{enumerate}
+%
+%The randomized ratings presented in Table \ref{tbl:randomdatasample}, are used to perform the aggregation strategy and the result hereof is seen in Table \ref{tbl:topheavyaggregation}. A higher score is better, which means that in the example item T2 would be chosen. There is nothing preventing the method from being used to select a sequence of items instead of just one.
+%
+%\begin{table}[H]
+%	\centering
+%	\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+%		\hline
+%		& U1  & U2   & U3  & U4  & U5  & U6  & U7  & U8  & U9  & U10 \\ \hline
+%		T1 & 7.2 & 4.3  & 6.1 & 9.9 & 8.7 & 4.5 & 3.6 & 3.4 & 3.6 & 5.9 \\ \hline
+%		T2 & 6.0 & 9.1  & 7.5 & 9.0 & 6.5 & 2.3 & 4.7 & 9.8 & 1.9 & 5.3 \\ \hline
+%		T3 & 4.1 & 10.0 & 3.8 & 6.5 & 2.3 & 4.7 & 6.6 & 8.5 & 5.3 & 5.1 \\ \hline
+%		T4 & 4.1 & 1.2  & 5.9 & 9.1 & 2.2 & 9.8 & 5.1 & 5.8 & 1.2 & 9.2 \\ \hline
+%	\end{tabular}
+%	\caption{Randomly generated ratings for 10 users on 4 tracks.}
+%	\label{tbl:randomdatasample}
+%\end{table}
+%
+%\begin{table}[H]
+%	\centering
+%	\begin{tabular}{|l|l|c|l|}
+%		\hline
+%		& Set 1           & \multicolumn{1}{l|}{Average Set 2} & Score   \\ \hline
+%		T1 & 9.9|8.7|7.2|6.1 & 4.2                                & 15887.9 \\ \hline
+%		T2 & 9.8|9.1|9.0|7.5 & 4.5                                & 27088.4 \\ \hline
+%		T3 & 10|8.5|6.6|6.5  & 4.2                                & 15315.3 \\ \hline
+%		T4 & 9.8|9.2|9.1|5.9 & 3.3                                & 15974.3 \\ \hline
+%	\end{tabular}
+%	\caption{Example of scores provided by the Top Heavy Aggregation using the top 4 ratings for the multiplication.}
+%	\label{tbl:topheavyaggregation}
+%\end{table}
+%
+%\subsection{Disagreement Alters Score}
+%This aggregation strategy focusses on the difference between the highest rating given to an item and the lowest. The idea is that a small difference indicates that the group is in agreement about the item.
+%The average rating for the item should then be amplified by a percentage based on how small the difference is, so as to avoid items that are universally disliked by the group being selected. The increase has been arbitrarily chosen to be 50\% for the item with most agreement, with the increase diminishing gradually.
+%
+%The difference or agreement could be calculated in several different ways, the importance being that it should somehow reflect how much the group members agree with one another. One such method could be using Spearman's Footrule to find how similar the opinion of the members are.
+%
+%% Use spearman on 2 users ranked ratings, do this for all user-pairs 
+%
+%\begin{enumerate}
+%	\item Find the average rating for the item
+%	\item Calculate the disagreement (We subtract the lowest rating from the highest)
+%	\item Calculate the percentile increase, where lowest disagreement gets the highest increase.
+%	\item Add the increase to the average to find the score.
+%\end{enumerate}
+%
+%\begin{table}[H]
+%	\centering
+%	\begin{tabular}{|l|c|c|c|c|}
+%		\hline
+%		& \multicolumn{1}{l|}{Average} & \multicolumn{1}{l|}{Disagreement} & \multicolumn{1}{l|}{Percentage Increase} & \multicolumn{1}{l|}{Score} \\ \hline
+%		T1 & 5.72                         & 6.5                               & 50\%                                     & 8.58                       \\ \hline
+%		T2 & 6.21                         & 7.9                               & 33\%                                     & 8.23                       \\ \hline
+%		T3 & 5.69                         & 7.7                               & 28.5\%                                   & 7.31                       \\ \hline
+%		T4 & 5.36                         & 8.6                               & 0\%                                      & 5.36                       \\ \hline
+%	\end{tabular}
+%	\caption{The DAS aggregation performed on the example data.}
+%	\label{tbl:DASexample}
+%\end{table}
 
-With this approach we hope to increase the overall satisfaction of the group by projecting the predicted satisfaction of those with the highest ratings for an item onto the rest of the group. We are disregarding accounting specifically for misery and dissatisfaction as it was discovered in \cite{d} \todo{Add citation to the article/study used in aggregation section} that such strategies performed poorly.
-
-A step by step guide to the aggregation would be as follows:
-\begin{enumerate}
-	\item For each item, split the ratings from the group members into one of two sets
-	\begin{enumerate}
-		\item Set 1 with the highest x ratings
-		\item Set 2 with the rest of the ratings
-	\end{enumerate}
-	\item Find the average of the ratings in set 2, and add that average to set 1
-	\item Multiply all the ratings in set 1 with each-other to get the score for the item
-\end{enumerate}
-
-The randomized ratings presented in Table \ref{tbl:randomdatasample}, are used to perform the aggregation strategy and the result hereof is seen in Table \ref{tbl:topheavyaggregation}. A higher score is better, which means that in the example item T2 would be chosen. There is nothing preventing the method from being used to select a sequence of items instead of just one.
-
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
-		\hline
-		& U1  & U2   & U3  & U4  & U5  & U6  & U7  & U8  & U9  & U10 \\ \hline
-		T1 & 7.2 & 4.3  & 6.1 & 9.9 & 8.7 & 4.5 & 3.6 & 3.4 & 3.6 & 5.9 \\ \hline
-		T2 & 6.0 & 9.1  & 7.5 & 9.0 & 6.5 & 2.3 & 4.7 & 9.8 & 1.9 & 5.3 \\ \hline
-		T3 & 4.1 & 10.0 & 3.8 & 6.5 & 2.3 & 4.7 & 6.6 & 8.5 & 5.3 & 5.1 \\ \hline
-		T4 & 4.1 & 1.2  & 5.9 & 9.1 & 2.2 & 9.8 & 5.1 & 5.8 & 1.2 & 9.2 \\ \hline
-	\end{tabular}
-	\caption{Randomly generated ratings for 10 users on 4 tracks.}
-	\label{tbl:randomdatasample}
-\end{table}
-
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|l|l|c|l|}
-		\hline
-		& Set 1           & \multicolumn{1}{l|}{Average Set 2} & Score   \\ \hline
-		T1 & 9.9|8.7|7.2|6.1 & 4.2                                & 15887.9 \\ \hline
-		T2 & 9.8|9.1|9.0|7.5 & 4.5                                & 27088.4 \\ \hline
-		T3 & 10|8.5|6.6|6.5  & 4.2                                & 15315.3 \\ \hline
-		T4 & 9.8|9.2|9.1|5.9 & 3.3                                & 15974.3 \\ \hline
-	\end{tabular}
-	\caption{Example of scores provided by the Top Heavy Aggregation using the top 4 ratings for the multiplication.}
-	\label{tbl:topheavyaggregation}
-\end{table}
-
-\subsection{Disagreement Alters Score}
-This aggregation strategy focusses on the difference between the highest rating given to an item and the lowest. The idea is that a small difference indicates that the group is in agreement about the item.
-The average rating for the item should then be amplified by a percentage based on how small the difference is, so as to avoid items that are universally disliked by the group being selected. The increase has been arbitrarily chosen to be 50\% for the item with most agreement, with the increase diminishing gradually.
-
-The difference or agreement could be calculated in several different ways, the importance being that it should somehow reflect how much the group members agree with one another. One such method could be using Spearman's Footrule to find how similar the opinion of the members are.
-
-% Use spearman on 2 users ranked ratings, do this for all user-pairs 
-
-\begin{enumerate}
-	\item Find the average rating for the item
-	\item Calculate the disagreement (We subtract the lowest rating from the highest)
-	\item Calculate the percentile increase, where lowest disagreement gets the highest increase.
-	\item Add the increase to the average to find the score.
-\end{enumerate}
-
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|l|c|c|c|c|}
-		\hline
-		& \multicolumn{1}{l|}{Average} & \multicolumn{1}{l|}{Disagreement} & \multicolumn{1}{l|}{Percentage Increase} & \multicolumn{1}{l|}{Score} \\ \hline
-		T1 & 5.72                         & 6.5                               & 50\%                                     & 8.58                       \\ \hline
-		T2 & 6.21                         & 7.9                               & 33\%                                     & 8.23                       \\ \hline
-		T3 & 5.69                         & 7.7                               & 28.5\%                                   & 7.31                       \\ \hline
-		T4 & 5.36                         & 8.6                               & 0\%                                      & 5.36                       \\ \hline
-	\end{tabular}
-	\caption{The DAS aggregation performed on the example data.}
-	\label{tbl:DASexample}
-\end{table}
-
-
-
-\section{New Rank Aggregation}
 
 \begin{table}[H]
 	\centering
@@ -146,12 +143,11 @@ The difference or agreement could be calculated in several different ways, the i
 Using Borda Count as a base and adding a weight to the items based on the number of times they occur in the top-k lists would help increase the score of those items multiple users have rated high enough to get onto their top-k list. Our implementation will use a simplistic weight of adding 1 additional point to the final tally of the scores for each time they appeared in the top-k lists the group members produced. Depending on the size of $k$ it could very well be that the weighting factor should be changed as the weight used would have little influence when scores of more than 50 are handed out.
 
 
-
-
 \subsection{Escalating Borda Count}
 Based on the idea that Borda Count not necessarily gives enough distinction to the top of the top-k items, this method will increase the scores given by the normal Borda Count by some amount based on where in the top-k list the item appear. Our implementation will split the top-k list into three parts, the upper part will receive an extra 3 points to all items, the items in the middle part will be given 1 extra point, while the lower part will receive no extra points.
 
 
+\subsection{Single Transferable Borda Vote} \label{STBV}
+As it was determined in Section \ref{sec:stv}, STV was unsuitable as a selection process, but by modifying the voting we believe that the problems with using STV in recommender systems can be accounted for. The change proposed is changing the single vote into a Borda Count score, so instead of a user only having 1 vote on a top-10 list, they would have 55, the highest rated item with 10, second item with 9, etc.. This approach should allow for more reliable selection, as users no longer end up only voting on their own highest rated items. Of course this relies on at least a few overlaps between items on the top-k lists.\\
 
-
-\subsection{Borda Count with Average Rerank}
+A simplified example of how it will perform if it is used on the random sample with top-4
