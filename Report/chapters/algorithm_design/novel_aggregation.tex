@@ -111,6 +111,34 @@ In this section new, and to the best of our knowledge, novel aggregation methods
 	\label{tbl:bordacount}
 \end{table}
 
+\subsection{Weighted Borda Count}
+Using Borda Count as a base and adding a weight to the items based on the number of times they occur in the top-k lists would help increase the score of those items multiple users have rated high enough to get onto their top-k list. Our implementation will use a simplistic weight of adding 1 additional point to the final tally of the scores for each time they appeared in the top-k lists the group members produced. Depending on the size of $k$ it could very well be that the weighting factor should be changed as the weight used would have little influence when scores of more than 50 are handed out.
+
+An example of how the scores from the random samples top-4, Table \ref{tbl:top4borda}, have influenced the ordering can be seen in Table \ref{tbl:novelscoresexample}. The order has not changed per say, number 1 and 2 is T8 and T9 respectively just as in Borda, however WBC gives a shared 3$^{rd}$ place to T3, T4, and T10, whereas Borda gave the 3$^{rd}$ place to T3 and had T4 and T10 on a shared 4$^{th}$ place. 
+
+\subsection{Escalating Borda Count}
+Based on the idea that Borda Count not necessarily gives enough distinction to the top of the top-k items, this method will increase the scores given by the normal Borda Count by some amount based on where in the top-k list the item appear. Our implementation will split the top-k list into three parts, the upper part will receive an extra 3 points to all items, the items in the middle part will be given 1 extra point, while the lower part will receive no extra points.
+
+The example of how the scores would be are again presented in Table \ref{tbl:novelscoresexample}. Here T10 is no longer amongst the four items scoring the highest, while the others are placed as in WBC.
+
+\subsection{Single Transferable Borda Vote} \label{STBV}
+As it was determined in Section \ref{sec:stv}, STV was unsuitable as a selection process, but by modifying the voting we believe that the problems with using STV in recommender systems can be accounted for. The change proposed is changing the single vote into a Borda Count score, so instead of a user only having 1 vote on a top-10 list, they would have 55, the highest rated item with 10, second item with 9, etc.. This approach should allow for more reliable selection, as users no longer end up only voting on their own highest rated items. Of course this relies on at least a few overlaps between items on the top-k lists.\\
+
+Here is a simplified example of how it will perform if it is used on the random sample with top-4, also see Table \ref{tbl:top4borda} and Table \ref{tbl:novelscoresexample}:
+
+\begin{enumerate}
+	\item Threshold calculated to be 12.5, but for simplicity it is set to 13.
+	\item No candidate exceeds the threshold, so instead the current worst candidate T5 is eliminated, their votes transferred to their highest priority T9.
+	\item T7 is now the next to be eliminated, 1 vote moved to T4 and 2 votes to T8, T8 is now locked in.
+	\item T8 hit our simplified threshold without exceeding it so no votes are transferred further, instead T1 is the next to be eliminated, only one user voted on it but their secondary choice is split between T2 and T9 so 2 votes will be transferred to each.
+	\item Next up is T10 being eliminated and going by the lists, U2 and U3 would instead give their 4 combined votes to T9, while U5 would give a single vote to T8, but as that candidate is already locked in the vote is instead transferred to T3 the secondary choice.
+	\item T9 now exceeds the threshold and 3 votes have to be transferred to other choices. For sake of simplicity the votes are handed out for users to redistribute equally, so U1, U3, and U4 each get one vote to reassign, U1 and U3 both give it to T4, while U4 gives it to T2.
+	\item Next T2 is eliminated and the votes distributed equally between T3 and T4.
+	\item There are now only four candidates left for four seats, and going by the order they were locked in and then the number of votes they got the order would be T8, T9, T4, and then T3.
+\end{enumerate}
+
+As the method works on whatever ordering of the items it is given, there is some inherent bias.
+
 \begin{table}[H]
 	\centering
 	\begin{tabular}{l|l|l|l|l|}
@@ -130,24 +158,12 @@ In this section new, and to the best of our knowledge, novel aggregation methods
 	\centering
 	\begin{tabular}{l|l|l|l|l|l|l|l|l|l|}
 		\cline{2-10}
-		& T1 & T2 & T3 & T4 & T5 & T7 & T8 & T9 & T10 \\ \hline
-		\multicolumn{1}{|l|}{Borda} & 4 & 4 & 6 & 5 & 2 & 3 & 11 & 8 & 5 \\ \hline
-		\multicolumn{1}{|l|}{WBC} & 5 & 6 & 8 & 8 & 3 & 5 & 14 & 11 & 8 \\ \hline
-		\multicolumn{1}{|l|}{EBC} & 7 & 6 & 8 & 8 & 3 & 4 & 18 & 13 & 6 \\ \hline
+		& T1 & T2 & T3   & T4   & T5 & T7 & T8  & T9  & T10 \\ \hline
+		\multicolumn{1}{|l|}{Borda} & 4  & 4  & 6    & 5    & 2  & 3  & 11  & 8   & 5   \\ \hline
+		\multicolumn{1}{|l|}{WBC}   & 5  & 6  & 8    & 8    & 3  & 5  & 14  & 11  & 8   \\ \hline
+		\multicolumn{1}{|l|}{EBC}   & 7  & 6  & 8    & 8    & 3  & 4  & 18  & 13  & 6   \\ \hline
+		\multicolumn{1}{|l|}{STBV}  & -  & -  & 10.5 & 11.5 & -  & -  & 13* & 13* & -   \\ \hline
 	\end{tabular}
-	\caption{Scores from each method on top 4.}
+	\caption{Scores from each method on top 4, in STBV the * indicates the candidate hitting the threshold.}
 	\label{tbl:novelscoresexample}
 \end{table}
-
-\subsection{Weighted Borda Count}
-Using Borda Count as a base and adding a weight to the items based on the number of times they occur in the top-k lists would help increase the score of those items multiple users have rated high enough to get onto their top-k list. Our implementation will use a simplistic weight of adding 1 additional point to the final tally of the scores for each time they appeared in the top-k lists the group members produced. Depending on the size of $k$ it could very well be that the weighting factor should be changed as the weight used would have little influence when scores of more than 50 are handed out.
-
-
-\subsection{Escalating Borda Count}
-Based on the idea that Borda Count not necessarily gives enough distinction to the top of the top-k items, this method will increase the scores given by the normal Borda Count by some amount based on where in the top-k list the item appear. Our implementation will split the top-k list into three parts, the upper part will receive an extra 3 points to all items, the items in the middle part will be given 1 extra point, while the lower part will receive no extra points.
-
-
-\subsection{Single Transferable Borda Vote} \label{STBV}
-As it was determined in Section \ref{sec:stv}, STV was unsuitable as a selection process, but by modifying the voting we believe that the problems with using STV in recommender systems can be accounted for. The change proposed is changing the single vote into a Borda Count score, so instead of a user only having 1 vote on a top-10 list, they would have 55, the highest rated item with 10, second item with 9, etc.. This approach should allow for more reliable selection, as users no longer end up only voting on their own highest rated items. Of course this relies on at least a few overlaps between items on the top-k lists.\\
-
-A simplified example of how it will perform if it is used on the random sample with top-4
