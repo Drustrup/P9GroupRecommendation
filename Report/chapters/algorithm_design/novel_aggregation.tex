@@ -114,7 +114,7 @@ In this section new, and to the best of our knowledge, novel aggregation methods
 \subsection{Weighted Borda Count}
 Using Borda Count as a base and adding a weight to the items based on the number of times they occur in the top-k lists would help increase the score of those items multiple users have rated high enough to get onto their top-k list. Our implementation will use a simplistic weight of adding 1 additional point to the final tally of the scores for each time they appeared in the top-k lists the group members produced. Depending on the size of $k$ it could very well be that the weighting factor should be changed as the weight used would have little influence when scores of more than 50 are handed out.
 
-An example of how the scores from the random samples top-4, Table \ref{tbl:top4borda}, have influenced the ordering can be seen in Table \ref{tbl:novelscoresexample}. The order has not changed per say, number 1 and 2 is T8 and T9 respectively just as in Borda, however WBC gives a shared 3$^{rd}$ place to T3, T4, and T10, whereas Borda gave the 3$^{rd}$ place to T3 and had T4 and T10 on a shared 4$^{th}$ place. 
+An example of how the scores from the random samples top-4, Table \ref{tbl:top4borda}, have influenced the ordering can be seen in Table \ref{tbl:novelscoresexample}. The order has not changed per say, number 1 and 2 is T8 and T9 respectively just as in Borda, however WBC gives a shared third place to T3, T4, and T10, whereas Borda gave the third place to T3 and had T4 and T10 on a shared fourth place. 
 
 \subsection{Escalating Borda Count}
 Based on the idea that Borda Count not necessarily gives enough distinction to the top of the top-k items, this method will increase the scores given by the normal Borda Count by some amount based on where in the top-k list the item appear. Our implementation will split the top-k list into three parts, the upper part will receive an extra 3 points to all items, the items in the middle part will be given 1 extra point, while the lower part will receive no extra points.
@@ -137,7 +137,7 @@ Here is a simplified example of how it will perform if it is used on the random 
 	\item There are now only four candidates left for four seats, and going by the order they were locked in and then the number of votes they got the order would be T8, T9, T4, and then T3.
 \end{enumerate}
 
-As the method works on whatever ordering of the items it is given, there is some inherent bias.
+The resulting ordering is again not too different from the ones seen before, however it has been definitively reduced to only four candidates. The random data most definitely favored T8 and T9 in these small examples, so the fact that they are solidly chosen as the first and second place is fitting. Third and fourth place has been switch in STBV compared to the other orderings, however they have generally been close in general. That being said, the ordering of the candidates throughout the process have a large impact on which candidates that gets eliminated, which leads to some inherent bias.
 
 \begin{table}[H]
 	\centering
@@ -150,7 +150,7 @@ As the method works on whatever ordering of the items it is given, there is some
 		\multicolumn{1}{|l|}{U4} & T1 (4) & T2 (2) & T9 (2) & T4 (1) \\ \hline
 		\multicolumn{1}{|l|}{U5} & T8 (4) & T3 (3) & T7 (2) & T10 (1) \\ \hline
 	\end{tabular}
-	\caption{Ranking of the top 4 items for each user from Table \ref{tbl:randomratingstable}, Borda score in parenthesis }
+	\caption{Ranking of the top 4 items for each user from Table \ref{tbl:randomratingstable}, Borda score in parenthesis.}
 	\label{tbl:top4borda}
 \end{table}
 
