@@ -75,9 +75,9 @@ The $F_1$ score combines precision and recall into a single harmonic mean score,
 \end{equation}
 
 \subsubsection{Normalized Discounted Cumulative Gain}
-Discounted cumulative gain is used to measure the quality of a ranking through the relevance of the result set. It is most commonly used in the information retrieval field, however it is also useful for getting a measure of satisfaction for a recommendation as recommendation and information retrieval both spring from the problem of information overload.
+Discounted cumulative gain is used to measure the quality of a ranking through the relevance of the result set. It is most commonly used in the information retrieval field for a learning to rank, however it is also useful for getting a measure of satisfaction for an ordering of recommended items. That is because Recommendation and the results of a search query both are solutions to the problem of information overload that present a set of possible items.\cite{recsyshandbook} \cite{baltrunas}
 
-This works by comparing the group recommendation with the individual preferences. In this way, the relevance of an item is translatable to a ranked list of recommendations, as a recommendation can be viewed as a fixed query.
+For a group recommendation this works by comparing the group recommendation with the individual preferences. In this way, the relevance of an item is translatable to a ranked list of recommendations, as a recommendation can be viewed as a fixed query.
 
 The measure grew out from the Cumulative Gain measure, which takes the relevance score of each result in a set without considering the position in the set. Equation \ref{eq:background_cg} shows the process. $p$ denotes the number of positions in the ranking.
 
@@ -85,13 +85,13 @@ The measure grew out from the Cumulative Gain measure, which takes the relevance
 	\text{CG}_p = \sum_{i=1}^{p}\textit{rel}_i
 \end{equation}
 
-The addition of the discounted property adds a consideration over the ranking. In a ranked list, the position is considered important with the most relevant item as the top item. The score is calculated using equation \ref{eq:background_dcg}.
+The addition of the discounted property adds a consideration over the ranking. For most lists, it is assumed that a user will consider each item in order from first to last, making the most important position the first item. So it follows that the most relevant item should be the first item. This justifies penalizing a deviance from ordering by the most relevant item first. The score is calculated using equation \ref{eq:background_dcg}.
 
 \begin{equation}\label{eq:background_dcg}
 	\text{DCG}_p = \textit{rel}_1 + \sum_{i=2}^{p}\frac{\textit{rel}_i}{\log_2(i)}
 \end{equation}
 
-Normalized discounted cumulative gain compares the DCG with an ideal ranking as to normalize the score, so it can be compared for systems using rankings of different lengths. The score is calculated using equation \ref{eq:background_ndcg}. The ideal ranking is IDCG, which is calculated using equation \ref{eq:background_idcg}, where we use the individual's list of preferences as the basis for an ideal ranking for that user.
+Normalized discounted cumulative gain compares the DCG with an ideal ranking as to normalize the score, where a perfect ordering results in a score of 1, so it can be compared for systems using rankings of different lengths. The score is calculated using equation \ref{eq:background_ndcg}. The ideal ranking is IDCG, which is calculated using equation \ref{eq:background_idcg}, where we use the individual's list of preferences as the basis for an ideal ranking for that user.
 
 \begin{equation}\label{eq:background_ndcg}
 	\text{nDCG}_p = \frac{\text{DCG}_p}{\text{IDCG}_p}
@@ -99,4 +99,55 @@ Normalized discounted cumulative gain compares the DCG with an ideal ranking as 
 
 \begin{equation}\label{eq:background_idcg}
 	\text{IDCG}_p = \sum_{i=1}^{|REL|} \frac{2^{\textit{rel}_i}-1}{\log_2(i+1)}
+\end{equation}
+
+As part of an example of how the satisfaction of a user in a group could be calculated, table \ref{tbl:testandeval_bordacount}. User U1 will be the focus of this example, and in table \ref{tbl:testandeval_positions}, the ranking of the group chosen by average and U1's individual ranking is shown.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|}
+		\cline{2-11}
+		& M1 & M2 & M3 & M4 & M5 & M6 & M7 & M8 & M9 & M10 \\ \hline
+		\multicolumn{1}{|l|}{U1} & 2 & 4 & 5 & 9 & 1 & 3 & 7 & 9 & 8 & 6 \\ \hline
+		\multicolumn{1}{|l|}{U2} & 5 & 8 & 9 & 4 & 3 & 6 & 2 & 10 & 1 & 7 \\ \hline
+		\multicolumn{1}{|l|}{U3} & 4 & 6 & 2 & 7 & 8 & 3 & 1 & 4 & 10 & 9 \\ \hline
+		\multicolumn{1}{|l|}{U4} & 10 & 8 & 2 & 7 & 1 & 4 & 6 & 5 & 8 & 3 \\ \hline
+		\multicolumn{1}{|l|}{U5} & 1 & 5 & 9 & 5 & 4 & 2 & 8 & 10 & 2 & 7 \\ \hline
+		\multicolumn{1}{|l|}{Total} & 22 & 31 & 27 & 32 & 17 & 18 & 24 & 38 & 29 & 32 \\ \hline
+	\end{tabular}
+	\caption{Example Borda Count rating of a set of items}
+	\label{tbl:testandeval_bordacount}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l|l|l|l|l|}
+		\cline{2-5}
+		& I1 & I2 & I3 & I4\\ \hline
+		\multicolumn{1}{|l|}{Group ranking} & M8 & M4 & M10 & M2\\ \hline
+		\multicolumn{1}{|l|}{U1 ranking} & M8 & M4 & M9 & M7\\ \hline
+	\end{tabular}
+	\caption{Indices of the group preferences and user U1}
+	\label{tbl:testandeval_positions}
+\end{table}
+
+The cumulative gain of the example results in a high count in equation \ref{eq:background_cg_example}, as to be expected as the group and U1 share many preferences in the list. When we consider the positioning in equation \ref{eq:background_dcg_example}, there's only a small drop in the score, as the bulk of U1's points are at the top positions where the penalty is smaller.
+
+\begin{equation}\label{eq:background_cg_example}
+\text{CG}_4 = \sum_{i=1}^{4}\textit{rel}_i = 9 + 9 + 6 + 7 = 31
+\end{equation}
+
+\begin{equation}\label{eq:background_dcg_example}
+\text{DCG}_4 = \textit{rel}_1 + \sum_{i=2}^{4}\frac{\textit{rel}_i}{\log_2(i)}
+= 9 + (9 + 3.79 + 3.5) = 25.29
+\end{equation}
+
+To normalize the score, we compare it to the ideal ranking, which is U1's own ranking. The ideal ordering is calculated in equation \ref{eq:background_idcg_example}, and it is only slightly higher than the DCG of the group. The level of satisfaction for U1 for this recommendation is $0.95$, as per equation \ref{eq:background_ndcg_example}, which is a high level of satisfaction. This is not surprising given that U1's preferences were well-represented.
+
+\begin{equation}\label{eq:background_idcg_example}
+\text{IDCG}_4 = 9 + (9 + 5.05 + 3.5) = 26.55
+\end{equation}
+
+\begin{equation}\label{eq:background_ndcg_example}
+\text{nDCG}_4 = \frac{\text{DCG}_4}{\text{IDCG}_4} = \frac{25.29}{26.55}=0.95
 \end{equation}
