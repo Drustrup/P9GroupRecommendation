@@ -1,8 +1,7 @@
-function result = nDCG(recommendations, users, k)
+function result = nDCG(ratings, recommendations, users, k)
 
 [rRow,rCol] = size(recommendations);
 
-ratings = importdata('../dataset/trained_matrix.txt');
 [row,col] = size(ratings);
 group = ones(numel(users),col);
 

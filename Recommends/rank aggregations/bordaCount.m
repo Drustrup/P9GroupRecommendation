@@ -15,8 +15,6 @@ for j=1:numel(movies)
     points(j) = point;
 end
 
-%result = zeros(1,numel(movies));
-%for i=1:numel(movies)
 result = zeros(1,returnSize);
 for i=1:returnSize
     [M,I] = max(points);

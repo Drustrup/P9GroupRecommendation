@@ -1,10 +1,7 @@
 function [result, points, movies, topKMovies, topKVotes] = transferVotes(points, movies, topKMovies, topKVotes, top, returnSize)
 [row,col] = size(topKMovies);
 
-votes = zeros(1,col);
-for i=1:col
-    votes(i) = i;
-end
+votes = 1:col;
 threshold = sum(votes) * row;
 threshold = threshold / returnSize;
 

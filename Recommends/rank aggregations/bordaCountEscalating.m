@@ -1,7 +1,8 @@
 function result = bordaCountEscalating(topK,k)
+[row,col] = size(topK);
+returnSize = col;
 movies = unique(topK);
 points = zeros(1,numel(movies));
-[row,col] = size(topK);
 topK = fliplr(topK);
 top = floor(k/3);
 middle = top + ceil(k/3);
@@ -21,8 +22,8 @@ for j=1:numel(movies)
     points(j) = point;
 end
 
-result = zeros(1,numel(movies));
-for i=1:numel(movies)
+result = zeros(returnSize);
+for i=1:returnSize
     [M,I] = max(points);
     points(I) = 0;
     result(i) = movies(I);

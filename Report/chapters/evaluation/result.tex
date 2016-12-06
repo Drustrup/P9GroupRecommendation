@@ -1,0 +1,168 @@
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+ \begin{axis}[
+ 	ybar =-10pt,
+ 	x = 1cm,
+ 	ymin=0.50, 
+ 	ymax=0.66,	
+	enlarge x limits ={abs=1cm},
+	nodes near coords,
+ 	ylabel={nDCG},
+	xtick={0,1,2,3,4},  % NEW BIT
+	xticklabels={BC, BTC, BWC, BEC, Random},
+	legend style={at={(0.5,-0.1)},
+	anchor=north,legend columns=-1},
+	ymajorgrids = true,]
+
+		\addplot coordinates {(0,0.6398)};    
+		\addplot coordinates {(1,0.6393)};    
+		\addplot coordinates {(2,0.6394)};    
+		\addplot coordinates {(3,0.6453)};    
+		\addplot coordinates {(4,0.5451)};
+        \legend{BC, BTC, BWT, BET, Random}
+     \end{axis}
+\end{tikzpicture}
+\caption{Group size 4}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+ \begin{axis}[
+ 	ybar =-10pt,
+ 	x = 1cm,
+ 	ymin=0.40, 	
+ 	ymax=0.65,
+	enlarge x limits ={abs=1cm},
+	nodes near coords,
+ 	ylabel={nDCG},
+	xtick={0,1,2,3,4},  % NEW BIT
+	xticklabels={BC, BTC, BWC, BEC, Random},
+	legend style={at={(0.5,-0.1)},
+	anchor=north,legend columns=-1},
+	ymajorgrids = true,]
+
+		\addplot coordinates {(0,0.5952)};    
+		\addplot coordinates {(1,0.6040)};    
+		\addplot coordinates {(2,0.5969)};    
+		\addplot coordinates {(3,0.5910)};    
+		\addplot coordinates {(4,0.4499)};
+        \legend{BC, BTC, BWT, BET, Random}
+     \end{axis}
+\end{tikzpicture}
+\caption{Group size 8}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+ \begin{axis}[
+ 	ybar =-10pt,
+ 	x = 1cm,
+ 	ymin=0.35, 	
+ 	ymax=0.65,
+	enlarge x limits ={abs=1cm},
+	nodes near coords,
+ 	ylabel={nDCG},
+	xtick={0,1,2,3,4},  % NEW BIT
+	xticklabels={BC, BTC, BWC, BEC, Random},
+	legend style={at={(0.5,-0.1)},
+	anchor=north,legend columns=-1},
+	ymajorgrids = true,]
+
+		\addplot coordinates {(0,0.5573)};    
+		\addplot coordinates {(1,0.5922)};    
+		\addplot coordinates {(2,0.5584)};    
+		\addplot coordinates {(3,0.5539)};    
+		\addplot coordinates {(4,0.3753)};
+        \legend{BC, BTC, BWT, BET, Random}
+     \end{axis}
+\end{tikzpicture}
+\caption{Group size 12}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+ \begin{axis}[
+ 	ybar =-10pt,
+ 	x = 1cm,
+ 	ymin=0.30, 	
+ 	ymax=0.65,
+	enlarge x limits ={abs=1cm},
+	nodes near coords,
+ 	ylabel={nDCG},
+	xtick={0,1,2,3,4},  % NEW BIT
+	xticklabels={BC, BTC, BWC, BEC, Random},
+	legend style={at={(0.5,-0.1)},
+	anchor=north,legend columns=-1},
+	ymajorgrids = true,]
+
+		\addplot coordinates {(0,0.5340)};    
+		\addplot coordinates {(1,0.5913)};    
+		\addplot coordinates {(2,0.5351)};    
+		\addplot coordinates {(3,0.5340)};    
+		\addplot coordinates {(4,0.3393)};
+        \legend{BC, BTC, BWT, BET, Random}
+     \end{axis}
+\end{tikzpicture}
+\caption{Group size 16}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+ \begin{axis}[
+ 	ybar =-10pt,
+ 	x = 1cm,
+ 	ymin=0.25, 	
+ 	ymax=0.65,
+	enlarge x limits ={abs=1cm},
+	nodes near coords,
+ 	ylabel={nDCG},
+	xtick={0,1,2,3,4},  % NEW BIT
+	xticklabels={BC, BTC, BWC, BEC, Random},
+	legend style={at={(0.5,-0.1)},
+	anchor=north,legend columns=-1},
+	ymajorgrids = true,]
+
+		\addplot coordinates {(0,0.5223)};    
+		\addplot coordinates {(1,0.5862)};    
+		\addplot coordinates {(2,0.5232)};    
+		\addplot coordinates {(3,0.5199)};    
+		\addplot coordinates {(4,0.3075)};
+        \legend{BC, BTC, BWT, BET, Random}
+     \end{axis}
+\end{tikzpicture}
+\caption{Group size 20}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+ \begin{axis}[
+ 	ybar =-10pt,
+ 	x = 1cm,
+ 	ymin=0.20, 
+ 	ymax=0.65,	
+	enlarge x limits ={abs=1cm},
+	nodes near coords,
+ 	ylabel={nDCG},
+	xtick={0,1,2,3,4},  % NEW BIT
+	xticklabels={BC, BTC, BWC, BEC, Random},
+	legend style={at={(0.5,-0.1)},
+	anchor=north,legend columns=-1},
+	ymajorgrids = true,]
+
+		\addplot coordinates {(0,0.4886)};    
+		\addplot coordinates {(1,0.5314)};    
+		\addplot coordinates {(2,0.4891)};    
+		\addplot coordinates {(3,0.4873)};    
+		\addplot coordinates {(4,0.2231)};
+        \legend{BC, BTC, BWT, BET, Random}
+     \end{axis}
+\end{tikzpicture}
+\caption{Group size 40}
+\end{figure}

@@ -1,6 +1,5 @@
 %Find user preferences
-function result = groupRecommendation(users,k)
-ratings = importdata('../dataset/trained_matrix.txt');
+function result = groupRecommendation(ratings, users,k)
 [row,col] = size(ratings);
 group = ones(numel(users),col);
 
@@ -19,10 +18,10 @@ for i=1:row
         temp(i,I) = 0;
     end
 end
-result = bordaTransferableCount(topK);
-%result = bordaCount(topK);
+%result = random(topK);
+%result = bordaTransferableCount(topK);
 %result = bordaCount(topK);
 %result = bordaCountAverage(topK,k,group);
 %result = bordaCountWeighted(topK);
-%result = bordaCountEscalating(topK,k);
+result = bordaCountEscalating(topK,k);
 end
