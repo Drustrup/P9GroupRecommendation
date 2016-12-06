@@ -1,8 +1,8 @@
 function result = bordaCount(topK)
-returnSize = 10;
+[row,col] = size(topK);
+returnSize = col;
 movies = unique(topK);
 points = zeros(1,numel(movies));
-[row,col] = size(topK);
 topK = fliplr(topK);
 
 for j=1:numel(movies)
