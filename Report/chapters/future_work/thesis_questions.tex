@@ -1,0 +1,13 @@
+\section{Thesis Questions}
+Throughout the work done during this project, we have encountered or discovered a number of hurdles, possible improvements, and new approaches. These findings should be studied further and we will in our next project look into some of these.
+
+While discussing ranked aggregation methods, one of the approaches we discussed but ended up not exploring was a method that involved re-ranking every users top-k based on the average value for the individual items amongst the other group members. For instance user 1's highest rated item only has the fifth highest average amongst the rest of the group members, so the item will be placed in user 1's ranked list as their fifth item. The idea behind this is to account for other users opinion (ratings) even if the item in question was not on the secondary users' top-k list. It is our hypothesis that making a re-ranking of the top-k list using other members' influence would lead to a better group satisfaction.\\
+
+(1) To what extend does re-ranking a user's top-k preferences, based on other group members, influence the individual user as well as the groups overall satisfaction?
+
+When we trained and tested our recommender, we only did so on the MovieLens dataset. While the results should be generally applicable, that might not be the case in practice, therefore the recommender and the aggregation methods should be tested on other datasets. In particular tests on a dataset with already existing groups and their satisfaction would be an welcome addition. However to the best of our knowledge, such a dataset with public availability does not exist.
+
+% Lack of dataset with focus on groups
+% Re-ranking the top-k based on the average of the rest of the group
+% Application of other existing datasets
+% Is our STBV implemented in a proper way (we introduced an element of strategic voting in an attempt to insure every user has a good chance of having at least one of their preferences in the selection)
