@@ -3,6 +3,7 @@
 Matrix Factorization Model methods are dimensionality reduction techniques used for recommendation that generally find latent features for items, and the propensity for users towards each latent feature.
 Matrix Factorization (MF) makes an approximation of a matrix of ratings by decomposing it into multiple matrices. Since MF approximates matrices in an offline step before recommendation, it scales better compared to contemporary Collective Filtering techniques during recommendation. It performs well even when data sparsity is a concern due to the matrix approximation and the dimensionality reduction.
 As data sparsity grows in a set, the less accurate every method gets. Factorization methods counteract this by compressing the data, making it less sparse, and easier to cluster.
+As an MF matrix is traditionally updated offline resulting in unchanging matrices, then the matrix can be reused as required. This is a benefit when testing various aggregations or configurations of users.
 
 \subsubsection{Singular Value Decomposition}
 Commonly referred to by its acronym, SVD, was popular during Netflix's movie recommender contest amongst the top performing entrants.
@@ -70,12 +71,12 @@ The common solution is using the stochastic gradient descent. For this, a single
 
 \subsubsection{Non-negative Matrix Factorization}
 
-Non-negative Matrix factorization is a constraint on the usual matrix factorization. As shown in \ref{eq:nmf}, given a non-negative matrix, we can find non-negative matrix factors $W$ and $H$ such that they approximate $V$.
+Non-negative Matrix factorization is a constraint on the usual matrix factorization. All values are equal to 0 or higher, and always positive, and when learning the model, no values will dip below 0.
+
+As shown in \ref{eq:nmf}, given a rating matrix of size \textit{m-by-n}, for example m users and n items, we can find non-negative matrix factors $W$ and $H$ of size \textit{m-by-k} and \textit{k-by-n} such that they approximate $V$.
 
 \begin{equation} \label{eq:nmf}
 	V \approx W H
 \end{equation}
-
-\todo{Expand}
 
 %http://www.kyb.mpg.de/fileadmin/user_upload/files/publications/attachments/CFEMF_KDDW2007_4614[0].pdf
