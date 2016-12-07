@@ -1,18 +1,22 @@
-clear all;
-ratings = importdata('../dataset/movielens/u2_matrix.txt');
+%clear all;
+ratings = importdata('../dataset/movielens/u5_matrix.txt');
 movies = importdata('../dataset/movielens/u_different_movies.txt');
 users = importdata('../dataset/movielens/u_different_users.txt');
 
-k = 10;
-
+k = 100;
+%{
 [U, S, V] = svds(ratings, k);
 A = U * S^0.5;
 B = S^0.5 * transpose(V);
+rmseSum = 0;
+%}
+lowA = A;
+lowB = B;
 
 
-valUsers = importdata('../dataset/movielens/u2_test_different_users.txt');
-valMovies = importdata('../dataset/movielens/u2_test_different_movies.txt');
-val = importdata('../dataset/movielens/u2_test_matrix.txt');
+valUsers = importdata('../dataset/movielens/u5_test_different_users.txt');
+valMovies = importdata('../dataset/movielens/u5_test_different_movies.txt');
+val = importdata('../dataset/movielens/u5_test_matrix.txt');
 
 %totalRatings = importdata('../dataset/movielens/u_matrix.txt');
 
@@ -20,7 +24,7 @@ validationArray = nonzeros(val);
 [row, col] = find(val);
 
 reg = 0.001;
-learn = 0.01;
+learn = 0.05;
 
 [rows, cols] = find(ratings);
 rmse = k;
@@ -57,4 +61,9 @@ while threshold < 1000000 && rmse < pRmse
     end
     
    threshold = threshold + 1;  
+end
+if rmse < lowRmse
+    rmseSum = rmseSum + rmse;
+else 
+    rmseSum = rmseSum + lowRmse;
 end
