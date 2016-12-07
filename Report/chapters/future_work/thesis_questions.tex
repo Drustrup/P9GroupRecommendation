@@ -5,9 +5,16 @@ While discussing ranked aggregation methods, one of the approaches we discussed 
 
 (1) To what extend does re-ranking a user's top-k preferences, based on other group members, influence the individual user as well as the groups overall satisfaction?
 
-When we trained and tested our recommender, we only did so on the MovieLens dataset. While the results should be generally applicable, that might not be the case in practice, therefore the recommender and the aggregation methods should be tested on other datasets. In particular tests on a dataset with already existing groups and their satisfaction would be an welcome addition. However to the best of our knowledge, such a dataset with public availability does not exist.
+When we trained and tested our recommender, we only did so on the MovieLens dataset. While the results should be generally applicable, that might not be the case in practice, therefore the recommender and the aggregation methods should be tested on other datasets. In particular tests on a dataset with already existing groups and their satisfaction would be an welcome addition. However to the best of our knowledge, such a dataset with public availability does not exist. \todo{Use this to explain why we need make our own dataset.}
+
+(2) How does Borda Transferable Count perform in tests on a dataset designed for testing group recommendation?
+
+As mentioned in Section \ref{} \todo{insert reference to implementation of BTC} the implemented version of the Borda Transferable Count is not exactly as described in Section \ref{BTC}, due to the strategic transfer of the votes instead of as usual to the highest priority. While the implemented BTC seems to perform well compared to the methods we tested it against, ideally it should be further compared to other strategies, most prominently Spearmans Footrule and a BTC without the strategic reassignment.
+
+(3) How does Borda Transferable Count with strategic reassignment perform compared to the state-of-the-art ranked aggregations?
 
 % Lack of dataset with focus on groups
 % Re-ranking the top-k based on the average of the rest of the group
 % Application of other existing datasets
-% Is our STBV implemented in a proper way (we introduced an element of strategic voting in an attempt to insure every user has a good chance of having at least one of their preferences in the selection)
+% Is our BTC implemented in a proper way (we introduced an element of strategic voting in an attempt to insure every user has a good chance of having at least one of their preferences in the selection)
+% Compare our results with other methods (Spearmans Footrule for instance)
