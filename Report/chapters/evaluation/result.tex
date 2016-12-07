@@ -1,20 +1,23 @@
-
 \begin{figure}[h]
 \centering
+\begin{minipage}{.46\textwidth}\centering
 \begin{tikzpicture}
  \begin{axis}[
+ 	height=7cm,
  	ybar =-10pt,
- 	x = 1cm,
+ 	x = .8cm,
  	ymin=0.50, 
- 	ymax=0.66,	
-	enlarge x limits ={abs=1cm},
+ 	ymax=0.66,
+ 	ytick = {0.50,0.55,...,0.70},
+ 	scaled y ticks = false,
+	enlarge x limits ={abs=.8cm},
 	nodes near coords,
     every node near coord/.append style={font=\tiny,/pgf/number format/.cd,precision=4},
  	ylabel={nDCG},
 	xtick={0,1,2,3,4},  % NEW BIT
 	xticklabels={BC, BTC, BWC, BEC, Random},
-	legend style={at={(0.5,-0.1)},
-	anchor=north,legend columns=-1},
+	%legend style={at={(0.5,-0.1)},
+	%anchor=north,legend columns=-1},
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.6398)};    
@@ -22,28 +25,28 @@
 		\addplot coordinates {(2,0.6394)};    
 		\addplot coordinates {(3,0.6453)};    
 		\addplot coordinates {(4,0.5451)};
-        \legend{BC, BTC, BWT, BET, Random}
+        %\legend{BC, BTC, BWC, BEC, Random}
      \end{axis}
 \end{tikzpicture}
-\caption{Group size 4}
-\end{figure}
-
-\begin{figure}[h]
-\centering
+\captionof{figure}{Groups with 4 users}
+\end{minipage}
+\begin{minipage}{.46\textwidth}\centering
 \begin{tikzpicture}
  \begin{axis}[
+ 	height=7cm,
  	ybar =-10pt,
- 	x = 1cm,
+ 	x = .8cm,
  	ymin=0.40, 	
  	ymax=0.65,
-	enlarge x limits ={abs=1cm},
+ 	ytick = {0.40,0.45,...,0.70},
+	enlarge x limits ={abs=.8cm},
 	nodes near coords,
     every node near coord/.append style={font=\tiny,/pgf/number format/.cd,precision=4},
  	ylabel={nDCG},
 	xtick={0,1,2,3,4},  % NEW BIT
 	xticklabels={BC, BTC, BWC, BEC, Random},
-	legend style={at={(0.5,-0.1)},
-	anchor=north,legend columns=-1},
+	%legend style={at={(0.5,-0.1)},
+	%anchor=north,legend columns=-1},
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.5952)};    
@@ -51,28 +54,33 @@
 		\addplot coordinates {(2,0.5969)};    
 		\addplot coordinates {(3,0.5910)};    
 		\addplot coordinates {(4,0.4499)};
-        \legend{BC, BTC, BWT, BET, Random}
+        %\legend{BC, BTC, BWC, BEC, Random}
      \end{axis}
 \end{tikzpicture}
-\caption{Group size 8}
+\captionof{figure}{Groups with 8 users}
+\end{minipage}
 \end{figure}
+
 
 \begin{figure}[h]
 \centering
+\begin{minipage}{.46\textwidth}\centering
 \begin{tikzpicture}
  \begin{axis}[
+ 	height=7cm,
  	ybar =-10pt,
- 	x = 1cm,
+ 	x = .8cm,
  	ymin=0.35, 	
  	ymax=0.65,
-	enlarge x limits ={abs=1cm},
+ 	ytick = {0.35,0.40,...,0.70},
+	enlarge x limits ={abs=.8cm},
 	nodes near coords,
     every node near coord/.append style={font=\tiny,/pgf/number format/.cd,precision=4},
  	ylabel={nDCG},
 	xtick={0,1,2,3,4},  % NEW BIT
 	xticklabels={BC, BTC, BWC, BEC, Random},
-	legend style={at={(0.5,-0.1)},
-	anchor=north,legend columns=-1},
+	%legend style={at={(0.5,-0.1)},
+	%anchor=north,legend columns=-1},
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.5573)};    
@@ -80,28 +88,28 @@
 		\addplot coordinates {(2,0.5584)};    
 		\addplot coordinates {(3,0.5539)};    
 		\addplot coordinates {(4,0.3753)};
-        \legend{BC, BTC, BWT, BET, Random}
+        %\legend{BC, BTC, BWC, BEC, Random}
      \end{axis}
 \end{tikzpicture}
-\caption{Group size 12}
-\end{figure}
-
-\begin{figure}[h]
-\centering
+\captionof{figure}{Groups with 12 users}
+\end{minipage}
+\begin{minipage}{.46\textwidth}\centering
 \begin{tikzpicture}
  \begin{axis}[
+ 	height=7cm,
  	ybar =-10pt,
- 	x = 1cm,
+ 	x = .8cm,
  	ymin=0.30, 	
  	ymax=0.65,
-	enlarge x limits ={abs=1cm},
+ 	ytick = {0.30,0.35,...,0.70},
+	enlarge x limits ={abs=.8cm},
 	nodes near coords,
     every node near coord/.append style={font=\tiny,/pgf/number format/.cd,precision=4},
  	ylabel={nDCG},
 	xtick={0,1,2,3,4},  % NEW BIT
 	xticklabels={BC, BTC, BWC, BEC, Random},
-	legend style={at={(0.5,-0.1)},
-	anchor=north,legend columns=-1},
+	%legend style={at={(0.5,-0.1)},
+	%anchor=north,legend columns=-1},
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.5340)};    
@@ -109,28 +117,35 @@
 		\addplot coordinates {(2,0.5351)};    
 		\addplot coordinates {(3,0.5340)};    
 		\addplot coordinates {(4,0.3393)};
-        \legend{BC, BTC, BWT, BET, Random}
+        %\legend{BC, BTC, BWC, BEC, Random}
      \end{axis}
 \end{tikzpicture}
-\caption{Group size 16}
+\captionof{figure}{Groups with 16 users}
+\end{minipage}
 \end{figure}
+
+
 
 \begin{figure}[h]
 \centering
+\begin{minipage}{.46\textwidth}\centering
 \begin{tikzpicture}
  \begin{axis}[
+ 	width=.75\textwidth,
+ 	height=7cm,
  	ybar =-10pt,
- 	x = 1cm,
+ 	x = 0.80cm,
  	ymin=0.25, 	
  	ymax=0.65,
-	enlarge x limits ={abs=1cm},
+ 	ytick = {0.25,0.30,...,0.70},
+	enlarge x limits ={abs=.8cm},
 	nodes near coords,
     every node near coord/.append style={font=\tiny,/pgf/number format/.cd,precision=4},
  	ylabel={nDCG},
 	xtick={0,1,2,3,4},  % NEW BIT
 	xticklabels={BC, BTC, BWC, BEC, Random},
-	legend style={at={(0.5,-0.1)},
-	anchor=north,legend columns=-1},
+	%legend style={at={(0.5,-0.1)},
+	%anchor=north,legend columns=-1},
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.5223)};    
@@ -138,28 +153,28 @@
 		\addplot coordinates {(2,0.5232)};    
 		\addplot coordinates {(3,0.5199)};    
 		\addplot coordinates {(4,0.3075)};
-        \legend{BC, BTC, BWT, BET, Random}
+        %\legend{BC, BTC, BWC, BEC, Random}
      \end{axis}
 \end{tikzpicture}
-\caption{Group size 20}
-\end{figure}
-
-\begin{figure}[h]
-\centering
+\captionof{figure}{Groups with 20 users}
+\end{minipage}
+\begin{minipage}{.46\textwidth}\centering
 \begin{tikzpicture}
  \begin{axis}[
+ 	height=7cm,
  	ybar =-10pt,
- 	x = 1cm,
+ 	x = 0.80cm,
  	ymin=0.20, 
  	ymax=0.65,	
-	enlarge x limits ={abs=1cm},
+ 	ytick = {0.20,0.25,...,0.70},
+	enlarge x limits ={abs=.8cm},
 	nodes near coords,
     every node near coord/.append style={font=\tiny,/pgf/number format/.cd,precision=4},
  	ylabel={nDCG},
 	xtick={0,1,2,3,4},  % NEW BIT
 	xticklabels={BC, BTC, BWC, BEC, Random},
-	legend style={at={(0.5,-0.1)},
-	anchor=north,legend columns=-1},
+	%legend style={at={(0.5,-0.1)},
+	%anchor=north,legend columns=-1},
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.4886)};    
@@ -167,8 +182,9 @@
 		\addplot coordinates {(2,0.4891)};    
 		\addplot coordinates {(3,0.4873)};    
 		\addplot coordinates {(4,0.2231)};
-        \legend{BC, BTC, BWT, BET, Random}
+        %\legend{BC, BTC, BWC, BEC, Random}
      \end{axis}
 \end{tikzpicture}
-\caption{Group size 40}
+\captionof{figure}{Groups with 40 users}
+\end{minipage}
 \end{figure}
