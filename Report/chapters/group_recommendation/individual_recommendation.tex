@@ -1,4 +1,47 @@
 \section{Individual Recommendation}\label{sec:individual_recommendation}
+I Section \ref{sec:decision} we determined that SVD would be a suitable method of recommendation for this project. 
+We experimented with to different approaches with slight differences in how they do regularization and in how the A and B matrices are constructed.
+
+The first approach was the Funk-SVD which can be seen in Equation \ref{funk}. \note{kilde} 
+
+The second approach can be seen in Equation \ref{slide}.
+
+
+\begin{table}[]
+\centering
+\caption{parameter tuning of funk-svd}
+\label{my-label}
+\begin{tabular}{|l|llll|}
+\hline
+Setup	& $\eta$ & $\lambda$ & k   & RMSE   \\ \hline
+$S_1$	& 0.001  & 0.01      & 100 & 1.8378 \\ \hline
+$S_2$	& 0.01   & 0.01      & 100 & 1.2832 \\ \hline
+$S_3$	& 0.01   & 0.2       & 100 & 1.0286 \\ \hline
+$S_4$	& 0.01   & 0.2		 & 50  & 0.9944 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{parameter tuning of svd}
+\label{my-label}
+\begin{tabular}{|l|llll|}
+\hline
+Setup	& $\eta$ & $\lambda$ & k   & RMSE \\ \hline
+$S_1$	& 0.01   & 0.01   & 100 & 1.3873  \\ \hline
+$S_2$	& 0.05   & 0.01   & 100  & 1.0055 \\ \hline
+$S_3$	& 0.01   & 0.2    & 10 & 1		  \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+\begin{equation}\label{funk}
+A_{uk} += \eta (R_{ui} - \sum_n A_{un}B_{ni})B_{ki} - \lambda A_{uk}
+\end{equation}
+\begin{equation}\label{slide}
+A_{uk} += \eta (R_{ui} - \sum_n A_{un}B_{ni})B_{ki} - \lambda A_{uk}
+\end{equation}
 Notes: 
 Funk svd - populates using the svd function from matlab.
 svd fra slides

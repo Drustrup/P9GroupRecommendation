@@ -172,3 +172,17 @@ Report/graphics/tikz/master-figure7.log
 Report/graphics/tikz/master-figure7.md5
 Report/graphics/tikz/master-figure7.pdf
 Report/graphics/tikz/master-figure7.run.xml
+Recommends/prediction.txt
+Recommends/validationNew.txt
+Dataset/movielens/u1_base_different_movie.txt
+Dataset/movielens/u1_base_different_user.txt
+Dataset/movielens/u2_base_different_movie.txt
+Dataset/movielens/u2_base_different_user.txt
+Dataset/movielens/u3_base_different_movie.txt
+Dataset/movielens/u3_base_different_user.txt
+Dataset/movielens/u4_base_different_movie.txt
+Dataset/movielens/u4_base_different_user.txt
+Dataset/movielens/u5_base_different_movie.txt
+Dataset/movielens/u5_base_different_user.txt
+Recommends/funk_svd.asv
+Recommends/legacy_svd_slides.asv
