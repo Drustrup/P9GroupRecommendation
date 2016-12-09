@@ -29,7 +29,7 @@ Already when the group size is increased to 8, Figure \ref{fig:testresult8member
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.6398)};    
-		\addplot coordinates {(1,0.6393)};    
+		\addplot coordinates {(1,0.6394)};    
 		\addplot coordinates {(2,0.6394)};    
 		\addplot coordinates {(3,0.6453)};    
 		\addplot coordinates {(4,0.5451)};
@@ -59,7 +59,7 @@ Already when the group size is increased to 8, Figure \ref{fig:testresult8member
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.5952)};    
-		\addplot coordinates {(1,0.6040)};    
+		\addplot coordinates {(1,0.6044)};    
 		\addplot coordinates {(2,0.5969)};    
 		\addplot coordinates {(3,0.5910)};    
 		\addplot coordinates {(4,0.4499)};
@@ -71,9 +71,9 @@ Already when the group size is increased to 8, Figure \ref{fig:testresult8member
 \end{minipage}
 \end{figure}
 
-BTC ability to satisfy larger groups becomes truly apparent with a group size of 12 and 16, Figure \ref{fig:testresult12members} and Figure \ref{fig:testresult16members}, where it is about 6.3\% and 10.7\% better respectively. BC, BWC, and BEC all perform within 1\% of each other, with BEC performing slightly worse than the other two.
+BTC ability to satisfy larger groups becomes truly apparent with a group size of 12 and 16, Figure \ref{fig:testresult12members} and Figure \ref{fig:testresult16members}, where it is about 6.4\% and 11.2\% better respectively. An interesting observation is that BTC gives a slightly worse satisfaction with a size of 12 than when the size is 16. The cause of this dip in satisfaction is unknown, however it could be interesting to explore it further. BC, BWC, and BEC all perform within 1\% of each other, with BEC performing slightly worse than the other two.
 
-When the group size reaches 20, Figure \ref{fig:testresult20members}, BTC also outperforms the other methods the most, at least with the group sizes tested. On average it outperforms BC with 12.2\%. However after size 20, the benefits of BTC seems to gradually fall away, as Figure \ref{fig:testresult40members} shows, at a group size of 40 BTC has had a larger drop in satisfaction than the other methods 
+When the group size reaches 20, Figure \ref{fig:testresult20members}, BTC also outperforms the other methods the most, at least with the group sizes tested. On average it outperforms BC by about 13.1\%. However after size 20, the benefits of BTC seems to gradually fall away, as Figure \ref{fig:testresult40members} shows, at a group size of 40 BTC has had a larger drop in satisfaction than the other methods 
 
 \begin{figure}[h]
 \centering
@@ -97,7 +97,7 @@ When the group size reaches 20, Figure \ref{fig:testresult20members}, BTC also o
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.5573)};    
-		\addplot coordinates {(1,0.5922)};    
+		\addplot coordinates {(1,0.5934)};    
 		\addplot coordinates {(2,0.5584)};    
 		\addplot coordinates {(3,0.5539)};    
 		\addplot coordinates {(4,0.3753)};
@@ -127,7 +127,7 @@ When the group size reaches 20, Figure \ref{fig:testresult20members}, BTC also o
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.5340)};    
-		\addplot coordinates {(1,0.5913)};    
+		\addplot coordinates {(1,0.5939)};    
 		\addplot coordinates {(2,0.5351)};    
 		\addplot coordinates {(3,0.5340)};    
 		\addplot coordinates {(4,0.3393)};
@@ -164,7 +164,7 @@ When the group size reaches 20, Figure \ref{fig:testresult20members}, BTC also o
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.5223)};    
-		\addplot coordinates {(1,0.5862)};    
+		\addplot coordinates {(1,0.5906)};    
 		\addplot coordinates {(2,0.5232)};    
 		\addplot coordinates {(3,0.5199)};    
 		\addplot coordinates {(4,0.3075)};
@@ -194,7 +194,7 @@ When the group size reaches 20, Figure \ref{fig:testresult20members}, BTC also o
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.4886)};    
-		\addplot coordinates {(1,0.5314)};    
+		\addplot coordinates {(1,0.5518)};    
 		\addplot coordinates {(2,0.4891)};    
 		\addplot coordinates {(3,0.4873)};    
 		\addplot coordinates {(4,0.2231)};
@@ -205,3 +205,5 @@ When the group size reaches 20, Figure \ref{fig:testresult20members}, BTC also o
 \label{fig:testresult40members}
 \end{minipage}
 \end{figure}
+
+\section{Influence of the Size of k} \label{sec:influenceofk}
