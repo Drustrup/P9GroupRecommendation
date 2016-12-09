@@ -1,7 +1,4 @@
-\section{Control Algorithm} \todo{Needs to be updated}
+\section{Control Aggregations} \todo{Needs to be updated}
 
-In order to verify that the recommendation algorithm is implemented correctly we make a control algorithm. In al simplicity this algorithm is just making use of the average aggregation method described in \todo{ref to avg aggregation here}. 
+Implementing and testing the aggregation methods described in Section \ref{sec:novelaggregationmethods}, would not provide any useful data on its own. Therefore a two aggregation methods will be used as a measuring baseline. The first will be Borda Count(BC) that will represent a solid comparison baseline, since the new methods being tested are modifications of BC, while the second will be a random selection method. If the new methods can not, on average, outperform a random selection, then there would be no reason to use the method at all.
 
-The reason that we to do this, is that we manually, and relatively easy, can calculate the results ourselves. By doing so, we can make sure the both the aggregate and the recommend algorithm works as intended. 
-
-Besides for control, we would like to use this algorithm as our baseline and our aim is to perform better than the average aggregation.
