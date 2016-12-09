@@ -1,13 +1,7 @@
 \section{Data Processing}\label{sec:data_preprocessing}
-For this project we are using the Movielens 100k data set which contains 100000 ratings, between 1 and 5, from 943 user spread out on 1682 movies\cite{movielens100k}. 
+For this project we were using the Movielens 100k data set which contain 100.000 ratings, between 1 and 5, from 943 users spread out on 1682 movies\cite{movielens100k}. 
+We also looked at a dataset from last.fm called 1K\cite{lastfmdataset}, it but we decided to use the Movielens set because came with a 5-fold test set-up which saved us for some processing work.
 
-Notes:
-The data set was separated into 5 folds
-\subsection{Preprocessing}
-In order to use the data set for matrix factorization we need to present it in a matrix. 
+In order for us to use the data for matrix factorization we need to present it in a matrix. We constructed 6 different $User \times Movies$ matrices. One for each of the folds containing the 80000 ratings to be trained on and a matrix containing all the ratings.
 
-Notes: 
-Extract different users and movies.
-Constructing matrices of the folds and the total data set.
-Making new base folds containing all items 
 

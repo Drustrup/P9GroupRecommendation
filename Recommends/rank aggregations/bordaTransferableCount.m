@@ -25,7 +25,9 @@ for i=1:numel(points)-numel(result)
     [result, points, movies, topKMovies, topKVotes] = transferVotes(points, movies, topKMovies, topKVotes, result, returnSize);
 end
 for i=1:numel(points)
-result = [result, movies(i)];
+    [M,I] = max(points);
+    result = [result, movies(I)];
+    points(I) = 0;
 end
 %result = zeros(1,numel(movies));
 %for i=1:numel(movies)

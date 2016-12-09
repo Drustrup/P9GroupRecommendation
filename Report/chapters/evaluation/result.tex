@@ -1,8 +1,8 @@
-\section{Satisfaction Results} \todo{Rename section}
+\section{Satisfaction Evaluation} \label{sec:satisfationevaluation}
 
-To test how the implemented methods performed compared to each other, the setup from Section \ref{} \todo{insert reference to test setup} was used. Be aware that th scales of the figures differ a bit due to the random selection performing much worse than the other approaches thus dragging the lower end of the scale down.
+To test how the implemented methods performed compared to each other, the setup from Section \ref{sec:evaluationsetup} was used. Be aware that th scales of the figures differ a bit due to the random selection performing much worse than the other approaches thus dragging the lower end of the scale down.
 
-Figure \ref{fig:testresult4members} presents the average satisfaction when the groups consists of 4 random members. Here there is only little difference in the fond satisfaction with Borda Escalated Count edging out slightly ahead, being a little less than 1\% better than Borda Count. Borda Transferable Count and Borda Weighted Count are both minimally worse than BC, but as both the methods are more reliant on items being present in multiple top-k lists amongst the users, it is no surprise that they give worse results than BC.
+Figure \ref{fig:testresult4members} presents the average satisfaction when the groups consists of 4 random members. Here there is only little difference in the fond satisfaction with Borda Escalated Count edging out slightly ahead, being a little less than 1\% better than Borda Count. Borda Transferable Count and Borda Weighted Count are both minimally worse than BC, but as both the methods are more reliant on items being present in multiple top-k lists amongst the users, it is no surprise that they give worse results than BC. \todo{Insert a graph curve for each method, group size on x-axis, nDCG on y-axis.}
 
 Already when the group size is increased to 8, Figure \ref{fig:testresult8members}, a trend of BTC outperforming the other methods starts emerging, and at 8 members it outperforms BC by about 1.5\%. An interesting thing to note is that there is a generally sharp dropoff in satisfaction for all methods when going from 4 to 8 members, but as the group size is increased further, all but BTC drops further, while BTC maintains a satisfaction of around 0.59 until the group size is increased to 40.
 
@@ -29,7 +29,7 @@ Already when the group size is increased to 8, Figure \ref{fig:testresult8member
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.6398)};    
-		\addplot coordinates {(1,0.6393)};    
+		\addplot coordinates {(1,0.6394)};    
 		\addplot coordinates {(2,0.6394)};    
 		\addplot coordinates {(3,0.6453)};    
 		\addplot coordinates {(4,0.5451)};
@@ -59,7 +59,7 @@ Already when the group size is increased to 8, Figure \ref{fig:testresult8member
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.5952)};    
-		\addplot coordinates {(1,0.6040)};    
+		\addplot coordinates {(1,0.6044)};    
 		\addplot coordinates {(2,0.5969)};    
 		\addplot coordinates {(3,0.5910)};    
 		\addplot coordinates {(4,0.4499)};
@@ -71,9 +71,9 @@ Already when the group size is increased to 8, Figure \ref{fig:testresult8member
 \end{minipage}
 \end{figure}
 
-BTC ability to satisfy larger groups becomes truly apparent with a group size of 12 and 16, Figure \ref{fig:testresult12members} and Figure \ref{fig:testresult16members}, where it is about 6.3\% and 10.7\% better respectively. BC, BWC, and BEC all perform within 1\% of each other, with BEC performing slightly worse than the other two.
+BTC ability to satisfy larger groups becomes truly apparent with a group size of 12 and 16, Figure \ref{fig:testresult12members} and Figure \ref{fig:testresult16members}, where it is about 6.4\% and 11.2\% better respectively. An interesting observation is that BTC gives a slightly worse satisfaction with a size of 12 than when the size is 16. The cause of this dip in satisfaction is unknown, however it could be interesting to explore it further. BC, BWC, and BEC all perform within 1\% of each other, with BEC performing slightly worse than the other two.
 
-When the group size reaches 20, Figure \ref{fig:testresult20members}, BTC also outperforms the other methods the most, at least with the group sizes tested. On average it outperforms BC with 12.2\%. However after size 20, the benefits of BTC seems to gradually fall away, as Figure \ref{fig:testresult40members} shows, at a group size of 40 BTC has had a larger drop in satisfaction than the other methods 
+When the group size reaches 20, Figure \ref{fig:testresult20members}, BTC also outperforms the other methods the most, at least with the group sizes tested. On average it outperforms BC by about 13.1\%. However after size 20, the benefits of BTC seems to stagnate, as Figure \ref{fig:testresult40members} shows, at a group size of 40 BTC had a slightly larger fall than the other methods, performing 12.9\% better than BC.
 
 \begin{figure}[h]
 \centering
@@ -97,7 +97,7 @@ When the group size reaches 20, Figure \ref{fig:testresult20members}, BTC also o
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.5573)};    
-		\addplot coordinates {(1,0.5922)};    
+		\addplot coordinates {(1,0.5934)};    
 		\addplot coordinates {(2,0.5584)};    
 		\addplot coordinates {(3,0.5539)};    
 		\addplot coordinates {(4,0.3753)};
@@ -127,7 +127,7 @@ When the group size reaches 20, Figure \ref{fig:testresult20members}, BTC also o
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.5340)};    
-		\addplot coordinates {(1,0.5913)};    
+		\addplot coordinates {(1,0.5939)};    
 		\addplot coordinates {(2,0.5351)};    
 		\addplot coordinates {(3,0.5340)};    
 		\addplot coordinates {(4,0.3393)};
@@ -164,7 +164,7 @@ When the group size reaches 20, Figure \ref{fig:testresult20members}, BTC also o
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.5223)};    
-		\addplot coordinates {(1,0.5862)};    
+		\addplot coordinates {(1,0.5906)};    
 		\addplot coordinates {(2,0.5232)};    
 		\addplot coordinates {(3,0.5199)};    
 		\addplot coordinates {(4,0.3075)};
@@ -194,7 +194,7 @@ When the group size reaches 20, Figure \ref{fig:testresult20members}, BTC also o
 	ymajorgrids = true,]
 
 		\addplot coordinates {(0,0.4886)};    
-		\addplot coordinates {(1,0.5314)};    
+		\addplot coordinates {(1,0.5518)};    
 		\addplot coordinates {(2,0.4891)};    
 		\addplot coordinates {(3,0.4873)};    
 		\addplot coordinates {(4,0.2231)};
@@ -205,3 +205,13 @@ When the group size reaches 20, Figure \ref{fig:testresult20members}, BTC also o
 \label{fig:testresult40members}
 \end{minipage}
 \end{figure}
+
+\subsection{Influence of the Size of k} \label{sec:influenceofk}
+While performing the satisfaction tests, an interesting observation regarding the size of $k$ was made. We tested BC and BTC with a few alternative $k$, and found that as $k$ increased from 10 to 20, there would be a drop in satisfaction. However at a $k$ of 50, this drop off had been more than made up for, with a satisfaction about 10\% higher than the satisfaction at $k = 10$. Increasing k further to 100 also increases the satisfaction. These observations were found on tests performed on group sizes 16 and 40, other sizes were not tested. \todo{Make a visual representation?}
+
+During these prodding tests, it was discovered that there seemed to be a local maximum around a k of 10 or 11. These specific trends might be dependent on the dataset, as the only plausible we could find would be that the top-10 lists of each group holds comparatively more overlaps than the top-20 lists. For instance there might be 10 overlapping items in the top-10, while the top-20 only adds an extra 5 items with overlap, thus decreasing the percentage of items with an overlap in the set of items being evaluated upon. Similarly top-50 might add a large number of new overlaps, increasing the final satisfaction, generally popular items could be located amongst items 21-50 in most users top-k lists.
+
+\subsection{Evaluation of Results} \label{sec:evaluationofresults}
+Based on the results presented in Section \ref{sec:satisfationevaluation} it seems that BTC performs remarkably well on group sizes of more than 8. If the results for group sizes 20 and 40 are any indication, then BTC is about 13\% better at satisfying a large group, when giving them 10 ordered items. On a group size of 4, BTC performs similarly to the other methods however slightly worse. Therefore BTC should be used over BC when dealing with groups of size 8 or more.
+
+As indicated by the findings presented in Section \ref{sec:influenceofk}, which value of $k$ that is used has little influence on which aggregation that performs best. However it has a large on how much satisfaction that is achieved. Ideally, for the MovieLens dataset, $k$ should be 10 if the recommender should return a small number of items, otherwise it would be best to have it at more than 50. Whether this is generally applicable remains to be seen.

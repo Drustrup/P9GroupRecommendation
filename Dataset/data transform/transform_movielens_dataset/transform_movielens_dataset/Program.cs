@@ -195,7 +195,7 @@ namespace transform_movielens_dataset
             Console.WriteLine("Hello, reading your data!");
             string pattern = @"\t| \r | \n | \' ";
 
-            string[] datasetUsers = File.ReadAllLines(@"e:/projects/p9/dataset/movielens/u1_base_different_users.txt");
+            string[] datasetUsers = File.ReadAllLines(@"e:/projects/p9/dataset/movielens/u3_base_different_user.txt");
             string[] userList = new string[datasetUsers.Length];
 
             for (int i = 0; i < datasetUsers.Length; i++)
@@ -205,7 +205,7 @@ namespace transform_movielens_dataset
             }
             datasetUsers = null;
 
-            string[] datasetTracks = File.ReadAllLines(@"e:/projects/p9/dataset/movielens/u1_base_different_movies.txt");
+            string[] datasetTracks = File.ReadAllLines(@"e:/projects/p9/dataset/movielens/u3_base_different_movie.txt");
             List<string> trackList = new List<string>();
 
             for (int i = 0; i < datasetTracks.Length; i++)
@@ -215,7 +215,7 @@ namespace transform_movielens_dataset
             }
             datasetTracks = null;
 
-            string[] datasetUsersAndTracks = File.ReadAllLines(@"e:/projects/p9/dataset/movielens/u1.base");
+            string[] datasetUsersAndTracks = File.ReadAllLines(@"e:/projects/p9/dataset/movielens/u3.base");
 
             //trackList = trackList.OrderBy(n => n).ToList();
 
@@ -240,7 +240,7 @@ namespace transform_movielens_dataset
 
 
             Console.WriteLine("Done reading data, saving to file");
-            string path = @"e:/projects/p9/dataset/movielens/u1_base_matrix.txt";
+            string path = @"e:/projects/p9/dataset/movielens/u3_base_matrix.txt";
             if (!File.Exists(path))
             {
                 using (StreamWriter sw = File.CreateText(path))
@@ -315,7 +315,7 @@ namespace transform_movielens_dataset
             Console.WriteLine("Hello, reading your data!");
             string pattern = @"\t| \r | \n | \' ";
 
-            string[] datasetUsers = File.ReadAllLines(@"e:/projects/p9/dataset/movielens/u1_test_different_users.txt");
+            string[] datasetUsers = File.ReadAllLines(@"e:/projects/p9/dataset/movielens/u3_test_different_users.txt");
             string[] userList = new string[datasetUsers.Length];
 
             for (int i = 0; i < datasetUsers.Length; i++)
@@ -325,7 +325,7 @@ namespace transform_movielens_dataset
             }
             datasetUsers = null;
 
-            string[] datasetTracks = File.ReadAllLines(@"e:/projects/p9/dataset/movielens/u1_test_different_movies.txt");
+            string[] datasetTracks = File.ReadAllLines(@"e:/projects/p9/dataset/movielens/u3_test_different_movies.txt");
             List<string> trackList = new List<string>();
 
             for (int i = 0; i < datasetTracks.Length; i++)
@@ -335,7 +335,7 @@ namespace transform_movielens_dataset
             }
             datasetTracks = null;
 
-            string[] datasetUsersAndTracks = File.ReadAllLines(@"e:/projects/p9/dataset/movielens/u1.test");
+            string[] datasetUsersAndTracks = File.ReadAllLines(@"e:/projects/p9/dataset/movielens/u3.test");
 
             //trackList = trackList.OrderBy(n => n).ToList();
 
@@ -360,7 +360,7 @@ namespace transform_movielens_dataset
 
 
             Console.WriteLine("Done reading data, saving to file");
-            string path = @"e:/projects/p9/dataset/movielens/u1_test_matrix.txt";
+            string path = @"e:/projects/p9/dataset/movielens/u3_test_matrix.txt";
             if (!File.Exists(path))
             {
                 using (StreamWriter sw = File.CreateText(path))
