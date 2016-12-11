@@ -1,3 +1,130 @@
 \section{Rank Aggregation}\label{sec:rank_aggregation}
-Notes:
-The different borda count methods we use.
+Having a ranked list for each user in a group it is then possible to aggregate them together in order to get a group recommendation. We took base in the voting approach call borda count and together with the basic borda count method, which can seen represented in pseudocode in Listing \ref{lst:BC}, we have constructed different variations thereof. 
+\subsection{Borda Count}
+In Listing \ref{lst:BC} is the rough implementation of our borda count method. In Line ~\ref{line:sumpoints} we sum up the points for each unique item present in the combined user lists.
+\begin{lstlisting}[caption={Borda count implementation},label=lst:BC,escapechar=|]
+input: A matrix topK containing users individual ranked preferences.
+output: An array with the recommendations for the group in a ranked order.
+
+topK = revert(topK)
+items = unique(topK)
+users = number of rows in topK
+
+for i = 1 to size(items)
+	point = 0
+	for j = 1 to users
+		if movie(i) \in topK(j,:)
+			point += position of item(i) in array topK(j,:) |\label{line:sumpoints}|
+		end
+	end
+	points(i) = point
+end
+
+for i = 1 to returnSize
+	I = index of highest value in points
+	points(I) = 0
+	result(i) = movies(I)
+end
+
+return results
+
+\end{lstlisting}
+
+\subsection{Borda Weighted Count}
+\begin{lstlisting}[caption={Borda weighted count implementation},label=lst:BWC, firstnumber=7]
+...
+for i = 1 to size(items)
+	point = 0
+	for j = 1 to users
+		if movie(i) \in topK(j,:)
+			point += position of movie(i) in array topK(j,:)
+		end
+	end
+	points(i) = point + number of times the item appears in the topK-matrix
+end
+...
+\end{lstlisting}
+\subsection{Borda Escalating Count}
+\begin{lstlisting}[caption={Borda escalating count implementation},label=lst:BEC, firstnumber=7]
+...
+k = number of columns in topK
+top = floor(k/3)
+middle = top + ceiling(k/3)
+
+for i = 1 to size(items)
+	point = 0
+	for j = 1 to users
+		if movie(i) \in topK(j,:)
+			point += position of item(i) in array topK(j,:)
+			if i <= top
+               point = point + 3
+           	elseif i <= middle
+               point = point + 1
+           end 
+		end
+	end
+	points(i) = point
+end
+...
+\end{lstlisting}
+
+\subsection{Borda Transferable Count} \label{sec:BTC}
+\begin{lstlisting}[caption={Borda transferable count implementation},label=lst:BTC]
+items = unique(topK)
+users = number of rows in topK
+topKItems = revert(topK)
+topKVotes = size(topKItems);
+for i=1:row
+    for j=1:col
+        topKVotes(i,j)=j;
+    end 
+end
+
+for i = 1 to size(items)
+	point = 0
+	for j = 1 to users
+		if movie(i) \in topK(j,:)
+			point += position of item(i) in array topK(j,:)
+		end
+	end
+	points(i) = point
+end
+
+for i = 1 to size(items)
+	[result, points, items, topKItems, topKVotes] = transferVotes(result, points, items, topKItems, topKVotes)
+end
+	
+...
+\end{lstlisting}[caption={Implementation for the transfer method},label=lst:BTCtransfer]
+
+\begin{lstlisting}
+users = rows in topkItems
+threshold = summation of all votes divided with the return size
+
+if mostVotes > threshold
+	transfer = mostVotes - threshold
+	result = mostVotes
+	votingUsers = []
+	usersVotes = []
+	for i = 1 to users 
+		if they voted on mostVotes
+			votingUsers += users(i)
+			usersVotes += mostVotes index in topKMovies
+		end
+	end
+	
+  points(index of mostVotes) = [];
+  movies(index of mostVotes) = [];
+	
+	for i = 1 to size(votingUsers)
+		for j = 1 to column of topKItems
+			highest = the user item with most votes in the group
+		end
+		points(index of highest) += transfer * (usersVotes(i)/votingUsers(i))
+		update topKVoting with the new vote distribution 
+	end
+	
+elseif size(result) + size(items) > returnSize
+This part is almost as of mostVotes just for the lowest votes.
+
+\end{lstlisting}

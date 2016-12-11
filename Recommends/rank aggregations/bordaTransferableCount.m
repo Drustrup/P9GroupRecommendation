@@ -21,7 +21,7 @@ for j=1:numel(movies)
     points(j) = point;
 end
 result=[];
-for i=1:numel(points)-numel(result)
+for i=1:numel(points)
     [result, points, movies, topKMovies, topKVotes] = transferVotes(points, movies, topKMovies, topKVotes, result, returnSize);
 end
 for i=1:numel(points)

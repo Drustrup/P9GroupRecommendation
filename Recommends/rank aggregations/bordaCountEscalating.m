@@ -1,5 +1,6 @@
-function result = bordaCountEscalating(topK,k)
+function result = bordaCountEscalating(topK)
 [row,col] = size(topK);
+k = col;
 returnSize = col;
 movies = unique(topK);
 points = zeros(1,numel(movies));

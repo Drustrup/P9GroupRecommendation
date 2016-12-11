@@ -1,4 +1,5 @@
 \section{Ranking}\label{sec:ranking}
-Notes: 
-why we selected 10 as top-k
-How we extract the ranked list from the individual ratings
+Prior to making a group recommendation, we need to know each member of the groups favourite items in a ranked order. This is why we made the individual recommendations earlier. A ranked list for a user consists of its highest rated movies ordered by descending. We get the movies from the recommendation matrix where we select a users top 10. We have no reason for selecting top 10 but as it is a rather standard metric in the recommendation area we choose this, but for future convenience it is a variable parameter. 
+
+\note{maybe this should be in the future work section}
+As of now we only rank by ratings in descending order, but we have a theory about using an other sorting method of the users individual preferences maybe could enhance the group satisfaction. One idea could be ranking i users top 10 by a movies average rating instead of just of a users ratings. 

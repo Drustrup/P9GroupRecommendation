@@ -7,7 +7,7 @@ The first approach was the Funk-SVD which can be seen in Equation \ref{funk}. \n
 The second approach can be seen in Equation \ref{slide}.
 
 
-\begin{table}[]
+\begin{table}[h]
 \centering
 \caption{parameter tuning of funk-svd}
 \label{my-label}
@@ -21,7 +21,7 @@ $S_4$	& 0.01   & 0.2		 & 50  & 0.9944 \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[]
+\begin{table}[h]
 \centering
 \caption{parameter tuning of svd}
 \label{my-label}
@@ -33,8 +33,28 @@ $S_2$	& 0.05   & 0.01   & 100  & 1.0055 \\ \hline
 $S_3$	& 0.01   & 0.2    & 10 & 1		  \\ \hline
 \end{tabular}
 \end{table}
-
-
+\note{write how we calculate RMSE}
+\begin{lstlisting}[caption={Training of the prediction matrix},label=lst:SVD]
+...
+While threshold && RMSE < thresholdRMSE
+	x = randomKnownRating
+	
+	SVD-algorithm(x)
+	
+	if modulo(threshold,1000) == 0
+		if RMSE < lowRMSE 
+			lowRMSE = RMSE 
+			thresholdRMSE = RMSE + 0.1
+		end
+		
+		predictionMatrix = A * B
+		
+		predictionArray = extractValidationPredictions(predictionRating)
+		
+		RMSE = sqrt(MSE(predictonArray,validationArray)	
+	end
+end
+\end{lstlisting}
 
 \begin{equation}\label{funk}
 A_{uk} += \eta (R_{ui} - \sum_n A_{un}B_{ni})B_{ki} - \lambda A_{uk}
@@ -46,5 +66,6 @@ Notes:
 Funk svd - populates using the svd function from matlab.
 svd fra slides
 parameter tuning
+both stochastic gradient decent
 
 

@@ -1,15 +1,17 @@
 \section{Thesis Questions}
 Throughout the work done during this project, we have encountered or discovered a number of hurdles, possible improvements, and new approaches. These findings should be studied further and we will in our next project look into some of these.
-
-While discussing ranked aggregation methods, one of the approaches we discussed but ended up not exploring was a method that involved re-ranking every users top-k based on the average value for the individual items amongst the other group members. For instance user 1's highest rated item only has the fifth highest average amongst the rest of the group members, so the item will be placed in user 1's ranked list as their fifth item. The idea behind this is to account for other users opinion (ratings) even if the item in question was not on the secondary users' top-k list. It is our hypothesis that making a re-ranking of the top-k list using other members' influence would lead to a better group satisfaction.\\
+\subsubsection{Reordering of Rank Lists}
+While discussing ranked aggregation methods, one of the approaches we discussed but ended up not exploring was a method that involved re-ranking every users top-k based on the average value for the individual items amongst the other group members. For instance user 1's highest rated item only has the fifth highest average amongst the rest of the group members, so the item will be placed in user 1's ranked list as their fifth item. The idea behind this is to account for other users opinion (ratings) even if the item in question was not on the secondary users' top-k list. It is our hypothesis that making a re-ranking of the top-k list using other members' influence would lead to a better group satisfaction.
 
 (1) To what extend does re-ranking a user's top-k preferences, based on other group members, influence the individual user as well as the groups overall satisfaction?
 
+\subsubsection{Obtaining Data Set}
 When we trained and tested our recommender, we only did so on the MovieLens dataset. While the results should be generally applicable, that might not be the case in practice, therefore the recommender and the aggregation methods should be tested on other datasets. In particular tests on a dataset with already existing groups and their satisfaction would be an welcome addition. However to the best of our knowledge, such a dataset with public availability does not exist. \todo{Use this to explain why we need make our own dataset.}
 
 (2) How does Borda Transferable Count perform in tests on a dataset designed for testing group recommendation?
 
-As mentioned in Section \ref{} \todo{insert reference to implementation of BTC} the implemented version of the Borda Transferable Count is not exactly as described in Section \ref{BTC}, due to the strategic transfer of the votes instead of as usual to the highest priority. While the implemented BTC seems to perform well compared to the methods we tested it against, ideally it should be further compared to other strategies, most prominently Spearmans Footrule and a BTC without the strategic reassignment.
+\subsubsection{Alternative Rank Aggregations}
+As mentioned in Section \ref{sec:BTC} the implemented version of the Borda Transferable Count is not exactly as described in Section \ref{BTC}, due to the strategic transfer of the votes instead of as usual to the highest priority. While the implemented BTC seems to perform well compared to the methods we tested it against, ideally it should be further compared to other strategies, most prominently Spearmans Footrule and a BTC without the strategic reassignment.
 
 (3) How does Borda Transferable Count with strategic reassignment perform compared to the state-of-the-art ranked aggregations?
 

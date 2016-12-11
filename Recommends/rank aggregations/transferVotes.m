@@ -28,15 +28,15 @@ if  vMax >= threshold
    highMovie = 0;
    index = [];
    voteIndex = [];
-   for z=1:col
-       tempMovie=points(find(movies==topKMovies(users(i),z)));
-       if tempMovie > highMovie
-           highMovie = tempMovie;
-           index = find(movies==topKMovies(users(i),z));
-           voteIndex = z;
+       for z=1:col
+           tempMovie=points(find(movies==topKMovies(users(i),z)));
+           if tempMovie > highMovie
+               highMovie = tempMovie;
+               index = find(movies==topKMovies(users(i),z));
+               voteIndex = z;
+           end
        end
-   end
-end
+    end
 points(index) = points(index) + transfer * (userVotes(i)/sum(userVotes));
 topKVotes(users(i),voteIndex) = topKVotes(users(i),voteIndex) + transfer * (userVotes(i)/sum(userVotes));
    
@@ -57,15 +57,15 @@ elseif numel(top)+numel(points) > returnSize
    highMovie = 0;
    index = [];
    voteIndex = [];
-   for z=1:col
-       tempMovie=points(find(movies==topKMovies(users(i),z)));
-       if tempMovie > highMovie
-           highMovie = tempMovie;
-           index = find(movies==topKMovies(users(i),z));
-           voteIndex = z;
+       for z=1:col
+           tempMovie=points(find(movies==topKMovies(users(i),z)));
+           if tempMovie > highMovie
+               highMovie = tempMovie;
+               index = find(movies==topKMovies(users(i),z));
+               voteIndex = z;
+           end
        end
-   end
-end
+    end
 points(index) = points(index) + transfer * (userVotes(i)/sum(userVotes));
 topKVotes(users(i),voteIndex) = topKVotes(users(i),voteIndex) + transfer * (userVotes(i)/sum(userVotes));
 end
