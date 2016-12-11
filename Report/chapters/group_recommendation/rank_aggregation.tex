@@ -1,28 +1,34 @@
 \section{Rank Aggregation}\label{sec:rank_aggregation}
 Having a ranked list for each user in a group it is then possible to aggregate them together in order to get a group recommendation. We took base in the voting approach call borda count and together with the basic borda count method, which can seen represented in pseudocode in Listing \ref{lst:BC}, we have constructed different variations thereof. 
 \subsection{Borda Count}
-In Listing \ref{lst:BC} is the rough implementation of our borda count method. In Line ~\ref{line:sumpoints} we sum up the points for each unique item present in the combined user lists.
+In Listing \ref{lst:BC} is pseudo implementation of our Borda Count(BC) method. It takes a matrix for the top-k preferences of users in a group as input and returns an array of ranked items which is the group recommendations. 
+
+We wanted to use the indexes in the top-k matrix as our scoring system. In order to do so we had to reverse the top-k matrix as it is sorted in descending order which results in a users top preference being at index 1 which only gives 1 vote instead of k votes at index k. Next we had to find each unique item across all for the users since we need to calculate the score of each distinct item.
+
+from Line 8-16 we then iterate through the list of unique items in order to calculate a score for each of them. We do so by going though each user, starting at Line 10, to see if the item is on their list and if so adds its index position to its score value. The scores are stored in an array where their index matches the item they represent in the list of unique items, this happens in Line 15.
+
+When the score is found for each item we had to find the top-k we wanted to return. This is done form Line 18-22. Matlab have a function to find the largest item in a array which can return both the value and index. We iterated though the list of scores to find the index of the largest score. Each time we iterated though we would use the index to lookup items and add them to the result list and we then would set the largest score to be zero in order to find the next score. 
 \begin{lstlisting}[caption={Borda count implementation},label=lst:BC,escapechar=|]
 input: A matrix topK containing users individual ranked preferences.
 output: An array with the recommendations for the group in a ranked order.
 
-topK = revert(topK)
+topK = reverse(topK)
 items = unique(topK)
 users = number of rows in topK
 
 for i = 1 to size(items)
-	point = 0
+	score = 0
 	for j = 1 to users
 		if movie(i) \in topK(j,:)
-			point += position of item(i) in array topK(j,:) |\label{line:sumpoints}|
+			score += position of item(i) in array topK(j,:) |\label{line:sumscores}|
 		end
 	end
-	points(i) = point
+	scores(i) = score
 end
 
 for i = 1 to returnSize
-	I = index of highest value in points
-	points(I) = 0
+	I = index of highest value in scores
+	scores(I) = 0
 	result(i) = movies(I)
 end
 
@@ -31,44 +37,53 @@ return results
 \end{lstlisting}
 
 \subsection{Borda Weighted Count}
-\begin{lstlisting}[caption={Borda weighted count implementation},label=lst:BWC, firstnumber=7]
+Borda Weighted Count(BWC) is almost identical with the BC in Listing \ref{lst:BC}. The only difference is in Line \ref{line:sumweighted}, where we, in addition to adding the score to the array of scores, adds a weight to the score equal to how many times the item related to the score appease in the top-k matrix.
+
+\begin{lstlisting}[caption={Borda weighted count implementation},label=lst:BWC, firstnumber=7,escapechar=|]
 ...
 for i = 1 to size(items)
-	point = 0
+	score = 0
 	for j = 1 to users
-		if movie(i) \in topK(j,:)
-			point += position of movie(i) in array topK(j,:)
+		if movie(i) is in topK(j,:)
+			score += position of movie(i) in array topK(j,:)
 		end
 	end
-	points(i) = point + number of times the item appears in the topK-matrix
+	scores(i) = score + number of times the item appears in the topK-matrix |\label{line:sumweighted}|
 end
 ...
 \end{lstlisting}
 \subsection{Borda Escalating Count}
-\begin{lstlisting}[caption={Borda escalating count implementation},label=lst:BEC, firstnumber=7]
+As for BWT, Borda Escalating Count(BEC) is very similar to BC. In BEC we split the items into three categories which is bot, mid and top. We define bot and mid in Line \ref{line:bot} and \ref{line:mid}. bot gets the size equal to 1/3 of column size of top-k, mid gets 2/3, and top is not defined it is those above the mid. We use these values to assign an additional weight to each users items depending on their rank. In Line \ref{line:top} one can see that a weight on 3 is added to items with index above the middle threshold. If the index is between the mid and bot thresholds it gets the weight 1 and nothing if it is below bot threshold.
+\begin{lstlisting}[caption={Borda escalating count implementation},label=lst:BEC, firstnumber=7,escapechar=|]
 ...
 k = number of columns in topK
-top = floor(k/3)
-middle = top + ceiling(k/3)
+bot = k/3 		|\label{line:bot}|
+mid = top + k/3	|\label{line:mid}|
 
 for i = 1 to size(items)
-	point = 0
+	score = 0
 	for j = 1 to users
-		if movie(i) \in topK(j,:)
-			point += position of item(i) in array topK(j,:)
-			if i <= top
-               point = point + 3
-           	elseif i <= middle
-               point = point + 1
+		if movie(i) is in topK(j,:)
+			index = position of item(i) in array topK(j,:)
+			score += index
+			if index > mid			
+               score = score + 3	|\label{line:top}|
+           	elseif index > bot and mid < index
+               score = score + 1
            end 
 		end
 	end
-	points(i) = point
+	scores(i) = score
 end
 ...
 \end{lstlisting}
 
 \subsection{Borda Transferable Count} \label{sec:BTC}
+The last method we decided to try is Borda Transferable Count(BTC). This is a somewhat more comprehensive modification of the BC method the base implementation is the same because the initial scores are assigned the same way as can be seen in Listing \ref{lst:BTC}. The difference between this version and the original is that instead of ignoring the votes for scores that did not get selected, this version redistributes them to see if it would make a difference on the return list.
+
+The first differences is that we renames the top-k list to topKItems and then creates a new matrix over the vote distribution from the users in Line 4-9. Then everything is as usual until we reach Line \ref{line:transfer}. Here we created a loop that for each item i items list we call the transferVotes function which can be seen in Listing \ref{lst:BTCtransfer}
+
+
 \begin{lstlisting}[caption={Borda transferable count implementation},label=lst:BTC]
 items = unique(topK)
 users = number of rows in topK
@@ -81,25 +96,28 @@ for i=1:row
 end
 
 for i = 1 to size(items)
-	point = 0
+	score = 0
 	for j = 1 to users
-		if movie(i) \in topK(j,:)
-			point += position of item(i) in array topK(j,:)
+		if movie(i) is in topK(j,:)
+			score += position of item(i) in array topK(j,:)
 		end
 	end
-	points(i) = point
+	scores(i) = score
 end
 
-for i = 1 to size(items)
-	[result, points, items, topKItems, topKVotes] = transferVotes(result, points, items, topKItems, topKVotes)
+for i = 1 to size(items)	|\label{line:transfer}|
+	[result, scores, items, topKItems, topKVotes] = transferVotes(result, scores, items, topKItems, topKVotes)
 end
 	
 ...
 \end{lstlisting}
 
+The transferVote function is where we redistribute votes. 
+
 \begin{lstlisting}[caption={Implementation for the transfer method},label=lst:BTCtransfer]
 users = rows in topkItems
 threshold = summation of all votes divided with the return size
+mostVotes = highest value in scores
 
 if mostVotes > threshold
 	transfer = mostVotes - threshold
@@ -113,14 +131,14 @@ if mostVotes > threshold
 		end
 	end
 	
-  points(index of mostVotes) = [];
+  scores(index of mostVotes) = [];
   movies(index of mostVotes) = [];
 	
 	for i = 1 to size(votingUsers)
 		for j = 1 to column of topKItems
 			highest = the user item with most votes in the group
 		end
-		points(index of highest) += transfer * (usersVotes(i)/votingUsers(i))
+		scores(index of highest) += transfer * (usersVotes(i)/votingUsers(i))
 		update topKVoting with the new vote distribution 
 	end
 	

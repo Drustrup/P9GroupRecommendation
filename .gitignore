@@ -187,3 +187,6 @@ Dataset/movielens/u5_base_different_user.txt
 Recommends/funk_svd.asv
 Recommends/legacy_svd_slides.asv
 Recommends/rank aggregations/transferVotes.asv
+Report/chapters/group_recommendation/group_recommendation.aux
+Recommends/rank aggregations/bordaCountEscalating.asv
+Report/chapters/group_recommendation/rank_aggregation.log
