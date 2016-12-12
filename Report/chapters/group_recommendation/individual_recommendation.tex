@@ -1,39 +1,31 @@
 \section{Individual Recommendation}\label{sec:individual_recommendation}
 I Section \ref{sec:decision} we determined that SVD would be a suitable method of recommendation for this project. 
-We experimented with to different approaches with slight differences in how they do regularization and in how the A and B matrices are constructed.
+We experimented with two different approaches with slight differences in how they do regularization and in how the A and B matrices are constructed.
 
-The first approach was the Funk-SVD which can be seen in Equation \ref{funk}. \note{kilde} 
+The first approach was the Funk-SVD which can be seen in Equation \ref{funk}.\note{kilde} Funk-SVD uses the regularization method Tikhonov, denoted as $\lambda$ in the equation, described in Section ?? \note{we need this somewhere}. We have done some slight differences compared to the Simon Funk documentation \note{make ref}. Instead of calculating the values of matrix A and B based on average movie rating and average offset for users our initial test showed best performance with populating them with random variables between 0 and 1. Another difference is that we use stochastic gradient decent instead of just gradient decent. 
+\begin{equation}
+error = R_{ui} - \sum_n A_{un}B_{ni}
+\end{equation}
 
-The second approach can be seen in Equation \ref{slide}.
+\begin{equation}\label{funk}
+\begin{aligned}
+A_{uk} += \eta * (error * B_{ki} - \lambda A_{uk}) \\
+B_{ki} += \eta * (error * A_{uk} - \lambda B_{ki})
+\end{aligned}
+\end{equation}
+
+The second approach can be seen in Equation \ref{slide}. \note{reference til slides?} As mentioned this approach have some differences compared to Funk-SVD. First of all, it uses weighted-decay for regularization and not Tikhonov. Second, the A and B matrices for this approach is populated by using the SVDS method in matlab which is similar to Equation \ref{eq:svd_AB_squeezing} in Section \ref{bg:sub:factorizationmodels}.
+
+\begin{equation}\label{slides}
+\begin{aligned}
+A_{uk} += \eta * error *B_{ki} - \lambda A_{uk} \\
+B_{ki} += \eta * error *A_{uk} - \lambda B_{ki} 
+\end{aligned}
+\end{equation}
+
+In Listing \ref{lst:SVD} is shown how we train both the algorithms. We have a while-loop that runs less than some threshold and as long as the RMSE value does not grow too much.
 
 
-\begin{table}[h]
-\centering
-\caption{parameter tuning of funk-svd}
-\label{my-label}
-\begin{tabular}{|l|llll|}
-\hline
-Setup	& $\eta$ & $\lambda$ & k   & RMSE   \\ \hline
-$S_1$	& 0.001  & 0.01      & 100 & 1.8378 \\ \hline
-$S_2$	& 0.01   & 0.01      & 100 & 1.2832 \\ \hline
-$S_3$	& 0.01   & 0.2       & 100 & 1.0286 \\ \hline
-$S_4$	& 0.01   & 0.2		 & 50  & 0.9944 \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[h]
-\centering
-\caption{parameter tuning of svd}
-\label{my-label}
-\begin{tabular}{|l|llll|}
-\hline
-Setup	& $\eta$ & $\lambda$ & k   & RMSE \\ \hline
-$S_1$	& 0.01   & 0.01   & 100 & 1.3873  \\ \hline
-$S_2$	& 0.05   & 0.01   & 100  & 1.0055 \\ \hline
-$S_3$	& 0.01   & 0.2    & 10 & 1		  \\ \hline
-\end{tabular}
-\end{table}
-\note{write how we calculate RMSE}
 \begin{lstlisting}[caption={Training of the prediction matrix},label=lst:SVD]
 ...
 While threshold && RMSE < thresholdRMSE
@@ -56,12 +48,38 @@ While threshold && RMSE < thresholdRMSE
 end
 \end{lstlisting}
 
-\begin{equation}\label{funk}
-A_{uk} += \eta (R_{ui} - \sum_n A_{un}B_{ni})B_{ki} - \lambda A_{uk}
-\end{equation}
-\begin{equation}\label{slide}
-A_{uk} += \eta (R_{ui} - \sum_n A_{un}B_{ni})B_{ki} - \lambda A_{uk}
-\end{equation}
+We needed to tune the different parameters for each algorithm. A selection of these test can be seen in Table \ref{fig:funk_tune} and \ref{fig:SVD_tune}.
+
+\begin{table}[h]
+\centering
+\caption{parameter tuning of funk-svd}
+\label{fig:funk_tune}
+\begin{tabular}{|l|llll|}
+\hline
+Setup	& $\eta$ & $\lambda$ & k   & RMSE   \\ \hline
+$SA_1$	& 0.001  & 0.01      & 100 & 1.8378 \\ \hline
+$SA_2$	& 0.01   & 0.01      & 100 & 1.2832 \\ \hline
+$SA_3$	& 0.01   & 0.2       & 100 & 1.0286 \\ \hline
+$SA_4$	& 0.01   & 0.2		 & 50  & 0.9944 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{parameter tuning of svd}
+\label{fig:SVD_tune}
+\begin{tabular}{|l|llll|}
+\hline
+Setup	& $\eta$ & $\lambda$ & k   & RMSE \\ \hline
+$SB_1$	& 0.01   & 0.01   & 100 & 1.3873  \\ \hline
+$SB_2$	& 0.05   & 0.01   & 100  & 1.0055 \\ \hline
+$SB_3$	& 0.01   & 0.2    & 10 & 1		  \\ \hline
+\end{tabular}
+\end{table}
+\note{write how we calculate RMSE}
+
+
+
 Notes: 
 Funk svd - populates using the svd function from matlab.
 svd fra slides

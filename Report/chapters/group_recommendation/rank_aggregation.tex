@@ -112,37 +112,40 @@ end
 ...
 \end{lstlisting}
 
-The transferVote function is where we redistribute votes. 
+The transferVote function is where we redistribute votes. There are two scenarios in which we need to transfer votes. The first scenario starts on Line \ref{line:highest} and states that if highestScore value exceeds a threshold the item related to that score is added to the result list. We then find the difference between the highestScore and the threshold and saves it in the transfer variable because these votes needs to be redistributed in order for them not to be wasted. In Lines 10-15 we find the list of users that voted on the highScore item  called votingUsers together with what they voted on it in list usersVotes. Next in Lines 17-23 we make at the redistribution for the votes by iterating though votingUsers in order to find the the items each user want to vote on instead. We select this item strategically be choosing the item closest to reaching the threshold instead of voting on a users favourite item. We do this based on a theory that getting as much as possible on the group recommendation list gives more satisfaction than just getting their favourite item on. When we have fund the item on a users top-k closest to the threshold we update the items score in Line \ref{line:scoreupdate} by adding a percentage of the votes for redistribution based on the users original vote compared to the other users. \note{omformuler den sidste sætning!} After updating the score the topKVoting matrix is updated with the redistribution. Lastly the highestScore item is removed for the scores and items list. 
+
+The second case is if no item reaches the threshold in which case we select the lowest scored item and redistributes its votes in the same manner as above. We continue switching between these cases until we have the items we need either by having reached the return size with items above the threshold or until the combined result and items list have the same size as return size.
 
 \begin{lstlisting}[caption={Implementation for the transfer method},label=lst:BTCtransfer]
 users = rows in topkItems
 threshold = summation of all votes divided with the return size
-mostVotes = highest value in scores
+highestScore = highest value in scores
 
-if mostVotes > threshold
-	transfer = mostVotes - threshold
-	result = mostVotes
+if highestScore > threshold |\label{line:highest}|
+	result = highestScore
+	transfer = highestScore - threshold
 	votingUsers = []
 	usersVotes = []
 	for i = 1 to users 
-		if they voted on mostVotes
+		if they voted on highestScore
 			votingUsers += users(i)
-			usersVotes += mostVotes index in topKMovies
+			usersVotes += highestScore index in topKVotes
 		end
 	end
-	
-  scores(index of mostVotes) = [];
-  movies(index of mostVotes) = [];
-	
+		
 	for i = 1 to size(votingUsers)
 		for j = 1 to column of topKItems
 			highest = the user item with most votes in the group
 		end
-		scores(index of highest) += transfer * (usersVotes(i)/votingUsers(i))
+		scores(index of highest) += transfer * (usersVotes(i)/sum(votingUsers)) |\label{line:scoreupdate}|
 		update topKVoting with the new vote distribution 
 	end
 	
+  scores(index of highestScore) = [];
+  items(index of highestScore) = [];
+	
 elseif size(result) + size(items) > returnSize
-This part is almost as of mostVotes just for the lowest votes.
+	This part is almost as of highestScore just for the lowestScore.
+end
 
 \end{lstlisting}
