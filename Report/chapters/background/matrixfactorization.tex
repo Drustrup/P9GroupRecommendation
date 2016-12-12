@@ -1,6 +1,6 @@
 \subsection{Matrix Factorization Models} \label{bg:sub:factorizationmodels}
 %Function
-Matrix Factorization Model methods are dimensionality reduction techniques used for recommendation that generally find latent features for items, and the propensity for users towards each latent feature.
+Matrix Factorization Model methods are dimensionality reduction techniques used for recommendation that generally find latent features for items, and the propensity for users towards each latent feature. This also helps with finding nontrivial correlations in the data as a latent feature could be something that is not at all obvious, but is really important.
 Matrix Factorization (MF) makes an approximation of a matrix of ratings by decomposing it into multiple matrices. Since MF approximates matrices in an offline step before recommendation, it scales better compared to contemporary Collective Filtering techniques during recommendation. It performs well even when data sparsity is a concern due to the matrix approximation and the dimensionality reduction.
 As data sparsity grows in a set, the less accurate every method gets. Factorization methods counteract this by compressing the data, making it less sparse, and easier to cluster.
 As an MF matrix is traditionally updated offline resulting in unchanging matrices, then the matrix can be reused as required. This is a benefit when testing various aggregations or configurations of users.
@@ -31,7 +31,7 @@ At this point, it is possible to find some interesting similarities among the us
 	\includegraphics[scale=0.75]{svd_ab_squeeze.png}
 	\caption{The decomposition of a rating matrix using SVD}
 \end{figure}
-\todo{Temporary figure from course slides - replace with own}
+\todo{Temporary figure from course slides - replace with own - F as features instead of K}
 
 Having moved to the dense subspace of each rated item and user being defined by their features rather than their explicit ratings, data sparsity becomes less of a problem, as missing ratings are squeezed out.
 
@@ -63,12 +63,28 @@ The common solution is using the stochastic gradient descent. For this, a single
 \begin{figure}\label{fig:gradient_descent}
 	\centering
 	\includegraphics[scale=0.5]{gradient_descent.png}
-	\caption{Gradient descent comparison with the stochastic variant as they mvoe towards the gradient}
+	\caption{Gradient descent comparison with the stochastic variant as they move towards the gradient}
 \end{figure}
 
-\todo{Describe regularization used}
+The learning rate describes the speed at which the gradient descent changes at each step. A high learning rate will mean fewer steps and a lower chance of getting stuck in a local minimum, however a high learning rate makes convergence more difficult as the model can end up dancing around the minimum by taking too large steps near the end. A too small learning rate can result in the model settling in a local minimum for the cost function, unable to escape, as the gradient of the error will always point back towards the nearest local minimum. A learning rate is usually between $0.1$ and $0.001$, but it is recommended to take an exploratory approach. In equation \ref{eq:matrixfactorization_learningrate}, $\eta$ is the learning rate.
 
-\todo{Add about learning rate}
+\begin{equation}\label{eq:matrixfactorization_learningrate}
+	\begin{split}
+	A_{uk}\leftarrow A_{mk} + \eta(R_{ui}-\sum_{n=1}^{N}A_{un}B_{ni})B_{ki}
+	\\
+	B_{ki}\leftarrow B_{ki} + \eta(R_{ui}-\sum_{n=1}^{N}A_{un}B_{ni})A_{uk}
+	\end{split}
+\end{equation}
+
+Regularization helps avoid overfitting, where a model fits its training data too closely so that it predicts extremely well but only within the training data. It is added as an additional modifier when updating the model as can be seen in equation \ref{eq:matrixfactorization_regularization}, where $\lambda$ is the regularization value. It makes the resulting model more general, which improves accuracy when moving beyond the training set.
+
+\begin{equation}\label{eq:matrixfactorization_regularization}
+	\begin{split}
+	A_{uk}\leftarrow A_{mk} + \eta(R_{ui}-\sum_{n=1}^{N}A_{un}B_{ni})B_{ki}-\lambda A_{uk}
+	\\
+	B_{ki}\leftarrow B_{ki} + \eta(R_{ui}-\sum_{n=1}^{N}A_{un}B_{ni})A_{uk} -\lambda B_{ki}
+	\end{split}
+\end{equation}
 
 \subsubsection{Non-negative Matrix Factorization}
 
