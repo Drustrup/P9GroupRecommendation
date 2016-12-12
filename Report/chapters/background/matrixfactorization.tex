@@ -19,7 +19,7 @@ M = U\times \Sigma \times V^T
 
 SVD considers as many features as there are ranks, but not all of them are influential. Reducing the number of features to consider is trivial, as the largest singular values stored in $\Sigma$ have the most influence.
 
-At this point, it is possible to find some interesting similarities among the users, however to use SVD for recommendation, we must account for the missing ratings. By slightly tweaking the equation, as seen in \ref{eq:svd_AB_squeezing}, we get an A and B matrix, holding users and items respectively. This is results in three matrices looking like \ref{fig:svd_squeeze}\todo{Fix ref to figure below}.
+At this point, it is possible to find some interesting similarities among the users, however to use SVD for recommendation, we must account for the missing ratings. By slightly tweaking the equation, as seen in \ref{eq:svd_AB_squeezing}, we get an A and B matrix, holding users and items respectively. This is results in three matrices looking like \ref{fig:svd_squeeze}, where F is the number of latent features.
 
 \begin{equation}\label{eq:svd_AB_squeezing}
 	\centering
@@ -28,10 +28,9 @@ At this point, it is possible to find some interesting similarities among the us
 
 \begin{figure} [H] \label{fig:svd_squeeze}
 	\centering
-	\includegraphics[scale=0.75]{svd_ab_squeeze.png}
+	\includegraphics[scale=0.8]{svd_ab_squeeze.png}
 	\caption{The decomposition of a rating matrix using SVD}
 \end{figure}
-\todo{Temporary figure from course slides - replace with own - F as features instead of K}
 
 Having moved to the dense subspace of each rated item and user being defined by their features rather than their explicit ratings, data sparsity becomes less of a problem, as missing ratings are squeezed out.
 
@@ -63,7 +62,7 @@ The common solution is using the stochastic gradient descent. For this, a single
 \begin{figure}\label{fig:gradient_descent}
 	\centering
 	\includegraphics[scale=0.5]{gradient_descent.png}
-	\caption{Gradient descent comparison with the stochastic variant as they move towards the gradient}
+	\caption{Gradient descent comparison with the stochastic variant as they move towards the gradient. Figure from \cite{Thiesson}.}
 \end{figure}
 
 The learning rate describes the speed at which the gradient descent changes at each step. A high learning rate will mean fewer steps and a lower chance of getting stuck in a local minimum, however a high learning rate makes convergence more difficult as the model can end up dancing around the minimum by taking too large steps near the end. A too small learning rate can result in the model settling in a local minimum for the cost function, unable to escape, as the gradient of the error will always point back towards the nearest local minimum. A learning rate is usually between $0.1$ and $0.001$, but it is recommended to take an exploratory approach. In equation \ref{eq:matrixfactorization_learningrate}, $\eta$ is the learning rate.
