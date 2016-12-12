@@ -2,7 +2,7 @@
 I Section \ref{sec:decision} we determined that SVD would be a suitable method of recommendation for this project. 
 We experimented with two different approaches with slight differences in how they do regularization and in how the A and B matrices are constructed.
 
-The first approach was the Funk-SVD which can be seen in Equation \ref{funk}.\note{kilde} Funk-SVD uses the regularization method Tikhonov, denoted as $\lambda$ in the equation, described in Section ?? \note{we need this somewhere}. We have done some slight differences compared to the Simon Funk documentation \note{make ref}. Instead of calculating the values of matrix A and B based on average movie rating and average offset for users our initial test showed best performance with populating them with random variables between 0 and 1. Another difference is that we use stochastic gradient decent instead of just gradient decent. 
+The first approach was the Funk-SVD which can be seen in Equation \ref{funk}\cite{svdsimonfunk}. In the post Funk-SVD mentions that the algortihm uses as somewhat Tikhonov regularization method\note{find ref on tikhnonov}, denoted as $\lambda$ in the equation. We have done some slight differences compared to the Funks documentation\cite{svdsimonfunk}. Instead of calculating the values of matrix A and B based on average movie rating and average offset for users, our initial test showed best performance with populating them with random variables between 0 and 1. Another difference is that we use stochastic gradient decent instead of just gradient decent. 
 \begin{equation}
 error = R_{ui} - \sum_n A_{un}B_{ni}
 \end{equation}
@@ -14,7 +14,7 @@ B_{ki} += \eta * (error * A_{uk} - \lambda B_{ki})
 \end{aligned}
 \end{equation}
 
-The second approach can be seen in Equation \ref{slide}. \note{reference til slides?} As mentioned this approach have some differences compared to Funk-SVD. First of all, it uses weighted-decay for regularization and not Tikhonov. Second, the A and B matrices for this approach is populated by using the SVDS method in matlab which is similar to Equation \ref{eq:svd_AB_squeezing} in Section \ref{bg:sub:factorizationmodels}.
+The second approach can be seen in Equation \ref{slide} which is also described in Section \ref{bg:sub:factorizationmodels}. As mentioned this approach have some differences compared to Funk-SVD. First of all, it uses makes a simple weighted-decay for regularization and not Tikhonov. Second, the A and B matrices for this approach is populated by using the SVDS method in matlab which is similar to Equation \ref{eq:svd_AB_squeezing} in Section \ref{bg:sub:factorizationmodels}.
 
 \begin{equation}\label{slides}
 \begin{aligned}
@@ -23,67 +23,56 @@ B_{ki} += \eta * error *A_{uk} - \lambda B_{ki}
 \end{aligned}
 \end{equation}
 
-In Listing \ref{lst:SVD} is shown how we train both the algorithms. We have a while-loop that runs less than some threshold and as long as the RMSE value does not grow too much.
+In Listing \ref{lst:SVD} is shown how we trained both the algorithms. We have a while-loop that runs while less than some threshold and as long as the RMSE value does not grow too much.  
+We train both methods using stochastic gradient decent so we select a random known rating to fit our A and B matrices. We then, starting on Line \ref{line:modulo}, for every 1000 iteration calculate the RMSE to make sure that the error is decreasing. 
 
-
-\begin{lstlisting}[caption={Training of the prediction matrix},label=lst:SVD]
+\begin{lstlisting}[caption={Training of the prediction matrix},label=lst:SVD,escapechar=|]
 ...
 While threshold && RMSE < thresholdRMSE
-	x = randomKnownRating
+	x = randomKnownRatingCoordinates
 	
 	SVD-algorithm(x)
 	
-	if modulo(threshold,1000) == 0
+	if modulo(threshold,1000) == 0 |\label{line:modulo}|
+		predictionMatrix = A * B
+		predictionArray = extractValidationPredictions(predictionRating)
+		RMSE = sqrt(MSE(predictonArray,validationArray)	
+		
 		if RMSE < lowRMSE 
 			lowRMSE = RMSE 
 			thresholdRMSE = RMSE + 0.1
 		end
-		
-		predictionMatrix = A * B
-		
-		predictionArray = extractValidationPredictions(predictionRating)
-		
-		RMSE = sqrt(MSE(predictonArray,validationArray)	
 	end
 end
 \end{lstlisting}
 
-We needed to tune the different parameters for each algorithm. A selection of these test can be seen in Table \ref{fig:funk_tune} and \ref{fig:SVD_tune}.
-
+During the training we needed to tune the learning rate $\eta$, regularization value $\lambda$ and the number of features k for each algorithm. A selection of these test can be seen in Table \ref{fig:funk_tune} and \ref{fig:SVD_tune}.
 \begin{table}[h]
 \centering
-\caption{parameter tuning of funk-svd}
-\label{fig:funk_tune}
+\begin{minipage}{.48\textwidth}\centering
 \begin{tabular}{|l|llll|}
 \hline
 Setup	& $\eta$ & $\lambda$ & k   & RMSE   \\ \hline
-$SA_1$	& 0.001  & 0.01      & 100 & 1.8378 \\ \hline
-$SA_2$	& 0.01   & 0.01      & 100 & 1.2832 \\ \hline
-$SA_3$	& 0.01   & 0.2       & 100 & 1.0286 \\ \hline
-$SA_4$	& 0.01   & 0.2		 & 50  & 0.9944 \\ \hline
+$SA_1$	& 0.001  & 0.01      & 100 & 1.838 \\ \hline
+$SA_2$	& 0.01   & 0.01      & 100 & 1.283 \\ \hline
+$SA_3$	& 0.01   & 0.2       & 100 & 1.029 \\ \hline
+$SA_4$	& 0.01   & 0.2		 & 50  & 0.994 \\ \hline
 \end{tabular}
-\end{table}
-
-\begin{table}[h]
-\centering
-\caption{parameter tuning of svd}
-\label{fig:SVD_tune}
+\captionof{table}{parameter tuning of funk-svd}
+\label{fig:funk_tune}
+\end{minipage}
+\hfill
+\begin{minipage}{.48\textwidth}\centering
 \begin{tabular}{|l|llll|}
 \hline
 Setup	& $\eta$ & $\lambda$ & k   & RMSE \\ \hline
-$SB_1$	& 0.01   & 0.01   & 100 & 1.3873  \\ \hline
-$SB_2$	& 0.05   & 0.01   & 100  & 1.0055 \\ \hline
-$SB_3$	& 0.01   & 0.2    & 10 & 1		  \\ \hline
+$SB_1$	& 0.01   & 0.01   & 100 & 1.387   \\ \hline
+$SB_2$	& 0.05   & 0.01   & 100 & 1.006  \\ \hline
+$SB_3$	& 0.01   & 0.2    & 10 	& 1		  \\ \hline
 \end{tabular}
+\captionof{table}{parameter tuning of svd}
+\label{fig:SVD_tune}
+\end{minipage}
 \end{table}
-\note{write how we calculate RMSE}
 
-
-
-Notes: 
-Funk svd - populates using the svd function from matlab.
-svd fra slides
-parameter tuning
-both stochastic gradient decent
-
-
+We decided in the group that a RMSE below 1 would be would be sufficient as the individual recommendation is not the main focus and we would not use to much time on parameter tuning. Based on the different setups we ended up using the Funk-SVD with the parameters i setup $SA_4$ form Table \ref{fig:funk_tune}.

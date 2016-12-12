@@ -37,21 +37,8 @@ return results
 \end{lstlisting}
 
 \subsection{Borda Weighted Count}
-Borda Weighted Count(BWC) is almost identical with the BC in Listing \ref{lst:BC}. The only difference is in Line \ref{line:sumweighted}, where we, in addition to adding the score to the array of scores, adds a weight to the score equal to how many times the item related to the score appease in the top-k matrix.
+Borda Weighted Count(BWC) is almost identical with the BC in Listing \ref{lst:BC}. The only difference is that in Line \ref{line:sumscores} we, in BWC, adds an additional weight to the score. This weight is the number of times item(i) occurs in the top-k matrix in order to give more frequent items a higher score.
 
-\begin{lstlisting}[caption={Borda weighted count implementation},label=lst:BWC, firstnumber=7,escapechar=|]
-...
-for i = 1 to size(items)
-	score = 0
-	for j = 1 to users
-		if movie(i) is in topK(j,:)
-			score += position of movie(i) in array topK(j,:)
-		end
-	end
-	scores(i) = score + number of times the item appears in the topK-matrix |\label{line:sumweighted}|
-end
-...
-\end{lstlisting}
 \subsection{Borda Escalating Count}
 As for BWT, Borda Escalating Count(BEC) is very similar to BC. In BEC we split the items into three categories which is bot, mid and top. We define bot and mid in Line \ref{line:bot} and \ref{line:mid}. bot gets the size equal to 1/3 of column size of top-k, mid gets 2/3, and top is not defined it is those above the mid. We use these values to assign an additional weight to each users items depending on their rank. In Line \ref{line:top} one can see that a weight on 3 is added to items with index above the middle threshold. If the index is between the mid and bot thresholds it gets the weight 1 and nothing if it is below bot threshold.
 \begin{lstlisting}[caption={Borda escalating count implementation},label=lst:BEC, firstnumber=7,escapechar=|]
@@ -112,9 +99,9 @@ end
 ...
 \end{lstlisting}
 
-The transferVote function is where we redistribute votes. There are two scenarios in which we need to transfer votes. The first scenario starts on Line \ref{line:highest} and states that if highestScore value exceeds a threshold the item related to that score is added to the result list. We then find the difference between the highestScore and the threshold and saves it in the transfer variable because these votes needs to be redistributed in order for them not to be wasted. In Lines 10-15 we find the list of users that voted on the highScore item  called votingUsers together with what they voted on it in list usersVotes. Next in Lines 17-23 we make at the redistribution for the votes by iterating though votingUsers in order to find the the items each user want to vote on instead. We select this item strategically be choosing the item closest to reaching the threshold instead of voting on a users favourite item. We do this based on a theory that getting as much as possible on the group recommendation list gives more satisfaction than just getting their favourite item on. When we have fund the item on a users top-k closest to the threshold we update the items score in Line \ref{line:scoreupdate} by adding a percentage of the votes for redistribution based on the users original vote compared to the other users. \note{omformuler den sidste sætning!} After updating the score the topKVoting matrix is updated with the redistribution. Lastly the highestScore item is removed for the scores and items list. 
+The transferVote function is where we redistribute votes. There are two scenarios in which we need to transfer votes. The first scenario starts on Line \ref{line:highest} and states that if highestScore value exceeds a threshold the item related to that score is added to the result list. We then find the difference between the highestScore and the threshold and saves it in the transfer variable because these votes needs to be redistributed in order for them not to be wasted. In Lines 10-15 we find the list of users that voted on the highScore item  called votingUsers together with what they voted on it in list usersVotes. Next in Lines 17-23 we make at the redistribution for the votes by iterating though votingUsers in order to find the the items each user want to vote on instead. We select this item strategically be choosing the item closest to reaching the threshold instead of voting on a users favourite item. We do this based on a theory that getting as much as possible on the group recommendation list gives more satisfaction than just getting their favourite item on. When we have fund the item on a users top-k which is closest to reaching the threshold we update the items score in Line \ref{line:scoreupdate} by adding a percentage of the redistribution votes based on how much the user voted on the highstScore item divide with the summation for all the users votes. After updating the score the topKVoting matrix is updated with the redistributions. Lastly the highestScore item is removed for the scores and items list. 
 
-The second case is if no item reaches the threshold in which case we select the lowest scored item and redistributes its votes in the same manner as above. We continue switching between these cases until we have the items we need either by having reached the return size with items above the threshold or until the combined result and items list have the same size as return size.
+The second case is if no item reaches the threshold. In this case we select the lowest scored item and redistributes its votes in the same manner as above and the remove the item. We continue switching between these cases until we have the items we need either by having reached the return size with items above the threshold or until the combined size of the result and items list is the same as the return size.
 
 \begin{lstlisting}[caption={Implementation for the transfer method},label=lst:BTCtransfer]
 users = rows in topkItems
