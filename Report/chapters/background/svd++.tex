@@ -25,3 +25,8 @@ There is in theory no limit to the number of itemsets that can be inferred and a
 \end{equation}
 
 SVD++ in general performs better than SVD, however if there is no implicit data, the uses for SVD++ becomes negligible.
+
+\subsubsection{Choice of Recommender system}\label{sec:decision} %if label is changed then also change it in Individual recommendation.
+For this problem, we went with the matrix factorization. Matrix factorization wins out in general since the offline training makes us able to reuse a model once it has been trained for the multiple tests. SVD also has several other notable benefits, such as finding otherwise hidden correlations in the data.
+
+Among the different matrix factorization approaches, we went with the standard SVD, as the SVD++ method is better suited for data with implicit connections.
