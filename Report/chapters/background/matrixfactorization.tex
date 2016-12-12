@@ -88,9 +88,9 @@ Regularization helps avoid overfitting, where a model fits its training data too
 
 \subsubsection{Non-negative Matrix Factorization}
 
-Non-negative Matrix factorization is a constraint on the usual matrix factorization. All values are equal to 0 or higher, and always positive, and when learning the model, no values will dip below 0.
+Non-negative Matrix factorization is a constraint on the usual matrix factorization. All values are equal to 0 or higher, and always positive, and when learning the model, no values will dip below 0. This is helpful for speeding up the learning in certain use cases, for instance finding objects or parts hereof in images \cite{nnmf}.
 
-As shown in \ref{eq:nmf}, given a rating matrix of size \textit{m-by-n}, for example m users and n items, we can find non-negative matrix factors $W$ and $H$ of size \textit{m-by-k} and \textit{k-by-n} such that they approximate $V$.
+As shown in Equation \ref{eq:nmf}, given a rating matrix of size \textit{m-by-n}, for example m users and n items, we can find non-negative matrix factors $W$ and $H$ of size \textit{m-by-k} and \textit{k-by-n} such that they approximate $V$.
 
 \begin{equation} \label{eq:nmf}
 	V \approx W H
