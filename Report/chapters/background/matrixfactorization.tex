@@ -19,14 +19,14 @@ M = U\times \Sigma \times V^T
 
 SVD considers as many features as there are ranks, but not all of them are influential. Reducing the number of features to consider is trivial, as the largest singular values stored in $\Sigma$ have the most influence.
 
-At this point, it is possible to find some interesting similarities among the users, however to use SVD for recommendation, we must account for the missing ratings. By slightly tweaking the equation, as seen in \ref{eq:svd_AB_squeezing}, we get an A and B matrix, holding users and items respectively. This is results in three matrices looking like \ref{fig:svd_squeeze}, where F is the number of latent features.
+At this point, it is possible to find some interesting similarities among the users, however to use SVD for recommendation, we must account for the missing ratings. By slightly tweaking the equation, as seen in \ref{eq:svd_AB_squeezing}, we get an A and B matrix, holding users and items respectively. This is results in three matrices looking like \ref{fig:svdSqueeze}, where F is the number of latent features.
 
 \begin{equation}\label{eq:svd_AB_squeezing}
 	\centering
 	U\times \Sigma \times V^T = U\Sigma^{1/2} \Sigma^{1/2}V^T = AB
 \end{equation}
 
-\begin{figure} [H] \label{fig:svd_squeeze}
+\begin{figure} [H] \label{fig:svdSqueeze}
 	\centering
 	\includegraphics[scale=0.8]{svd_ab_squeeze.png}
 	\caption{The decomposition of a rating matrix using SVD}
@@ -57,9 +57,9 @@ Taking the average error when finding the derivative is a costly operation for l
 	\Theta(U\times I \times K)
 \end{equation}
 
-The common solution is using the stochastic gradient descent. For this, a single observed rating is selected at random for each update step of the gradient descent, rather than summing up over all the item-user pairs to find the exact gradient. The updates will be a bit more erratic, but will overall tend towards the gradient, as seen in figure \ref{fig:gradient_descent}.
+The common solution is using the stochastic gradient descent. For this, a single observed rating is selected at random for each update step of the gradient descent, rather than summing up over all the item-user pairs to find the exact gradient. The updates will be a bit more erratic, but will overall tend towards the gradient, as seen in figure \ref{fig:gradientDescent}.
 
-\begin{figure}\label{fig:gradient_descent}
+\begin{figure}\label{fig:gradientDescent}
 	\centering
 	\includegraphics[scale=0.5]{gradient_descent.png}
 	\caption{Gradient descent comparison with the stochastic variant as they move towards the gradient. Figure from \cite{Thiesson}.}
