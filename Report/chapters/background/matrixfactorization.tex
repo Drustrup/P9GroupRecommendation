@@ -10,20 +10,61 @@ Commonly referred to by its acronym, SVD, was popular during Netflix's movie rec
 
 On its own, SVD is a dimensionality reduction technique. However in 2006 Simon Funk \cite{svdsimonfunk} popularized it as a recommender method with some modifications.
 
-Given a matrix of user ratings, SVD works by decomposing the matrix as seen in equation \ref{eq:svd_decomp} into two matrices called the left and right singular vectors, $U$ and $V$ respectively, and a matrix holding the singular values on its diagonal, $\Sigma$, as per the SVD theorem\cite{svdtheorem}. For this example, the left singular vector would hold the users on one side, and their inclination towards each latent feature. The right vector would conversely hold all the rated items, and their inclination towards each latent feature.
+Given a matrix of user ratings, SVD works by decomposing the matrix as seen in Equation \ref{eq:svd_decomp} into two matrices called the left and right singular vectors, $U$ and $V$ respectively, and a matrix holding the singular values on its diagonal, $\Sigma$, as per the SVD theorem\cite{svdtheorem}. For this example, the left singular vector would hold the users on one side, and their inclination towards each latent feature. The right vector would conversely hold all the rated items, and their inclination towards each latent feature. A numeric example can be found in Equation \ref{eq:svd_num_decomp}
 
 \begin{equation} \label{eq:svd_decomp}
 \centering
 M = U\times \Sigma \times V^T
 \end{equation}
 
+\begin{equation}\label{eq:svd_num_decomp}
+\centering
+\begin{bmatrix}
+1 & 0\\ 
+0 & 2\\ 
+3 & 0
+\end{bmatrix} = 
+\begin{bmatrix}
+-0.3162 & 0 & -0.9487\\ 
+0 & 1 & 0\\ 
+-0.9487 & 0 & 0.3162
+\end{bmatrix} \times 
+\begin{bmatrix}
+\sqrt{10} & 0\\ 
+0 & 2\\ 
+0 & 0
+\end{bmatrix} \times
+\begin{bmatrix}
+-1 & 0\\ 
+0 & 1
+\end{bmatrix}
+\end{equation}
+
 SVD considers as many features as there are ranks, but not all of them are influential. Reducing the number of features to consider is trivial, as the largest singular values stored in $\Sigma$ have the most influence.
 
-At this point, it is possible to find some interesting similarities among the users, however to use SVD for recommendation, we must account for the missing ratings. By slightly tweaking the equation, as seen in \ref{eq:svd_AB_squeezing}, we get an A and B matrix, holding users and items respectively. This is results in three matrices looking like \ref{fig:svdSqueeze}, where F is the number of latent features.
+At this point, it is possible to find some interesting similarities among the users, however to use SVD for recommendation, we must account for the missing ratings. By slightly tweaking the equation, as seen in Equation \ref{eq:svd_AB_squeezing}, we get an A and B matrix, holding users and items respectively. This is results in three matrices looking like Figure \ref{fig:svdSqueeze}, where F is the number of latent features. Equation \ref{eq:svd_AB_num_squeezing}, Equation \ref{label}, and Equation \ref{label} gives a numeric example of this.
 
 \begin{equation}\label{eq:svd_AB_squeezing}
 	\centering
 	U\times \Sigma \times V^T = U\Sigma^{1/2} \Sigma^{1/2}V^T = AB
+\end{equation}
+
+\begin{equation}\label{eq:svd_AB_num_squeezing}
+A = \begin{bmatrix}
+-0.3162 & 0 & -0.9487\\ 
+0 & 1 & 0\\ 
+-0.9487 & 0 & 0.3162
+\end{bmatrix} \times
+\begin{bmatrix}
+\sqrt{10} & 0\\ 
+0 & 2\\ 
+0 & 0
+\end{bmatrix}^{\frac{1}{2}} =
+\begin{bmatrix}
+-0.5623 & 0\\ 
+0 & 1.4142\\ 
+-1.6871 & 0
+\end{bmatrix}
 \end{equation}
 
 \begin{figure} [H] \label{fig:svdSqueeze}
