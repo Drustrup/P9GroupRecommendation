@@ -71,7 +71,7 @@ The last method to be tested is Borda Transferable Count(BTC). This is a somewha
 The first differences is that we rename the top-k list to topKItems and then creates a new matrix over the vote distribution from the users in Line 4-9. Then everything is as usual until we reach Line \ref{line:transfer}. Here we created a loop that for each item i items list we call the transferVotes function, which can be seen in Listing \ref{lst:BTCtransfer}.
 
 
-\begin{lstlisting}[caption={Borda transferable count implementation},label=lst:BTC]
+\begin{lstlisting}[caption={Borda transferable count implementation},label=lst:BTC,escapechar=|]
 items = unique(topK)
 users = number of rows in topK
 topKItems = revert(topK)
@@ -103,7 +103,7 @@ The transferVote function is where we redistribute votes. There are two scenario
 
 The second case is if no item reaches the threshold. In this case we select the lowest scored item and redistributes its votes in the same manner as above and the remove the item. We continue switching between these cases until we have the items we need either by having reached the return size with items above the threshold or until the combined size of the result and items list is the same as the return size.
 
-\begin{lstlisting}[caption={Implementation for the transfer method},label=lst:BTCtransfer]
+\begin{lstlisting}[caption={Implementation for the transfer method},label=lst:BTCtransfer,escapechar=|]
 users = rows in topkItems
 threshold = summation of all votes divided with the return size
 highestScore = highest value in scores

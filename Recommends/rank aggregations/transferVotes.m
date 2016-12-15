@@ -24,21 +24,13 @@ if  vMax >= threshold
    points(iMax) = [];
    movies(iMax) = [];
    
-   for i=1:numel(users)
-   highMovie = 0;
-   index = [];
-   voteIndex = [];
-       for z=1:col
-           tempMovie=points(find(movies==topKMovies(users(i),z)));
-           if tempMovie > highMovie
-               highMovie = tempMovie;
-               index = find(movies==topKMovies(users(i),z));
-               voteIndex = z;
-           end
-       end
+      for i=1:numel(users)
+       [M,I] = max(topKVotes(users(i),:));
+       movieIndex = find(movies == topKMovies(users(i),I));
+       points(movieIndex) = points(movieIndex) + transfer * (userVotes(i)/sum(userVotes));
+       topKVotes(users(i),I) = topKVotes(users(i),I) + transfer * (userVotes(i)/sum(userVotes));
     end
-points(index) = points(index) + transfer * (userVotes(i)/sum(userVotes));
-topKVotes(users(i),voteIndex) = topKVotes(users(i),voteIndex) + transfer * (userVotes(i)/sum(userVotes));
+       
    
 elseif numel(top)+numel(points) > returnSize
    [transfer, index] = min(points);
@@ -54,20 +46,11 @@ elseif numel(top)+numel(points) > returnSize
    points(index) = [];
    movies(index) = [];
    for i=1:numel(users)
-   highMovie = 0;
-   index = [];
-   voteIndex = [];
-       for z=1:col
-           tempMovie=points(find(movies==topKMovies(users(i),z)));
-           if tempMovie > highMovie
-               highMovie = tempMovie;
-               index = find(movies==topKMovies(users(i),z));
-               voteIndex = z;
-           end
-       end
+       [M,I] = max(topKVotes(users(i),:));
+       movieIndex = find(movies == topKMovies(users(i),I));
+       points(movieIndex) = points(movieIndex) + transfer * (userVotes(i)/sum(userVotes));
+       topKVotes(users(i),I) = topKVotes(users(i),I) + transfer * (userVotes(i)/sum(userVotes));
     end
-points(index) = points(index) + transfer * (userVotes(i)/sum(userVotes));
-topKVotes(users(i),voteIndex) = topKVotes(users(i),voteIndex) + transfer * (userVotes(i)/sum(userVotes));
 end
 
        
