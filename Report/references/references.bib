@@ -29,9 +29,9 @@ Url                      = {http://www.dtic.upf.edu/~ocelma/MusicRecommendationD
 }
 
 @misc{movielens100k,
-  Title					   = {Movielens Dataset},
-  Year					   = {1998},
-  Url					   = {http://grouplens.org/datasets/movielens/100k/}
+  Title		= {Movielens Dataset},
+  Year		= {1998},
+  Url		= {http://grouplens.org/datasets/movielens/100k/}
 }
 
 @Misc{HappyMovie,
@@ -54,20 +54,6 @@ Year		={1965},
 Url		={https://people.eecs.berkeley.edu/~wkahan/GlbKhnSv.pdf}
 }
 
-@Misc{mfbasedcf,
-Title		={Recommending Items to Group of Users using Matrix Factorization Based Collaborative Filtering},
-Author	={Fernando Ortega and Antonio Hernando and Jesus Bobadilla and Jeon Hyung Kang},
-Year		={2016},
-Url		={http://www.sciencedirect.com/science/article/pii/S0020025516300196}
-}
-
-@Misc{nashequilibrium,
-Title		={Users's Satisfaction in Recommendation Systems for Groups: an Approach Based on Noncooperative Games},
-Author	={Lucas A. M. C. Carvalho and Hendrik T. Macedo},
-Year		={2013},
-Url		={http://www2013.wwwconference.org/companion/p951.pdf}
-}
-
 @Misc{stv,
 Title		={What is STV?},
 Author	={Electoral Reform Society},
@@ -82,6 +68,40 @@ Year		={2016},
 Url		={http://aceproject.org/main/english/es/esf04.htm}
 }
 
+@Misc{WuEnsembles,
+Title		={Collaborative Filtering via Ensembles of Matrix Factorizations},
+Author	={Mingrui Wu},
+Year		={2007},
+Url		={https://ei.is.tuebingen.mpg.de/publications/4614}
+}
+
+@Misc{nnmf,
+Title		={Learning the Parts of Objects by Non-negative Matrix Factorization},
+Author	={Daniel D. Lee and H. Sebastian Seung},
+Year		={1999},
+Url		={http://www.nature.com/nature/journal/v401/n6755/abs/401788a0.html}
+}
+
+%Articles
+@article{mfbasedcf,
+  author    = {Fernando Ortega and
+               Antonio Hernando and
+               Jes{\'{u}}s Bobadilla and
+               Jeon{-}Hyung Kang},
+  title     = {Recommending items to group of users using Matrix Factorization based
+               Collaborative Filtering},
+  journal   = {Inf. Sci.},
+  volume    = {345},
+  pages     = {313--324},
+  year      = {2016},
+  url       = {http://dx.doi.org/10.1016/j.ins.2016.01.083},
+  doi       = {10.1016/j.ins.2016.01.083},
+  timestamp = {Mon, 18 Jul 2016 08:31:29 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/isci/OrtegaHBK16},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+%Books
 @book{recsyshandbook,
  author = {Ricci, Francesco and Rokach, Lior and Shapira, Bracha and Kantor, Paul B.},
  title = {Recommender Systems Handbook},
@@ -92,7 +112,76 @@ Url		={http://aceproject.org/main/english/es/esf04.htm}
  address = {New York, NY, USA},
 }
 
- %DBLP:conf/recsys/BaltrunasMR10
+%Inproceedings
+@inproceedings{nashequilibrium,
+  author    = {Lucas Augusto Montalv{\~{a}}o Costa Carvalho and
+               Hendrik Teixeira Macedo},
+  title     = {Users' satisfaction in recommendation systems for groups: an approach
+               based on noncooperative games},
+  booktitle = {22nd International World Wide Web Conference, {WWW} '13, Rio de Janeiro,
+               Brazil, May 13-17, 2013, Companion Volume},
+  pages     = {951--958},
+  year      = {2013},
+  crossref  = {DBLP:conf/www/2013c},
+  url       = {http://dl.acm.org/citation.cfm?id=2488090},
+  timestamp = {Mon, 27 May 2013 22:10:59 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/www/CarvalhoM13a},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{aggregationnotenough,
+  author    = {Amra Delic and
+               Julia Neidhardt and
+               Thuy Ngoc Nguyen and
+               Francesco Ricci and
+               Laurens Rook and
+               Hannes Werthner and
+               Markus Zanker},
+  title     = {Observing Group Decision Making Processes},
+  booktitle = {Proceedings of the 10th {ACM} Conference on Recommender Systems, Boston,
+               MA, USA, September 15-19, 2016},
+  pages     = {147--150},
+  year      = {2016},
+  crossref  = {DBLP:conf/recsys/2016},
+  url       = {http://doi.acm.org/10.1145/2959100.2959168},
+  doi       = {10.1145/2959100.2959168},
+  timestamp = {Wed, 07 Sep 2016 13:57:35 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/recsys/DelicNNRRWZ16},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{LeeNMF,
+  author    = {Daniel D. Lee and
+               H. Sebastian Seung},
+  title     = {Algorithms for Non-negative Matrix Factorization},
+  booktitle = {Advances in Neural Information Processing Systems 13, Papers from
+               Neural Information Processing Systems {(NIPS)} 2000, Denver, CO, {USA}},
+  pages     = {556--562},
+  year      = {2000},
+  crossref  = {DBLP:conf/nips/2000},
+  url       = {http://papers.nips.cc/paper/1861-algorithms-for-non-negative-matrix-factorization},
+  timestamp = {Thu, 11 Dec 2014 17:34:07 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/nips/LeeS00},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{contextinfluence,
+  author    = {Elisa Quintarelli and
+               Emanuele Rabosio and
+               Letizia Tanca},
+  title     = {Recommending New Items to Ephemeral Groups Using Contextual User Influence},
+  booktitle = {Proceedings of the 10th {ACM} Conference on Recommender Systems, Boston,
+               MA, USA, September 15-19, 2016},
+  pages     = {285--292},
+  year      = {2016},
+  crossref  = {DBLP:conf/recsys/2016},
+  url       = {http://doi.acm.org/10.1145/2959100.2959137},
+  doi       = {10.1145/2959100.2959137},
+  timestamp = {Wed, 07 Sep 2016 13:57:35 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/recsys/QuintarelliRT16},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
 @inproceedings{baltrunas,
   author    = {Linas Baltrunas and
                Tadas Makcinskas and
@@ -108,41 +197,6 @@ Url		={http://aceproject.org/main/english/es/esf04.htm}
   timestamp = {Wed, 01 Dec 2010 21:04:22 +0100},
   biburl    = {http://dblp.uni-trier.de/rec/bib/conf/recsys/BaltrunasMR10},
   bibsource = {dblp computer science bibliography, http://dblp.org}
-}
-
-@Misc{aggregationnotenough,
-Title		={Observing Group Decision Making Processes},
-Author	={Amra Delic and Julia Neidhardt and Thuy Ngoc Nguyen and Francesco Ricci and Laurens Rook and Hannes Werthner and Markus Zanker},
-Year		={2016},
-Url 		={http://dl.acm.org/citation.cfm?doid=2959100.2959168}
-}
-
-@Misc{LeeNMF,
-Title		={Algorithms for Non-negative Matrix Factorization},
-Author	={Daniel D. Lee and H. Sebastian Seung},
-Year		={2000},
-Url		={https://papers.nips.cc/paper/1861-algorithms-for-non-negative-matrix-factorization}
-}
-
-@Misc{WuEnsembles,
-Title		={Collaborative Filtering via Ensembles of Matrix Factorizations},
-Author	={Mingrui Wu},
-Year		={2007},
-Url		={https://ei.is.tuebingen.mpg.de/publications/4614}
-}
-
-@Misc{contextinfluence,
-Title		={Recommending New Items to Ephemeral Groups Using Contextual User Influence},
-Author	={Elisa Quintarelli and Emanuele Rabosio and Letizia Tanca},
-Year		={2016},
-Url		={http://dl.acm.org/citation.cfm?doid=2959100.2959137}
-}
-
-@Misc{nnmf,
-Title		={Learning the Parts of Objects by Non-negative Matrix Factorization},
-Author	={Daniel D. Lee and H. Sebastian Seung},
-Year		={1999},
-Url		={http://www.nature.com/nature/journal/v401/n6755/abs/401788a0.html}
 }
 
 @inproceedings{DBLP:conf/adaptive/SchaferFHS07,
@@ -162,9 +216,7 @@ Url		={http://www.nature.com/nature/journal/v401/n6755/abs/401788a0.html}
   bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
-
 %Proceedings
-
 @proceedings{DBLP:conf/recsys/2010,
   editor    = {Xavier Amatriain and
                Marc Torrens and
@@ -179,6 +231,60 @@ Url		={http://www.nature.com/nature/journal/v401/n6755/abs/401788a0.html}
   biburl    = {http://dblp.uni-trier.de/rec/bib/conf/recsys/2010},
   bibsource = {dblp computer science bibliography, http://dblp.org}
 }
+
+@proceedings{DBLP:conf/recsys/2016,
+  editor    = {Shilad Sen and
+               Werner Geyer and
+               Jill Freyne and
+               Pablo Castells},
+  title     = {Proceedings of the 10th {ACM} Conference on Recommender Systems, Boston,
+               MA, USA, September 15-19, 2016},
+  publisher = {{ACM}},
+  year      = {2016},
+  url       = {http://doi.acm.org/10.1145/2959100},
+  doi       = {10.1145/2959100},
+  isbn      = {978-1-4503-4035-9},
+  timestamp = {Wed, 07 Sep 2016 13:42:11 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/recsys/2016},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/www/2013c,
+  editor    = {Leslie Carr and
+               Alberto H. F. Laender and
+               Bernadette Farias L{\'{o}}scio and
+               Irwin King and
+               Marcus Fontoura and
+               Denny Vrandecic and
+               Lora Aroyo and
+               Jos{\'{e}} Palazzo M. de Oliveira and
+               Fernanda Lima and
+               Erik Wilde},
+  title     = {22nd International World Wide Web Conference, {WWW} '13, Rio de Janeiro,
+               Brazil, May 13-17, 2013, Companion Volume},
+  publisher = {International World Wide Web Conferences Steering Committee / {ACM}},
+  year      = {2013},
+  url       = {http://dl.acm.org/citation.cfm?id=2487788},
+  isbn      = {978-1-4503-2038-2},
+  timestamp = {Mon, 27 May 2013 22:10:59 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/www/2013c},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/nips/2000,
+  editor    = {Todd K. Leen and
+               Thomas G. Dietterich and
+               Volker Tresp},
+  title     = {Advances in Neural Information Processing Systems 13, Papers from
+               Neural Information Processing Systems {(NIPS)} 2000, Denver, CO, {USA}},
+  publisher = {{MIT} Press},
+  year      = {2001},
+  url       = {http://papers.nips.cc/book/advances-in-neural-information-processing-systems-13-2000},
+  timestamp = {Thu, 11 Dec 2014 17:34:07 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/nips/2000},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
 @proceedings{DBLP:conf/adaptive/2007,
   editor    = {Peter Brusilovsky and
                Alfred Kobsa and
