@@ -13,22 +13,24 @@
   Url                      = {http://www.iep.utm.edu/soc-cont/}
 }
 
+%To be removed
 @Misc{Thiesson,
 Title		={Web Intelligence Course, Lecture 11},
 Author	={Bo Thiesson},
 Year		={2015},
-Url 		={https://l.facebook.com/l.php?u=https\%3A\%2F\%2Fwww.moodle.aau.dk\%2Fpluginfile.php\%2F535755\%2Fmod_folder\%2Fcontent\%2F0\%2FWI_11_RecSysCF.pdf\%3Fforcedownload\%3D1&h=HAQHgtmQ1}
+Url 		={www.google.com}
+}
 
 @Misc{lastfmdataset,
-  Title                    = {Last.fm Dataset},
-  Author                   = {Celma, O.},
-  Year                     = {2010},
-  Url                      = {http://www.dtic.upf.edu/~ocelma/MusicRecommendationDataset/lastfm-1K.html}
+Title                    = {Last.fm Dataset},
+Author                   = {Celma, O.},
+Year                     = {2010},
+Url                      = {http://www.dtic.upf.edu/~ocelma/MusicRecommendationDataset/lastfm-1K.html}
 }
 
 @misc{movielens100k,
-  Title					   = {Movielens Dataset}
-  Year					   = {1998}
+  Title					   = {Movielens Dataset},
+  Year					   = {1998},
   Url					   = {http://grouplens.org/datasets/movielens/100k/}
 }
 
@@ -49,7 +51,7 @@ Url		={http://sifter.org/~simon/journal/20061211.html}
 Title		={Calculating the singular values and pseudo-inverse of a matrix},
 Author	={G. Golub and W. Kahan},
 Year		={1965},
-Url		={https://people.eecs.berkeley.edu/~wkahan/GlbKhnSv.pdf
+Url		={https://people.eecs.berkeley.edu/~wkahan/GlbKhnSv.pdf}
 }
 
 @Misc{mfbasedcf,
@@ -90,16 +92,27 @@ Url		={http://aceproject.org/main/english/es/esf04.htm}
  address = {New York, NY, USA},
 }
 
-@Misc{baltrunas,
-Title		={Group recommendation with rank aggregation and collaborative filtering},
-Author	={Linas Baltrunas, Tadas Makcinskas, and Francesco Ricci},
-Year		={2010},
-Url 		={http://dl.acm.org/citation.cfm?id=1864733}
+ %DBLP:conf/recsys/BaltrunasMR10
+@inproceedings{baltrunas,
+  author    = {Linas Baltrunas and
+               Tadas Makcinskas and
+               Francesco Ricci},
+  title     = {Group recommendations with rank aggregation and collaborative filtering},
+  booktitle = {Proceedings of the 2010 {ACM} Conference on Recommender Systems, RecSys
+               2010, Barcelona, Spain, September 26-30, 2010},
+  pages     = {119--126},
+  year      = {2010},
+  crossref  = {DBLP:conf/recsys/2010},
+  url       = {http://doi.acm.org/10.1145/1864708.1864733},
+  doi       = {10.1145/1864708.1864733},
+  timestamp = {Wed, 01 Dec 2010 21:04:22 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/recsys/BaltrunasMR10},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 @Misc{aggregationnotenough,
 Title		={Observing Group Decision Making Processes},
-Author	={Amra Delic, Julia Neidhardt, Thuy Ngoc Nguyen, Francesco Ricci, Laurens Rook, Hannes Werthner, and Markus Zanker},
+Author	={Amra Delic and Julia Neidhardt and Thuy Ngoc Nguyen and Francesco Ricci and Laurens Rook and Hannes Werthner and Markus Zanker},
 Year		={2016},
 Url 		={http://dl.acm.org/citation.cfm?doid=2959100.2959168}
 }
@@ -120,7 +133,7 @@ Url		={https://ei.is.tuebingen.mpg.de/publications/4614}
 
 @Misc{contextinfluence,
 Title		={Recommending New Items to Ephemeral Groups Using Contextual User Influence},
-Author	={ 	Elisa Quintarelli, Emanuele Rabosio, Letizia Tanca},
+Author	={Elisa Quintarelli and Emanuele Rabosio and Letizia Tanca},
 Year		={2016},
 Url		={http://dl.acm.org/citation.cfm?doid=2959100.2959137}
 }
@@ -130,4 +143,21 @@ Title		={Learning the Parts of Objects by Non-negative Matrix Factorization},
 Author	={Daniel D. Lee and H. Sebastian Seung},
 Year		={1999},
 Url		={http://www.nature.com/nature/journal/v401/n6755/abs/401788a0.html}
+}
+
+%Proceedings
+
+@proceedings{DBLP:conf/recsys/2010,
+  editor    = {Xavier Amatriain and
+               Marc Torrens and
+               Paul Resnick and
+               Markus Zanker},
+  title     = {Proceedings of the 2010 {ACM} Conference on Recommender Systems, RecSys
+               2010, Barcelona, Spain, September 26-30, 2010},
+  publisher = {{ACM}},
+  year      = {2010},
+  isbn      = {978-1-60558-906-0},
+  timestamp = {Wed, 01 Dec 2010 20:46:21 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/recsys/2010},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
