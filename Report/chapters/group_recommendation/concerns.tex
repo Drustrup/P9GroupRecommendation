@@ -4,11 +4,7 @@ During the implementation process some concerns regarding..
 \subsection{Scalability}
 During the implementation scalability was not a major focus point for us and have not yet proven to be a problem with our setup. 
 
-Runtime: 
-BC,BWC,BEC = O(n*m)
-BTC = O(n*m*(v*z))
-
-Note: data set 
+But a problem could occur if we were to look at a higher top-k than 10, then we could potential have a scaling problem. We have a rather high worst-case runtime on our algorithms. BC, BWC, and BEC have a worst-case on $O(n*m)$ and BTC have one on $O(n*m*v*z)$ where n is the individual items, m is the group size, v is a subset of m, z is top-k. Lets say that we have a top-k on 10 and a group size of 40 and their are no overlaps then n would be 400 items long but if top-k were 50 then n would be 2000. 
 
 \subsection{Recommending for Ephemeral Groups}
 For the sake of the developing, testing and evaluation the model-based recommendation in the form of SVD is very appropriate as we only have to train it once and then we have all the predictions. 
