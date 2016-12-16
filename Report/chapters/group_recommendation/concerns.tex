@@ -1,12 +1,12 @@
 \section{Concerns}
-During the implementation process some concerns regarding..
+During the implementation process some concerns surfaced which we choose to ignore at that given moment for the sake of simplicity. The concerns regards who we scale with bigger groups and top-k items and how a real world implementation should handle new users and items.
 
 \subsection{Scalability}
-During the implementation scalability was not a major focus point for us and have not yet proven to be a problem with our setup. 
+Scalability was not a major focus point for us while we implemented our algorithms but it have not yet proven to be a problem with the setup we use. 
 
-But a problem could occur if we were to look at a higher top-k than 10, then we could potential have a scaling problem. We have a rather high worst-case runtime on our algorithms. BC, BWC, and BEC have a worst-case on $O(n*m)$ and BTC have one on $O(n*m*v*z)$ where n is the individual items, m is the group size, v is a subset of m, z is top-k. Lets say that we have a top-k on 10 and a group size of 40 and their are no overlaps then n would be 400 items long but if top-k were 50 then n would be 2000. 
+scaling could probably become a problem if we were to look at a higher top-k than 10. We have a rather high worst-case runtime on our algorithms. BC, BWC, and BEC have a worst-case on $O(n*m)$ and BTC have $O(n*m*v*z)$ where n is the individual items, m is the group size, v is a subset of m how voted on i certain item, and z is the top-k size. Lets say that we have a top-k on 10 and a group size of 40 and their are no overlaps then n would be 400 items long but if top-k were 50 then n would be 2000. So for BTC we would have $2000 * 40 * 1 * 50 = 4.000.000$.
 
-\subsection{Recommending for Ephemeral Groups}
+\subsection{Real World Use}
 For the sake of the developing, testing and evaluation the model-based recommendation in the form of SVD is very appropriate as we only have to train it once and then we have all the predictions. 
 
 If the group recommendation setup were to be used in real world applications, as the virtual reality example with random users described in Section \ref{sec:introduction_scenario}, using SVD alone would be a cumbersome task due to the frequently new released items and new users, which would require us to retrain our model. A real world version should be more flexible so it would be able to handle changes to the user and item base. 
