@@ -115,12 +115,12 @@ Taking the average error when finding the derivative is a costly operation for l
 	\Theta(U\times I \times K)
 \end{equation}
 
-The common solution is using the stochastic gradient descent. For this, a single observed rating is selected at random for each update step of the gradient descent, rather than summing up over all the item-user pairs to find the exact gradient. The updates will be a bit more erratic, but will overall tend towards the gradient, as seen in figure \ref{fig:gradientDescent}.
+The common solution is using the stochastic gradient descent. For this, a single observed rating is selected at random for each update step of the gradient descent, rather than summing up over all the item-user pairs to find the exact gradient. The updates will be a bit more erratic than seen in Figure \ref{fig:gradientDescent}\footnote{Source: https://en.wikipedia.org/wiki/Gradient\_descent\label{ftn:wikifigure}}, but will overall converge towards a local minimum.
 
 \begin{figure}\label{fig:gradientDescent}
 	\centering
-	\includegraphics[scale=0.5]{gradient_descent.png}
-	\caption{Gradient descent comparison with the stochastic variant as they move towards the gradient. Figure from \cite{Thiesson}.}
+	\includegraphics[scale=0.5]{gradientdescent.png}
+	\caption{Gradient descent showing steps as it converges toward a local minimum\footref{ftn:wikifigure}}
 \end{figure}
 
 The learning rate describes the speed at which the gradient descent changes at each step. A high learning rate will mean fewer steps and a lower chance of getting stuck in a local minimum, however a high learning rate makes convergence more difficult as the model can end up dancing around the minimum by taking too large steps near the end. A too small learning rate can result in the model settling in a local minimum for the cost function, unable to escape, as the gradient of the error will always point back towards the nearest local minimum. A learning rate is usually between $0.1$ and $0.001$, but it is recommended to take an exploratory approach. In equation \ref{eq:matrixfactorization_learningrate}, $\eta$ is the learning rate.
