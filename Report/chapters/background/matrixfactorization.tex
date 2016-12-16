@@ -115,12 +115,12 @@ Taking the average error when finding the derivative is a costly operation for l
 	\Theta(U\times I \times K)
 \end{equation}
 
-The common solution is using the stochastic gradient descent. For this, a single observed rating is selected at random for each update step of the gradient descent, rather than summing up over all the item-user pairs to find the exact gradient. The updates will be a bit more erratic, but will overall tend towards the gradient, as seen in figure \ref{fig:gradientDescent}.
+The common solution is using the stochastic gradient descent. For this, a single observed rating is selected at random for each update step of the gradient descent, rather than summing up over all the item-user pairs to find the exact gradient. The updates will be a bit more erratic than seen in Figure \ref{fig:gradientDescent}\footnote{Source: https://en.wikipedia.org/wiki/Gradient\_descent\label{ftn:wikifigure}}, but will overall converge towards a local minimum.
 
 \begin{figure}\label{fig:gradientDescent}
 	\centering
-	\includegraphics[scale=0.5]{gradient_descent.png}
-	\caption{Gradient descent comparison with the stochastic variant as they move towards the gradient. Figure from \cite{Thiesson}.}
+	\includegraphics[scale=0.5]{gradientdescent.png}
+	\caption{Gradient descent showing steps as it converges toward a local minimum\footref{ftn:wikifigure}}
 \end{figure}
 
 The learning rate describes the speed at which the gradient descent changes at each step. A high learning rate will mean fewer steps and a lower chance of getting stuck in a local minimum, however a high learning rate makes convergence more difficult as the model can end up dancing around the minimum by taking too large steps near the end. A too small learning rate can result in the model settling in a local minimum for the cost function, unable to escape, as the gradient of the error will always point back towards the nearest local minimum. A learning rate is usually between $0.1$ and $0.001$, but it is recommended to take an exploratory approach. In equation \ref{eq:matrixfactorization_learningrate}, $\eta$ is the learning rate.
@@ -145,12 +145,18 @@ Regularization helps avoid overfitting, where a model fits its training data too
 
 \subsubsection{Non-negative Matrix Factorization}
 
-Non-negative Matrix factorization is a constraint on the usual matrix factorization. All values are equal to 0 or higher, and always positive, and when learning the model, no values will dip below 0. This is helpful for speeding up the learning in certain use cases, for instance finding objects or parts hereof in images \cite{nnmf}.
+Non-negative Matrix factorization(NNMF) is a constraint on the usual matrix factorization. All values are equal to 0 or higher, and always positive, and when learning the model, no values will dip below 0, which is ensured by setting any values that have become negative back to 0 before the next iteration. This is helpful for speeding up the learning in certain use cases, for instance finding objects or parts hereof in images \cite{nnmf}.
 
-As shown in Equation \ref{eq:nmf}, given a rating matrix of size \textit{m-by-n}, for example m users and n items, we can find non-negative matrix factors $W$ and $H$ of size \textit{m-by-k} and \textit{k-by-n} such that they approximate $V$.
+As shown in Equation \ref{eq:nmf}, given a rating matrix of size \textit{m-by-n}, for example m users and n items, we can find non-negative matrix factors $W$ and $H$ of size \textit{m-by-f} and \textit{f-by-n} respectively, such that they approximate $V$. During this $f$ is usually chosen to be smaller than $m$ or $n$, as to reduce the size of $W$ and $H$ compared to the original matrix $V$ \cite{LeeNMF}.
 
 \begin{equation} \label{eq:nmf}
 	V \approx W H
+\end{equation}
+
+Furthermore a property of NNMF is that it can be rewritten as seen in Equation \ref{eq:nnmf_rewritten}, where $i$ is the index of the columns in $V$ and $H$. This means that the data vector $v_{i}$ is an approximation given by a linear combination of the columns of $W$, weighted by $h_{i}$ components \cite{LeeNMF}.
+
+\begin{equation} \label{eq:nnmf_rewritten}
+	v_{i} \approx W h_{i}
 \end{equation}
 
 %http://www.kyb.mpg.de/fileadmin/user_upload/files/publications/attachments/CFEMF_KDDW2007_4614[0].pdf
