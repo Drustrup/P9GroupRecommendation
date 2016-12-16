@@ -42,14 +42,14 @@ M = U\times \Sigma \times V^T
 
 SVD considers as many features as there are ranks, but not all of them are influential. Reducing the number of features to consider is trivial, as the largest singular values stored in $\Sigma$ have the most influence.
 
-At this point, it is possible to find some interesting similarities among the users, however to use SVD for recommendation, we must account for the missing ratings. By slightly tweaking the equation, as seen in Equation \ref{eq:svd_AB_squeezing}, we get an A and B matrix, holding users and items respectively. This is results in three matrices looking like Figure \ref{fig:svdSqueeze}, where F is the number of latent features. Equation \ref{eq:svd_AB_num_squeezing}, Equation \ref{label}, and Equation \ref{label} gives a numeric example of this.
+At this point, it is possible to find some interesting similarities among the users, however to use SVD for recommendation, we must account for the missing ratings. By slightly tweaking the equation, as seen in Equation \ref{eq:svd_AB_squeezing}, we get an A and B matrix, holding users and items respectively. This is results in three matrices looking like Figure \ref{fig:svdSqueeze}, where F is the number of latent features. Equation \ref{eq:svd_AB_num_squeezing_A} and Equation \ref{eq:svd_AB_num_squeezing_B} gives a numeric example of this.
 
 \begin{equation}\label{eq:svd_AB_squeezing}
 	\centering
 	U\times \Sigma \times V^T = U\Sigma^{1/2} \Sigma^{1/2}V^T = AB
 \end{equation}
 
-\begin{equation}\label{eq:svd_AB_num_squeezing}
+\begin{equation}\label{eq:svd_AB_num_squeezing_A}
 A = \begin{bmatrix}
 -0.3162 & 0 & -0.9487\\ 
 0 & 1 & 0\\ 
@@ -64,6 +64,23 @@ A = \begin{bmatrix}
 -0.5623 & 0\\ 
 0 & 1.4142\\ 
 -1.6871 & 0
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}\label{eq:svd_AB_num_squeezing_B}
+B = \begin{bmatrix}
+\sqrt{10} & 0\\ 
+0 & 2\\ 
+0 & 0
+\end{bmatrix}^{\frac{1}{2}} \times
+\begin{bmatrix}
+-1 & 0\\ 
+0 & 1
+\end{bmatrix} =
+\begin{bmatrix}
+-1.7783 & 0\\ 
+0 & 1.4142\\ 
+0 & 0
 \end{bmatrix}
 \end{equation}
 
