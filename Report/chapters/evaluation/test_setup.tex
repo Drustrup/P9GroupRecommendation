@@ -11,47 +11,14 @@ In total 6000 random groups are constructed:
 	\item 1000 with 40 members
 \end{itemize}
 
-The group sizes were decided upon based on our scenario, starting with a size of 4, which was the lower bound for what we called a group. Having a gradual increase in the size provides for convenient comparisons, while we wanted an extra large group size to see what would happen as the groups got larger. \todo{Insert reason for size 40 being selected as the large group?}
+The group sizes were decided upon based on our scenario, starting with a size of 4, which was the lower bound for what we called a group. Having a gradual increase in the size provides for convenient comparisons, while we wanted an extra large group size to see what would happen as the groups got larger. 40 was the largest logical group size to make, as it is both ten times the smallest, and each group still spans less than 5\% of the total users.
 Having 1000 groups of each size makes for a good statistical number, as the influence of individual outlier groups, whether they have exceptionally high or low satisfaction, are reduced to a state where a single group would be insignificant.
 
 Additionally it was decided to use a $k$ of 10, so each members top-10 list is used. This number was decided arbitrarily, but as will be presented in Section \ref{sec:influenceofk} it happens to be a local maximum for the two methods we want to compare the most.
 
 With the group sizes and $k$ decided upon, what remains is the method of evaluation. nDCG will be the measure used, and it will be used on the individual groups. An average of the nDCG value is then taken for each group size. All the methods will be tested this way using the same groups and the same $k$.
 
-%  BTC
-% k = 20   s = 12   0,5666
-% k = 10   s = 12   0,5934
-% k = 8    s = 12   0,6427
-% k = 5    s = 12   0,5857
-% k = 8    s = 40   0,5288
-% k = 10   s = 40   0,5518
-% k = 11   s = 40   0,5531
-% k = 12   s = 40   0,5501
-% k = 20   s = 40   0,5287
-% k = 50   s = 40   0,5970
-% k = 100  s = 40   0,6857
+\subsection{Limitations of the Setup} \label{sec:limitsetup}
+First and foremost the setup is designed for the specific dataset used, and while methodology is applicable to other datasets, given a proper format of said datasets, the results gained through use of this specific setup on the dataset in question will only hints to the performance of the tested algorithms in general. Therefore the evaluation of the algorithms should be seen as preliminary. With that said we will still give a preliminary conclusion based on the results gained through the evaluation.\\
 
-% k = 11   s = 16   0,5767
-% k = 20   s = 16   0,5534
-% k = 50   s = 16   0,6276
-
-% Random
-% k = 20   s = 16   0,3690
-% k = 50   s = 16   0,37
-
-% Borda
-% k = 20   s = 12   0,5695
-% k = 8    s = 12   0,5455
-% k = 20   s = 40   0,5213
-% k = 50   s = 40   0,5964
-% k = 100  s = 40   0,6853
-
-
-
-% k = 10:
-% s = 4     0,6394
-% s = 8     0,6044
-% s = 12    0,5934
-% s = 16    0,5939
-% s = 20    0,5906
-% s = 40    0,5518
+Testing only certain group sizes might not give the full picture of the performance, however this is a preliminary evaluation, and as such the interesting results would be general trends rather than specifics. Similarly the groups are constructed randomly, with no regard as to how similar or dissimilar the users are from one another. Both of these limitations could be improved upon or changed in a in-depth evaluation of the algorithms.

@@ -2,7 +2,7 @@
 
 To test how the implemented methods performed compared to each other, the setup from Section \ref{sec:evaluationsetup} was used. Be aware that th scales of the figures differ a bit due to the random selection performing much worse than the other approaches thus dragging the lower end of the scale down.
 
-Figure \ref{fig:testresult4members} presents the average satisfaction when the groups consists of 4 random members. Here there is only little difference in the fond satisfaction with Borda Escalated Count edging out slightly ahead, being a little less than 1\% better than Borda Count. Borda Transferable Count and Borda Weighted Count are both minimally worse than BC, but as both the methods are more reliant on items being present in multiple top-k lists amongst the users, it is no surprise that they give worse results than BC. \todo{Insert a graph curve for each method, group size on x-axis, nDCG on y-axis.}
+Figure \ref{fig:testresult4members} presents the average satisfaction when the groups consists of 4 random members. Here there is only little difference in the fond satisfaction with Borda Escalated Count edging out slightly ahead, being a little less than 1\% better than Borda Count. Borda Transferable Count and Borda Weighted Count are both minimally worse than BC, but as both the methods are more reliant on items being present in multiple top-k lists amongst the users, it is no surprise that they give worse results than BC.
 
 Already when the group size is increased to 8, Figure \ref{fig:testresult8members}, a trend of BTC outperforming the other methods starts emerging, and at 8 members it outperforms BC by about 1.5\%. An interesting thing to note is that there is a generally sharp dropoff in satisfaction for all methods when going from 4 to 8 members, but as the group size is increased further, all but BTC drops further, while BTC maintains a satisfaction of around 0.59 until the group size is increased to 40.
 
@@ -215,3 +215,45 @@ During these prodding tests, it was discovered that there seemed to be a local m
 Based on the results presented in Section \ref{sec:satisfationevaluation} it seems that BTC performs remarkably well on group sizes of more than 8. If the results for group sizes 20 and 40 are any indication, then BTC is about 13\% better at satisfying a large group, when giving them 10 ordered items. On a group size of 4, BTC performs similarly to the other methods however slightly worse. Therefore BTC should be used over BC when dealing with groups of size 8 or more.
 
 As indicated by the findings presented in Section \ref{sec:influenceofk}, which value of $k$ that is used has little influence on which aggregation that performs best. However it has a large on how much satisfaction that is achieved. Ideally, for the MovieLens dataset, $k$ should be 10 if the recommender should return a small number of items, otherwise it would be best to have it at more than 50. Whether this is generally applicable remains to be seen.
+
+These results are a reflection of the evaluation performed on the MovieLens dataset, therefore, as mentioned in Section \ref{sec:limitsetup}, the results should be tested on other datasets before anything can be concluded about the general application of the algorithms. That being said BTC shows promise and further study of the approach will be in order. 
+
+
+
+%  BTC
+% k = 20   s = 12   0,5666
+% k = 10   s = 12   0,5934
+% k = 8    s = 12   0,6427
+% k = 5    s = 12   0,5857
+% k = 8    s = 40   0,5288
+% k = 10   s = 40   0,5518
+% k = 11   s = 40   0,5531
+% k = 12   s = 40   0,5501
+% k = 20   s = 40   0,5287
+% k = 50   s = 40   0,5970
+% k = 100  s = 40   0,6857
+
+% k = 11   s = 16   0,5767
+% k = 20   s = 16   0,5534
+% k = 50   s = 16   0,6276
+
+% Random
+% k = 20   s = 16   0,3690
+% k = 50   s = 16   0,37
+
+% Borda
+% k = 20   s = 12   0,5695
+% k = 8    s = 12   0,5455
+% k = 20   s = 40   0,5213
+% k = 50   s = 40   0,5964
+% k = 100  s = 40   0,6853
+
+
+
+% k = 10:
+% s = 4     0,6394
+% s = 8     0,6044
+% s = 12    0,5934
+% s = 16    0,5939
+% s = 20    0,5906
+% s = 40    0,5518
