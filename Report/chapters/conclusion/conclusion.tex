@@ -13,17 +13,15 @@ The following questions from the problem statement we sought to answer:
 \end{itemize}
 
 
-For making recommendations to a group, we present the Borda Transferable Count(BTC) as a method of aggregating the individual ranked lists.The results are promising, as it performs better than the tested methods on nDCG scores. However, we cannot as of yet make a definite conclusion on the BTC as a solution to the group recommender problem.
+For making recommendations to a group, we present the Borda Transferable Count(BTC) as a method of aggregating the individual ranked lists. The results are promising, as it performs better than the tested methods on nDCG scores. However, we cannot as of yet make a definite conclusion on the BTC as a solution to the group recommender problem.
 
 
-For measuring the level of satisfaction in a group, we found and used nDCG. It is commonly used for rankings and information retrieval. This works well with the the view of recommendation as a tool for drawing out relevant information, when getting an overview is hard.
+For measuring the level of satisfaction in a group, we found and used nDCG. It is commonly used for rankings and information retrieval. This works well with the view of recommendation as a tool for drawing out relevant information, when getting an overview is hard.
 
 
-For reflecting how a group decision would be handled, we ventured into some of the methods used for resolving differing opinions. In the end, we incorporated single transferable vote into the borda count method in the BTC algorithm. These are not methods that necessarily reflects an organic group decision process, but reflects parts of real group decision methodologies.
+For reflecting how a group decision would be handled, we ventured into some of the methods used for resolving differing opinions. In the end, we incorporated single transferable vote into the Borda Count method in the BTC algorithm. These are not methods that necessarily reflects an organic group decision process, but reflects parts of real group decision methodologies.
 
 \section{Discussion}\label{sec:conclusion_discussion}
-This section reflects on the conclusions and the project as a whole.\todo{To be written}
-
 As mentioned we use the information retrieval method nDCG to measure satisfaction. In doing so we make several assumptions about the users’ preferences. First of all, the user ratings used for the group recommendations are predictions\note{why is this a problem}. Based on these predicted ratings we assume that a user would construct a ranked list, which we use to determine the satisfaction score, with the highest ratings. This means that the satisfaction score we get is based on assumptions, which only makes it an approximated guideline and not a proof.
 
 In order for us to get some concrete result for satisfaction we need to have some real users to create ranked list that we know they are satisfied with and then use these for recommendation. Furthermore, it would be ideal also to have groups of users to both make an individual ranked list each and a one in cooperation. This could be used to both measure the satisfaction of the users and also give us an idea of how well we reflect the decision making process.
