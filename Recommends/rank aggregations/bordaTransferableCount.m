@@ -22,8 +22,8 @@ for j=1:numel(movies)
 end
 result=[];
 for i=1:numel(points)
-    [result, points, movies, topKMovies, topKVotes] = transferVotesStratigic(points, movies, topKMovies, topKVotes, result, returnSize);
-    %[result, points, movies, topKMovies, topKVotes] = transferVotes(points, movies, topKMovies, topKVotes, result, returnSize);
+    %[result, points, movies, topKMovies, topKVotes] = transferVotesStratigic(points, movies, topKMovies, topKVotes, result, returnSize);
+    [result, points, movies, topKMovies, topKVotes] = transferVotes(points, movies, topKMovies, topKVotes, result, returnSize);
 end
 for i=1:numel(points)
     [M,I] = max(points);
