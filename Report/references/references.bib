@@ -7,20 +7,6 @@
   Url                      = {http://www.last.fm/}
 }
 
-@Misc{Hobbes,
-  Title                    = {Hobbes Social Contract},
-  Year                     = {1651},
-  Url                      = {http://www.iep.utm.edu/soc-cont/}
-}
-
-%To be removed
-@Misc{Thiesson,
-Title		={Web Intelligence Course, Lecture 11},
-Author	={Bo Thiesson},
-Year		={2015},
-Url 		={www.google.com}
-}
-
 @Misc{lastfmdataset,
 Title                    = {Last.fm Dataset},
 Author                   = {Celma, O.},
@@ -28,24 +14,12 @@ Year                     = {2010},
 Url                      = {http://www.dtic.upf.edu/~ocelma/MusicRecommendationDataset/lastfm-1K.html}
 }
 
-@misc{movielens100k,
-  Title		= {Movielens Dataset},
-  Year		= {1998},
-  Url		= {http://grouplens.org/datasets/movielens/100k/}
-}
-
+%To be removed
 @Misc{svdsimonfunk,
 Title		={Netflix Update: Try This at Home},
 Author	={Simon Funk},
 Year		={2006},
 Url		={http://sifter.org/~simon/journal/20061211.html}
-}
-
-@Misc{svdtheorem,
-Title		={Calculating the singular values and pseudo-inverse of a matrix},
-Author	={G. Golub and W. Kahan},
-Year		={1965},
-Url		={https://people.eecs.berkeley.edu/~wkahan/GlbKhnSv.pdf}
 }
 
 @Misc{stv,
@@ -62,21 +36,61 @@ Year		={2016},
 Url		={http://aceproject.org/main/english/es/esf04.htm}
 }
 
-@Misc{WuEnsembles,
-Title		={Collaborative Filtering via Ensembles of Matrix Factorizations},
-Author	={Mingrui Wu},
-Year		={2007},
-Url		={https://ei.is.tuebingen.mpg.de/publications/4614}
-}
-
-@Misc{nnmf,
-Title		={Learning the Parts of Objects by Non-negative Matrix Factorization},
-Author	={Daniel D. Lee and H. Sebastian Seung},
-Year		={1999},
-Url		={http://www.nature.com/nature/journal/v401/n6755/abs/401788a0.html}
+@article{nnmf,
+  title={Learning the parts of objects by non-negative matrix factorization},
+  author={Lee, Daniel D and Seung, H Sebastian},
+  journal={Nature},
+  volume={401},
+  number={6755},
+  pages={788--791},
+  year={1999},
+  publisher={Nature Publishing Group}
 }
 
 %Articles
+@article{svdtheorem,
+  title={Calculating the singular values and pseudo-inverse of a matrix},
+  author={Golub, Gene and Kahan, William},
+  journal={Journal of the Society for Industrial and Applied Mathematics, Series B: Numerical Analysis},
+  volume={2},
+  number={2},
+  pages={205--224},
+  year={1965},
+  publisher={SIAM}
+}
+
+
+@article{movielens100k,
+  author    = {F. Maxwell Harper and
+               Joseph A. Konstan},
+  title     = {The MovieLens Datasets: History and Context},
+  journal   = {TiiS},
+  volume    = {5},
+  number    = {4},
+  pages     = {19},
+  year      = {2016},
+  url       = {http://doi.acm.org/10.1145/2827872},
+  doi       = {10.1145/2827872},
+  timestamp = {Fri, 29 Jan 2016 13:15:12 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/tiis/HarperK16},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+%Articles
+@article{arrow,
+ ISSN = {00223808, 1537534X},
+ URL = {http://www.jstor.org/stable/1828886},
+ author = {Kenneth J. Arrow},
+ journal = {Journal of Political Economy},
+ number = {4},
+ pages = {328-346},
+ publisher = {University of Chicago Press},
+ title = {A Difficulty in the Concept of Social Welfare},
+ volume = {58},
+ year = {1950}
+}
+
 @article{Christensen201114127,
 title = "Entertainment recommender systems for group of users ",
 journal = "Expert Systems with Applications ",
@@ -164,7 +178,55 @@ url="http://dx.doi.org/10.1007/978-3-642-39371-6_46"
  address = {New York, NY, USA},
 }
 
+@book{linearalgebra,
+author = {Lawrence E. Spense and Arnold J. Insel and Stephen H. Friedberg},
+title = {Elementary Linear Algebra},
+subtitle = {A matrix approach},
+year = {2008},
+isbn = {0131580345, 9870131580343},
+edition = {2nd},
+publisher = {Pearson Education, Inc.},
+address = {Upper Saddle River, NJ 07568}
+}
+
+@book{aibook,
+author = {David L. Poole and Alan K. Mackworth},
+title = {Artificial Intelligence},
+subtitle = {Foundations of computational agens},
+year = {2010},
+isbn = {9780521519007},
+publisher = {Cambridge University Press},
+address = {32 Avenue of the Americas, New York, NY 10013-2473, USA}
+}
+
 %Inproceedings
+@inproceedings{WuEnsembles,
+  title={Collaborative filtering via ensembles of matrix factorizations},
+  author={Wu, Mingrui},
+  booktitle={Proceedings of KDD Cup and Workshop},
+  volume={2007},
+  year={2007}
+}
+
+@inproceedings{DBLP:conf/www/DworkKNS01,
+  author    = {Cynthia Dwork and
+               Ravi Kumar and
+               Moni Naor and
+               D. Sivakumar},
+  title     = {Rank aggregation methods for the Web},
+  booktitle = {Proceedings of the Tenth International World Wide Web Conference,
+               {WWW} 10, Hong Kong, China, May 1-5, 2001},
+  pages     = {613--622},
+  year      = {2001},
+  crossref  = {DBLP:conf/www/2001},
+  url       = {http://doi.acm.org/10.1145/371920.372165},
+  doi       = {10.1145/371920.372165},
+  timestamp = {Mon, 12 Sep 2016 08:22:53 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/www/DworkKNS01},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
 @inproceedings{nashequilibrium,
   author    = {Lucas Augusto Montalv{\~{a}}o Costa Carvalho and
                Hendrik Teixeira Macedo},
@@ -315,6 +377,20 @@ url="http://dx.doi.org/10.1007/978-3-642-39371-6_46"
   isbn      = {978-1-4503-4035-9},
   timestamp = {Wed, 07 Sep 2016 13:42:11 +0200},
   biburl    = {http://dblp.uni-trier.de/rec/bib/conf/recsys/2016},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+@proceedings{DBLP:conf/www/2001,
+  editor    = {Vincent Y. Shen and
+               Nobuo Saito and
+               Michael R. Lyu and
+               Mary Ellen Zurko},
+  title     = {Proceedings of the Tenth International World Wide Web Conference,
+               {WWW} 10, Hong Kong, China, May 1-5, 2001},
+  publisher = {{ACM}},
+  year      = {2001},
+  isbn      = {1-58113-348-0},
+  timestamp = {Wed, 17 Jul 2013 16:59:51 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/www/2001},
   bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
