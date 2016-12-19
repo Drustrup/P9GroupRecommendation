@@ -22,13 +22,13 @@ Stemming from cross validation in the field of statistics, k-fold testing is a c
 Here we will cover the various evaluation metrics used in the project. MAE and RMSE are considered for the recommender for tuning, and nDCG is presented for evaluating satisfaction with a recommendation.
 
 \subsubsection{Root Mean Square Error}
-The root mean square error is a common accuracy measure for recommender systems. For the algorithm, RMSE is calculated using the Equation \ref{eq:background_rmse}. $\tau$ is the set of user item pairs used to validate the system, with $u$ and $i$ being user and item, respectively. $\hat{r}_{ui}$ are the predicted ratings for a user item pair, from which we subtract the actual rating, $r_{ui}$, to find the error.
+The root mean square error(RMSE) is a common accuracy measure for recommender systems\cite{rmse}. For the algorithm, RMSE is calculated using the Equation \ref{eq:background_rmse}. $\tau$ is the set of user item pairs used to validate the system, with $u$ and $i$ being user and item, respectively. $\hat{r}_{ui}$ are the predicted ratings for a user item pair, from which we subtract the actual rating, $r_{ui}$, to find the error.
 
 \begin{equation} \label{eq:background_rmse}
 \text{RMSE} = \sqrt{\frac{1}{|\tau|}\sum_{(u,i)\in \tau}(\hat{r}_{ui}-r_{ui})^2}
 \end{equation}
 
-A popular alternative, Mean Absolute Error, as seen in Equation \ref{eq:background_mae}, takes the euclidean distance rather than the squared difference. As opposed to MAE, RMSE penalizes larger errors relatively more harshly.
+An alternative, mean absolute error(MAE), as seen in Equation \ref{eq:background_mae}, takes the euclidean distance rather than the squared difference\cite{rmse}. As opposed to MAE, RMSE penalizes larger errors relatively more harshly.
 
 \begin{equation} \label{eq:background_mae}
 \text{MAE} = \frac{1}{|\tau|}\sum_{(u,i)\in \tau}|\hat{r}_{ui}-r_{ui}|
