@@ -2,7 +2,7 @@
 This section covers the testing and evaluation methods we will use. In specific k-fold testing and our evaluation metrics will be explained.
 
 \subsection{K-fold Testing}
-Stemming from cross validation in the field of statistics, k-fold testing is a commonly used technique in regards to recommender systems. The basic principle in the method is to split the dataset into $k$ equally sized parts or folds, and then use one of the folds as the testing or validation set, while the rest of the folds are used as training data. This process is then repeated $k$ times, so each fold is used as the validation once. After it has been repeated all $k$ times, the results can then be average to end up with a single estimation. An example of how the k-fold ordering could be structured can be seen in Table \ref{tbl:bg_k-fold}. Typically either 5-fold or 10-fold testing is what is used.
+Stemming from cross validation in the field of statistics, k-fold testing is a commonly used technique in regards to recommender systems. The basic principle in the method is to split the dataset into $k$ equally sized parts or folds, and then use one of the folds as the testing or validation set, while the rest of the folds are used as training data. This process is then repeated $k$ times, so each fold is used as the validation set once. After it has been repeated $k$ times, the results can then be averaged to find an overall estimation of the error in the model. An example of how the k-fold ordering could be structured can be seen in Table \ref{tbl:bg_k-fold}. Typically, either 5-fold or 10-fold testing is what is used.
 
 \begin{table}[H]
 	\centering
@@ -19,63 +19,29 @@ Stemming from cross validation in the field of statistics, k-fold testing is a c
 \end{table}
 
 \subsection{Evaluation Metrics}
-We will use a variety of evaluation metrics on two areas. Some are used for measuring the quality of our recommender, and the other for the precision of the aggregation.
+Here we will cover the various evaluation metrics used in the project. MAE and RMSE are considered for the recommender for tuning, and nDCG is presented for evaluating satisfaction with a recommendation.
 
 \subsubsection{Root Mean Square Error}
-The root mean square error is a common accuracy measure for recommender systems. For the algorithm, RMSE is calculated using the equation shown in \ref{eq:background_rmse}. $\tau$ is the set of user item pairs used to validate the system, with $u$ and $i$ being user and item, respectively. $\hat{r}_{ui}$ are the predicted ratings for a user item pair, from which we subtract the actual rating, $r_{ui}$, to find the error.
+The root mean square error is a common accuracy measure for recommender systems. For the algorithm, RMSE is calculated using the Equation \ref{eq:background_rmse}. $\tau$ is the set of user item pairs used to validate the system, with $u$ and $i$ being user and item, respectively. $\hat{r}_{ui}$ are the predicted ratings for a user item pair, from which we subtract the actual rating, $r_{ui}$, to find the error.
 
 \begin{equation} \label{eq:background_rmse}
 \text{RMSE} = \sqrt{\frac{1}{|\tau|}\sum_{(u,i)\in \tau}(\hat{r}_{ui}-r_{ui})^2}
 \end{equation}
 
-A popular alternative, Mean Absolute Error, takes the euclidean distance rather than the  As opposed to MSE, RMSE penalizes larger errors relatively more harshly.
+A popular alternative, Mean Absolute Error, as seen in Equation \ref{eq:background_mae}, takes the euclidean distance rather than the squared difference. As opposed to MAE, RMSE penalizes larger errors relatively more harshly.
 
 \begin{equation} \label{eq:background_mae}
 \text{MAE} = \frac{1}{|\tau|}\sum_{(u,i)\in \tau}|\hat{r}_{ui}-r_{ui}|
 \end{equation}
 
-For this project, we used RMSE in the evaluation of the SVD module of the recommender system. On this system, the RMSE equation is amended to the form shown equation \ref{eq:background_svd_rmse}.
+For this project, we used RMSE in the evaluation of the SVD module of the recommender system. On this system, the RMSE equation is amended to the form shown Equation \ref{eq:background_svd_rmse}, where $U$ is a set of users, $I$ is a set of items, and $F$ is a set of features. $R$ is the rating matrix.
 
 \begin{equation}\label{eq:background_svd_rmse}
-	\text{RMSE} = \sqrt{\frac{\sum_{u=1}^{U}\sum_{i=1}^{I}(\sum_{k=1}^{K}(A_{uk} B_{ki}) - M_{ui})^2}{UIK}}
-\end{equation}
-
-\subsubsection{Precision and Recall}
-Two common evaluation metrics for recommender systems are precision and recall\cite{recsyshandbook}. Precision and recall sees the method as a binary classifier. We can express a recommender system as a binary classifier that predicts an item as to be recommended or not recommended for each presented item. For each item, the actual classification can be either true or false, resulting in four possible outcomes which can be expressed with a confusion matrix as seen in table \ref{tab:testandevaluation_confusionmatrix}. An item can be classified as recommended and actually be a recommended item, making it a true positive. Alternatively, a non-recommended item that is actually not recommended is a true negative. An item that is not recommended by the classifier, but belongs with the recommended items is a false negative, and the reverse is a false positive.
-
-\begin{table}[H]\label{tab:testandevaluation_confusionmatrix}
-	\centering
-	\begin{tabular}{ l|ll }
-		\multicolumn{3}{l}{} \\
-		& Predicted: Negative & Predicted: Positive \\ \hline
-		Actual: Negative & True Negative(TN) & False Positive(FP) \\
-		Actual: Positive & False Negative(FN) & True Positive(TP) \\ \hline
-	\end{tabular}
-	\caption{Confusion matrix}
-\end{table}
-
-Precision is the degree to which the method gets the correct classification out of all the positive guesses. The score is calculated by dividing the number of correct guesses, true positives, with the sum of the true positive and the incorrect guesses, false positives.
-
-\begin{equation}\label{eq:precision}
-	\text{Precision} = \frac{TP}{TP+FP}
-\end{equation}
-
-Recall is the degree of relevant elements uncovered. The score is calculated by dividing the number of true positives with the sum of true positive and false negatives as seen in \ref{eq:recall}.
-
-\begin{equation}\label{eq:recall}
-\text{Recall} = \frac{TP}{TP+FN}
-\end{equation}
-
-There are ways to skew either metric. A recommender system, which predicts a positive for only the most certain items, can likely score highly on precision as the number of false positives would be very low. However, being too conservative can result in an increase of false negatives, which reduces the recall score.
-
-The $F_1$ score combines precision and recall into a single harmonic mean score, as to better reflect the overall performance than either metric can on their own.
-
-\begin{equation}
-	F_1 = 2 \cdot \frac{precision \cdot recall}{\text{precision} + \text{recall}}
+	\text{RMSE} = \sqrt{\frac{\sum_{u=1}^{U}\sum_{i=1}^{I}(\sum_{f=1}^{F}(A_{uf} B_{fi}) - R_{ui})^2}{|U|\times |I|\times |F|}}
 \end{equation}
 
 \subsubsection{Normalized Discounted Cumulative Gain}
-Discounted cumulative gain is used to measure the quality of a ranking through the relevance of the result set. It is most commonly used in the information retrieval field for a learning to rank, however it is also useful for getting a measure of satisfaction for an ordering of recommended items. That is because Recommendation and the results of a search query both are solutions to the problem of information overload that present a set of possible items.\cite{recsyshandbook} \cite{baltrunas}
+Discounted cumulative gain is used to measure the quality of a ranking through the relevance of the result set. It is most commonly used in the information retrieval field for determining the quality of the result of a query, however it is also useful for getting a measure of satisfaction for an ordering of recommended items. That is because recommendation and the results of a search query are both solutions to the problem of information overload that presents a set of possible items\cite{recsyshandbook}\cite{baltrunas}.
 
 For a group recommendation this works by comparing the group recommendation with the individual preferences. In this way, the relevance of an item is translatable to a ranked list of recommendations, as a recommendation can be viewed as a fixed query.
 
@@ -85,13 +51,13 @@ The measure grew out from the Cumulative Gain measure, which takes the relevance
 	\text{CG}_p = \sum_{i=1}^{p}\textit{rel}_i
 \end{equation}
 
-The addition of the discounted property adds a consideration over the ranking. For most lists, it is assumed that a user will consider each item in order from first to last, making the most important position the first item. So it follows that the most relevant item should be the first item. This justifies penalizing a deviance from ordering by the most relevant item first. The score is calculated using equation \ref{eq:background_dcg}.
+The addition of the discounted property adds a consideration over the ranking. For most lists, it is assumed that a user will consider each item in order from first to last, making the most important position the first item. So it follows that the most relevant item should be the first item. This justifies penalizing a deviance from ordering by the most relevant item first. The score is calculated using Equation \ref{eq:background_dcg}.
 
 \begin{equation}\label{eq:background_dcg}
 	\text{DCG}_p = \textit{rel}_1 + \sum_{i=2}^{p}\frac{\textit{rel}_i}{\log_2(i)}
 \end{equation}
 
-Normalized discounted cumulative gain compares the DCG with an ideal ranking as to normalize the score, where a perfect ordering results in a score of 1, so it can be compared for systems using rankings of different lengths. The score is calculated using equation \ref{eq:background_ndcg}. The ideal ranking is IDCG, which is calculated using equation \ref{eq:background_idcg}, where we use the individual's list of preferences as the basis for an ideal ranking for that user.
+Normalized discounted cumulative gain compares the DCG with an ideal ranking as to normalize the score, where a perfect ordering results in a score of 1, so it can be compared for systems using rankings of different lengths. The score is calculated using Equation \ref{eq:background_ndcg}. The ideal ranking is IDCG, which is calculated using Equation \ref{eq:background_idcg}, where we use the individual's list of preferences as the basis for an ideal ranking for that user.
 
 \begin{equation}\label{eq:background_ndcg}
 	\text{nDCG}_p = \frac{\text{DCG}_p}{\text{IDCG}_p}
@@ -101,7 +67,7 @@ Normalized discounted cumulative gain compares the DCG with an ideal ranking as 
 	\text{IDCG}_p = \sum_{i=1}^{|REL|} \frac{2^{\textit{rel}_i}-1}{\log_2(i+1)}
 \end{equation}
 
-As part of an example of how the satisfaction of a user in a group could be calculated, table \ref{tbl:testandeval_bordacount}. User U1 will be the focus of this example, and in table \ref{tbl:testandeval_positions}, the ranking of the group chosen by average and U1's individual ranking is shown.
+As an example of finding the satisfaction of a user based on the recommendations for the group, the rating of a group of users can be as seen in Table \ref{tbl:testandeval_bordacount}. User U1 will be the focus of this example, and in Table \ref{tbl:testandeval_positions}, the ranking of the group chosen by average and U1's individual ranking is shown as between index position 1 and 4.
 
 \begin{table}[H]
 	\centering
@@ -115,7 +81,7 @@ As part of an example of how the satisfaction of a user in a group could be calc
 		\multicolumn{1}{|l|}{U5} & 1 & 5 & 9 & 5 & 4 & 2 & 8 & 10 & 2 & 7 \\ \hline
 		\multicolumn{1}{|l|}{Total} & 22 & 31 & 27 & 32 & 17 & 18 & 24 & 38 & 29 & 32 \\ \hline
 	\end{tabular}
-	\caption{Example Borda Count rating of a set of items}
+	\caption{Example of ratings for a set of items}
 	\label{tbl:testandeval_bordacount}
 \end{table}
 
@@ -131,7 +97,7 @@ As part of an example of how the satisfaction of a user in a group could be calc
 	\label{tbl:testandeval_positions}
 \end{table}
 
-The cumulative gain of the example results in a high count in equation \ref{eq:background_cg_example}, as to be expected as the group and U1 share many preferences in the list. When we consider the positioning in equation \ref{eq:background_dcg_example}, there's only a small drop in the score, as the bulk of U1's points are at the top positions where the penalty is smaller.
+The cumulative gain of the example results in a high count in Equation \ref{eq:background_cg_example}, as to be expected as the group and U1 share many preferences in the list. When we consider the positioning in Equation \ref{eq:background_dcg_example}, there is only a small drop in the score, as the bulk of U1's points are at the top positions where the penalty is smaller.
 
 \begin{equation}\label{eq:background_cg_example}
 \text{CG}_4 = \sum_{i=1}^{4}\textit{rel}_i = 9 + 9 + 6 + 7 = 31
@@ -142,7 +108,7 @@ The cumulative gain of the example results in a high count in equation \ref{eq:b
 = 9 + (9 + 3.79 + 3.5) = 25.29
 \end{equation}
 
-To normalize the score, we compare it to the ideal ranking, which is U1's own ranking. The ideal ordering is calculated in equation \ref{eq:background_idcg_example}, and it is only slightly higher than the DCG of the group. The level of satisfaction for U1 for this recommendation is $0.95$, as per equation \ref{eq:background_ndcg_example}, which is a high level of satisfaction. This is not surprising given that U1's preferences were well-represented.
+To normalize the score, we compare it to the ideal ranking, which is U1's own ranking. The ideal ordering is calculated in Equation \ref{eq:background_idcg_example}, and it is only slightly higher than the DCG of the group. The level of satisfaction for U1 for this recommendation is $0.95$, as per Equation \ref{eq:background_ndcg_example}, which is a high level of satisfaction. This is not surprising given that U1's preferences were well-represented.
 
 \begin{equation}\label{eq:background_idcg_example}
 \text{IDCG}_4 = 9 + (9 + 5.05 + 3.5) = 26.55

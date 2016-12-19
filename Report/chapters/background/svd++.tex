@@ -1,6 +1,6 @@
 \subsubsection{SVD++} \label{bg:mf_svd++}
-As the name implies, SVD++ is an extension on SVD. Where SVD in general only works with explicit data, SVD++ takes into account the implicitly gathered data as well. Take for instance a user that have a number of items they have shown some indirect interest in, for instance hovering over the items to see some information about them, SVD++ would specifically account for this set of potentially interesting items. All the information in this section has been gathered from "Recommender Systems Handbook" \cite{recsyshandbook}.
-
+As the name implies, SVD++ is an extension on SVD. Where SVD in general only works with explicit data, SVD++ takes into account the implicitly gathered data as well. Take for instance a user that has a number of items they have shown some indirect interest in, for instance hovering over the items to see some information about them, SVD++ would specifically account for this set of potentially interesting items.\cite{recsyshandbook}.
+\todo{Specify section in book for citation}
 
 \note{Move this part about standard SVD to the appropriate section in the report along with the equation for it.} \todo{Make sure the notation and explanations are correct.}
 The standard model for SVD can be seen in Equation \ref{eq:svd_standard}, where $\hat{r}_{ui}$ is the predicted rating, $\mu$ is the overall average rating, $b_{i}$ and $b_{u}$ are the deviations from the average for item $i$ and user $u$ respectively, and $q_{i}^{T}p_{u}$ is a representation of the interaction between user $u$ and item $i$, in other words the overall interest in aspects of the item from the user.
@@ -17,16 +17,11 @@ In SVD++ the last part of the model is altered, to reflect how users are charact
 \hat{r}_{ui} = \mu + b_{i} + b_{u} + q_{i}^{T}\left (p_{u} + \left | R(u) \right |^{-\frac{1}{2}} \sum_{j\in R(u)} y_{j} \right )
 \end{equation}
 
-There is in theory no limit to the number of itemsets that can be inferred and accounted for, each would simply have its own item factor vector, as seen in Equation \ref{eq:svd++_multi}.
+There is in theory no limit to the number of itemsets that can be inferred and accounted for, as each would simply have its own item factor vector, as seen in Equation \ref{eq:svd++_multi}.
 
 \begin{equation} \label{eq:svd++_multi}
 \centering
 \hat{r}_{ui} = \mu + b_{i} + b_{u} + q_{i}^{T}\left (p_{u} + \left | N^{1}(u) \right |^{-\frac{1}{2}} \sum_{j\in N^{1}(u)} y_{j}^{(1)} + \left | N^{2}(u) \right |^{-\frac{1}{2}} \sum_{j\in N^{2}(u)} y_{j}^{(2)} \right )
 \end{equation}
 
-SVD++ in general performs better than SVD, however if there is no implicit data, the uses for SVD++ becomes negligible.
-
-\subsubsection{Choice of Recommender system}\label{sec:decision} %if label is changed then also change it in Individual recommendation.
-For this problem, we went with the matrix factorization. Matrix factorization wins out in general since the offline training makes us able to reuse a model once it has been trained for the multiple tests. SVD also has several other notable benefits, such as finding otherwise hidden correlations in the data.
-
-Among the different matrix factorization approaches, we went with the standard SVD, as the SVD++ method is better suited for data with implicit connections.
+SVD++ in general performs better than SVD, however if there is no implicit data, the advantage in using SVD++ becomes negligible.

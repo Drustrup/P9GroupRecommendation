@@ -1,0 +1,4 @@
+\subsubsection{Choice of Recommender system}\label{sec:decision} %if label is changed then also change it in Individual recommendation.
+For this problem, we went with matrix factorization. Matrix factorization wins out in general since the offline training makes us able to reuse a model once it has been trained for the multiple tests. SVD also has several other notable benefits, such as finding otherwise hidden correlations in the data.
+
+Among the different matrix factorization approaches, we went with the standard SVD, because SVD is a standard method, so it is more easily replicated by other studies and there are many libraries available for it. The precision of the recommender is also not the main focus of this project, as the satisfaction of the group is not improved by a better precision.

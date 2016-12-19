@@ -1,0 +1,33 @@
+\subsubsection{Precision and Recall}
+Two common evaluation metrics for recommender systems are precision and recall\cite{recsyshandbook}. Precision and recall sees the method as a binary classifier. We can express a recommender system as a binary classifier that predicts an item as to be recommended or not recommended for each presented item. For each item, the actual classification can be either true or false, resulting in four possible outcomes which can be expressed with a confusion matrix as seen in table \ref{tab:testandevaluation_confusionmatrix}. An item can be classified as recommended and actually be a recommended item, making it a true positive. Alternatively, a non-recommended item that is actually not recommended is a true negative. An item that is not recommended by the classifier, but belongs with the recommended items is a false negative, and the reverse is a false positive.
+
+\begin{table}[H]\label{tab:testandevaluation_confusionmatrix}
+	\centering
+	\begin{tabular}{ l|ll }
+		\multicolumn{3}{l}{} \\
+		& Predicted: Negative & Predicted: Positive \\ \hline
+		Actual: Negative & True Negative(TN) & False Positive(FP) \\
+		Actual: Positive & False Negative(FN) & True Positive(TP) \\ \hline
+	\end{tabular}
+	\caption{Confusion matrix}
+\end{table}
+
+Precision is the degree to which the method gets the correct classification out of all the positive guesses. The score is calculated by dividing the number of correct guesses, true positives, with the sum of the true positive and the incorrect guesses, false positives.
+
+\begin{equation}\label{eq:precision}
+	\text{Precision} = \frac{TP}{TP+FP}
+\end{equation}
+
+Recall is the degree of relevant elements uncovered. The score is calculated by dividing the number of true positives with the sum of true positive and false negatives as seen in \ref{eq:recall}.
+
+\begin{equation}\label{eq:recall}
+\text{Recall} = \frac{TP}{TP+FN}
+\end{equation}
+
+There are ways to skew either metric. A recommender system, which predicts a positive for only the most certain items, can likely score highly on precision as the number of false positives would be very low. However, being too conservative can result in an increase of false negatives, which reduces the recall score.
+
+The $F_1$ score combines precision and recall into a single harmonic mean score, as to better reflect the overall performance than either metric can on their own.
+
+\begin{equation}
+	F_1 = 2 \cdot \frac{precision \cdot recall}{\text{precision} + \text{recall}}
+\end{equation}

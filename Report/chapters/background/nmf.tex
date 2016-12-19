@@ -1,0 +1,15 @@
+\subsubsection{Non-negative Matrix Factorization}
+
+Non-negative Matrix factorization(NNMF) is a constraint on the standard matrix factorization. All values are equal to or higher than 0, and when learning the model, no values can go below 0, which is ensured by setting any values that have become negative back to 0 before the next iteration. This is helpful for speeding up the learning in certain domains, for instance finding objects or parts hereof in images\cite{nnmf}.
+
+As shown in Equation \ref{eq:nmf}, given a rating matrix of size \textit{m-by-n}, for example m users and n items, we can find non-negative matrix factors $W$ and $H$ of size \textit{m-by-f} and \textit{f-by-n} respectively, such that they approximate $V$. During this $f$ is usually chosen to be smaller than the rank of the $m$ by $n$ matrix, as to reduce the size of $W$ and $H$ compared to the original matrix, $V$\cite{LeeNMF}.
+
+\begin{equation} \label{eq:nmf}
+	V \approx W H
+\end{equation}
+
+Furthermore, a property of NNMF is that it can be rewritten as seen in Equation \ref{eq:nnmf_rewritten}, where $i$ is the index of the columns in $V$ and $H$. This means that the data vector $v_{i}$ is an approximation given by a linear combination of the columns of $W$, weighted by $h_{i}$ components\cite{LeeNMF}.
+
+\begin{equation} \label{eq:nnmf_rewritten}
+	v_{i} \approx W h_{i}
+\end{equation}
