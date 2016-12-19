@@ -1,6 +1,5 @@
 \subsubsection{SVD++} \label{bg:mf_svd++}
-As the name implies, SVD++ is an extension on SVD. Where SVD in general only works with explicit data, SVD++ takes into account the implicitly gathered data as well. Take for instance a user that has a number of items they have shown some indirect interest in, for instance hovering over the items to see some information about them, SVD++ would specifically account for this set of potentially interesting items.\cite{recsyshandbook}.
-\todo{Specify section in book for citation}
+As the name implies, SVD++ is an extension on SVD. Where SVD in general only works with explicit data, SVD++ takes into account the implicitly gathered data as well. Take for instance a user that has a number of items they have shown some indirect interest in, for instance hovering over the items to see some information about them, SVD++ would specifically account for this set of potentially interesting items\cite{svd++}.
 
 \note{Move this part about standard SVD to the appropriate section in the report along with the equation for it.} \todo{Make sure the notation and explanations are correct.}
 The standard model for SVD can be seen in Equation \ref{eq:svd_standard}, where $\hat{r}_{ui}$ is the predicted rating, $\mu$ is the overall average rating, $b_{i}$ and $b_{u}$ are the deviations from the average for item $i$ and user $u$ respectively, and $q_{i}^{T}p_{u}$ is a representation of the interaction between user $u$ and item $i$, in other words the overall interest in aspects of the item from the user.

@@ -2,7 +2,7 @@
 This section covers the testing and evaluation methods we will use. In specific k-fold testing and our evaluation metrics will be explained.
 
 \subsection{K-fold Testing}
-Stemming from cross validation in the field of statistics, k-fold testing is a commonly used technique in regards to recommender systems. The basic principle in the method is to split the dataset into $k$ equally sized parts or folds, and then use one of the folds as the testing or validation set, while the rest of the folds are used as training data. This process is then repeated $k$ times, so each fold is used as the validation set once. After it has been repeated $k$ times, the results can then be averaged to find an overall estimation of the error in the model. An example of how the k-fold ordering could be structured can be seen in Table \ref{tbl:bg_k-fold}. Typically, either 5-fold or 10-fold testing is what is used.
+Stemming from cross validation in the field of statistics, k-fold testing is a commonly used technique in regards to recommender systems\cite{kfold}. The basic principle in the method is to split the dataset into $k$ equally sized parts or folds, and then use one of the folds as the testing or validation set, while the rest of the folds are used as training data. This process is then repeated $k$ times, so each fold is used as the validation set once. After it has been repeated $k$ times, the results can then be averaged to find an overall estimation of the error in the model. An example of how the k-fold ordering could be structured can be seen in Table \ref{tbl:bg_k-fold}. Typically, either 5-fold or 10-fold testing is what is used.
 
 \begin{table}[H]
 	\centering
@@ -41,7 +41,7 @@ For this project, we used RMSE in the evaluation of the SVD module of the recomm
 \end{equation}
 
 \subsubsection{Normalized Discounted Cumulative Gain}
-Discounted cumulative gain is used to measure the quality of a ranking through the relevance of the result set. It is most commonly used in the information retrieval field for determining the quality of the result of a query, however it is also useful for getting a measure of satisfaction for an ordering of recommended items. That is because recommendation and the results of a search query are both solutions to the problem of information overload that presents a set of possible items\cite{recsyshandbook}\cite{baltrunas}.
+Discounted cumulative gain is used to measure the quality of a ranking through the relevance of the result set. It is most commonly used in the information retrieval field for determining the quality of the result of a query, however it is also useful for getting a measure of satisfaction for an ordering of recommended items. That is because recommendation and the results of a search query are both solutions to the problem of information overload that presents a set of possible items\cite{ndcg}\cite{baltrunas}.
 
 For a group recommendation this works by comparing the group recommendation with the individual preferences. In this way, the relevance of an item is translatable to a ranked list of recommendations, as a recommendation can be viewed as a fixed query.
 
