@@ -55,7 +55,7 @@ Another aspect of aggregation is Rank Aggregation, where the input is lists of p
 Rank aggregation has to the best of our knowledge settled on three main methods, Borda, Footrule, and Markov Chains, all of which are good approximations of Kemeny optimal aggregation.\\
 
 
-\textbf{Borda} or Borda Count \cite{baltrunas} \cite{recsyshandbook}, works by assigning a score for each member to each item based on the item's placement on the members ordered list. Then the total score for an item is the sum of scores it got from each user. Often the individual scores are inversely proportional to the placement, so on a top $n$ list item 1 would get a score of $n$, item 2 a score of $n-1$ etc..\\
+\textbf{Borda} or Borda Count \cite{baltrunas}\cite{borda}, works by assigning a score for each member to each item based on the item's placement on the members ordered list. Then the total score for an item is the sum of scores it got from each user. Often the individual scores are inversely proportional to the placement, so on a top $n$ list item 1 would get a score of $n$, item 2 a score of $n-1$ etc..\\
 
 Performing Borda of two given ranked lists $L_{1} = {a,b,c,d,e}$ and $L_{2} = {c,a,f,e,d}$ would work as follows. Assign scores to each item in each list $S_{1} = {a = 5, b = 4, c = 3, d = 2, e = 1}$ and $S_{2} = {c = 5, a = 4, f = 3, e = 2, d = 1}$. Then sum up the scores for each item: $a = 9, b = 4, c = 8, d = 3, e = 3, f = 3$. According to Borda the best ordering would then be ${a, c, b, def}$, where $d, e,$ and $f$ are interchangeable.\\
 
