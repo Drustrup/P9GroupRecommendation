@@ -6,7 +6,7 @@ A sparse dataset, such as a rating matrix with many items and users, with most c
 
 MF makes an approximation of a matrix of ratings by decomposing it into multiple matrices. Since MF approximates matrices in an offline step before recommendation, it scales better compared to contemporary collective filtering techniques during recommendation, as most of the calculation work has been done offline. It performs well even when data sparsity is a concern due to the matrix approximation and the dimensionality reduction.
 As data sparsity grows in a set, the less accurate every method gets. Factorization methods counteract this by compressing the data, making it less sparse, and easier to cluster.
-As an MF matrix is traditionally updated offline resulting in unchanging matrices, then the matrix can be reused as required. This is a benefit when testing various aggregations or configurations of users.
+As an MF matrix is traditionally updated offline resulting in unchanging matrices, the matrix can be reused as required. This is a benefit when testing various aggregations or configurations of users as most of the calculations are already done as part of the training of the matrix. As the part can be reused for all the tests, it can save some time in practice.
 
 \subsubsection{Singular Value Decomposition}
 On its own, SVD is a dimensionality reduction technique. However, in 2006 Simon Funk popularized it as a recommender method with some modifications\footnote{Source: http://sifter.org/~simon/journal/20061211.html}.
