@@ -40,7 +40,7 @@ For this project, we used RMSE in the evaluation of the SVD module of the recomm
 	\text{RMSE} = \sqrt{\frac{\sum_{u=1}^{U}\sum_{i=1}^{I}(\sum_{f=1}^{F}(A_{uf} B_{fi}) - R_{ui})^2}{|U|\times |I|\times |F|}}
 \end{equation}
 
-\subsubsection{Normalized Discounted Cumulative Gain}
+\subsubsection{Normalized Discounted Cumulative Gain}\label{sec:testandeval_ndcg}
 Discounted cumulative gain is used to measure the quality of a ranking through the relevance of the result set. It is most commonly used in the information retrieval field for determining the quality of the result of a query, however it is also useful for getting a measure of satisfaction for an ordering of recommended items. That is because recommendation and the results of a search query are both solutions to the problem of information overload that presents a set of possible items\cite{ndcg}\cite{baltrunas}.
 
 For a group recommendation this works by comparing the group recommendation with the individual preferences. In this way, the relevance of an item is translatable to a ranked list of recommendations, as a recommendation can be viewed as a fixed query.
