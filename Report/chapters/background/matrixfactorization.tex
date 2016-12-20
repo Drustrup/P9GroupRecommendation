@@ -88,14 +88,14 @@ B = \begin{bmatrix}
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.8]{svd_ab_squeeze.png}
-	\caption{The decomposition of a rating matrix using SVD\cite{recsys_dimensionalityreduction}}
+	\caption{The decomposition of a rating matrix using SVD\cite{recsys_svd}}
 	\label{fig:svdSqueeze}
 \end{figure}
 \todo{Figure should ref to linear algebra book about SVD}
 Having moved to the dense subspace of each rated item and user being defined by their features rather than their explicit ratings, data sparsity becomes less of a problem, as missing ratings are squeezed out.
 
 \subsubsection{Gradient descent}
-In Funk's blog, the gradient descent optimization algorithm is proposed as a common method to learn the A and B matrices to minimize the error, as found using Equation \ref{eq:gradient_descent_error}. The error is calculated as the euclidean distance between our known ratings, $R$, and our predicted ratings $\hat{R}$.
+In Funk's blog, the gradient descent optimization algorithm is proposed as a common method to learn the A and B matrices to minimize the error, as found using Equation \ref{eq:gradient_descent_error}. The error is calculated as the euclidean distance between our known ratings, $R$, and our predicted ratings $\hat{R}$\cite{aibook_gradientdescent_localsearch}\cite{aibook_gradientdescent_linearfunc}.
 
 \begin{equation}\label{eq:gradient_descent_error}
 \text{Error} = |R-\hat{R}| = |R - AB| = \sum_{u=1}^{U}\sum_{i=1}^{I}\left (R_{ui}- \sum_{k=1}^{K} A_{uk}B_{ki} \right )^2
