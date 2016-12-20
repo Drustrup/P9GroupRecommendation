@@ -1,25 +1,20 @@
 \chapter{Conclusion} \label{ch:conclusion}
-We wanted to showcase an approach that reconciles the differences in preferences among multiple group members in the problem of group recommendation. During this process we found that the evaluation possibilities of the performance of these approaches were rather limited due to lack of proper data sets making it difficult to determine whether or not a group would be satisfied with its recommendations.
+We wanted to showcase an approach that reconciles the differences in preferences among multiple group members in the problem of group recommendation. During this process we found that the evaluation possibilities of the performance of these approaches were rather limited due to lack of proper datasets making it difficult to determine whether or not a group would be satisfied with its recommendations.
 
+We found that with using a ranked list for the recommendations we could adopt the normalized Discounted Cumulative Gain(nDCG) technique from the information retrieval domain to measure user satisfaction by comparing the ranked list of a user with the ranked list found through aggregation. This only left us with the task of forming the groups, which we ended up doing using random sampling.
 
-We found that with using a ranked list for the recommendations we could adopt the normalized Discounted Cumulative Gain(nDCG) technique from the information retrieval domain to measure user satisfaction by comparing the ranked list of a user with the ranked list of the recommended list of recommendations for the group. This only left us with the task of forming the groups, which we ended up doing using random sampling.
-
-
-The following questions from the problem statement we sought to answer:
+We sought to answer the following questions from the problem statement:
 \begin{itemize}
-	\item How to make recommendations to a group of people based on the users' individual preferences?
-	\item How to measure the level of satisfaction in a group in regards to the items recommended?
 	\item How to reflect group decision making algorithmically while securing satisfaction for the individuals as well as the group as a whole?
+	\item How to measure the level of satisfaction in a group in regards to the items recommended?
+	\item How to make recommendations to a group of people based on the users' individual preferences?
 \end{itemize}
 
-
-For making recommendations to a group, we present the Borda Transferable Count(BTC) as a method of aggregating the individual ranked lists. The results are promising, as it performs better than the tested methods on nDCG scores. However, we cannot as of yet make a definite conclusion on the BTC as a solution to the group recommender problem.
-
+For reflecting how a group decision would be handled, we ventured into some of the methods used for resolving differing opinions. In the end, we incorporated single transferable vote into the Borda Count method in the Borda Transferable Count(BTC) algorithm. These are not methods that necessarily reflects an organic group decision process, but reflects parts of real group decision methodologies.
 
 For measuring the level of satisfaction in a group, we found and used nDCG. It is commonly used for rankings and information retrieval. This works well with the view of recommendation as a tool for drawing out relevant information, when getting an overview is hard.
 
-
-For reflecting how a group decision would be handled, we ventured into some of the methods used for resolving differing opinions. In the end, we incorporated single transferable vote into the Borda Count method in the BTC algorithm. These are not methods that necessarily reflects an organic group decision process, but reflects parts of real group decision methodologies.
+For making recommendations to a group, we present the BTC as a method of aggregating the individual ranked lists. The results are promising, as it performs better than the tested methods on nDCG scores. However, we cannot as of yet make a definite conclusion on the BTC as a solution to the group recommender problem.
 
 \section{Discussion}\label{sec:conclusion_discussion}
 As mentioned we use the information retrieval method nDCG to measure satisfaction. In doing so we make several assumptions about the users’ preferences. First of all, the user ratings used for the group recommendations are predictions, which may not coincide with the actual preferences of the user. Based on these predicted ratings we assume that a user would construct a ranked list, with a fixed distance between the top ranked and next highest rank regardless of the predicted preference for either, which we use to determine the satisfaction score, with the highest ratings. This means that the satisfaction score we get is based on assumptions about a user's preferences, which makes our results noteworthy, but ultimately, based on assumptions about existing data rather than real world data.

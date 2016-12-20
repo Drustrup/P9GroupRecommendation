@@ -2,7 +2,7 @@
 In Section \ref{sec:decision} we determined that SVD would be a suitable method of recommendation for this project. 
 We have experimented with two different approaches with slight differences in how they do regularization and in how the A and B matrices are constructed.
 
-The first approach was the Funk-SVD which can be seen in Equation \ref{eq:indi_rec_funk}, where Equation \ref{eq:indi_rec_funk_error} defines the error\cite{svdsimonfunk}. In the post Simon Funk mentions that the algortihm uses a method somewhat like Tikhonov regularization\todo{find ref on tikhnonov}, denoted as $\lambda$ in the equation. We have made some adjustments compared to Funks documentation\cite{svdsimonfunk}. Instead of calculating the values of matrix A and B based on average movie rating and average offset for users, our initial test showed the best performance when populating them with random variables between 0 and 1.
+The first approach was the Funk-SVD which can be seen in Equation \ref{eq:indi_rec_funk}, where Equation \ref{eq:indi_rec_funk_error} defines the error\cite{svdsimonfunk}. In the post Simon Funk mentions that the algortihm uses a method somewhat like Tikhonov regularization\footnote{https://en.wikipedia.org/wiki/Tikhonov_regularization}, denoted as $\lambda$ in the equation. We have made some adjustments compared to Funks documentation\cite{svdsimonfunk}. Instead of calculating the values of matrix A and B based on average movie rating and average offset for users, our initial test showed the best performance when populating them with random variables between 0 and 1.
 \begin{equation}\label{eq:indi_rec_funk_error}
 error = R_{ui} - \sum_n A_{un}B_{ni}
 \end{equation}
