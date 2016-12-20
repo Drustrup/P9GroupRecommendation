@@ -54,20 +54,22 @@ The measure grew out from the Cumulative Gain measure, which takes the relevance
 The addition of the discounted property adds a consideration over the ranking. For most lists, it is assumed that a user will consider each item in order from first to last, making the most important position the first item. So it follows that the most relevant item should be the first item. This justifies penalizing a deviance from ordering by the most relevant item first. The score is calculated using Equation \ref{eq:background_dcg}.
 
 \begin{equation}\label{eq:background_dcg}
-	\text{DCG}_p = \textit{rel}_1 + \sum_{i=2}^{p}\frac{\textit{rel}_i}{\log_2(i)}
+	\text{DCG}_p = \sum_{i=1}^{p}\frac{\textit{rel}_i}{\log_2(i + 1)}
 \end{equation}
 
-Normalized discounted cumulative gain compares the DCG with an ideal ranking as to normalize the score, where a perfect ordering results in a score of 1, so it can be compared for systems using rankings of different lengths. The score is calculated using Equation \ref{eq:background_ndcg}. The ideal ranking is IDCG, which is calculated using Equation \ref{eq:background_idcg}, where we use the individual's list of preferences as the basis for an ideal ranking for that user.
+Normalized discounted cumulative gain compares the DCG with an ideal ranking as to normalize the score, where a perfect ordering results in a score of 1, so it can be compared for systems using rankings of different lengths. The score is calculated using Equation \ref{eq:background_ndcg}. The IDCG is the ideal DCG with basically is the elements in DCG sorted in the order of relevance.
+
+%The ideal ranking is IDCG, which is calculated using Equation \ref{eq:background_idcg}, where we use the individual's list of preferences as the basis for an ideal ranking for that user.
 
 \begin{equation}\label{eq:background_ndcg}
 	\text{nDCG}_p = \frac{\text{DCG}_p}{\text{IDCG}_p}
 \end{equation}
 
-\begin{equation}\label{eq:background_idcg}
-	\text{IDCG}_p = \sum_{i=1}^{|REL|} \frac{2^{\textit{rel}_i}-1}{\log_2(i+1)}
-\end{equation}
+%\begin{equation}\label{eq:background_idcg}
+%	\text{IDCG}_p = \sum_{i=1}^{|REL|} \frac{2^{\textit{rel}_i}-1}{\log_2(i+1)}
+%\end{equation}
 
-As an example of finding the satisfaction of a user based on the recommendations for the group, the rating of a group of users can be as seen in Table \ref{tbl:testandeval_bordacount}. User U1 will be the focus of this example, and in Table \ref{tbl:testandeval_positions}, the ranking of the group chosen by average and U1's individual ranking is shown as between index position 1 and 4.
+As an example of finding the satisfaction of a user based on the recommendations for the group, the rating of a group of users can be as seen in Table \ref{tbl:testandeval_bordacount}. User U1 will be the focus of this example, and in Table \ref{tbl:testandeval_positions}, the groups 4 most preferred items, based on average, is shown together with user U1's 4 most preferred items. As can be seen item M8 and M4 overlaps for the two lists giving us a relevance scores for U1 on 9, 9, 0, 0. The two last relevance scores are zero because they are not present in U1's top 4 preferences which we look at in this case.
 
 \begin{table}[H]
 	\centering
@@ -100,20 +102,22 @@ As an example of finding the satisfaction of a user based on the recommendations
 The cumulative gain of the example results in a high count in Equation \ref{eq:background_cg_example}, as to be expected as the group and U1 share many preferences in the list. When we consider the positioning in Equation \ref{eq:background_dcg_example}, there is only a small drop in the score, as the bulk of U1's points are at the top positions where the penalty is smaller.
 
 \begin{equation}\label{eq:background_cg_example}
-\text{CG}_4 = \sum_{i=1}^{4}\textit{rel}_i = 9 + 9 + 6 + 7 = 31
+\text{CG}_4 = \sum_{i=1}^{4}\textit{rel}_i = 9 + 9 + 0 + 0 = 18
 \end{equation}
 
 \begin{equation}\label{eq:background_dcg_example}
-\text{DCG}_4 = \textit{rel}_1 + \sum_{i=2}^{4}\frac{\textit{rel}_i}{\log_2(i)}
-= 9 + (9 + 3.79 + 3.5) = 25.29
+\text{DCG}_4 = \sum_{i=1}^{4}\frac{\textit{rel}_i}{\log_2(i + 1)}
+= 9 + 5.68 + 0 + 0 = 14.68
 \end{equation}
 
-To normalize the score, we compare it to the ideal ranking, which is U1's own ranking. The ideal ordering is calculated in Equation \ref{eq:background_idcg_example}, and it is only slightly higher than the DCG of the group. The level of satisfaction for U1 for this recommendation is $0.95$, as per Equation \ref{eq:background_ndcg_example}, which is a high level of satisfaction. This is not surprising given that U1's preferences were well-represented.
+To normalize the score, we compare it to the ideal ranking, which is U1's own ranking which would be 9, 9, 8, 7. The score for the ideal ordering is calculated in Equation \ref{eq:background_idcg_example}. The level of satisfaction for U1 for this recommendation is $0.68$ equal to a 68\% points, as per Equation \ref{eq:background_ndcg_example}. 
 
 \begin{equation}\label{eq:background_idcg_example}
-\text{IDCG}_4 = 9 + (9 + 5.05 + 3.5) = 26.55
+\text{IDCG}_4 = 9 + 5.68 + 4 + 3.05 = 21.73
 \end{equation}
 
 \begin{equation}\label{eq:background_ndcg_example}
-\text{nDCG}_4 = \frac{\text{DCG}_4}{\text{IDCG}_4} = \frac{25.29}{26.55}=0.95
+\text{nDCG}_4 = \frac{\text{DCG}_4}{\text{IDCG}_4} = \frac{14.68}{21.73}=0.68
 \end{equation}
+
+This is an above average score because even though U1 only got 50\% of its list is represented, it are the highest ranked items and they are highly ranked on the groups list which is why the percentage point is 68\% and not 50\%. 
