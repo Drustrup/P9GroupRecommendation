@@ -1,5 +1,7 @@
 \section{Aggregation} \label{bg:aggregation} \todo{Update the this introduction to the section to reflect actual use}
-When working with a group recommender system, it is hard to avoid using aggregation to make group-like decisions. While recent research has shown that current aggregation methods are not a perfect substitute for group based decisions \cite{aggregationnotenough}, it is not our goal to find a suitable substitution for aggregation. We will instead use existing aggregation strategies to find suitable recommendations for the group. While specific strategies are as numerous as the number of recommenders, they are derived from only a few common strategies. Most of these strategies will here be presented using the ratings in Table \ref{aggregation:tbl:table_of_ratings}, while the full overview of the results of aggregation can be seen in Table \ref{aggregation:tbl:examples_of_strategies}.
+When working with a group recommender system, it is hard to avoid using aggregation to make group-like decisions. While recent research has shown that current aggregation methods are not a substitute for group based decisions\cite{aggregationnotenough}, it is not our goal to find a suitable substitution for aggregation. We will instead use existing aggregation strategies to find suitable recommendations for the group. While specific strategies are as numerous as the number of recommenders, they are derived from only a few common strategies. Most of these strategies will here be presented using the ratings in Table \ref{aggregation:tbl:table_of_ratings}, while the full overview of the results of aggregation can be seen in Table \ref{aggregation:tbl:examples_of_strategies}.
+
+The ref for intro for chapter\cite{recsyshandbookagreggation}.
 
 \begin{table}[H]
 	\centering
@@ -14,7 +16,7 @@ When working with a group recommender system, it is hard to avoid using aggregat
 	\label{aggregation:tbl:table_of_ratings}
 \end{table}
 
-\textbf{Plurality Voting} attempts to gain satisfaction by selecting the items with the highest ratings for the majority of the group first, and then repeating this strategy removing any items already selected. Outlier cases can result in a minority of highly dissatisfied users, simply because their ratings are insignificant. For instance items A being rather highly scored despite two people hating it.\\
+\textbf{Plurality Voting} attempts to gain satisfaction by selecting the items with the highest ratings for the majority of the group first, and then repeating this strategy removing any items already selected. Outlier cases can result in a minority of highly dissatisfied users, simply because their ratings are insignificant. For instance item A being rather highly scored despite two people hating it.\\
 
 \textbf{Average} is one of the simplest ways of aggregating, by simply taking the average of the ratings for an item. As with any averaging, this is not necessarily the best approach as low ratings can be overshadowed by a significantly higher amount of high ratings. This is for instance the case with item F, where the low rating from John is overlooked in favor of the other people's ratings.\\
 
@@ -50,17 +52,20 @@ When working with a group recommender system, it is hard to avoid using aggregat
 	\label{aggregation:tbl:examples_of_strategies}
 \end{table}
 
+\subsection{Simulating Group Behavior} \label{bg:aggregation:groupbehavior}
+In the study conducted by Judith Masthoff\todo{Ref on this and rewrite subsection}, it was found that some of the aggregation strategies were used when a group made decisions on which items to recommend, while other strategies provided better recommendations according to the groups. The strategies groups seemed to make use of were, Average, Average Without Misery, and Least Misery. In contrast to this strategies such as Multiplicative, Average, and Most Pleasure gave reasonable recommendations, showing some mismatch between what the group would recommend themselves, and what they retroactively think is best.
+
+However these strategies were looked at independently. By combining different strategies, not only does it reduce or remove some of the downsides to using a specific strategy, it can also improve the recommendations and the satisfaction they lead to.
+
 \subsection{Rank Aggregation}
-Another aspect of aggregation is Rank Aggregation, where the input is lists of preferences. The goal as with any aggregation is then to find the best ordering possible. The best ordering is also known as the Kemeny Optimal \cite{DBLP:conf/www/DworkKNS01}.
-Rank aggregation has to the best of our knowledge settled on three main methods, Borda, Footrule, and Markov Chains, all of which are good approximations of Kemeny optimal aggregation.\\
+Another aspect of aggregation is rank aggregation, where the input are lists of preferences. The goal as with any aggregation is then to find the best ordering possible. The best ordering is also known as the Kemeny Optimal\cite{DBLP:conf/www/DworkKNS01}.
+Rank aggregation has to the best of our knowledge settled on two main methods, Borda and Footrule, both of which are good approximations of Kemeny optimal aggregation.\\
 
-
-\textbf{Borda} or Borda Count \cite{baltrunas}\cite{borda}, works by assigning a score for each member to each item based on the item's placement on the members ordered list. Then the total score for an item is the sum of scores it got from each user. Often the individual scores are inversely proportional to the placement, so on a top $n$ list item 1 would get a score of $n$, item 2 a score of $n-1$ etc..\\
+\textbf{Borda} or Borda Count\cite{baltrunas}\cite{borda}, works by assigning a score for each member to each item based on the item's placement on the members ordered list. Then the total score for an item is the sum of scores it got from each user. Often the individual scores are inversely proportional to the placement, so on a top $n$ list item 1 would get a score of $n$, item 2 a score of $n-1$ etc..\\
 
 Performing Borda of two given ranked lists $L_{1} = {a,b,c,d,e}$ and $L_{2} = {c,a,f,e,d}$ would work as follows. Assign scores to each item in each list $S_{1} = {a = 5, b = 4, c = 3, d = 2, e = 1}$ and $S_{2} = {c = 5, a = 4, f = 3, e = 2, d = 1}$. Then sum up the scores for each item: $a = 9, b = 4, c = 8, d = 3, e = 3, f = 3$. According to Borda the best ordering would then be ${a, c, b, def}$, where $d, e,$ and $f$ are interchangeable.\\
 
-
-\textbf{Footrule} or Spearman’s Footrule \cite{baltrunas}, is an aggregation method where the average Spearman footrule distance is minimized on the input rankings.
+\textbf{Footrule} or Spearman’s Footrule\cite{baltrunas}, is an aggregation method where the average Spearman footrule distance is minimized on the input rankings.
 Between two lists, the Spearman footrule distance is the sum of absolute difference of the rank positions of each item between the two lists. If an item is present in one list of top $n$ items but not in another, the item is placed in the list it is missing from at rank $n + 1$.
 For instance take the two ranked lists $L_{1}$ and $L_{2}$ from earlier. First $L_{1}$ is designated as what is called the pattern-vector which has coordinates based on the ranking in the list, e.g. a = 1, b = 2, etc.. As the item $f$ is present in $L_{2}$ but is missing in $L_{1}$ it is added as f = 6. Subsequently item $b$ is also added to $L_{2}$. This results in $L_{1}$ being the pattern-vector $(1,2,3,4,5,6)$ while $L_{2}$ becomes the vector $(3,1,6,5,4,2)$. The footrule distance between these are now easily calculated as follows $|3-1| + |1-2| + |6-3| + |5-4| + |4-5| + |2-6| = 12$.
 
@@ -70,10 +75,5 @@ Finding the aggregation then becomes a task of finding the minimum cost maximum 
 	W(c,p) = \sum_{i=1}^{k} \left | \frac{\tau_{i}(c)}{\left |\tau_{i}  \right |} - \frac{p}{n} \right |
 \end{equation}
 
-\subsection{Simulating Group Behavior} \label{bg:aggregation:groupbehavior}
-In the study conducted by Judith Masthoff, it was found that some of the aggregation strategies were used when a group made decisions on which items to recommend, while other strategies provided better recommendations according to the groups. The strategies groups seemed to make use of were, Average, Average Without Misery, and Least Misery. In contrast to this strategies such as Multiplicative, Average, and Most Pleasure gave reasonable recommendations, showing some mismatch between what the group would recommend themselves, and what they retroactively think is best.
-
-However these strategies were looked at independently. By combining different strategies, not only does it reduce or remove some of the downsides to using a specific strategy, it can also improve the recommendations and the satisfaction they lead to.
-
 \subsection{Selecting the Comparison Base}
-As we are developing new aggregation methods in an attempt to increase the group’s satisfaction with the recommended items, at least one existing aggregation should be used for the comparison. We have chosen to use both Average and Borda Count for this purpose. Average was chosen because it is the commonly used comparison, while Borda Count while being simple still manages to deliver satisfaction close to that of the more complex Spearman’s Footrule \cite{baltrunas}.
+As we are developing new aggregation methods in an attempt to increase the group’s satisfaction with the recommended items, at least one existing aggregation should be used for the comparison. We have chosen to use both Average and Borda Count for this purpose. Average was chosen because it is the commonly used comparison, while Borda Count while being simple still manages to deliver satisfaction close to that of the more complex Spearman’s Footrule\cite{baltrunas}.

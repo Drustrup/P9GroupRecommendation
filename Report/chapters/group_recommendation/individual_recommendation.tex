@@ -1,20 +1,20 @@
 \section{Individual Recommendation}\label{sec:individual_recommendation}
 In Section \ref{sec:decision} we determined that SVD would be a suitable method of recommendation for this project. 
-We experimented with two different approaches with slight differences in how they do regularization and in how the A and B matrices are constructed.
+We have experimented with two different approaches with slight differences in how they do regularization and in how the A and B matrices are constructed.
 
-The first approach was the Funk-SVD which can be seen in Equation \ref{funk}\cite{svdsimonfunk}. In the post Simon Funk mentions that the algortihm uses as somewhat Tikhonov regularization method\note{find ref on tikhnonov}, denoted as $\lambda$ in the equation. We have done some slight differences compared to Funks documentation\cite{svdsimonfunk}. Instead of calculating the values of matrix A and B based on average movie rating and average offset for users, our initial test showed the best performance when populating them with random variables between 0 and 1. Another notable difference is that we used stochastic gradient decent instead of just gradient descent.
-\begin{equation}
+The first approach was the Funk-SVD which can be seen in Equation \ref{eq:indi_rec_funk}, where Equation \ref{eq:indi_rec_funk_error} defines the error\cite{svdsimonfunk}. In the post Simon Funk mentions that the algortihm uses a method somewhat like Tikhonov regularization\todo{find ref on tikhnonov}, denoted as $\lambda$ in the equation. We have made some adjustments compared to Funks documentation\cite{svdsimonfunk}. Instead of calculating the values of matrix A and B based on average movie rating and average offset for users, our initial test showed the best performance when populating them with random variables between 0 and 1.
+\begin{equation}\label{eq:indi_rec_funk_error}
 error = R_{ui} - \sum_n A_{un}B_{ni}
 \end{equation}
 
-\begin{equation}\label{funk}
+\begin{equation}\label{eq:indi_rec_funk}
 \begin{aligned}
 A_{uk} += \eta * (error * B_{ki} - \lambda A_{uk}) \\
 B_{ki} += \eta * (error * A_{uk} - \lambda B_{ki})
 \end{aligned}
 \end{equation}
 
-The second approach can be seen in Equation \ref{slide}, which is also described in Section \ref{bg:sub:factorizationmodels}. As mentioned this approach has some differences compared to Funk-SVD. First of all, it uses a simple weighted-decay for regularization and not Tikhonov. Second, the A and B matrices for this approach is populated using the SVDS method in MatLab, which is similar to Equation \ref{eq:svd_AB_squeezing} in Section \ref{bg:sub:factorizationmodels}.
+The second approach can be seen in Equation \ref{slides}, which is also described in Section \ref{bg:sub:factorizationmodels}. As mentioned this approach has some differences compared to Funk-SVD. First of all, it uses a simple weighted-decay for regularization and not Tikhonov. Second, the A and B matrices for this approach is populated using the SVDS method in MatLab, which is similar to Equation \ref{eq:svd_AB_squeezing} in Section \ref{bg:sub:factorizationmodels}.
 
 \begin{equation}\label{slides}
 \begin{aligned}
@@ -23,8 +23,8 @@ B_{ki} += \eta * error *A_{uk} - \lambda B_{ki}
 \end{aligned}
 \end{equation}
 
-In Listing \ref{lst:SVD} is shown how we trained both of the algorithms. We have a while-loop that runs through a specified number of iterations or as long as the RMSE value does not grow too much.
-We train both methods using stochastic gradient decent so we select a random known rating to fit our A and B matrices. Then, starting on Line \ref{line:modulo}, for every 1000 iteration we calculate the RMSE to ascertain that the error is decreasing. 
+In Listing \ref{lst:SVD}, it is shown how we trained both of the algorithms. We have a while-loop that runs through a specified number of iterations or as long as the RMSE value does not grow too much.
+We train both methods using stochastic gradient descent so we select a random known rating to fit our A and B matrices against. Then, starting on Line \ref{line:modulo}, for every 1000 iterations we calculate the RMSE to ascertain that the error is decreasing. 
 
 \begin{lstlisting}[caption={Training of the prediction matrix},label=lst:SVD,escapechar=|]
 ...
@@ -47,7 +47,7 @@ While n < threshold && RMSE < thresholdRMSE
 end
 \end{lstlisting}
 
-During the training we needed to tune the learning rate $\eta$, regularization value $\lambda$, and the number of features $f$ for each algorithm. A selection of these test can be seen in Table \ref{fig:funk_tune} and \ref{fig:SVD_tune}.
+During training we needed to tune the learning rate $\eta$, regularization value $\lambda$, and the number of features $f$ for each algorithm. A selection of these tests can be seen in Table \ref{fig:funk_tune} and Table \ref{fig:SVD_tune}.
 \begin{table}[h]
 \centering
 \begin{minipage}{.48\textwidth}\centering

@@ -1,20 +1,16 @@
 \section{Concerns}
-During the implementation process some concerns surfaced which we choose to ignore at that given moment for the sake of simplicity. The concerns regards who we scale with bigger groups and top-k items and how a real world implementation should handle new users and items.
+During the implementation process some concerns surfaced, which we chose to ignore at that given moment for the sake of simplicity. The concerns regard how we scale with bigger groups and top-k items, and how a real world implementation should handle new users and items.
 
 \subsection{Scalability}
-Scalability was not a major focus point for us while we implemented our algorithms but it have not yet proven to be a problem with the setup we use. 
+Scalability was not a major focus point for us while we implemented our algorithms but it has not yet proven to be a problem with the setup we use. 
 
-scaling could probably become a problem if we were to look at a higher top-k than 10. We have a rather high worst-case runtime on our algorithms. BC, BWC, and BEC have a worst-case on $O(n*m)$ and BTC have $O(n*m*v*z)$ where n is the individual items, m is the group size, v is a subset of m how voted on i certain item, and z is the top-k size. Lets say that we have a top-k on 10 and a group size of 40 and their are no overlaps then n would be 400 items long but if top-k were 50 then n would be 2000. So for BTC we would have $2000 * 40 * 1 * 50 = 4.000.000$.
+Scaling could probably become a problem, if we were to look at a higher top-k than 10. We have a rather high worst-case runtime on our algorithms. BC, BWC, and BEC have a worst-case of $O(n\times m)$ and BTC has $O(n\times m\times v\times k)$ where $n$ are the individual items, $m$ is the group size, $v$ is a subset of $m$ who voted on a certain item, and $k$ is the top-k size. Lets say that we have a top-k of 10 and a group size of 40 and there are no overlaps then $n$ would be 400 items long but if top-k were 50 then $n$ would be 2000. So for BTC we would have $2000 \times 40 \times 1 \times 50 = 4.000.000$ iterations of various loops.
 
-\subsection{Real World Use}
-For the sake of the developing, testing and evaluation the model-based recommendation in the form of SVD is very appropriate as we only have to train it once and then we have all the predictions. 
+\subsection{Real World Application}
+For the sake of the development, testing, and evaluation the model-based recommendation in the form of SVD is very appropriate as we only have to train it once and then we have all the predictions.
 
 If the group recommendation setup were to be used in real world applications, as the virtual reality example with random users described in Section \ref{sec:introduction_scenario}, using SVD alone would be a cumbersome task due to the frequently new released items and new users, which would require us to retrain our model. A real world version should be more flexible so it would be able to handle changes to the user and item base. 
 
-One approach that could solve this is switching to a memory-based recommeder method like pearson corralation or a nearest neighbour approach. This would make a more flexible recommender system that would be able to handle the new items and users. But although this solves the flexibility problem it present us with other problems. One of these problems is scalability with large amount of data\cite{DBLP:conf/adaptive/SchaferFHS07}. Predictions with these approaches are done online, so whenever a user needs recommendations they have to be calculated first. The calculation requires similar users to one receiving them, this requires making similarity calculations on users in a database which can be a comprehensive task on large amounts of data.
+One approach that could solve this is switching to a memory-based recommender method like Pearson correlation or a nearest neighbor approach. This would make a more flexible recommender system that would be able to handle the new items and users. Although this solves the flexibility problem it presents us with other problems. One of these problems is how to handle scalability with large amounts of data\cite{DBLP:conf/adaptive/SchaferFHS07}. Predictions with these approaches are done online, so whenever a user needs recommendations they have to be calculated first. The calculation requires similar users to one receiving them, which requires making similarity calculations on users in a database, which can be a comprehensive task on large amounts of data.
 
-Another approach would be a combination of a model- and memory-based methods. This could as an example be using the SVD as we do now and then if a new user should appear use a nearest neighbour approach to find a similar user in the model and use its recommendations instead. This approach still leaves us with the problem with new items. 
-
-
-
-
+Another approach would be a combination of a model- and memory-based methods. This could as an example be using the SVD, as we do now, and then if a new user should appear use a nearest neighbor approach to find a similar user in the model and use their recommendations instead. This approach still leaves us with the problem of new items.

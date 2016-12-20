@@ -1,6 +1,5 @@
 \section{Evaluation Setup} \label{sec:evaluationsetup}
-The five selection methods Borda Count, Borda Transferable Count, Borda Weighted Count, Borda Escalated Count, and Random Selection are evaluated using the following setup
-In total 6000 random groups are constructed:
+The five selection methods BC, BTC, BWC, BEC, and Random Selection(RS) are evaluated using the following setup. In total 6000 random groups were constructed:
 
 \begin{itemize}
 	\item 1000 with 4 members
@@ -11,14 +10,14 @@ In total 6000 random groups are constructed:
 	\item 1000 with 40 members
 \end{itemize}
 
-The group sizes were decided upon based on our scenario, starting with a size of 4, which was the lower bound for what we called a group. Having a gradual increase in the size provides for convenient comparisons, while we wanted an extra large group size to see what would happen as the groups got larger. 40 was the largest logical group size to make, as it is both ten times the smallest, and each group still spans less than 5\% of the total users.
+The group sizes were decided upon based on our scenario, starting with a size of 4, which was the lower bound for what we called a group. Having a gradual increase in the size provide for convenient comparisons, while we wanted an extra large group size to see what would happen as the groups got larger. 40 was the largest logical group size to make, as it is both ten times the smallest, and each group still spans less than 5\% of the total users in the dataset.
 Having 1000 groups of each size makes for a good statistical number, as the influence of individual outlier groups, whether they have exceptionally high or low satisfaction, are reduced to a state where a single group would be insignificant.
 
-Additionally it was decided to use a $k$ of 10, so each members top-10 list is used. This number was decided arbitrarily, but as will be presented in Section \ref{sec:influenceofk} it happens to be a local maximum for the two methods we want to compare the most.
+Additionally, it was decided to use a $k$ of 10, so each members top-10 list is used. This number was decided arbitrarily, but as will be presented in Section \ref{sec:influenceofk} it happens to be a local maximum for the two methods we want to compare the most.
 
-With the group sizes and $k$ decided upon, what remains is the method of evaluation. nDCG will be the measure used, and it will be used on the individual groups. An average of the nDCG value is then taken for each group size. All the methods will be tested this way using the same groups and the same $k$.
+With the group sizes and $k$ decided upon, what remains is the method of evaluation. nDCG will be the measure used, as discussed in \ref{sec:testandeval_ndcg}, and it will be used on the individual groups. An average of the nDCG value is then taken for each group size. All the methods will be tested this way using the same groups and the same $k$.
 
 \subsection{Limitations of the Setup} \label{sec:limitsetup}
-First and foremost the setup is designed for the specific dataset used, and while methodology is applicable to other datasets, given a proper format of said datasets, the results gained through use of this specific setup on the dataset in question will only hints to the performance of the tested algorithms in general. Therefore the evaluation of the algorithms should be seen as preliminary. With that said we will still give a preliminary conclusion based on the results gained through the evaluation.\\
+First and foremost the setup is designed for the specific dataset used, and while methodology is applicable to other datasets, given a proper format of said datasets, the results gained through use of this specific setup on the dataset in question will only hints to the performance of the tested algorithms in general. Therefore, the evaluation of the algorithms should be seen as preliminary. With that said we will still give a preliminary conclusion based on the results gained through the evaluation.
 
-Testing only certain group sizes might not give the full picture of the performance, however this is a preliminary evaluation, and as such the interesting results would be general trends rather than specifics. Similarly the groups are constructed randomly, with no regard as to how similar or dissimilar the users are from one another. Both of these limitations could be improved upon or changed in a in-depth evaluation of the algorithms.
+Testing only certain group sizes might not give the full picture of the performance, however this is a preliminary evaluation, and as such the interesting results would be general trends rather than specifics. Similarly, the groups are constructed randomly, with no regard as to how similar or dissimilar the users are from one another. Both of these limitations could be improved upon or changed in a in-depth evaluation of the algorithms.
