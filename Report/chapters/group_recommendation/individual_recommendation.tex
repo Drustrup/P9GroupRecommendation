@@ -2,15 +2,15 @@
 In Section \ref{sec:decision} we determined that SVD would be a suitable method of recommendation for this project. 
 We have experimented with two different approaches with slight differences in how they do regularization and in how the A and B matrices are constructed.
 
-The first approach was the Funk-SVD which can be seen in Equation \ref{eq:indi_rec_funk}, where Equation \ref{eq:indi_rec_funk_error} defines the error\cite{svdsimonfunk}. In the post Simon Funk mentions that the algortihm uses a method somewhat like Tikhonov regularization\footnote{https://en.wikipedia.org/wiki/Tikhonov_regularization}, denoted as $\lambda$ in the equation. We have made some adjustments compared to Funks documentation\cite{svdsimonfunk}. Instead of calculating the values of matrix A and B based on average movie rating and average offset for users, our initial test showed the best performance when populating them with random variables between 0 and 1.
+The first approach was the Funk-SVD which can be seen in Equation \ref{eq:indi_rec_funk}, where Equation \ref{eq:indi_rec_funk_error} defines the error\cite{svdsimonfunk}. In the post Simon Funk mentions that the algortihm uses a method somewhat like Tikhonov regularization\footnote{https://en.wikipedia.org/wiki/Tikhonov\_regularization}, denoted as $\lambda$ in the equation. We have made some adjustments compared to Funks documentation\cite{svdsimonfunk}. Instead of calculating the values of matrix A and B based on average movie rating and average offset for users, our initial test showed the best performance when populating them with random variables between 0 and 1.
 \begin{equation}\label{eq:indi_rec_funk_error}
-error = R_{ui} - \sum_n A_{un}B_{ni}
+error = R_{ui} - \sum_f A_{uf}B_{fi}
 \end{equation}
 
 \begin{equation}\label{eq:indi_rec_funk}
 \begin{aligned}
-A_{uk} += \eta * (error * B_{ki} - \lambda A_{uk}) \\
-B_{ki} += \eta * (error * A_{uk} - \lambda B_{ki})
+A_{uf} += \eta * (error * B_{fi} - \lambda A_{uf}) \\
+B_{fi} += \eta * (error * A_{uf} - \lambda B_{fi})
 \end{aligned}
 \end{equation}
 
@@ -18,8 +18,8 @@ The second approach can be seen in Equation \ref{slides}, which is also describe
 
 \begin{equation}\label{slides}
 \begin{aligned}
-A_{uk} += \eta * error *B_{ki} - \lambda A_{uk} \\
-B_{ki} += \eta * error *A_{uk} - \lambda B_{ki} 
+A_{uf} += \eta * error *B_{fi} - \lambda A_{uf} \\
+B_{fi} += \eta * error *A_{uf} - \lambda B_{fi} 
 \end{aligned}
 \end{equation}
 
@@ -53,7 +53,7 @@ During training we needed to tune the learning rate $\eta$, regularization value
 \begin{minipage}{.48\textwidth}\centering
 \begin{tabular}{|l|llll|}
 \hline
-Setup	& $\eta$ & $\lambda$ & f   & RMSE   \\ \hline
+Setup	& $\eta$ & $\lambda$ & $f$   & RMSE   \\ \hline
 $SA_1$	& 0.001  & 0.01      & 100 & 1.838 \\ \hline
 $SA_2$	& 0.01   & 0.01      & 100 & 1.283 \\ \hline
 $SA_3$	& 0.01   & 0.2       & 100 & 1.029 \\ \hline
@@ -66,7 +66,7 @@ $SA_4$	& 0.01   & 0.2		 & 50  & 0.994 \\ \hline
 \begin{minipage}{.48\textwidth}\centering
 \begin{tabular}{|l|llll|}
 \hline
-Setup	& $\eta$ & $\lambda$ & f   & RMSE \\ \hline
+Setup	& $\eta$ & $\lambda$ & $f$   & RMSE \\ \hline
 $SB_1$	& 0.01   & 0.01   & 100 & 1.387   \\ \hline
 $SB_2$	& 0.05   & 0.01   & 100 & 1.006  \\ \hline
 $SB_3$	& 0.01   & 0.2    & 10 	& 1		  \\ \hline
