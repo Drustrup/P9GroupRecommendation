@@ -108,11 +108,7 @@ Given as a function, the gradient will point in the direction of the largest err
 	\end{split}
 \end{equation}
 
-Taking the average error when finding the derivative is a costly operation for learning the A and B matrices, as it sums up the error for every user-item pair across all of their features. This can be expressed by a running time as shown in Equation \ref{eq:gradient_descent_runningtime}.
-
-\begin{equation}\label{eq:gradient_descent_runningtime}
-	\Theta(U\times I \times K)
-\end{equation}
+Taking the average error when finding the derivative is a costly operation for learning the A and B matrices, as it sums up the error for every user-item pair across all of their features. This can be expressed by the running time $\Theta(U\times I \times K)$.
 
 The common solution is using the stochastic gradient descent. For this, a single observed rating is selected at random for each update step of the gradient descent, rather than summing up over all the item-user pairs to find the exact gradient. The updates will be a bit more erratic than seen in Figure \ref{fig:gradientDescent}\footnote{Source: https://en.wikipedia.org/wiki/Gradient\_descent\label{ftn:wikifigure}}, but will overall converge towards a local minimum.
 
