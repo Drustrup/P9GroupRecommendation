@@ -69,8 +69,7 @@ Normalized discounted cumulative gain compares the DCG with an ideal ranking as 
 %	\text{IDCG}_p = \sum_{i=1}^{|REL|} \frac{2^{\textit{rel}_i}-1}{\log_2(i+1)}
 %\end{equation}
 
-As an example of finding the satisfaction of a user based on the recommendations for the group, the rating of a group of users can be as seen in Table \ref{tbl:testandeval_bordacount}. User U1 will be the focus of this example, and in Table \ref{tbl:testandeval_positions}, the groups 4 most preferred items, based on average, is shown together with user U1's 4 most preferred items. As can be seen item M( and M4 overlaps for the two lists giving us a relevance scores for U1 on 9, 9, 0, 0. The two last relevance scores are zero because they are not present in U1 top 4 preferences which we look at in this case.
-the ranking of the group chosen by average and U1's individual ranking is shown as between index position 1 and 4.
+As an example of finding the satisfaction of a user based on the recommendations for the group, the rating of a group of users can be as seen in Table \ref{tbl:testandeval_bordacount}. User U1 will be the focus of this example, and in Table \ref{tbl:testandeval_positions}, the groups 4 most preferred items, based on average, is shown together with user U1's 4 most preferred items. As can be seen item M8 and M4 overlaps for the two lists giving us a relevance scores for U1 on 9, 9, 0, 0. The two last relevance scores are zero because they are not present in U1's top 4 preferences which we look at in this case.
 
 \begin{table}[H]
 	\centering
@@ -111,9 +110,7 @@ The cumulative gain of the example results in a high count in Equation \ref{eq:b
 = 9 + 5.68 + 0 + 0 = 14.68
 \end{equation}
 
-To normalize the score, we compare it to the ideal ranking, which is U1's own ranking which would be 9, 9, 8, 7. The score for the ideal ordering is calculated in Equation \ref{eq:background_idcg_example}. The level of satisfaction for U1 for this recommendation is $0.68$ equal to a 68\% points, as per Equation \ref{eq:background_ndcg_example}. This is an above average score because even though U1 only got 50\% of its list is represented, it is the highest ranked items and they are highly ranked on the groups list which is why the percentage point is 68\% and not 50\%. 
-
-which is a high level of satisfaction. This is not surprising given that U1's preferences were well-represented.
+To normalize the score, we compare it to the ideal ranking, which is U1's own ranking which would be 9, 9, 8, 7. The score for the ideal ordering is calculated in Equation \ref{eq:background_idcg_example}. The level of satisfaction for U1 for this recommendation is $0.68$ equal to a 68\% points, as per Equation \ref{eq:background_ndcg_example}. 
 
 \begin{equation}\label{eq:background_idcg_example}
 \text{IDCG}_4 = 9 + 5.68 + 4 + 3.05 = 21.73
@@ -122,3 +119,5 @@ which is a high level of satisfaction. This is not surprising given that U1's pr
 \begin{equation}\label{eq:background_ndcg_example}
 \text{nDCG}_4 = \frac{\text{DCG}_4}{\text{IDCG}_4} = \frac{14.68}{21.73}=0.68
 \end{equation}
+
+This is an above average score because even though U1 only got 50\% of its list is represented, it are the highest ranked items and they are highly ranked on the groups list which is why the percentage point is 68\% and not 50\%. 
