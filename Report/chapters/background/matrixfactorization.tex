@@ -11,12 +11,31 @@ As an MF matrix is traditionally updated offline resulting in unchanging matrice
 \subsubsection{Singular Value Decomposition}
 On its own, SVD is a dimensionality reduction technique. However, in 2006 Simon Funk popularized it as a recommender method with some modifications\footnote{Source: http://sifter.org/~simon/journal/20061211.html}.
 
-Given a matrix of user ratings, SVD works by decomposing the matrix as seen in Equation \ref{eq:svd_decomp} into two matrices called the left and right singular vectors, $U$ and $V$ respectively, and a matrix holding the singular values on its diagonal, $\Sigma$, as per the SVD theorem\cite{svdtheorem}. For this example, the left singular vector would hold the users on one side, and their inclination towards each latent feature. The right vector would conversely hold all the rated items, and their inclination towards each latent feature\cite{linearalgebra_svd}\cite{recsys_svd}. A numeric example can be found in Equation \ref{eq:svd_num_decomp}.
+Given a matrix of user ratings, SVD works by decomposing the matrix as seen in Equation \ref{eq:svd_decomp} into two matrices called the left and right singular vectors, $U$ and $V$ respectively, and a matrix holding the nonzero singular values on its diagonal, $\Sigma$, as per the SVD theorem\cite{svdtheorem}. For this example, the left singular vector would hold the users on one side, and their inclination towards each latent feature. The right vector would conversely hold all the rated items, and their inclination towards each latent feature\cite{linearalgebra_svd}\cite{recsys_svd}. 
 
 \begin{equation} \label{eq:svd_decomp}
 \centering
 R = U\times \Sigma \times V^T
 \end{equation}
+
+SVD considers as many features as there are ranks, but not all of them are influential. Reducing the number of features to consider is trivial, as the largest singular values stored in $\Sigma$ have the most influence and are sorted by size.
+
+At this point, it is possible to find some interesting similarities among the users, however to use SVD for recommendation, we must account for the missing ratings. By slightly tweaking the equation, as seen in Equation \ref{eq:svd_AB_squeezing}, we get an $A$ and $B$ matrix, holding users and items respectively. This results in three matrices looking like Figure \ref{fig:svdSqueeze}, where F is the number of latent features. 
+
+\begin{equation}\label{eq:svd_AB_squeezing}
+\centering
+U\times \Sigma \times V^T = U\Sigma^{1/2} \Sigma^{1/2}V^T = AB
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{svd_ab_squeeze.png}
+	\caption{The decomposition of a rating matrix using SVD\cite{recsys_svd}}
+	\label{fig:svdSqueeze}
+\end{figure}
+Moving to the dense subspace of each rated item and user being defined by their features rather than their explicit ratings, data sparsity becomes less of a problem, as missing ratings are squeezed out, as they are subsumed into the lower dimensions for the items.
+
+Equation \ref{eq:svd_num_decomp} is an example of a decomposition of a 2-by-3 matrix into 3 matrices as per Equation \ref{eq:svd_decomp}, the result being the left singular vector, eigenvalues, and right singular vector respectively. Note that the eigenvalues are sorted such that each eigenvalue is smaller.
 
 \begin{equation}\label{eq:svd_num_decomp}
 \centering
@@ -41,16 +60,10 @@ R = U\times \Sigma \times V^T
 \end{bmatrix}
 \end{equation}
 
-SVD considers as many features as there are ranks, but not all of them are influential. Reducing the number of features to consider is trivial, as the largest singular values stored in $\Sigma$ have the most influence and are sorted by size.
+In Equation \ref{eq:svd_AB_num_squeezing}, the decomposition is split into an $A$ and $B$ matrix as seen in Equation \ref{eq:svd_AB_squeezing}. Note that the square root of the eigenvalues matrix appears in both calculations.
 
-At this point, it is possible to find some interesting similarities among the users, however to use SVD for recommendation, we must account for the missing ratings. By slightly tweaking the equation, as seen in Equation \ref{eq:svd_AB_squeezing}, we get an A and B matrix, holding users and items respectively. This results in three matrices looking like Figure \ref{fig:svdSqueeze}, where F is the number of latent features. Equation \ref{eq:svd_AB_num_squeezing_A} and Equation \ref{eq:svd_AB_num_squeezing_B} gives a numeric example of this.
-
-\begin{equation}\label{eq:svd_AB_squeezing}
-	\centering
-	U\times \Sigma \times V^T = U\Sigma^{1/2} \Sigma^{1/2}V^T = AB
-\end{equation}
-
-\begin{equation}\label{eq:svd_AB_num_squeezing_A}
+\begin{equation}\label{eq:svd_AB_num_squeezing}
+\begin{split}
 A = \begin{bmatrix}
 -0.3162 & 0 & -0.9487\\ 
 0 & 1 & 0\\ 
@@ -66,9 +79,7 @@ A = \begin{bmatrix}
 0 & 1.4142\\ 
 -1.6871 & 0
 \end{bmatrix}
-\end{equation}
-
-\begin{equation}\label{eq:svd_AB_num_squeezing_B}
+\\
 B = \begin{bmatrix}
 \sqrt{10} & 0\\ 
 0 & 2\\ 
@@ -80,28 +91,20 @@ B = \begin{bmatrix}
 \end{bmatrix} =
 \begin{bmatrix}
 -1.7783 & 0\\ 
-0 & 1.4142\\ 
+0 & 1.4142\\
 0 & 0
 \end{bmatrix}
+\end{split}
 \end{equation}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.8]{svd_ab_squeeze.png}
-	\caption{The decomposition of a rating matrix using SVD\cite{recsys_svd}}
-	\label{fig:svdSqueeze}
-\end{figure}
-\todo{Figure should ref to linear algebra book about SVD}
-Having moved to the dense subspace of each rated item and user being defined by their features rather than their explicit ratings, data sparsity becomes less of a problem, as missing ratings are squeezed out.
-
 \subsubsection{Gradient descent}
-In Funk's blog, the gradient descent optimization algorithm is proposed as a common method to learn the A and B matrices to minimize the error, as found using Equation \ref{eq:gradient_descent_error}. The error is calculated as the euclidean distance between our known ratings, $R$, and our predicted ratings $\hat{R}$\cite{aibook_gradientdescent_localsearch}\cite{aibook_gradientdescent_linearfunc}.
+In Funk's blog, the gradient descent optimization algorithm is proposed as a common method to learn the A and B matrices to minimize the error, as found using Equation \ref{eq:gradient_descent_error}. The error is calculated as the euclidean distance between our known ratings, $R$, and our predicted ratings $\hat{R}$\cite{aibook_gradientdescent_localsearch}.
 
 \begin{equation}\label{eq:gradient_descent_error}
 \text{Error} = |R-\hat{R}| = |R - AB| = \sum_{u=1}^{U}\sum_{i=1}^{I}\left (R_{ui}- \sum_{k=1}^{K} A_{uk}B_{ki} \right )^2
 \end{equation}
 
-Given as a function, the gradient will point in the direction of the largest error increase, as shown in Equation \ref{eq:derivative_gradient}. So to minimize the error, steps are taken towards the negative of the gradient.
+Given as a function, the gradient will point in the direction of the largest error increase, as shown in Equation \ref{eq:derivative_gradient}. So to minimize the error, steps are taken towards the negative of the gradient\cite{aibook_gradientdescent_linearfunc}.
 
 \begin{equation}\label{eq:derivative_gradient}
 	\begin{split}
