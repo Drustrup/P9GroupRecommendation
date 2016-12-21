@@ -42,68 +42,91 @@ R = AB
 \end{figure}
 Moving to the dense subspace of each rated item and user being defined by their features rather than their explicit ratings, data sparsity becomes less of a problem, as missing ratings are squeezed out, as they are subsumed into the lower dimensions for the items.
 
-Equation \ref{eq:svd_num_decomp} is an example of a decomposition of a 2-by-3 matrix into 3 matrices as per Equation \ref{eq:svd_decomp}, the result being the left singular vector, eigenvalues, and right singular vector respectively. Note that the eigenvalues are sorted such that each eigenvalue is smaller.
-
+Equation \ref{eq:svd_num_decomp} is an example of a decomposition of a 3-by-3 matrix into 3 matrices as per Equation \ref{eq:svd_decomp}, the result being the left singular vector, eigenvalues, and right singular vector respectively. Note that the eigenvalues are sorted such that each eigenvalue is smaller.
+\footnotesize
 \begin{equation}\label{eq:svd_num_decomp}
 \centering
 \begin{bmatrix}
-1 & 0\\ 
-0 & 2\\ 
-3 & 0
+1 & 0 & 4\\ 
+0 & 2 & 5\\ 
+3 & 0 & 6
 \end{bmatrix} = 
 \begin{bmatrix}
--0.3162 & 0 & -0.9487\\ 
-0 & 1 & 0\\ 
--0.9487 & 0 & 0.3162
+-0.44 & 0.08 	& -0.89 \\ 
+-0.54 & -0.82 	& 0.2	\\ 
+-0.71 & 0.57 	& 0.41
 \end{bmatrix} \times 
 \begin{bmatrix}
-\sqrt{10} & 0\\ 
-0 & 2\\ 
-0 & 0
+9.2 & 0		& 0		\\ 
+0 	& 2.45	& 0		\\ 
+0 	& 0		& 0.53
 \end{bmatrix} \times
 \begin{bmatrix}
--1 & 0\\ 
-0 & 1
+   -0.28 &   0.73  &  0.62 \\
+   -0.12 &  -0.67  &  0.74 \\
+   -0.95 &  -0.13  & -0.27
 \end{bmatrix}
 \end{equation}
-
+\normalsize
 In Equation \ref{eq:svd_AB_num_squeezing}, the decomposition is split into an $A$ and $B$ matrix as seen in Equation \ref{eq:svd_AB_squeezing}. Note that the square root of the eigenvalues matrix appears in both calculations.
-
+\footnotesize
 \begin{equation}\label{eq:svd_AB_num_squeezing}
 \begin{split}
 A = \begin{bmatrix}
--0.3162 & 0 & -0.9487\\ 
-0 & 1 & 0\\ 
--0.9487 & 0 & 0.3162
-\end{bmatrix} \times
+-0.44 & 0.08 	& -0.89 \\ 
+-0.54 & -0.82 	& 0.2	\\ 
+-0.71 & 0.57 	& 0.41
+\end{bmatrix} \times 
 \begin{bmatrix}
-\sqrt{10} & 0\\ 
-0 & 2\\ 
-0 & 0
+9.2 & 0		& 0		\\ 
+0 	& 2.45	& 0		\\ 
+0 	& 0		& 0.53
 \end{bmatrix}^{\frac{1}{2}} =
 \begin{bmatrix}
--0.5623 & 0\\ 
-0 & 1.4142\\ 
--1.6871 & 0
+   -1.35 &   0.13 &  -0.65 \\
+   -1.65 &  -1.28 &   0.14 \\
+   -2.16 &   0.9  &   0.3
 \end{bmatrix}
 \\
 B = \begin{bmatrix}
-\sqrt{10} & 0\\ 
-0 & 2\\ 
-0 & 0
+9.2 & 0		& 0		\\ 
+0 	& 2.45	& 0		\\ 
+0 	& 0		& 0.53
 \end{bmatrix}^{\frac{1}{2}} \times
 \begin{bmatrix}
--1 & 0\\ 
-0 & 1
+   -0.28 &   0.73  &  0.62 \\
+   -0.12 &  -0.67  &  0.74 \\
+   -0.95 &  -0.13  & -0.27
 \end{bmatrix} =
 \begin{bmatrix}
--1.7783 & 0\\ 
-0 & 1.4142\\
-0 & 0
+   -0.85 &  -0.36 &  -2.89 \\
+    1.15 &  -1.04 &  -0.21 \\
+    0.45 &   0.54 &  -0.2
 \end{bmatrix}
 \end{split}
 \end{equation}
+\normalsize
 
+It is then possible to reconstruct the rating matrix $R$ and in time, after the training, the prediction matrix $\hat{R}$, using the approach shown in Equation \ref{eq:svd_R}. An example of this can be seen in Equation \ref{eq:svd_R_example}.
+\footnotesize
+\begin{equation}\label{eq:svd_R_example}
+R = \begin{bmatrix}
+   -1.35 &   0.13 &  -0.65 \\
+   -1.65 &  -1.28 &   0.14 \\
+   -2.16 &   0.9  &   0.3
+\end{bmatrix} \times
+\begin{bmatrix}
+   -0.85 &  -0.36 &  -2.89 \\
+    1.15 &  -1.04 &  -0.21 \\
+    0.45 &   0.54 &  -0.2
+\end{bmatrix} = 
+\begin{bmatrix}
+1 & 0 & 4\\ 
+0 & 2 & 5\\ 
+3 & 0 & 6
+\end{bmatrix}
+\end{equation}
+\normalsize
 \subsubsection{Gradient Descent}
 In Funk's blog, the gradient descent optimization algorithm is proposed as a common method to learn the A and B matrices to minimize the error, as found using Equation \ref{eq:gradient_descent_error}. The error is calculated as the euclidean distance between our known ratings, $R$, and our predicted ratings $\hat{R}$\cite{aibook_gradientdescent_localsearch}.
 
