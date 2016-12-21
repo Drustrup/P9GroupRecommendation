@@ -9,7 +9,7 @@ As data sparsity grows in a set, the less accurate every method gets. Factorizat
 As an MF matrix is traditionally updated offline resulting in unchanging matrices, the matrix can be reused as required. This is a benefit when testing various aggregations or configurations of users as most of the calculations are already done as part of the training of the matrix. As the part can be reused for all the tests, it can save some time in practice.
 
 \subsubsection{Singular Value Decomposition}
-On its own, SVD is a dimensionality reduction technique. However, in 2006 Simon Funk popularized it as a recommender method with some modifications\footnote{Source: http://sifter.org/~simon/journal/20061211.html}.
+On its own, SVD is a dimensionality reduction technique. However, in 2006 Simon Funk popularized it as a recommender method with some modifications\footnote{Source: http://sifter.org/~simon/journal/20061211.html}\cite{svdsimonfunk}.
 
 Given a matrix of user ratings, SVD works by decomposing the matrix as seen in Equation \ref{eq:svd_decomp} into two matrices called the left and right singular vectors, $U$ and $V$ respectively, and a matrix holding the nonzero singular values on its diagonal, $\Sigma$, as per the SVD theorem\cite{svdtheorem}. For this example, the left singular vector would hold the users on one side, and their inclination towards each latent feature. The right vector would conversely hold all the rated items, and their inclination towards each latent feature\cite{linearalgebra_svd}\cite{recsys_svd}. 
 
@@ -104,7 +104,7 @@ B = \begin{bmatrix}
 \end{split}
 \end{equation}
 
-\subsubsection{Gradient descent}
+\subsubsection{Gradient Descent}
 In Funk's blog, the gradient descent optimization algorithm is proposed as a common method to learn the A and B matrices to minimize the error, as found using Equation \ref{eq:gradient_descent_error}. The error is calculated as the euclidean distance between our known ratings, $R$, and our predicted ratings $\hat{R}$\cite{aibook_gradientdescent_localsearch}.
 
 \begin{equation}\label{eq:gradient_descent_error}
