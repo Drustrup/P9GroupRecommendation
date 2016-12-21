@@ -32,18 +32,20 @@ end
 IDCGList = zeros(1, numel(users));
 for i=1:numel(users)
     ideal = sort(rankList(i,:), 'descend');
-    IDCG = ideal(1);
-    for j=2:rCol
-        IDCG = IDCG + (ideal(j)/log2(j));
+    %IDCG = ideal(1);
+    IDCG = 0;
+    for j=1:rCol
+        IDCG = IDCG + (ideal(j)/log2(j + 1));
     end
     IDCGList(i) = IDCG;
 end
 
 nDCGList = zeros(1,numel(users));
 for i=1:numel(users)
-    DCG = rankList(i,1);
-    for j=2:rCol
-        DCG = DCG + (rankList(i,j)/log2(j));
+    %DCG = rankList(i,1);
+    DCG = 0;
+    for j=1:rCol
+        DCG = DCG + (rankList(i,j)/log2(j + 1));
     end
     if DCG > 0
         nDCGList(i) = DCG/IDCGList(i);

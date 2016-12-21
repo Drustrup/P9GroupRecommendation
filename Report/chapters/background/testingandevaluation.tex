@@ -34,12 +34,6 @@ An alternative, mean absolute error(MAE), as seen in Equation \ref{eq:background
 \text{MAE} = \frac{1}{|\tau|}\sum_{(u,i)\in \tau}|\hat{r}_{ui}-r_{ui}|
 \end{equation}
 
-For this project, we used RMSE in the evaluation of the SVD module of the recommender system. On this system, the RMSE equation is amended to the form shown Equation \ref{eq:background_svd_rmse}, where $U$ is a set of users, $I$ is a set of items, and $F$ is a set of features. $R$ is the rating matrix.
-
-\begin{equation}\label{eq:background_svd_rmse}
-	\text{RMSE} = \sqrt{\frac{\sum_{u=1}^{U}\sum_{i=1}^{I}(\sum_{f=1}^{F}(A_{uf} B_{fi}) - R_{ui})^2}{|U|\times |I|\times |F|}}
-\end{equation}
-
 \subsubsection{Normalized Discounted Cumulative Gain}\label{sec:testandeval_ndcg}
 Discounted cumulative gain is used to measure the quality of a ranking through the relevance of the result set. It is most commonly used in the information retrieval field for determining the quality of the result of a query, however it is also useful for getting a measure of satisfaction for an ordering of recommended items. That is because recommendation and the results of a search query are both solutions to the problem of information overload that presents a set of possible items\cite{ndcg}\cite{baltrunas}.
 
@@ -69,7 +63,7 @@ Normalized discounted cumulative gain compares the DCG with an ideal ranking as 
 %	\text{IDCG}_p = \sum_{i=1}^{|REL|} \frac{2^{\textit{rel}_i}-1}{\log_2(i+1)}
 %\end{equation}
 
-As an example of finding the satisfaction of a user based on the recommendations for the group, the rating of a group of users can be as seen in Table \ref{tbl:testandeval_bordacount}. User U1 will be the focus of this example, and in Table \ref{tbl:testandeval_positions}, the groups 4 most preferred items, based on average, is shown together with user U1's 4 most preferred items. As can be seen item M8 and M4 overlaps for the two lists giving us a relevance scores for U1 on 9, 9, 0, 0. The two last relevance scores are zero because they are not present in U1's top 4 preferences which we look at in this case.
+As an example of finding the satisfaction of a user based on the recommendations for the group, the rating of a group of users can be as seen in Table \ref{tbl:testandeval_bordacount}. User U1 will be the focus of this example, and in Table \ref{tbl:testandeval_positions}, the groups 4 most preferred items, based on average, is shown together with user U1's 4 most preferred items. As can be seen, item M8 and M4 overlaps for the two lists giving us a relevance scores for U1 on 9, 9, 0, 0. The two last relevance scores are zero because they are not present in U1's top 4 preferences, which we look at in this case.
 
 \begin{table}[H]
 	\centering
@@ -104,12 +98,12 @@ The cumulative gain of the example results in a high count in Equation \ref{eq:b
 \begin{equation}\label{eq:background_cg_example}
 \text{CG}_4 = \sum_{i=1}^{4}\textit{rel}_i = 9 + 9 + 0 + 0 = 18
 \end{equation}
-
+\footnotesize
 \begin{equation}\label{eq:background_dcg_example}
 \text{DCG}_4 = \sum_{i=1}^{4}\frac{\textit{rel}_i}{\log_2(i + 1)}
-= 9 + 5.68 + 0 + 0 = 14.68
+= \frac{9}{log_2(2)} + \frac{9}{log_2(3)} + \frac{0}{log_2(4)} + \frac{0}{log_2(5)} =9 + 5.68 + 0 + 0 = 14.68
 \end{equation}
-
+\normalsize
 To normalize the score, we compare it to the ideal ranking, which is U1's own ranking which would be 9, 9, 8, 7. The score for the ideal ordering is calculated in Equation \ref{eq:background_idcg_example}. The level of satisfaction for U1 for this recommendation is $0.68$ equal to a 68\% points, as per Equation \ref{eq:background_ndcg_example}. 
 
 \begin{equation}\label{eq:background_idcg_example}
@@ -120,4 +114,4 @@ To normalize the score, we compare it to the ideal ranking, which is U1's own ra
 \text{nDCG}_4 = \frac{\text{DCG}_4}{\text{IDCG}_4} = \frac{14.68}{21.73}=0.68
 \end{equation}
 
-This is an above average score, because even though only 50\% of U1's list is represented, it is the highest ranked items and they are highly ranked on the groups list which is why the percentage point is 68\% and not 50\%. 
+This is an above average score, because even though only 50\% of U1's list is represented, it is the highest ranked items and they are highly ranked on the groups list, which is why the percentage point is 68\% and not 50\%. 

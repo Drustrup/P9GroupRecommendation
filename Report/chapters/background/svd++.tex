@@ -8,14 +8,14 @@ The standard model for SVD can be seen in Equation \ref{eq:svd_R}. This could be
 \hat{R}_{ui} = \sum^f_{f=1}(A_{uf}B_{fi})
 \end{equation}
 
-In SVD++ the last part of the model is altered, to reflect how users are characterized based on the items they have rated, as seen in Equation \ref{eq:svd++_standard}. Here $R(u)$ is the set of items rated by the user $u$, and $y_{j}$ is a factor vector. $A_{u}$ is a free user-factors vector of size $f$, equal to the number of latent features.
+In SVD++ the last part of the model is altered, to reflect how users are characterized based on the items they have rated, as seen in Equation \ref{eq:svd++_standard}. Here $R(u)$ is the set of items rated by the user $u$, and $y_{j}$ is a feature vector. $A_{u}$ is a free user-feature vector of size $f$, equal to the number of latent features.
 
 \begin{equation} \label{eq:svd++_standard}
 \centering
 \hat{R}_{ui} =\sum^f_{f=1}\left(B_{fi}\left (A_{uf} + \left | R(u) \right |^{-\frac{1}{2}} \sum_{j\in R(u)} y_{j} \right )\right)
 \end{equation}
 
-There is in theory no limit to the number of itemsets that can be inferred and accounted for, as each would simply have its own item factor vector, as seen in Equation \ref{eq:svd++_multi}.
+There is in theory no limit to the number of itemsets that can be inferred and accounted for, as each would simply have its own item feature vector, as seen in Equation \ref{eq:svd++_multi}.
 
 \begin{equation} \label{eq:svd++_multi}
 \centering

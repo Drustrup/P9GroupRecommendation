@@ -1,6 +1,6 @@
 \subsection{Matrix Factorization Models} \label{bg:sub:factorizationmodels}
 %Function
-Matrix factorization methods are dimensionality reduction techniques used for recommendation that generally find latent features for items, and the propensity for users towards each latent feature. This also helps with finding nontrivial correlations in the data as a latent feature could be something that is not at all obvious, but is really important.
+MF methods are dimensionality reduction techniques used for recommendation that generally find latent features for items, and the propensity for users towards each latent feature. This helps with finding nontrivial correlations in the data as a latent feature could be something that is not at all obvious, but is really important.
 
 A sparse dataset, such as a rating matrix with many items and users, with most cells being zero, we face the \textit{curse of dimensionality}. It is harder to find similar users, because the many dimensions makes differences bigger. Consider a user who has 100 ratings on movies as opposed to 5 ratings on genres. In machine learning, dimensionality reduction concerns itself with mapping these original 100 ratings to a lower dimensional space, such as that of ratings of genres, although these new dimensions are not explicitly known. These are the aforementioned latent features, that now describe each item, rather than the explicitly known features of the original high dimension dataset\cite{recsys_dimensionalityreduction}.
 
@@ -20,7 +20,7 @@ R = U\times \Sigma \times V^T
 
 SVD considers as many features as there are ranks, but not all of them are influential. Reducing the number of features to consider is trivial, as the largest singular values stored in $\Sigma$ have the most influence and are sorted by size.
 
-At this point, it is possible to find some interesting similarities among the users, however to use SVD for recommendation, we must account for the missing ratings. By slightly tweaking the equation, as seen in Equation \ref{eq:svd_AB_squeezing}, we get an $A$ and $B$ matrix, holding users and items respectively. This results in three matrices looking like Figure \ref{fig:svdSqueeze}, where F is the number of latent features. 
+At this point, it is possible to find some interesting similarities among the users, however to use SVD for recommendation, we must account for the missing ratings. By slightly tweaking the equation, as seen in Equation \ref{eq:svd_AB_squeezing}, we get an $A$ and $B$ matrix, holding users and items respectively. This results in three matrices looking like Figure \ref{fig:svdSqueeze}, where $F$ is the number of latent features, throughout the report $F$ and $f$ will be used interchangeably. 
 
 \begin{equation}\label{eq:svd_AB_squeezing}
 \centering
