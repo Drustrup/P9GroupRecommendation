@@ -1,5 +1,7 @@
-\section{Aggregation} \label{bg:aggregation} \todo{Update the this introduction to the section to reflect actual use}
-When working with a group recommender system, it is hard to avoid using aggregation to make group-like decisions. While recent research has shown that current aggregation methods are not a substitute for group based decisions\cite{aggregationnotenough}, it is not our goal to find a suitable substitution for aggregation. We will instead use existing aggregation strategies to find suitable recommendations for the group. While specific strategies are as numerous as the number of recommenders, they are derived from only a few common strategies. Most of these strategies will here be presented using the ratings in Table \ref{aggregation:tbl:table_of_ratings}, while the full overview of the results of aggregation can be seen in Table \ref{aggregation:tbl:examples_of_strategies}.
+\section{Aggregation} \label{bg:aggregation}
+When working with a group recommender system, it is hard to avoid using aggregation of some kind, to make group-like decisions. Despite this resent research has shown that current aggregation methods function poorly as a direct substitute for group decisions\cite{aggregationnotenough}. Therefore, we will in this section explore some of the basic aggregation strategies, as well as a few alternate approaches, that could also be considered to make group decisions.
+
+While specific strategies are as numerous as the number of group recommender systems, they are generally derived from a few common strategies\cite{recsyshandbookagreggation}. Most of these strategies will here be presented using the ratings in Table \ref{aggregation:tbl:table_of_ratings}, while the full overview of the results of aggregation can be seen in Table \ref{aggregation:tbl:examples_of_strategies}.
 
 The ref for intro for chapter\cite{recsyshandbookagreggation}.
 
@@ -53,9 +55,7 @@ The ref for intro for chapter\cite{recsyshandbookagreggation}.
 \end{table}
 
 \subsection{Simulating Group Behavior} \label{bg:aggregation:groupbehavior}
-In the study conducted by Judith Masthoff\todo{Ref on this and rewrite subsection}, it was found that some of the aggregation strategies were used when a group made decisions on which items to recommend, while other strategies provided better recommendations according to the groups. The strategies groups seemed to make use of were, Average, Average Without Misery, and Least Misery. In contrast to this strategies such as Multiplicative, Average, and Most Pleasure gave reasonable recommendations, showing some mismatch between what the group would recommend themselves, and what they retroactively think is best.
-
-However these strategies were looked at independently. By combining different strategies, not only does it reduce or remove some of the downsides to using a specific strategy, it can also improve the recommendations and the satisfaction they lead to.
+While the strategies presented until now forms the basis for much aggregation, part of the scenario we work with implies that more than one item should be found for the group. Masthoff found in a study, that certain of the base strategies better simulated normal group decision making, such as Average, Average Without Misery, and Least Misery\cite{Masthoff2004}. However when the groups were presented with an ordered list of recommendations made from the basic strategies, the groups indicated that Multiplicative, Average, and Most Pleasure would bring the most satisfaction to the group. However it should be noted that the groups in the study were measuring the satisfaction of a fictive group, and not their own. That being said, it was found that the ordering of the recommendation had a large impact on the overall satisfaction.
 
 \subsection{Rank Aggregation}
 Another aspect of aggregation is rank aggregation, where the input are lists of preferences. The goal as with any aggregation is then to find the best ordering possible. The best ordering is also known as the Kemeny Optimal\cite{DBLP:conf/www/DworkKNS01}.
