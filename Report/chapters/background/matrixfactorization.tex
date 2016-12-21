@@ -27,6 +27,13 @@ At this point, it is possible to find some interesting similarities among the us
 U\times \Sigma \times V^T = U\Sigma^{1/2} \Sigma^{1/2}V^T = AB
 \end{equation}
 
+The $A$ and $B$ matrices can give us our rating matrix, as can be seen in Equation \ref{eq:svd_R}, before the training starts. After the $A$ and $B$ matrices have been trained, which will be described in next section, this is how the prediction matrix $\hat{R}$ is found.
+
+\begin{equation}\label{eq:svd_R}
+\centering
+R = AB
+\end{equation}
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.8]{svd_ab_squeeze.png}
@@ -101,20 +108,20 @@ B = \begin{bmatrix}
 In Funk's blog, the gradient descent optimization algorithm is proposed as a common method to learn the A and B matrices to minimize the error, as found using Equation \ref{eq:gradient_descent_error}. The error is calculated as the euclidean distance between our known ratings, $R$, and our predicted ratings $\hat{R}$\cite{aibook_gradientdescent_localsearch}.
 
 \begin{equation}\label{eq:gradient_descent_error}
-\text{Error} = |R-\hat{R}| = |R - AB| = \sum_{u=1}^{U}\sum_{i=1}^{I}\left (R_{ui}- \sum_{k=1}^{K} A_{uk}B_{ki} \right )^2
+\text{Error} = |R-\hat{R}| = |R - AB| = \sum_{u=1}^{U}\sum_{i=1}^{I}\left (R_{ui}- \sum_{f=1}^{F} A_{uf}B_{fi} \right )^2
 \end{equation}
 
 Given as a function, the gradient will point in the direction of the largest error increase, as shown in Equation \ref{eq:derivative_gradient}. So to minimize the error, steps are taken towards the negative of the gradient\cite{aibook_gradientdescent_linearfunc}.
 
 \begin{equation}\label{eq:derivative_gradient}
 	\begin{split}
-	\frac{dError}{dA}=-(R-AB)B^T = \sum_{i=1}^{I}(R_{ui} - \sum_{n=1}^{N} A_{un}B_{ni})B_{ki}
+	\frac{dError}{dA}=-(R-AB)B^T = \sum_{i=1}^{I}(R_{ui} - \sum_{n=1}^{N} A_{un}B_{ni})B_{fi}
 	\\
-	\frac{dError}{dB}=-(R-AB)A^T = \sum_{u=1}^{U}(R_{ui} - \sum_{n=1}^{N} A_{un}B_{ni})A_{uk}
+	\frac{dError}{dB}=-(R-AB)A^T = \sum_{u=1}^{U}(R_{ui} - \sum_{n=1}^{N} A_{un}B_{ni})A_{uf}
 	\end{split}
 \end{equation}
 
-Taking the average error when finding the derivative is a costly operation for learning the A and B matrices, as it sums up the error for every user-item pair across all of their features. This can be expressed by the running time $\Theta(U\times I \times K)$.
+Taking the average error when finding the derivative is a costly operation for learning the A and B matrices, as it sums up the error for every user-item pair across all of their features. This can be expressed by the running time $\Theta(U\times I \times F)$.
 
 The common solution is using the stochastic gradient descent. For this, a single observed rating is selected at random for each update step of the gradient descent, rather than summing up over all the item-user pairs to find the exact gradient. The updates will be a bit more erratic than seen in Figure \ref{fig:gradientDescent}\footnote{Source: https://en.wikipedia.org/wiki/Gradient\_descent\label{ftn:wikifigure}}, but will overall converge towards a local minimum.
 
@@ -129,9 +136,9 @@ The learning rate describes the speed at which the error is corrected at each st
 
 \begin{equation}\label{eq:matrixfactorization_learningrate}
 	\begin{split}
-	A_{uk}\leftarrow A_{mk} + \eta(R_{ui}-\sum_{n=1}^{N}A_{un}B_{ni})B_{ki}
+	A_{uf}\leftarrow A_{uf} + \eta(R_{ui}-\sum_{n=1}^{N}A_{un}B_{ni})B_{fi}
 	\\
-	B_{ki}\leftarrow B_{ki} + \eta(R_{ui}-\sum_{n=1}^{N}A_{un}B_{ni})A_{uk}
+	B_{fi}\leftarrow B_{fi} + \eta(R_{ui}-\sum_{n=1}^{N}A_{un}B_{ni})A_{uf}
 	\end{split}
 \end{equation}
 
@@ -139,10 +146,12 @@ Regularization helps avoid overfitting, where a model fits its training data too
 
 \begin{equation}\label{eq:matrixfactorization_regularization}
 	\begin{split}
-	A_{uk}\leftarrow A_{mk} + \eta(R_{ui}-\sum_{n=1}^{N}A_{un}B_{ni})B_{ki}-\lambda A_{uk}
+	A_{uf}\leftarrow A_{uf} + \eta(R_{ui}-\sum_{n=1}^{N}A_{un}B_{ni})B_{fi}-\lambda A_{uf}
 	\\
-	B_{ki}\leftarrow B_{ki} + \eta(R_{ui}-\sum_{n=1}^{N}A_{un}B_{ni})A_{uk} -\lambda B_{ki}
+	B_{fi}\leftarrow B_{fi} + \eta(R_{ui}-\sum_{n=1}^{N}A_{un}B_{ni})A_{uf} -\lambda B_{fi}
 	\end{split}
 \end{equation}
+
+After the $A$ and $B$ matrices have been trained it is possible to construct a prediction 
 
 %http://www.kyb.mpg.de/fileadmin/user_upload/files/publications/attachments/CFEMF_KDDW2007_4614[0].pdf
