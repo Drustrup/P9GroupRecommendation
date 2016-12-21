@@ -5,7 +5,7 @@ During the implementation process some concerns surfaced, which we chose to igno
 Scalability was not a major focus point for us while we implemented our algorithms but it has not yet proven to be a problem with the setup we use. 
 
 Scaling could probably become a problem, if we were to look at a higher top-k than 10. We have a rather high worst-case runtime on our algorithms. BC, BWC, and BEC have a worst-case of $O(n\times m)$ and BTC has $O(n\times m\times v\times k)$ where $n$ are the individual items, $m$ is the group size, $v$ is a subset of $m$ who voted on a certain item, and $k$ is the top-k size. Lets say that we have a top-k of 10 and a group size of 40 and there are no overlaps then $n$ would be 400 items long but if top-k were 50 then $n$ would be 2000. So for BTC we would have $2000 \times 40 \times 1 \times 50 = 4.000.000$ iterations of various loops.
-
+\clearpage
 \subsection{Real World Application}
 For the sake of the development, testing, and evaluation the model-based recommendation in the form of SVD is very appropriate as we only have to train it once and then we have all the predictions.
 

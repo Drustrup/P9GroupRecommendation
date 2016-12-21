@@ -39,32 +39,6 @@ return results
 \subsection{Borda Weighted Count}
 BWC is almost identical with the BC in Listing \ref{lst:BC}. The only difference is that in Line \ref{line:sumscores} we, in BWC, adds an additional weight to the score. This weight is the number of times the item, $i$, occurs in the top-k matrix in order to give more frequent items a higher score.
 
-\subsection{Borda Escalating Count}
-As BWT, BEC, is very similar to BC, as can be seen in Listing \ref{lst:BEC}. In BEC we split the items into three categories which is bot, mid and top. We define bot and mid in Line \ref{line:bot} and \ref{line:mid}. Bot gets the size equal to $\frac{1}{3}$ of column size of top-k, mid gets the items from $\frac{1}{3}$ to $\frac{2}{3}$, and top is not defined, as it is those above the mid. We use these values to assign an additional weight to each user's items depending on their rank. In Line \ref{line:top} one can see that a weight of 3 is added to items with index above the middle threshold. If the index is between the mid and bot thresholds it gets the weight of 1 and nothing if it is below bot threshold.
-\begin{lstlisting}[caption={Borda Escalating Count implementation},label=lst:BEC, firstnumber=7,escapechar=|]
-...
-k = number of columns in topK
-bot = k/3 		|\label{line:bot}|
-mid = bot + k/3	|\label{line:mid}|
-
-for i = 1 to size(items)
-	score = 0
-	for j = 1 to users
-		if movie(i) is in topK(j,:)
-			index = position of item(i) in array topK(j,:)
-			score += index
-			if index > mid			
-               score = score + 3	|\label{line:top}|
-           	elseif index > bot and mid < index
-               score = score + 1
-           end 
-		end
-	end
-	scores(i) = score
-end
-...
-\end{lstlisting}
-
 \subsection{Borda Transferable Count} \label{sec:BTC}
 The last method to be tested is BTC. This is a somewhat more comprehensive modification of the BC method with the base implementation being identical to BC, because the initial scores are assigned the same way as can be seen in Listing \ref{lst:BTC}. The difference between this version and the original is that instead of ignoring the votes for items that did not get selected, this version redistributes them to see if it would make a difference on the return list, as inspired by STV, as explained in Section \ref{sec:stv}.
 
@@ -135,4 +109,31 @@ elseif size(result) + size(items) > returnSize
 	This part is almost as of highestScore just for the lowestScore.
 end
 
+\end{lstlisting}
+
+\subsection{Borda Escalating Count}
+As BWT, BEC, is very similar to BC, as can be seen in Listing \ref{lst:BEC}. In BEC we split the items into three categories which is bot, mid and top. We define bot and mid in Line \ref{line:bot} and \ref{line:mid}. Bot gets the size equal to $\frac{1}{3}$ of column size of top-k, mid gets the items from $\frac{1}{3}$ to $\frac{2}{3}$, and top is not defined, as it is those above the mid. We use these values to assign an additional weight to each user's items depending on their rank. In Line \ref{line:top} one can see that a weight of 3 is added to items with index above the middle threshold. If the index is between the mid and bot thresholds it gets the weight of 1 and nothing if it is below bot threshold.
+\clearpage
+\begin{lstlisting}[caption={Borda Escalating Count implementation},label=lst:BEC, firstnumber=7,escapechar=|]
+...
+k = number of columns in topK
+bot = k/3 		|\label{line:bot}|
+mid = bot + k/3	|\label{line:mid}|
+
+for i = 1 to size(items)
+	score = 0
+	for j = 1 to users
+		if movie(i) is in topK(j,:)
+			index = position of item(i) in array topK(j,:)
+			score += index
+			if index > mid			
+               score = score + 3	|\label{line:top}|
+           	elseif index > bot and mid < index
+               score = score + 1
+           end 
+		end
+	end
+	scores(i) = score
+end
+...
 \end{lstlisting}
