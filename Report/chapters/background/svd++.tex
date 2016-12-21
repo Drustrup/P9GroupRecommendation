@@ -1,14 +1,14 @@
 \subsubsection{SVD++} \label{bg:mf_svd++}
 As the name implies, SVD++ is an extension on SVD. Where SVD in general only works with explicit data, SVD++ takes into account the implicitly gathered data as well. Take for instance a user that has a number of items they have shown some indirect interest in, for instance hovering over the items to see some information about them, SVD++ would specifically account for this set of potentially interesting items\cite{svd++}.
 
-The standard model for SVD can be seen in Equation \ref{eq:svd_R}. On could modify on this in order to only find on rating which would look like Equation \ref{eq:svd++_one_rating}.
+The standard model for SVD can be seen in Equation \ref{eq:svd_R}. This could be modified in order to only find one rating, which would look like Equation \ref{eq:svd++_one_rating}.
 
 \begin{equation} \label{eq:svd++_one_rating}
 \centering
 \hat{R}_{ui} = \sum^f_{f=1}(A_{uf}B_{fi})
 \end{equation}
 
-In SVD++ the last part of the model is altered, to reflect how users are characterized based on the items they have rated, as seen in Equation \ref{eq:svd++_standard}. Here $R(u)$ is the set of items rated by the user $u$, and $y_{j}$ is a factor vector. $A_{u}$ is a free user-factors vector of size $f$ equal to the number of latent features.
+In SVD++ the last part of the model is altered, to reflect how users are characterized based on the items they have rated, as seen in Equation \ref{eq:svd++_standard}. Here $R(u)$ is the set of items rated by the user $u$, and $y_{j}$ is a factor vector. $A_{u}$ is a free user-factors vector of size $f$, equal to the number of latent features.
 
 \begin{equation} \label{eq:svd++_standard}
 \centering
