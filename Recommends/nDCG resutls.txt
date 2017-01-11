@@ -1,0 +1,45 @@
+Borda Count
+
+groups of size 4: 	0.6398
+groups of size 8: 	0.5952
+groups of size 12: 	0.5573
+groups of size 16:	0.5340
+groups of size 20:	0.5223
+groups of size 40:	0.4886
+
+Borda Transferable Count
+
+groups of size 4: 	0.6393
+groups of size 8: 	0.6040
+groups of size 12: 	0.5922
+groups of size 16:	0.5913
+groups of size 20:	0.5862
+groups of size 40:	0.5314
+
+Weighted Borda Count
+
+groups of size 4: 	0.6394
+groups of size 8: 	0.5969
+groups of size 12: 	0.5584
+groups of size 16:	0.5351
+groups of size 20:	0.5232
+groups of size 40:	0.4891
+
+Escalating Borda Count
+
+groups of size 4: 	0.6453
+groups of size 8: 	0.5910
+groups of size 12: 	0.5539
+groups of size 16:	0.5340
+groups of size 20:	0.5199
+groups of size 40:	0.4873
+
+Random
+
+groups of size 4: 	0.5451
+groups of size 8: 	0.4499
+groups of size 12: 	0.3753
+groups of size 16:	0.3393
+groups of size 20:	0.3057
+groups of size 40:	0.2231
+

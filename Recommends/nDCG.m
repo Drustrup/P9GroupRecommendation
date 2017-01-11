@@ -30,8 +30,9 @@ for i=1:gRow
     end    
 end
 IDCGList = zeros(1, numel(users));
+ideal = sort(1:k, 'descend');
 for i=1:numel(users)
-    ideal = sort(rankList(i,:), 'descend');
+    %ideal = sort(rankList(i,:), 'descend');
     %IDCG = ideal(1);
     IDCG = 0;
     for j=1:rCol
