@@ -48,5 +48,24 @@
 	\end{table}
 \end{frame}
 
+\begin{frame}
+	\frametitle{nDCG Example}
+	The nDCG is calculated by:
+	\begin{equation}\label{eq:background_dcg}
+		\text{nDCG} = \frac{DCG}{IDCG}
+	\end{equation}			
+
+	Using the approach from the report we get the nDCG:
+	\begin{equation}\label{eq:background_dcg}
+		\text{nDCG} = \frac{2,35}{4,63} = 0,51
+	\end{equation}
+	
+	With the more accurate approach we get:
+	\begin{equation}\label{eq:background_dcg}
+		\text{nDCG} = \frac{2,35}{7,32} = 0,32
+	\end{equation}
+		
+\end{frame}
+
 %We have ratings for all users items, use these to determine satisfaction instead of just top-k.
 %Use some average ordering of the top-k.
