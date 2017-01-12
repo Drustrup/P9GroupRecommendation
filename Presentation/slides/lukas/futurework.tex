@@ -9,7 +9,9 @@
 \begin{frame}
 	\frametitle{Conclusion}
 	\begin{itemize}
-		\item Conclusion on results
+		\item Recent discoveries put our results into question
+		\item Results are not verified
+		\item Further testing necessary
 	\end{itemize}
 \end{frame}
 
@@ -22,9 +24,9 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{What we will do for next semester}
+	\frametitle{Next semester}
 	\begin{itemize}
-		\item Rework the method for better results
+		\item Optimize and tweak the method for better results
 		\item Obtain a dataset
 	\end{itemize}
 \end{frame}
@@ -35,24 +37,35 @@
 		\item Reordering of Rank Lists
 		\item Alternative Rank Aggregation
 		\item Ratings as satisfaction measure
+		\item Scaling Matrix Factorization
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Obtaining a Dataset}
-	\begin{itemize}
-		\item Clickworker
-		\begin{itemize}
-			\item Crowdsourcing platform with over 800.000 clickworkers
-		\end{itemize}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Expected Cost}
-	\begin{itemize}
-		\item Expected cost per user (picture)
-	\end{itemize}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item Clickworker
+				\begin{itemize}
+					\item Crowdsourcing platform with over 800.000 users
+					\item Cost as low as 14 Euro cents per user surveyed
+				\end{itemize}
+			\end{itemize}
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.3]{figures/clickworker_users.png}
+				\caption{https://www.clickworker.com/about-us/clickworker-crowd/}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.5]{figures/crowdsourcing.png}
+				%\caption{Made on: https://draw.io}
+			\end{figure}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}
@@ -62,28 +75,62 @@
 			\begin{itemize}
 				\item Normal survey
 			\end{itemize}
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.4]{figures/Internal_survey_option.png}
+			\end{figure}
 		\end{column}
-		\begin{column}{0.5\textwidth}  %%<--- here
+		\begin{column}{0.5\textwidth}
 			\begin{itemize}
-				\item External survey with Google Forms
+				\item External survey
 			\end{itemize}
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.4]{figures/External_survey_option.png}
+			\end{figure}
 		\end{column}
 	\end{columns}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Clickworker's Survey Tool}
-	\begin{itemize}
-		\item Static information
-		\item Expected data return
-	\end{itemize}
+	\frametitle{Clickworker Survey Tool}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.275]{figures/InternalSurvey.png}
+		\caption{https://marketplace.clickworker.com}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
 	\frametitle{External Survey}
-	\begin{itemize}
-		\item Allows us to refer to a URL where we could have a google forms survey
-		\item Google forms is built on top of javascript - allowing us to make the information respond to the user
-		\item Verification code
-	\end{itemize}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.35]{figures/external_survey_details.png}
+		\caption{https://marketplace.clickworker.com}
+	\end{figure}
+	\note{
+		Allows us to refer to a URL where we could have a google forms survey
+		Google forms is built on top of javascript - allowing us to make the information respond to the user
+		Verification code
+	}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Google Forms}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\begin{itemize}
+				\item Built on Javascript
+				\item Tailored survey questions
+				\item Validation questions
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.6\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.35]{figures/GoogleScript.png}
+				\caption{https://developers.google.com/apps-script/reference/forms/}
+			\end{figure}
+		\end{column}
+	\end{columns}
 \end{frame}
