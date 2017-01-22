@@ -55,9 +55,9 @@
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
 %\setbeamertemplate{bibliography item}[text]
 
-\usepackage{caption}
+%\usepackage{caption}
 \usetheme{/amsterdam}
-\date
+\date{October 11, 2016}
 
 \usepackage{beamertheme/handoutWithNotes}
 % Uncomment for handouts. Add \documentclass[12pt,handout]{beamer}
@@ -87,12 +87,14 @@
 
 %\captionsetup[figure]{font=small,singlelinecheck=off,justification=raggedright}
 
-\title[Group Recommendation Using Voting as Mediator]{TrashVision}
-\author[\insertframenumber /\inserttotalframenumber]{Claus N. Madsen, Lasse D. Christensen, Lukas N. Dalgaard}
+\title[Persistent Roles in
+Online Social Networks]{TrashVision}
+\author[\insertframenumber /\inserttotalframenumber]{Lasse D. Christensen}
 
 \begin{frame}
-\Large Group Recommendation Using Voting as Mediator\\
-\small Claus N. Madsen, Lasse D. Christensen, Lukas N. Dalgaard\\
+\Large Persistent Roles in
+Online Social Networks\\
+\small ECML-PKDD 2016, M. Revelle, C. Domeniconi, and A. Johri\\
 \end{frame}
 
 \begin{frame}
@@ -100,27 +102,23 @@
   \tableofcontents
   \note{
   \begin{itemize}
-    \item Scenario 
-    \item Novel rank aggregation 
-    \item Evaluation methodology
-    \item Results 
-    \item Conclusion 
-    \item Future work
+    \item Motivation
+    %\item Related Work
+    \item Methodology
+    %\item Evaluation
+    \item Results
+    \item Conclusion
   \end{itemize}
 }
 \end{frame}
 
 % PUT INPUTS HERE
-\input{slides/claus/scenario.tex}
-\input{slides/claus/novel_aggregation.tex}
-\input{slides/lasse/codereview.tex}
-\input{slides/lasse/results.tex}
-\input{slides/lukas/futurework.tex}
-
-\begin{frame}
-\centering
-\huge Questions?
-\end{frame}
+\input{slides/background/background.tex}
+%\input{slides/relatedwork/relatedwork.tex}
+\input{slides/theory/theory.tex}
+%\input{slides/evaluation/evaluation.tex}
+\input{slides/result/result.tex}
+\input{slides/conclusion/conclusion.tex}
 
 \section*{}
 
