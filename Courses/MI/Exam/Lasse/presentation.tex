@@ -63,7 +63,7 @@
 % Uncomment for handouts. Add \documentclass[12pt,handout]{beamer}
 %\pgfpagesuselayout{4 on 1 with notes}[a4paper,border shrink=5mm]
 % Comment for handouts.
-%\setbeameroption{show notes on second screen=right}
+\setbeameroption{show notes on second screen=right}
 
 % Table of content dybde (0-index)
 %\setcounter{tocdepth}{1}
@@ -83,6 +83,15 @@
 
 \graphicspath{{graphics/}{../../Report/graphics/}}
 
+\usepackage{array}
+
+\newcommand{\thinhline}{%
+    \noalign {\ifnum 0=`}\fi \hrule height 0.5pt
+    \futurelet \reserved@a \@xhline
+}
+\newcolumntype{"}{!{\vrule width 0.5pt}}
+
+%\newcolumntype{||}{@{\hskip\tabcolsep\vrule width 0.5pt\hskip\tabcolsep}}
 \begin{document}
 
 %\captionsetup[figure]{font=small,singlelinecheck=off,justification=raggedright}
@@ -97,12 +106,13 @@ Online Social Networks\\
 \small ECML-PKDD 2016, M. Revelle, C. Domeniconi, and A. Johri\\
 \end{frame}
 
+
 \begin{frame}
   \frametitle{Contents}
   \tableofcontents
   \note{
   \begin{itemize}
-    \item Motivation
+    \item Introduction
     %\item Related Work
     \item Methodology
     %\item Evaluation

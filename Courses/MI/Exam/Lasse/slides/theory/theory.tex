@@ -9,23 +9,26 @@
 \begin{frame}
 \frametitle{The Approach}
 \begin{figure}
-\includegraphics[scale=0.1]{graphics/setup.pdf}
+\includegraphics[scale=0.14]{graphics/setup.pdf}
 \end{figure}
+\note{Feature-based approach}
 \end{frame}
 
 \begin{frame}
-\frametitle{Data Format}
+\frametitle{The Data}
 \begin{columns}
-	\begin{column}{0.4\textwidth}
+	\begin{column}{0.45\textwidth}
+		Datasets:
 			\begin{itemize}
-				\item Facebook - wall posts 
-				\item Scratch - ?
+				\item Facebook - Wall posts from one user to another
+				\item Scratch - Comments on uploaded programming projects 
 			\end{itemize}
-			Directed, timestamps.
+			
+		Directed, timestamps.
 		\end{column}
-		\begin{column}{0.6\textwidth}
+		\begin{column}{0.55\textwidth}
 			\begin{figure}
-				\includegraphics[scale=0.27]{graphics/directed_network.pdf}
+				\includegraphics[scale=0.24]{graphics/directed_network.pdf}
 			\end{figure}
 		\end{column}
 	\end{columns}
@@ -33,10 +36,52 @@
 
 \begin{frame}
 \frametitle{Snapshot Split-up}
+The dataset is split into a total of 26 snapshots:
+\begin{itemize}
+\item 7 from facebook
+\item 19 from Scratch
+\end{itemize}
+
+Non-overlapping
+
+Same length = observation window $\Omega$.
+
+Something with node interaction being smaller than Omega. (90th percentile?)
+
+
 \end{frame}
 
 \begin{frame}
 \frametitle{Feature Selection}
+12 features based upon the graph.
+
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\includegraphics[scale=0.27]{graphics/directed_network.pdf}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{table}
+				\begin{tabular}{"l"}
+				\thinhline
+					In-degree				\\ \thinhline
+					Out-degree				\\ \thinhline
+					Weighted in-degree		\\ \thinhline
+					Weighted out-degree		\\ \thinhline
+					Reciprocity				\\ \thinhline
+					New activity			\\ \thinhline
+					Social strategy			\\ \thinhline
+					Betweenness centrality	\\ \thinhline
+					PageRank				\\ \thinhline
+					Weighted PageRank		\\ \thinhline
+					Transitivity			\\ \thinhline
+					Weighted transitivity 	\\ \thinhline
+				\end{tabular}
+			\end{table}
+		\end{column}
+	\end{columns}
+
 \end{frame}
 
 \begin{frame}
@@ -51,21 +96,21 @@
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\begin{table}
-				\begin{tabular}{|l|l|}
-				\hline
-					In-degree				& 5		\\ \hline
-					Out-degree				& 4		\\ \hline
-					Weighted in-degree		& 36	\\ \hline
-					Weighted out-degree		& 32	\\ \hline
-					Reciprocity				& 		\\ \hline
-					New activity			& 0		\\ \hline
-					Social strategy			& 0		\\ \hline
-					Betweenness centrality	& 		\\ \hline
-					PageRank				& 		\\ \hline
-					Weighted PageRank		& 		\\ \hline
-					Transitivity			& 		\\ \hline
-					Weighted transitivity 	& 		\\ \hline
-			\end{tabular}
+				\begin{tabular}{"l"l"}
+				\thinhline
+					In-degree				& 5		\\ \thinhline
+					Out-degree				& 4		\\ \thinhline
+					Weighted in-degree		& 36	\\ \thinhline
+					Weighted out-degree		& 32	\\ \thinhline
+					Reciprocity				& 4		\\ \thinhline
+					New activity			& 0		\\ \thinhline
+					Social strategy			& 0		\\ \thinhline
+					Betweenness centrality	& 38.7		\\ \thinhline
+					PageRank				& 0.21	\\ \thinhline
+					Weighted PageRank		& -		\\ \thinhline
+					Transitivity			& $\frac{1}{3}$		\\ \thinhline
+					Weighted transitivity 	& -		\\ \thinhline
+				\end{tabular}
 			\end{table}
 		\end{column}
 	\end{columns}
@@ -73,10 +118,36 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Role Assignment}
-NMF
-NNDSVD
-feature size of 6 (based on RMSE)
+\frametitle{Role Discovery and Membership}
+
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{block}{\small Non-negative Matrix Factorization}
+			$X \approx UV$
+		\end{block}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+	\end{column}
+\end{columns}
+\begin{figure}
+\includegraphics[scale=.3]{graphics/nmf}
+\end{figure}
+
+\note{
+\begin{itemize}
+\item Frobenius NMF updated with euclidean distance
+\item U and V are initialized with left and right matrix from nndsvd (Modified svd)
+
+\end{itemize}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Selection of L}
+\begin{block}{\small Root Mean Squired Error}
+$RMSE = \sqrt{\frac{1}{|X|} \sum\limits_{(u,f) \in X}(X_{u,f}-X'_{u,f)}}$
+\end{block}
+
 \end{frame}
 
 \begin{frame}
