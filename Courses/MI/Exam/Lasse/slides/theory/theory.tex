@@ -133,6 +133,10 @@ Something with node interaction being smaller than Omega. (90th percentile?)
 \includegraphics[scale=.3]{graphics/nmf}
 \end{figure}
 
+\begin{itemize}
+\item Matrix U is role features 
+\item Matrix V is membership weights for the roles for each user
+\end{itemize}
 \note{
 \begin{itemize}
 \item Frobenius NMF updated with euclidean distance
@@ -145,8 +149,128 @@ Something with node interaction being smaller than Omega. (90th percentile?)
 \begin{frame}
 \frametitle{Selection of L}
 \begin{block}{\small Root Mean Squired Error}
-$RMSE = \sqrt{\frac{1}{|X|} \sum\limits_{(u,f) \in X}(X_{u,f}-X'_{u,f)}}$
+$RMSE = \sqrt{\frac{1}{|X|} \sum\limits_{(u,f) \in X}(X_{u,f}-X'_{u,f})}$
 \end{block}
+
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+	\begin{figure}\caption{Facebook}
+		\begin{tikzpicture}[scale=0.7]
+    \begin{axis}[
+    	scaled ticks=false, 
+    	tick label style={/pgf/number format/fixed},
+        xlabel=$L$,
+        ylabel=$RMSE$]
+    \addplot[mark=*,blue] plot coordinates {
+        (2, 0.088)
+        (3, 0.072)
+        (4, 0.058)
+        (5, 0.042)
+        (6, 0.033)
+        (7, 0.026)
+        (8, 0.020)
+        (9, 0.015)
+        (10, 0.010)
+        (11, 0.006)
+        (12, 0.001)
+    };
+    \addlegendentry{Snapshot 1}
+
+    \addplot[color=red,mark=*]
+        plot coordinates {
+        (2, 0.08)
+        (3, 0.058)
+        (4, 0.0375)
+        (5, 0.030)
+        (6, 0.0225)
+        (7, 0.0145)
+        (8, 0.0115)
+        (9, 0.01)
+        (10, 0.005)
+        (11, 0.005)
+        (12, 0.003)
+        };
+    \addlegendentry{Snapshot 4}
+    
+    \addplot[color=green,mark=*]
+        plot coordinates {
+        (2, 0.069)
+        (3, 0.045)
+        (4, 0.0325)
+        (5, 0.020)
+        (6, 0.0135)
+        (7, 0.010)
+        (8, 0.007)
+        (9, 0.006)
+        (10, 0.005)
+        (11, 0.003)
+        (12, 0.003)
+        };
+    \addlegendentry{Snapshot 7}
+    \end{axis}
+\end{tikzpicture}	
+\end{figure}
+	\end{column}
+	
+	\begin{column}{0.5\textwidth}
+	\begin{figure}\caption{Scratch}
+		\begin{tikzpicture}[scale=0.7]
+    \begin{axis}[
+    	scaled ticks=false, 
+    	tick label style={/pgf/number format/fixed},
+        xlabel=$L$,
+        ylabel=$RMSE$]
+    \addplot[mark=*,blue] plot coordinates {
+        (2, 0.065)
+        (3, 0.045)
+        (4, 0.027)
+        (5, 0.017)
+        (6, 0.013)
+        (7, 0.009)
+        (8, 0.005)
+        (9, 0.003)
+        (10, 0.002)
+        (11, 0.002)
+        (12, 0.002)
+    };
+    \addlegendentry{Snapshot 1}
+
+    \addplot[color=red,mark=*]
+        plot coordinates {
+        (2, 0.06)
+        (3, 0.028)
+        (4, 0.018)
+        (5, 0.014)
+        (6, 0.008)
+        (7, 0.006)
+        (8, 0.004)
+        (9, 0.002)
+        (10, 0.0015)
+        (11, 0.001)
+        (12, 0.001)
+    };
+    \addlegendentry{Snapshot 10}
+    
+    \addplot[color=green,mark=*]
+        plot coordinates {
+        (2, 0.055)
+        (3, 0.0205)
+        (4, 0.015)
+        (5, 0.0095)
+        (6, 0.004)
+        (7, 0.003)
+        (8, 0.002)
+        (9, 0.0015)
+        (10, 0.0013)
+        (11, 0.001)
+        (12, 0.001)
+        };
+    \addlegendentry{Snapshot 19}
+    \end{axis}
+\end{tikzpicture}	
+\end{figure}
+	\end{column}
+\end{columns}
 
 \end{frame}
 

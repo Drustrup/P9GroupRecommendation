@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  24 JAN 2017 14:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  24 JAN 2017 23:40
 entering extended mode
 **./presentation.tex
 (presentation.tex
@@ -2236,46 +2236,55 @@ Package: beamercolorthemeorchid 2010/06/17  (rcs-revision d02a7cf4d8ae)
 )) (beamertheme/handoutWithNotes.sty)
 \pgfpages@box@1=\box111
 \pgfpages@box@2=\box112
- (presentation.aux)
+
+("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+\c@ContinuedFloat=\count325
+Package caption Info: beamer document class.
+Package caption Info: hyperref package is loaded.
+Package caption Info: Hyperref support is turned off
+(caption)             because hyperref has stopped early.
+)
+(presentation.aux)
 \openout1 = `presentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 95.
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 95.
-LaTeX Font Info:    Try loading font information for MDA+cmr on input line 95.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 99.
+LaTeX Font Info:    Try loading font information for MDA+cmr on input line 99.
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\mathdesign\mdacmr.fd"
 File: mdacmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for MDB/cmr/m/n on input line 95.
-LaTeX Font Info:    Try loading font information for MDB+cmr on input line 95.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for MDB/cmr/m/n on input line 99.
+LaTeX Font Info:    Try loading font information for MDB+cmr on input line 99.
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\mathdesign\mdbcmr.fd"
 File: mdbcmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 95.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 95.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 95.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 99.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 99.
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    ... okay on input line 99.
 LaTeX Font Info:    Try loading font information for T1+SourceSansPro-TLF on in
-put line 95.
+put line 99.
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\sourcesanspro\t1sourcesanspro-tlf
 .fd"
@@ -2318,16 +2327,16 @@ ceSansPro-TLF.
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count325
+\scratchcounter=\count326
 \scratchdimen=\dimen391
 \scratchbox=\box113
-\nofMPsegments=\count326
-\nofMParguments=\count327
+\nofMPsegments=\count327
+\nofMParguments=\count328
 \everyMPshowfont=\toks61
-\MPscratchCnt=\count328
+\MPscratchCnt=\count329
 \MPscratchDim=\dimen392
-\MPnumerator=\count329
-\makeMPintoPDFobject=\count330
+\MPnumerator=\count330
+\makeMPintoPDFobject=\count331
 \everyMPtoPDFconversion=\toks62
 ) ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -2344,7 +2353,7 @@ G,.JBIG2,.JB2,.eps]
 )
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box114
-Package hyperref Info: Link coloring OFF on input line 95.
+Package hyperref Info: Link coloring OFF on input line 99.
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -2352,67 +2361,67 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count331
+\c@section@level=\count332
 )
-LaTeX Info: Redefining \ref on input line 95.
-LaTeX Info: Redefining \pageref on input line 95.
-LaTeX Info: Redefining \nameref on input line 95.
+LaTeX Info: Redefining \ref on input line 99.
+LaTeX Info: Redefining \pageref on input line 99.
+LaTeX Info: Redefining \nameref on input line 99.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/mdbch/m/n --> OT1/cmss/m/n on input line 95.
+(Font)                  OT1/mdbch/m/n --> OT1/cmss/m/n on input line 99.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/mdbch/b/n --> OT1/cmss/b/n on input line 95.
+(Font)                  OT1/mdbch/b/n --> OT1/cmss/b/n on input line 99.
 \symnumbers=\mathgroup11
 \sympureletters=\mathgroup12
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OML/mdbch/m/n --> T1/mdbch/m/n on input line 95.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 95.
+(Font)                  OML/mdbch/m/n --> T1/mdbch/m/n on input line 99.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  T1/mdbch/b/n --> T1/SourceSansPro-TLF/b/n on input line
- 95.
+ 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
 (Font)                  T1/mdbch/b/n --> T1/SourceSansPro-TLF/b/n on input line
- 95.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 95.
+ 99.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
 (Font)                  T1/cmss/m/n --> T1/SourceSansPro-TLF/m/n on input line 
-95.
+99.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  T1/cmss/b/n --> T1/SourceSansPro-TLF/m/n on input line 
-95.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 95.
+99.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  T1/mdbch/m/it --> T1/SourceSansPro-TLF/m/it on input li
-ne 95.
+ne 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  T1/mdbch/b/it --> T1/SourceSansPro-TLF/m/it on input li
-ne 95.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 95.
+ne 99.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
 (Font)                  T1/cmtt/m/n --> T1/DejaVuSansMono-TLF/m/n on input line
- 95.
+ 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  T1/cmtt/b/n --> T1/DejaVuSansMono-TLF/m/n on input line
- 95.
+ 99.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
 (Font)                  T1/SourceSansPro-TLF/m/n --> T1/SourceSansPro-TLF/b/n o
-n input line 95.
+n input line 99.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  T1/SourceSansPro-TLF/m/it --> T1/SourceSansPro-TLF/b/it
- on input line 95.
+ on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OML/mdbch/b/n --> T1/mdbch/b/n on input line 95.
+(Font)                  OML/mdbch/b/n --> T1/mdbch/b/n on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
 (Font)                  T1/SourceSansPro-TLF/b/n --> T1/SourceSansPro-TLF/b/n o
-n input line 95.
+n input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  T1/SourceSansPro-TLF/m/n --> T1/SourceSansPro-TLF/b/n o
-n input line 95.
+n input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  T1/SourceSansPro-TLF/m/it --> T1/SourceSansPro-TLF/b/it
- on input line 95.
+ on input line 99.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  T1/DejaVuSansMono-TLF/m/n --> T1/DejaVuSansMono-TLF/b/n
- on input line 95.
+ on input line 99.
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\beamer\base\translator\dicts\tran
 slator-basic-dictionary\translator-basic-dictionary-English.dict"
@@ -2438,15 +2447,15 @@ Dictionary: translator-numbers-dictionary, Language: English
 slator-theorem-dictionary\translator-theorem-dictionary-English.dict"
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 95.
+LaTeX Info: Redefining \includegraphics on input line 99.
 
 
 Package mathdesign/mdbch Warning: Package 'amssymb' shouldn't be used in conjon
-ction with package mdbch, on input line 95.
+ction with package mdbch, on input line 99.
 
 
 Package mathdesign/mdbch Warning: Package 'amsfonts' shouldn't be used in conjo
-nction with package mdbch, on input line 95.
+nction with package mdbch, on input line 99.
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\siunitx\siunitx-abbreviations.cfg
 "
@@ -2468,105 +2477,105 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
 (presentation.nav)
-\c__siunitx_mathsf_int=\count332
+\c__siunitx_mathsf_int=\count333
 LaTeX Font Info:    Font shape `OT1/cmss/m/n' will be
-(Font)              scaled to size 7.27301pt on input line 95.
+(Font)              scaled to size 7.27301pt on input line 99.
 LaTeX Font Info:    Font shape `OT1/cmss/m/n' will be
-(Font)              scaled to size 5.195pt on input line 95.
-LaTeX Font Info:    Try loading font information for OML+mdbch on input line 95
+(Font)              scaled to size 5.195pt on input line 99.
+LaTeX Font Info:    Try loading font information for OML+mdbch on input line 99
 .
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\mathdesign\mdbch\omlmdbch.fd"
 File: omlmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OML/mdbch.
 )
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 9.60007pt on input line 95.
+(Font)              scaled to size 9.60007pt on input line 99.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.72005pt on input line 95.
+(Font)              scaled to size 6.72005pt on input line 99.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 4.80003pt on input line 95.
-LaTeX Font Info:    Try loading font information for OMS+mdbch on input line 95
+(Font)              scaled to size 4.80003pt on input line 99.
+LaTeX Font Info:    Try loading font information for OMS+mdbch on input line 99
 .
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\mathdesign\mdbch\omsmdbch.fd"
 File: omsmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMS/mdbch.
 )
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 95.
+(Font)              scaled to size 9.60007pt on input line 99.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 95.
+(Font)              scaled to size 6.72005pt on input line 99.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 95.
-LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 95
+(Font)              scaled to size 4.80003pt on input line 99.
+LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 99
 .
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\mathdesign\mdbch\omxmdbch.fd"
 File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
 )
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 95.
+(Font)              scaled to size 9.60007pt on input line 99.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 95.
+(Font)              scaled to size 6.72005pt on input line 99.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 95.
-LaTeX Font Info:    Try loading font information for U+msa on input line 95.
+(Font)              scaled to size 4.80003pt on input line 99.
+LaTeX Font Info:    Try loading font information for U+msa on input line 99.
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 95.
+LaTeX Font Info:    Try loading font information for U+msb on input line 99.
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 95.
+(Font)              scaled to size 9.60007pt on input line 99.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 95.
+(Font)              scaled to size 6.72005pt on input line 99.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 95.
-LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 95
+(Font)              scaled to size 4.80003pt on input line 99.
+LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 99
 .
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\mathdesign\mdbch\mdamdbch.fd"
 File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
 )
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 95.
+(Font)              scaled to size 9.60007pt on input line 99.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 95.
+(Font)              scaled to size 6.72005pt on input line 99.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 95.
-LaTeX Font Info:    Try loading font information for MDB+mdbch on input line 95
+(Font)              scaled to size 4.80003pt on input line 99.
+LaTeX Font Info:    Try loading font information for MDB+mdbch on input line 99
 .
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\mathdesign\mdbch\mdbmdbch.fd"
 File: mdbmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDB/mdbch.
 )
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 95.
+(Font)              scaled to size 9.60007pt on input line 99.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 95.
+(Font)              scaled to size 6.72005pt on input line 99.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 95.
-\c__siunitx_mathtt_int=\count333
+(Font)              scaled to size 4.80003pt on input line 99.
+\c__siunitx_mathtt_int=\count334
 LaTeX Font Info:    Try loading font information for T1+DejaVuSansMono-TLF on i
-nput line 95.
+nput line 99.
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\dejavu\t1dejavusansmono-tlf.fd"
 File: T1DejaVuSansMono-TLF.fd 2011/06/01 Font definitions for T1/DejaVuSansMono
 -TLF.
 )
 LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/m/n' will be
-(Font)              scaled to size 8.39996pt on input line 95.
+(Font)              scaled to size 8.39996pt on input line 99.
 LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/m/n' will be
-(Font)              scaled to size 5.87997pt on input line 95.
+(Font)              scaled to size 5.87997pt on input line 99.
 LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/m/n' will be
-(Font)              scaled to size 4.19998pt on input line 95.
+(Font)              scaled to size 4.19998pt on input line 99.
 
 
 Package hyperref Warning: Option `pdfauthor' has already been used,
-(hyperref)                setting the option has no effect on input line 101.
+(hyperref)                setting the option has no effect on input line 105.
 
 (presentation.toc) [2{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
@@ -2575,18 +2584,18 @@ pdfTeX warning (ext4): destination with the same identifier (name{Navigation1})
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.123 \end{frame}
+l.127 \end{frame}
                  pdfTeX warning (ext4): destination with the same identifier (n
 ame{page.1}) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.123 \end{frame}
+l.127 \end{frame}
                  
 
 ]
 LaTeX Font Info:    Try loading font information for TS1+SourceSansPro-TLF on i
-nput line 123.
+nput line 127.
 
 ("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\sourcesanspro\ts1sourcesanspro-tl
 f.fd"
@@ -2800,7 +2809,7 @@ l.118 \end{frame}
 File: graphics/nmf.pdf Graphic file (type pdf)
 
 <use graphics/nmf.pdf>
-Package pdftex.def Info: graphics/nmf.pdf used on input line 143.
+Package pdftex.def Info: graphics/nmf.pdf used on input line 147.
 (pdftex.def)             Requested size: 262.28189pt x 56.3108pt.
  [13
 
@@ -2809,29 +2818,39 @@ pdfTeX warning (ext4): destination with the same identifier (name{Navigation12}
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.143 \end{frame}
+l.147 \end{frame}
                  pdfTeX warning (ext4): destination with the same identifier (n
 ame{page.12}) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.143 \end{frame}
+l.147 \end{frame}
                  
 
- <./graphics/directed_network_example.pdf>] [14
+ <./graphics/directed_network_example.pdf>]
+Overfull \hbox (9.6929pt too wide) in paragraph at lines 275--275
+ [] 
+ []
+
+
+Overfull \hbox (9.6929pt too wide) in paragraph at lines 275--275
+ [] 
+ []
+
+[14
 
 pdfTeX warning (ext4): destination with the same identifier (name{Navigation13}
 ) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.151 \end{frame}
+l.275 \end{frame}
                  pdfTeX warning (ext4): destination with the same identifier (n
 ame{page.13}) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.151 \end{frame}
+l.275 \end{frame}
                  
 
  <./graphics/nmf.pdf>] [15
@@ -2841,13 +2860,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{Navigation14}
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.156 \end{frame}
+l.280 \end{frame}
                  pdfTeX warning (ext4): destination with the same identifier (n
 ame{page.14}) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.156 \end{frame}
+l.280 \end{frame}
                  
 
 ]) (slides/result/result.tex [16
@@ -2873,13 +2892,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{Navigation16}
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.11 \end{frame}
+l.12 \end{frame}
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{page.16}) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.11 \end{frame}
+l.12 \end{frame}
                 
 
 ] [18
@@ -2889,30 +2908,40 @@ pdfTeX warning (ext4): destination with the same identifier (name{Navigation17}
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.15 \end{frame}
+l.16 \end{frame}
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{page.17}) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.15 \end{frame}
+l.16 \end{frame}
                 
 
-]) (slides/conclusion/conclusion.tex [19
+] <graphics/roles.png, id=287, 611.28375pt x 442.65375pt>
+File: graphics/roles.png Graphic file (type png)
+
+<use graphics/roles.png>
+Package pdftex.def Info: graphics/roles.png used on input line 23.
+(pdftex.def)             Requested size: 305.64113pt x 221.32632pt.
+
+Overfull \vbox (3.79163pt too high) detected at line 23
+ []
+
+[19
 
 pdfTeX warning (ext4): destination with the same identifier (name{Navigation18}
 ) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.7 \end{frame}
-               pdfTeX warning (ext4): destination with the same identifier (nam
-e{page.18}) has been already used, duplicate ignored
+l.23 \end{frame}
+                pdfTeX warning (ext4): destination with the same identifier (na
+me{page.18}) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.7 \end{frame}
-               
+l.23 \end{frame}
+                
 
 ] [20
 
@@ -2921,29 +2950,109 @@ pdfTeX warning (ext4): destination with the same identifier (name{Navigation19}
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.11 \end{frame}
+l.28 \end{frame}
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{page.19}) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.11 \end{frame}
+l.28 \end{frame}
                 
 
-] [21
+ <./graphics/roles.png>] [21
 
 pdfTeX warning (ext4): destination with the same identifier (name{Navigation20}
 ) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.18 \end{frame}
+l.32 \end{frame}
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{page.20}) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.18 \end{frame}
+l.32 \end{frame}
+                
+
+] [22
+
+pdfTeX warning (ext4): destination with the same identifier (name{Navigation21}
+) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.36 \end{frame}
+                pdfTeX warning (ext4): destination with the same identifier (na
+me{page.21}) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.36 \end{frame}
+                
+
+]) (slides/conclusion/conclusion.tex [23
+
+pdfTeX warning (ext4): destination with the same identifier (name{Navigation22}
+) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.7 \end{frame}
+               pdfTeX warning (ext4): destination with the same identifier (nam
+e{page.22}) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.7 \end{frame}
+               
+
+] [24
+
+pdfTeX warning (ext4): destination with the same identifier (name{Navigation23}
+) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.12 \end{frame}
+                pdfTeX warning (ext4): destination with the same identifier (na
+me{page.23}) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.12 \end{frame}
+                
+
+] [25
+
+pdfTeX warning (ext4): destination with the same identifier (name{Navigation24}
+) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.16 \end{frame}
+                pdfTeX warning (ext4): destination with the same identifier (na
+me{page.24}) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.16 \end{frame}
+                
+
+] [26
+
+pdfTeX warning (ext4): destination with the same identifier (name{Navigation25}
+) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.23 \end{frame}
+                pdfTeX warning (ext4): destination with the same identifier (na
+me{page.25}) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.23 \end{frame}
                 
 
 ])
@@ -2956,38 +3065,38 @@ l.18 \end{frame}
 \tf@snm=\write7
 \openout7 = `presentation.snm'.
 
- [22
+ [27
 
-pdfTeX warning (ext4): destination with the same identifier (name{Navigation21}
+pdfTeX warning (ext4): destination with the same identifier (name{Navigation26}
 ) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.135 \end{document}
+l.139 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier
- (name{page.21}) has been already used, duplicate ignored
+ (name{page.26}) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.135 \end{document}
+l.139 \end{document}
                     
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 135.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 135.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 139.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 139.
  (presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 135.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 135.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 135.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 139.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 139.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 139.
  ) 
 Here is how much of TeX's memory you used:
- 48040 strings out of 493334
- 1137220 string characters out of 3136672
- 1295022 words of memory out of 3000000
- 50534 multiletter control sequences out of 15000+200000
- 128793 words of font info for 77 fonts, out of 3000000 for 9000
+ 48960 strings out of 493334
+ 1157928 string characters out of 3136672
+ 1372028 words of memory out of 3000000
+ 51439 multiletter control sequences out of 15000+200000
+ 129497 words of font info for 79 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 64i,15n,98p,10421b,818s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 64i,21n,105p,10421b,2630s stack positions out of 5000i,500n,10000p,200000b,50000s
 {D:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/texnansi.enc}{D:/
 Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/sourcesanspro/a_kksgzp.enc}{D:/P
 rogram Files (x86)/MiKTeX 2.9/fonts/enc/dvips/sourcesanspro/a_sd7igg.enc}{D:/Pr
@@ -3001,9 +3110,9 @@ s8.pfb><D:/Program Files (x86)/MiKTeX 2.9/fonts/type1/mathdesign/mdbch/md-chr7m
 .pfb><D:/Program Files (x86)/MiKTeX 2.9/fonts/type1/mathdesign/mdbch/md-chr7v.p
 fb><D:/Program Files (x86)/MiKTeX 2.9/fonts/type1/mathdesign/mdbch/md-chr7y.pfb
 >
-Output written on presentation.pdf (21 pages, 237530 bytes).
+Output written on presentation.pdf (26 pages, 305417 bytes).
 PDF statistics:
- 374 PDF objects out of 1000 (max. 8388607)
- 47 named destinations out of 1000 (max. 500000)
- 68 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 445 PDF objects out of 1000 (max. 8388607)
+ 57 named destinations out of 1000 (max. 500000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 
