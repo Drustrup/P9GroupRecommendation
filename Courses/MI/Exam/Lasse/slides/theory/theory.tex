@@ -57,13 +57,13 @@ The datasets are split into a total of 26 snapshots:
 \item 19 from Scratch
 \end{itemize}
 \begin{columns}
-	\begin{column}{0.5\textwidth}\centering
-			\begin{block} {\small Social Network Graph}
+	\begin{column}{0.5\textwidth}
+			\begin{block} {\small Social Network Graph}\centering
 				$D = (N,E)$
 			\end{block}
 		\end{column}
-		\begin{column}{0.5\textwidth}\centering
-			\begin{block} {\small Snapshot}
+		\begin{column}{0.5\textwidth}
+			\begin{block} {\small Snapshot}\centering
 				$S_t = (N_t,E_t)$
 			\end{block}
 		\end{column}
@@ -97,7 +97,7 @@ $\Omega$ is found by taking the average time between interacting nodes making su
 	
 \begin{frame}
 \frametitle{Feature Selection}
-\textit{Reciprocity} is the rate a user is replayed. The value of this feature is between 1 and 0.
+\textit{Reciprocity} is the rate a user is replayed.
 \begin{columns}\centering
 \begin{column}{0.5\textwidth}
 	\begin{block}{\small Reciprocity}\centering
@@ -126,7 +126,7 @@ The \textit{new activity count} feature is the number of new outgoing edges base
 	\end{column}
 \end{columns}
 
-The feature \emph{social strategy} is the ratio of new outgoing edges over all outgoing edges
+The feature \emph{social strategy} is the ratio of new outgoing edges over all outgoing edges 
 \begin{columns}
 \begin{column}{0.5\textwidth}
 	\begin{block}{\small Social Strategy}\centering
@@ -163,7 +163,7 @@ L is all outgoing edges
 
 \begin{frame}
 \frametitle{Feature Selection}
-The feature \textit{PageRank} measures centrality based on ingoing edges
+The feature \textit{PageRank} measures centrality based on ingoing edges and their influence
 \begin{columns}
 \begin{column}{0.8\textwidth}\centering
 	\begin{block}{\small PageRank}\centering
@@ -245,6 +245,11 @@ The authors do not argue for the selected features\\
 
 \begin{frame}
 \frametitle{Role Discovery}
+Roles are discovered by decomposing the feature matrix using NMF. This gives us:
+\begin{itemize}
+\item Basis matrix U, containing the feature characteristic for the roles
+\item Coefficient matrix V, containing role membership weights for each user
+\end{itemize}
 \begin{columns}\centering
 	\begin{column}{0.5\textwidth}
 		\begin{block}{\small Non-negative Matrix Factorization}\centering
@@ -256,10 +261,6 @@ The authors do not argue for the selected features\\
 \includegraphics[scale=.3]{graphics/nmf}
 \end{figure}
 
-\begin{itemize}
-\item Matrix U is role features 
-\item Matrix V is membership weights for the roles for each user
-\end{itemize}
 \note{
 \begin{itemize}
 \item Frobenius NMF updated with euclidean distance

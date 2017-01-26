@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  26 JAN 2017 04:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  26 JAN 2017 13:32
 entering extended mode
 **./presentation.tex
 (presentation.tex
@@ -2584,24 +2584,24 @@ Package hyperref Warning: Option `pdfauthor' has already been used,
 
 ] (slides/background/background.tex [3
 
-] [4
+]
+LaTeX Font Info:    Try loading font information for TS1+SourceSansPro-TLF on i
+nput line 17.
+
+("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\sourcesanspro\ts1sourcesanspro-tl
+f.fd"
+File: TS1SourceSansPro-TLF.fd 2014/07/28 (autoinst) Font definitions for TS1/So
+urceSansPro-TLF.
+) [4
+
+] [5
+
+] [6
+
+]) (slides/theory/theory.tex [7
 
 ]
-<graphics/social_network.pdf, id=68, 652.4375pt x 444.66125pt>
-File: graphics/social_network.pdf Graphic file (type pdf)
-
-<use graphics/social_network.pdf>
-Package pdftex.def Info: graphics/social_network.pdf used on input line 28.
-(pdftex.def)             Requested size: 163.10896pt x 111.16504pt.
- [5
-
- <./graphics/social_network.pdf>] [6
-
-])
-(slides/theory/theory.tex [7
-
-]
-<graphics/setup.pdf, id=103, 2109.8825pt x 735.74875pt>
+<graphics/setup.pdf, id=100, 2109.8825pt x 735.74875pt>
 File: graphics/setup.pdf Graphic file (type pdf)
 
 <use graphics/setup.pdf>
@@ -2610,14 +2610,7 @@ Package pdftex.def Info: graphics/setup.pdf used on input line 26.
  [8
 
  <./graphics/setup.pdf>]
-LaTeX Font Info:    Try loading font information for TS1+SourceSansPro-TLF on i
-nput line 50.
-
-("D:\Program Files (x86)\MiKTeX 2.9\tex\latex\sourcesanspro\ts1sourcesanspro-tl
-f.fd"
-File: TS1SourceSansPro-TLF.fd 2014/07/28 (autoinst) Font definitions for TS1/So
-urceSansPro-TLF.
-) <graphics/directed_network.pdf, id=117, 639.38875pt x 443.6575pt>
+<graphics/directed_network.pdf, id=114, 639.38875pt x 443.6575pt>
 File: graphics/directed_network.pdf Graphic file (type pdf)
 
 <use graphics/directed_network.pdf>
@@ -2636,20 +2629,20 @@ Package pdftex.def Info: graphics/directed_network.pdf used on input line 96.
  [11
 
 ]
-<graphics/directed_network_example_reciprocity.pdf, id=155, 651.43375pt x 443.6
+<graphics/directed_network_example_reciprocity.pdf, id=151, 639.38875pt x 443.6
 575pt>
 File: graphics/directed_network_example_reciprocity.pdf Graphic file (type pdf)
 
  <use graphics/directed_network_example_reciprocity.pdf>
 Package pdftex.def Info: graphics/directed_network_example_reciprocity.pdf used
  on input line 116.
-(pdftex.def)             Requested size: 208.46304pt x 141.9733pt.
+(pdftex.def)             Requested size: 204.60857pt x 141.9733pt.
  [12
 
  <./graphics/directed_network_example_reciprocity.pdf>] [13
 
 ]
-<graphics/directed_network_example_betweenness.pdf, id=182, 651.43375pt x 443.6
+<graphics/directed_network_example_betweenness.pdf, id=178, 651.43375pt x 443.6
 575pt>
 File: graphics/directed_network_example_betweenness.pdf Graphic file (type pdf)
 
@@ -2660,7 +2653,7 @@ Package pdftex.def Info: graphics/directed_network_example_betweenness.pdf used
  [14
 
  <./graphics/directed_network_example_betweenness.pdf>]
-<graphics/directed_network_example_pagerank.pdf, id=198, 639.38875pt x 443.6575
+<graphics/directed_network_example_pagerank.pdf, id=194, 639.38875pt x 443.6575
 pt>
 File: graphics/directed_network_example_pagerank.pdf Graphic file (type pdf)
  <use graphics/directed_network_example_pagerank.pdf>
@@ -2670,7 +2663,7 @@ Package pdftex.def Info: graphics/directed_network_example_pagerank.pdf used on
  [15
 
  <./graphics/directed_network_example_pagerank.pdf>]
-<graphics/directed_network_example_transitivity.pdf, id=212, 639.38875pt x 443.
+<graphics/directed_network_example_transitivity.pdf, id=208, 639.38875pt x 443.
 6575pt>
 File: graphics/directed_network_example_transitivity.pdf Graphic file (type pdf
 )
@@ -2683,7 +2676,7 @@ d on input line 202.
  <./graphics/directed_network_example_transitivity.pdf>] [17
 
 ]
-<graphics/matrix.pdf, id=236, 307.1475pt x 187.70125pt>
+<graphics/matrix.pdf, id=232, 307.1475pt x 187.70125pt>
 File: graphics/matrix.pdf Graphic file (type pdf)
 
 <use graphics/matrix.pdf>
@@ -2692,67 +2685,67 @@ Package pdftex.def Info: graphics/matrix.pdf used on input line 244.
  [18
 
  <./graphics/matrix.pdf>]
-<graphics/nmf.pdf, id=250, 874.26625pt x 187.70125pt>
+<graphics/nmf.pdf, id=246, 874.26625pt x 187.70125pt>
 File: graphics/nmf.pdf Graphic file (type pdf)
  <use graphics/nmf.pdf>
-Package pdftex.def Info: graphics/nmf.pdf used on input line 270.
+Package pdftex.def Info: graphics/nmf.pdf used on input line 271.
 (pdftex.def)             Requested size: 262.28189pt x 56.3108pt.
 
 [19
 
  <./graphics/nmf.pdf>]
-Overfull \hbox (9.6929pt too wide) in paragraph at lines 401--401
+Overfull \hbox (9.6929pt too wide) in paragraph at lines 402--402
  [] 
  []
 
 
-Overfull \hbox (9.6929pt too wide) in paragraph at lines 401--401
+Overfull \hbox (9.6929pt too wide) in paragraph at lines 402--402
  [] 
  []
 
 [20
 
-] <graphics/role_matrix.pdf, id=275, 283.0575pt x 519.9425pt>
+] <graphics/role_matrix.pdf, id=271, 283.0575pt x 519.9425pt>
 File: graphics/role_matrix.pdf Graphic file (type pdf)
 
 <use graphics/role_matrix.pdf>
-Package pdftex.def Info: graphics/role_matrix.pdf used on input line 436.
+Package pdftex.def Info: graphics/role_matrix.pdf used on input line 437.
 (pdftex.def)             Requested size: 56.61049pt x 103.98665pt.
 LaTeX Font Info:    Font shape `OT1/cmss/m/n' will be
-(Font)              scaled to size 9.35101pt on input line 436.
+(Font)              scaled to size 9.35101pt on input line 437.
 LaTeX Font Info:    Font shape `OT1/cmss/m/n' will be
-(Font)              scaled to size 6.23401pt on input line 436.
+(Font)              scaled to size 6.23401pt on input line 437.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 8.64006pt on input line 436.
+(Font)              scaled to size 8.64006pt on input line 437.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 5.76004pt on input line 436.
+(Font)              scaled to size 5.76004pt on input line 437.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 436.
+(Font)              scaled to size 8.64006pt on input line 437.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 436.
+(Font)              scaled to size 5.76004pt on input line 437.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 436.
+(Font)              scaled to size 8.64006pt on input line 437.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 436.
+(Font)              scaled to size 5.76004pt on input line 437.
 LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/m/n' will be
-(Font)              scaled to size 7.55997pt on input line 436.
+(Font)              scaled to size 7.55997pt on input line 437.
 LaTeX Font Info:    Font shape `T1/DejaVuSansMono-TLF/m/n' will be
-(Font)              scaled to size 5.03998pt on input line 436.
+(Font)              scaled to size 5.03998pt on input line 437.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 436.
+(Font)              scaled to size 8.64006pt on input line 437.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 436.
+(Font)              scaled to size 5.76004pt on input line 437.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 436.
+(Font)              scaled to size 8.64006pt on input line 437.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 436.
+(Font)              scaled to size 5.76004pt on input line 437.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 436.
+(Font)              scaled to size 8.64006pt on input line 437.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 436.
+(Font)              scaled to size 5.76004pt on input line 437.
 File: graphics/role_matrix.pdf Graphic file (type pdf)
  <use graphics/role_matrix.pdf>
-Package pdftex.def Info: graphics/role_matrix.pdf used on input line 436.
+Package pdftex.def Info: graphics/role_matrix.pdf used on input line 437.
 (pdftex.def)             Requested size: 56.61049pt x 103.98665pt.
  [21
 
@@ -2761,7 +2754,7 @@ Package pdftex.def Info: graphics/role_matrix.pdf used on input line 436.
 ] [23
 
 ]
-<graphics/roles.png, id=309, 611.28375pt x 442.65375pt>
+<graphics/roles.png, id=305, 611.28375pt x 442.65375pt>
 File: graphics/roles.png Graphic file (type png)
 
 <use graphics/roles.png>
@@ -2774,7 +2767,7 @@ Overfull \vbox (3.79163pt too high) detected at line 36
 [24
 
  <./graphics/roles.png>]
-<graphics/relations.png, id=322, 789.70032pt x 364.36125pt>
+<graphics/relations.png, id=318, 789.70032pt x 364.36125pt>
 File: graphics/relations.png Graphic file (type png)
 
 <use graphics/relations.png>
@@ -2788,24 +2781,20 @@ Overfull \hbox (24.382pt too wide) in paragraph at lines 44--44
 [25
 
  <./graphics/relations.png>]
-<graphics/evidence.png, id=335, 611.28375pt x 443.40656pt>
+<graphics/evidence.png, id=331, 611.28375pt x 443.40656pt>
 File: graphics/evidence.png Graphic file (type png)
 
 <use graphics/evidence.png>
 Package pdftex.def Info: graphics/evidence.png used on input line 51.
-(pdftex.def)             Requested size: 305.64113pt x 221.70273pt.
+(pdftex.def)             Requested size: 275.07515pt x 199.5311pt.
+ [26
 
-Overfull \vbox (4.16803pt too high) detected at line 51
- []
-
-[26
-
- <./graphics/evidence.png>]) (slides/conclusion/conclusion.tex [27
+ <./graphics/evidence.png>])
+(slides/conclusion/conclusion.tex [27
 
 ] [28
 
-]
-[29
+] [29
 
 ])
 \tf@nav=\write5
@@ -2825,10 +2814,10 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 143.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 143.
  ) 
 Here is how much of TeX's memory you used:
- 48969 strings out of 493334
- 1157968 string characters out of 3136672
- 1341914 words of memory out of 3000000
- 51428 multiletter control sequences out of 15000+200000
+ 48964 strings out of 493334
+ 1157823 string characters out of 3136672
+ 1341978 words of memory out of 3000000
+ 51424 multiletter control sequences out of 15000+200000
  153606 words of font info for 108 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,21n,105p,10421b,2627s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2845,9 +2834,9 @@ s8.pfb><D:/Program Files (x86)/MiKTeX 2.9/fonts/type1/mathdesign/mdbch/md-chr7v
 .pfb><D:/Program Files (x86)/MiKTeX 2.9/fonts/type1/mathdesign/mdbch/md-chr7y.p
 fb><D:/Program Files (x86)/MiKTeX 2.9/fonts/type1/mathdesign/mdbch/md-chri7m.pf
 b>
-Output written on presentation.pdf (29 pages, 397414 bytes).
+Output written on presentation.pdf (29 pages, 395715 bytes).
 PDF statistics:
- 422 PDF objects out of 1000 (max. 8388607)
+ 418 PDF objects out of 1000 (max. 8388607)
  63 named destinations out of 1000 (max. 500000)
- 108 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 103 words of extra memory for PDF output out of 10000 (max. 10000000)
 
