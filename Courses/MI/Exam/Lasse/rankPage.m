@@ -1,5 +1,5 @@
 clear all;
-%{
+
 s = {'a' 'b' 'b' 'c' 'd' 'e' 'e' 'e' 'e' 'f' 'g' 'g' 'g' 'g' 'h' 'i' 'i' 'i' 'i' 'j' 'k' 'k' 'k' 'l' 'l' 'l'};
 t = {'e' 'e' 'g' 'b' 'e' 'b' 'd' 'g' 'i' 'g' 'b' 'e' 'i' 'j' 'i' 'h' 'e' 'g' 'l' 'g' 'h' 'i' 'l' 'k' 'i' 'j'};
 G = digraph(s,t);
@@ -10,8 +10,10 @@ p = plot(G,'Layout','layered','EdgeLabel',labels);
 %highlight(p,3,2,'EdgeColor','m')
 title('PageRank Score Transfer Between Nodes')
 
-pr = centrality(G,'pagerank','FollowProbability',0.85)
-%}
+pr = centrality(G,'pagerank','FollowProbability',0.85);
 
-matrix = [1 2 4 0; 0 3 2 6; 2 9 0 3 ; 1 2 4 0; 0 3 2 6; 2 9 0 3];
-[W,H] = nnmf(matrix, 2);
+
+b = centrality(G,'betweenness');
+
+G.Nodes.Betweenness = b;
+G.Nodes.PageRank = pr;

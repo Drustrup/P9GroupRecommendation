@@ -1,4 +1,4 @@
-\documentclass[10pt, hyperref={bookmarks=false}, show notes]{beamer}
+\documentclass[10pt, hyperref={bookmarks=false}]{beamer}
 % Text
         \usepackage[T1]{fontenc}
         \usepackage[utf8]{inputenc}
@@ -63,7 +63,7 @@
 % Uncomment for handouts. Add \documentclass[12pt,handout]{beamer}
 %\pgfpagesuselayout{4 on 1 with notes}[a4paper,border shrink=5mm]
 % Comment for handouts.
-\setbeameroption{show notes on second screen=right}
+
 
 % Table of content dybde (0-index)
 %\setcounter{tocdepth}{1}
@@ -90,10 +90,14 @@
     \futurelet \reserved@a \@xhline
 }
 \newcolumntype{"}{!{\vrule width 0.5pt}}
+\newcolumntype{~}{!{\vrule width 0.1pt}}
 
 
 \usepackage[font=small,skip=-2pt]{caption}
-\captionsetup{font=small,skip=-2pt}
+\captionsetup{font=small,skip=0pt}
+
+\definecolor{LightBlue}{RGB}{234,238,241}
+\definecolor{HeadBlue}{RGB}{50,88,119}
 
 %\newcolumntype{||}{@{\hskip\tabcolsep\vrule width 0.5pt\hskip\tabcolsep}}
 \begin{document}
