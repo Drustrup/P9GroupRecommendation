@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Background}{3}{0}{1}
+\beamer@sectionintoc {2}{Related Work}{6}{0}{2}
+\beamer@sectionintoc {3}{Theory}{9}{0}{3}
+\beamer@sectionintoc {4}{Evaluation}{16}{0}{4}
+\beamer@sectionintoc {5}{Results}{20}{0}{5}
+\beamer@sectionintoc {6}{Criticism}{26}{0}{6}
