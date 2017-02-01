@@ -1,0 +1,1704 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\sortlist[entry]{nty/global/}
+  \entry{arrow}{article}{}
+    \name{author}{1}{}{%
+      {{hash=AKJ}{%
+         family={Arrow},
+         familyi={A\bibinitperiod},
+         given={Kenneth\bibnamedelima J.},
+         giveni={K\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {University of Chicago Press}%
+    }
+    \strng{namehash}{AKJ1}
+    \strng{fullhash}{AKJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{issn}{00223808, 1537534X}
+    \field{number}{4}
+    \field{pages}{328\bibrangedash 346}
+    \field{title}{A Difficulty in the Concept of Social Welfare}
+    \verb{url}
+    \verb http://www.jstor.org/stable/1828886
+    \endverb
+    \field{volume}{58}
+    \field{journaltitle}{Journal of Political Economy}
+    \field{year}{1950}
+  \endentry
+
+  \entry{baltrunas}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=BL}{%
+         family={Baltrunas},
+         familyi={B\bibinitperiod},
+         given={Linas},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=MT}{%
+         family={Makcinskas},
+         familyi={M\bibinitperiod},
+         given={Tadas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=RF}{%
+         family={Ricci},
+         familyi={R\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \name{editor}{4}{}{%
+      {{hash=AX}{%
+         family={Amatriain},
+         familyi={A\bibinitperiod},
+         given={Xavier},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=TM}{%
+         family={Torrens},
+         familyi={T\bibinitperiod},
+         given={Marc},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=RP}{%
+         family={Resnick},
+         familyi={R\bibinitperiod},
+         given={Paul},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=ZM}{%
+         family={Zanker},
+         familyi={Z\bibinitperiod},
+         given={Markus},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {{ACM}}%
+    }
+    \strng{namehash}{BLMTRF1}
+    \strng{fullhash}{BLMTRF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Proceedings of the 2010 {ACM} Conference on Recommender
+  Systems, RecSys 2010, Barcelona, Spain, September 26-30, 2010}
+    \verb{doi}
+    \verb 10.1145/1864708.1864733
+    \endverb
+    \field{isbn}{978-1-60558-906-0}
+    \field{pages}{119\bibrangedash 126}
+    \field{title}{Group recommendations with rank aggregation and collaborative
+  filtering}
+    \verb{url}
+    \verb http://doi.acm.org/10.1145/1864708.1864733
+    \endverb
+    \field{year}{2010}
+  \endentry
+
+  \entry{deCampos2009}{article}{}
+    \name{author}{4}{}{%
+      {{hash=dCLM}{%
+         prefix={de},
+         prefixi={d\bibinitperiod},
+         family={Campos},
+         familyi={C\bibinitperiod},
+         given={Luis\bibnamedelima M.},
+         giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=FLJM}{%
+         family={Fern{\'a}ndez-Luna},
+         familyi={F\bibinitperiod-L\bibinitperiod},
+         given={Juan\bibnamedelima M.},
+         giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=HJF}{%
+         family={Huete},
+         familyi={H\bibinitperiod},
+         given={Juan\bibnamedelima F.},
+         giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=RMMA}{%
+         family={Rueda-Morales},
+         familyi={R\bibinitperiod-M\bibinitperiod},
+         given={Miguel\bibnamedelima A.},
+         giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CLMd+1}
+    \strng{fullhash}{CLMdFLJMHJFRMMA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{abstract}{%
+    While the problem of building recommender systems has attracted
+  considerableattention in recent years, most recommender systems are designed
+  for recommendingitems to individuals. The aim of this paper is to
+  automatically recommenda ranked list of new items to a group of users. We
+  will investigate the value of usingBayesian networks to represent the
+  different uncertainties involved in a group recommendingprocess, i.e. those
+  uncertainties related to mechanisms that govern theinteractions between group
+  members and the processes leading to the final choice orrecommendation. We
+  will also show how the most common aggregation strategiesmight be encoded
+  using a Bayesian network formalism. The proposed model can beconsidered as a
+  collaborative Bayesian network-based group recommender system,where group
+  ratings are computed from the past voting patterns of other users withsimilar
+  tastes.%
+    }
+    \verb{doi}
+    \verb 10.1007/s11257-008-9061-1
+    \endverb
+    \field{issn}{1573-1391}
+    \field{number}{3}
+    \field{pages}{207\bibrangedash 242}
+    \field{title}{Managing uncertainty in group recommending processes}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/s11257-008-9061-1
+    \endverb
+    \field{volume}{19}
+    \field{journaltitle}{User Modeling and User-Adapted Interaction}
+    \field{year}{2009}
+  \endentry
+
+  \entry{nashequilibrium}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=CLAMC}{%
+         family={Carvalho},
+         familyi={C\bibinitperiod},
+         given={Lucas Augusto Montalv{\~{a}}o\bibnamedelima Costa},
+         giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod
+  M\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=MHT}{%
+         family={Macedo},
+         familyi={M\bibinitperiod},
+         given={Hendrik\bibnamedelima Teixeira},
+         giveni={H\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+    }
+    \name{editor}{10}{}{%
+      {{hash=CL}{%
+         family={Carr},
+         familyi={C\bibinitperiod},
+         given={Leslie},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=LAHF}{%
+         family={Laender},
+         familyi={L\bibinitperiod},
+         given={Alberto H.\bibnamedelima F.},
+         giveni={A\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim
+  F\bibinitperiod},
+      }}%
+      {{hash=LBF}{%
+         family={L{\'{o}}scio},
+         familyi={L\bibinitperiod},
+         given={Bernadette\bibnamedelima Farias},
+         giveni={B\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=KI}{%
+         family={King},
+         familyi={K\bibinitperiod},
+         given={Irwin},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=FM}{%
+         family={Fontoura},
+         familyi={F\bibinitperiod},
+         given={Marcus},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=VD}{%
+         family={Vrandecic},
+         familyi={V\bibinitperiod},
+         given={Denny},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=AL}{%
+         family={Aroyo},
+         familyi={A\bibinitperiod},
+         given={Lora},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=dOJPM}{%
+         prefix={de},
+         prefixi={d\bibinitperiod},
+         family={Oliveira},
+         familyi={O\bibinitperiod},
+         given={Jos{\'{e}} Palazzo\bibnamedelima M.},
+         giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim
+  M\bibinitperiod},
+      }}%
+      {{hash=LF}{%
+         family={Lima},
+         familyi={L\bibinitperiod},
+         given={Fernanda},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=WE}{%
+         family={Wilde},
+         familyi={W\bibinitperiod},
+         given={Erik},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {International World Wide Web Conferences Steering Committee / {ACM}}%
+    }
+    \strng{namehash}{CLAMCMHT1}
+    \strng{fullhash}{CLAMCMHT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{booktitle}{22nd International World Wide Web Conference, {WWW} '13,
+  Rio de Janeiro, Brazil, May 13-17, 2013, Companion Volume}
+    \field{isbn}{978-1-4503-2038-2}
+    \field{pages}{951\bibrangedash 958}
+    \field{title}{Users' satisfaction in recommendation systems for groups: an
+  approach based on noncooperative games}
+    \verb{url}
+    \verb http://dl.acm.org/citation.cfm?id=2488090
+    \endverb
+    \field{year}{2013}
+  \endentry
+
+  \entry{lastfmdataset}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=CO}{%
+         family={Celma},
+         familyi={C\bibinitperiod},
+         given={O.},
+         giveni={O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CO1}
+    \strng{fullhash}{CO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Last.fm Dataset}
+    \verb{url}
+    \verb http://www.dtic.upf.edu/~ocelma/MusicRecommendationDataset/lastfm-1K.
+    \verb html
+    \endverb
+    \field{year}{2010}
+  \endentry
+
+  \entry{Christensen201114127}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CIA}{%
+         family={Christensen},
+         familyi={C\bibinitperiod},
+         given={Ingrid\bibnamedelima A.},
+         giveni={I\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Schiaffino},
+         familyi={S\bibinitperiod},
+         given={Silvia},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \keyw{Group recommender system}
+    \strng{namehash}{CIASS1}
+    \strng{fullhash}{CIASS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{abstract}{%
+    Recommender systems are used to recommend potentially interesting items to
+  users in different domains. Nowadays, there is a wide range of domains in
+  which there is a need to offer recommendations to group of users instead of
+  individual users. As a consequence, there is also a need to address the
+  preferences of individual members of a group of users so as to provide
+  suggestions for groups as a whole. Group recommender systems present a whole
+  set of new challenges within the field of recommender systems. In this
+  article, we present two expert recommender systems that suggest entertainment
+  to groups of users. These systems, jMusicGroupRecommender and
+  jMoviesGroupRecommender, suggest music and movies and utilize different
+  methods for the generation of group recommendations: merging recommendations
+  made for individuals, aggregation of individuals’ ratings, and construction
+  of group preference models. We also describe the results obtained when
+  comparing different group recommendation techniques in both domains.%
+    }
+    \verb{doi}
+    \verb http://dx.doi.org/10.1016/j.eswa.2011.04.221
+    \endverb
+    \field{issn}{0957-4174}
+    \field{number}{11}
+    \field{pages}{14127 \bibrangedash  14135}
+    \field{title}{Entertainment recommender systems for group of users}
+    \verb{url}
+    \verb http://www.sciencedirect.com/science/article/pii/S0957417411007482
+    \endverb
+    \field{volume}{38}
+    \field{journaltitle}{Expert Systems with Applications}
+    \field{year}{2011}
+  \endentry
+
+  \entry{aggregationnotenough}{inproceedings}{}
+    \name{author}{7}{}{%
+      {{hash=DA}{%
+         family={Delic},
+         familyi={D\bibinitperiod},
+         given={Amra},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=NJ}{%
+         family={Neidhardt},
+         familyi={N\bibinitperiod},
+         given={Julia},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=NTN}{%
+         family={Nguyen},
+         familyi={N\bibinitperiod},
+         given={Thuy\bibnamedelima Ngoc},
+         giveni={T\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=RF}{%
+         family={Ricci},
+         familyi={R\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RL}{%
+         family={Rook},
+         familyi={R\bibinitperiod},
+         given={Laurens},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=WH}{%
+         family={Werthner},
+         familyi={W\bibinitperiod},
+         given={Hannes},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=ZM}{%
+         family={Zanker},
+         familyi={Z\bibinitperiod},
+         given={Markus},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \name{editor}{4}{}{%
+      {{hash=SS}{%
+         family={Sen},
+         familyi={S\bibinitperiod},
+         given={Shilad},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=GW}{%
+         family={Geyer},
+         familyi={G\bibinitperiod},
+         given={Werner},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=FJ}{%
+         family={Freyne},
+         familyi={F\bibinitperiod},
+         given={Jill},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=CP}{%
+         family={Castells},
+         familyi={C\bibinitperiod},
+         given={Pablo},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {{ACM}}%
+    }
+    \strng{crossref}{DBLP:conf/recsys/2016}
+    \strng{namehash}{DA+1}
+    \strng{fullhash}{DANJNTNRFRLWHZM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{booktitle}{Proceedings of the 10th {ACM} Conference on Recommender
+  Systems, Boston, MA, USA, September 15-19, 2016}
+    \verb{doi}
+    \verb 10.1145/2959100.2959168
+    \endverb
+    \field{isbn}{978-1-4503-4035-9}
+    \field{pages}{147\bibrangedash 150}
+    \field{title}{Observing Group Decision Making Processes}
+    \verb{url}
+    \verb http://doi.acm.org/10.1145/2959100.2959168
+    \endverb
+    \field{year}{2016}
+  \endentry
+
+  \entry{DBLP:conf/www/DworkKNS01}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=DC}{%
+         family={Dwork},
+         familyi={D\bibinitperiod},
+         given={Cynthia},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={Kumar},
+         familyi={K\bibinitperiod},
+         given={Ravi},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=NM}{%
+         family={Naor},
+         familyi={N\bibinitperiod},
+         given={Moni},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SD}{%
+         family={Sivakumar},
+         familyi={S\bibinitperiod},
+         given={D.},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \name{editor}{4}{}{%
+      {{hash=SVY}{%
+         family={Shen},
+         familyi={S\bibinitperiod},
+         given={Vincent\bibnamedelima Y.},
+         giveni={V\bibinitperiod\bibinitdelim Y\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={Saito},
+         familyi={S\bibinitperiod},
+         given={Nobuo},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=LMR}{%
+         family={Lyu},
+         familyi={L\bibinitperiod},
+         given={Michael\bibnamedelima R.},
+         giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=ZME}{%
+         family={Zurko},
+         familyi={Z\bibinitperiod},
+         given={Mary\bibnamedelima Ellen},
+         giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {{ACM}}%
+    }
+    \strng{namehash}{DC+1}
+    \strng{fullhash}{DCKRNMSD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{booktitle}{Proceedings of the Tenth International World Wide Web
+  Conference, {WWW} 10, Hong Kong, China, May 1-5, 2001}
+    \verb{doi}
+    \verb 10.1145/371920.372165
+    \endverb
+    \field{isbn}{1-58113-348-0}
+    \field{pages}{613\bibrangedash 622}
+    \field{title}{Rank aggregation methods for the Web}
+    \verb{url}
+    \verb http://doi.acm.org/10.1145/371920.372165
+    \endverb
+    \field{year}{2001}
+  \endentry
+
+  \entry{popbias}{article}{}
+    \name{author}{2}{}{%
+      {{hash=FD}{%
+         family={Fleder},
+         familyi={F\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=HK}{%
+         family={Hosanagar},
+         familyi={H\bibinitperiod},
+         given={Kartik},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FDHK1}
+    \strng{fullhash}{FDHK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{abstract}{%
+    This paper examines the effect of recommender systems on the diversity of
+  sales. Two anecdotal views exist about such effects. Some believe
+  recommenders help consumers discover new products and thus increase sales
+  diversity. Others believe recommenders only reinforce the popularity of
+  already-popular products. This paper seeks to reconcile these seemingly
+  incompatible views. We explore the question in two ways. First, modeling
+  recommender systems analytically allows us to explore their path-dependent
+  effects. Second, turning to simulation, we increase the realism of our
+  results by combining choice models with actual implementations of recommender
+  systems. We arrive at three main results. First, some well-known recommenders
+  can lead to a reduction in sales diversity. Because common recommenders
+  (e.g., collaborative filters) recommend products based on sales and ratings,
+  they cannot recommend products with limited historical data, even if they
+  would be rated favorably. In turn, these recommenders can create a
+  rich-get-richer effect for popular products and vice versa for unpopular
+  ones. This bias toward popularity can prevent what may otherwise be better
+  consumer-product matches. That diversity can decrease is surprising to
+  consumers who express that recommendations have helped them discover new
+  products. In line with this, result two shows that it is possible for
+  individual-level diversity to increase but aggregate diversity to decrease.
+  Recommenders can push each person to new products, but they often push users
+  toward the same products. Third, we show how basic design choices affect the
+  outcome, and thus managers can choose recommender designs that are more
+  consistent with their sales goals and consumers' preferences.%
+    }
+    \verb{doi}
+    \verb 10.1287/mnsc.1080.0974
+    \endverb
+    \field{number}{5}
+    \field{pages}{697\bibrangedash 712}
+    \field{title}{Blockbuster Culture's Next Rise or Fall: The Impact of
+  Recommender Systems on Sales Diversity}
+    \verb{url}
+    \verb http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.151.3210
+    \endverb
+    \field{volume}{55}
+    \field{journaltitle}{Management Science}
+    \field{year}{2009}
+  \endentry
+
+  \entry{svdtheorem}{article}{}
+    \name{author}{2}{}{%
+      {{hash=GG}{%
+         family={Golub},
+         familyi={G\bibinitperiod},
+         given={Gene},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=KW}{%
+         family={Kahan},
+         familyi={K\bibinitperiod},
+         given={William},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {SIAM}%
+    }
+    \strng{namehash}{GGKW1}
+    \strng{fullhash}{GGKW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{number}{2}
+    \field{pages}{205\bibrangedash 224}
+    \field{title}{Calculating the singular values and pseudo-inverse of a
+  matrix}
+    \field{volume}{2}
+    \field{journaltitle}{Journal of the Society for Industrial and Applied
+  Mathematics, Series B: Numerical Analysis}
+    \field{year}{1965}
+  \endentry
+
+  \entry{movielens100k}{article}{}
+    \name{author}{2}{}{%
+      {{hash=HFM}{%
+         family={Harper},
+         familyi={H\bibinitperiod},
+         given={F.\bibnamedelima Maxwell},
+         giveni={F\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=KJA}{%
+         family={Konstan},
+         familyi={K\bibinitperiod},
+         given={Joseph\bibnamedelima A.},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HFMKJA1}
+    \strng{fullhash}{HFMKJA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \verb{doi}
+    \verb 10.1145/2827872
+    \endverb
+    \field{number}{4}
+    \field{pages}{19}
+    \field{title}{The MovieLens Datasets: History and Context}
+    \verb{url}
+    \verb http://doi.acm.org/10.1145/2827872
+    \endverb
+    \field{volume}{5}
+    \field{journaltitle}{TiiS}
+    \field{year}{2016}
+  \endentry
+
+  \entry{svdsimonfunk}{article}{}
+    \true{moreauthor}
+    \name{author}{3}{}{%
+      {{hash=KY}{%
+         family={Koren},
+         familyi={K\bibinitperiod},
+         given={Yehuda},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=BR}{%
+         family={Bell},
+         familyi={B\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=VC}{%
+         family={Volinsky},
+         familyi={V\bibinitperiod},
+         given={Chris},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Institute of Electrical}%
+      {Electronics Engineers, Inc., New York NY 10016-5997 United States}%
+    }
+    \strng{namehash}{KYBRVC+1}
+    \strng{fullhash}{KYBRVC+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{number}{8}
+    \field{pages}{30\bibrangedash 37}
+    \field{title}{Matrix factorization techniques for recommender systems}
+    \field{volume}{42}
+    \field{journaltitle}{Computer}
+    \field{year}{2009}
+  \endentry
+
+  \entry{LeeNMF}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=LDD}{%
+         family={Lee},
+         familyi={L\bibinitperiod},
+         given={Daniel\bibnamedelima D.},
+         giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=SHS}{%
+         family={Seung},
+         familyi={S\bibinitperiod},
+         given={H.\bibnamedelima Sebastian},
+         giveni={H\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \name{editor}{3}{}{%
+      {{hash=LTK}{%
+         family={Leen},
+         familyi={L\bibinitperiod},
+         given={Todd\bibnamedelima K.},
+         giveni={T\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+      {{hash=DTG}{%
+         family={Dietterich},
+         familyi={D\bibinitperiod},
+         given={Thomas\bibnamedelima G.},
+         giveni={T\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=TV}{%
+         family={Tresp},
+         familyi={T\bibinitperiod},
+         given={Volker},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {{MIT} Press}%
+    }
+    \strng{namehash}{LDDSHS2}
+    \strng{fullhash}{LDDSHS2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{booktitle}{Advances in Neural Information Processing Systems 13,
+  Papers from Neural Information Processing Systems {(NIPS)} 2000, Denver, CO,
+  {USA}}
+    \field{pages}{556\bibrangedash 562}
+    \field{title}{Algorithms for Non-negative Matrix Factorization}
+    \verb{url}
+    \verb http://papers.nips.cc/paper/1861-algorithms-for-non-negative-matrix-f
+    \verb actorization
+    \endverb
+    \field{year}{2000}
+  \endentry
+
+  \entry{nnmf}{article}{}
+    \name{author}{2}{}{%
+      {{hash=LDD}{%
+         family={Lee},
+         familyi={L\bibinitperiod},
+         given={Daniel\bibnamedelima D},
+         giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=SHS}{%
+         family={Seung},
+         familyi={S\bibinitperiod},
+         given={H\bibnamedelima Sebastian},
+         giveni={H\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Nature Publishing Group}%
+    }
+    \strng{namehash}{LDDSHS1}
+    \strng{fullhash}{LDDSHS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{number}{6755}
+    \field{pages}{788\bibrangedash 791}
+    \field{title}{Learning the parts of objects by non-negative matrix
+  factorization}
+    \field{volume}{401}
+    \field{journaltitle}{Nature}
+    \field{year}{1999}
+  \endentry
+
+  \entry{Masthoff2004}{article}{}
+    \name{author}{1}{}{%
+      {{hash=MJ}{%
+         family={Masthoff},
+         familyi={M\bibinitperiod},
+         given={Judith},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MJ1}
+    \strng{fullhash}{MJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{abstract}{%
+    Watching television tends to be a social activity. So, adaptive television
+  needs to adapt to groups of users rather than to individual users. In this
+  paper, we discuss different strategies for combining individual user models
+  to adapt to groups, some of which are inspired by Social Choice Theory. In a
+  first experiment, we explore how humans select a sequence of items for a
+  group to watch, based on data about the individuals' preferences. The results
+  show that humans use some of the strategies such as the Average Strategy
+  (a.k.a. Additive Utilitarian), the Average Without Misery Strategy and the
+  Least Misery Strategy, and care about fairness and avoiding individual
+  misery. In a second experiment, we investigate how satisfied people believe
+  they would be with sequences chosen by different strategies, and how their
+  satisfaction corresponds with that predicted by a number of satisfaction
+  functions. The results show that subjects use normalization, deduct misery,
+  and use the ratings in a non-linear way. One of the satisfaction functions
+  produced reasonable, though not completely correct predictions. According to
+  our subjects, the sequences produced by five strategies give satisfaction to
+  all individuals in the group. The results also show that subjects put more
+  emphasis than expected on showing the best rated item to each individual (at
+  a cost of misery for another individual), and that the ratings of the first
+  and last items in the sequence are especially important. In a final
+  experiment, we explore the influence viewing an item can have on the ratings
+  of other items. This is important for deciding the order in which to present
+  items. The results show an effect of both mood and topical relatedness.%
+    }
+    \verb{doi}
+    \verb 10.1023/B:USER.0000010138.79319.fd
+    \endverb
+    \field{issn}{1573-1391}
+    \field{number}{1}
+    \field{pages}{37\bibrangedash 85}
+    \field{title}{Group Modeling: Selecting a Sequence of Television Items to
+  Suit a Group of Viewers}
+    \verb{url}
+    \verb http://dx.doi.org/10.1023/B:USER.0000010138.79319.fd
+    \endverb
+    \field{volume}{14}
+    \field{journaltitle}{User Modeling and User-Adapted Interaction}
+    \field{year}{2004}
+  \endentry
+
+  \entry{stvireland}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=NTEK}{%
+         family={Network},
+         familyi={N\bibinitperiod},
+         given={The Electoral\bibnamedelima Knowledge},
+         giveni={T\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim
+  K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NTEK1}
+    \strng{fullhash}{NTEK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{Single Transferable Vote}
+    \verb{url}
+    \verb http://aceproject.org/main/english/es/esf04.htm
+    \endverb
+    \field{year}{2016}
+  \endentry
+
+  \entry{aibook_gradientdescent_localsearch}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=PDL}{%
+         family={Poole},
+         familyi={P\bibinitperiod},
+         given={David\bibnamedelima L.},
+         giveni={D\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=MAK}{%
+         family={Mackworth},
+         familyi={M\bibinitperiod},
+         given={Alan\bibnamedelima K.},
+         giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{crossref}{aibook}
+    \strng{namehash}{PDLMAK1}
+    \strng{fullhash}{PDLMAK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{isbn}{9780521519007}
+    \field{pages}{149\bibrangedash 151}
+    \field{subtitle}{Foundations of computational agents}
+    \field{title}{Artificial Intelligence}
+    \list{location}{1}{%
+      {New York, NY 10013-2473, USA}%
+    }
+    \field{year}{2010}
+  \endentry
+
+  \entry{aibook_gradientdescent_linearfunc}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=PDL}{%
+         family={Poole},
+         familyi={P\bibinitperiod},
+         given={David\bibnamedelima L.},
+         giveni={D\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=MAK}{%
+         family={Mackworth},
+         familyi={M\bibinitperiod},
+         given={Alan\bibnamedelima K.},
+         giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{crossref}{aibook}
+    \strng{namehash}{PDLMAK1}
+    \strng{fullhash}{PDLMAK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{isbn}{9780521519007}
+    \field{pages}{304\bibrangedash 306}
+    \field{subtitle}{Foundations of computational agents}
+    \field{title}{Artificial Intelligence}
+    \list{location}{1}{%
+      {New York, NY 10013-2473, USA}%
+    }
+    \field{year}{2010}
+  \endentry
+
+  \entry{aibook}{book}{}
+    \name{author}{2}{}{%
+      {{hash=PDL}{%
+         family={Poole},
+         familyi={P\bibinitperiod},
+         given={David\bibnamedelima L.},
+         giveni={D\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=MAK}{%
+         family={Mackworth},
+         familyi={M\bibinitperiod},
+         given={Alan\bibnamedelima K.},
+         giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{PDLMAK1}
+    \strng{fullhash}{PDLMAK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{isbn}{9780521519007}
+    \field{subtitle}{Foundations of computational agents}
+    \field{title}{Artificial Intelligence}
+    \list{location}{1}{%
+      {New York, NY 10013-2473, USA}%
+    }
+    \field{year}{2010}
+  \endentry
+
+  \entry{Popescu2013}{inbook}{}
+    \name{author}{1}{}{%
+      {{hash=PG}{%
+         family={Popescu},
+         familyi={P\bibinitperiod},
+         given={George},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \name{editor}{2}{}{%
+      {{hash=OAA}{%
+         family={Ozok},
+         familyi={O\bibinitperiod},
+         given={A.\bibnamedelima Ant},
+         giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=ZP}{%
+         family={Zaphiris},
+         familyi={Z\bibinitperiod},
+         given={Panayiotis},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Berlin Heidelberg}%
+    }
+    \strng{namehash}{PG1}
+    \strng{fullhash}{PG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{booktitle}{Online Communities and Social Computing: 5th
+  International conference, OCSC 2013, Held as Part of HCI International 2013,
+  Las Vegas, NV, USA, July 21-26, 2013. Proceedings}
+    \verb{doi}
+    \verb 10.1007/978-3-642-39371-6_46
+    \endverb
+    \field{isbn}{978-3-642-39371-6}
+    \field{pages}{412\bibrangedash 421}
+    \field{title}{Group Recommender Systems as a Voting Problem}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/978-3-642-39371-6_46
+    \endverb
+    \list{location}{1}{%
+      {Berlin, Heidelberg}%
+    }
+    \field{year}{2013}
+  \endentry
+
+  \entry{contextinfluence}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=QE}{%
+         family={Quintarelli},
+         familyi={Q\bibinitperiod},
+         given={Elisa},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=RE}{%
+         family={Rabosio},
+         familyi={R\bibinitperiod},
+         given={Emanuele},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=TL}{%
+         family={Tanca},
+         familyi={T\bibinitperiod},
+         given={Letizia},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \name{editor}{4}{}{%
+      {{hash=SS}{%
+         family={Sen},
+         familyi={S\bibinitperiod},
+         given={Shilad},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=GW}{%
+         family={Geyer},
+         familyi={G\bibinitperiod},
+         given={Werner},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=FJ}{%
+         family={Freyne},
+         familyi={F\bibinitperiod},
+         given={Jill},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=CP}{%
+         family={Castells},
+         familyi={C\bibinitperiod},
+         given={Pablo},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {{ACM}}%
+    }
+    \strng{crossref}{DBLP:conf/recsys/2016}
+    \strng{namehash}{QERETL1}
+    \strng{fullhash}{QERETL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Q}
+    \field{sortinithash}{Q}
+    \field{booktitle}{Proceedings of the 10th {ACM} Conference on Recommender
+  Systems, Boston, MA, USA, September 15-19, 2016}
+    \verb{doi}
+    \verb 10.1145/2959100.2959137
+    \endverb
+    \field{isbn}{978-1-4503-4035-9}
+    \field{pages}{285\bibrangedash 292}
+    \field{title}{Recommending New Items to Ephemeral Groups Using Contextual
+  User Influence}
+    \verb{url}
+    \verb http://doi.acm.org/10.1145/2959100.2959137
+    \endverb
+    \field{year}{2016}
+  \endentry
+
+  \entry{recsyshandbook}{book}{}
+    \name{author}{4}{}{%
+      {{hash=RF}{%
+         family={Ricci},
+         familyi={R\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RL}{%
+         family={Rokach},
+         familyi={R\bibinitperiod},
+         given={Lior},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Shapira},
+         familyi={S\bibinitperiod},
+         given={Bracha},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KPB}{%
+         family={Kantor},
+         familyi={K\bibinitperiod},
+         given={Paul\bibnamedelima B.},
+         giveni={P\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer-Verlag New York, Inc.}%
+    }
+    \strng{namehash}{RF+1}
+    \strng{fullhash}{RFRLSBKPB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{edition}{Second Edition}
+    \field{isbn}{9781489976369}
+    \field{title}{Recommender Systems Handbook}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{year}{2015}
+  \endentry
+
+  \entry{recsyshandbookagreggation}{inbook}{}
+    \name{author}{4}{}{%
+      {{hash=RF}{%
+         family={Ricci},
+         familyi={R\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RL}{%
+         family={Rokach},
+         familyi={R\bibinitperiod},
+         given={Lior},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Shapira},
+         familyi={S\bibinitperiod},
+         given={Bracha},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KPB}{%
+         family={Kantor},
+         familyi={K\bibinitperiod},
+         given={Paul\bibnamedelima B.},
+         giveni={P\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer-Verlag New York, Inc.}%
+    }
+    \strng{crossref}{recsyshandbook}
+    \strng{namehash}{RF+1}
+    \strng{fullhash}{RFRLSBKPB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{chapter}{22}
+    \field{edition}{Second Edition}
+    \field{isbn}{9781489976369}
+    \field{title}{Recommender Systems Handbook}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{year}{2015}
+  \endentry
+
+  \entry{preprocessing}{inbook}{}
+    \name{author}{4}{}{%
+      {{hash=RF}{%
+         family={Ricci},
+         familyi={R\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RL}{%
+         family={Rokach},
+         familyi={R\bibinitperiod},
+         given={Lior},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Shapira},
+         familyi={S\bibinitperiod},
+         given={Bracha},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KPB}{%
+         family={Kantor},
+         familyi={K\bibinitperiod},
+         given={Paul\bibnamedelima B.},
+         giveni={P\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer-Verlag New York, Inc.}%
+    }
+    \strng{crossref}{recsyshandbook}
+    \strng{namehash}{RF+1}
+    \strng{fullhash}{RFRLSBKPB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{edition}{Second Edition}
+    \field{isbn}{9781489976369}
+    \field{pages}{228\bibrangedash 236}
+    \field{title}{Recommender Systems Handbook}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{year}{2015}
+  \endentry
+
+  \entry{svd++}{inbook}{}
+    \name{author}{4}{}{%
+      {{hash=RF}{%
+         family={Ricci},
+         familyi={R\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RL}{%
+         family={Rokach},
+         familyi={R\bibinitperiod},
+         given={Lior},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Shapira},
+         familyi={S\bibinitperiod},
+         given={Bracha},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KPB}{%
+         family={Kantor},
+         familyi={K\bibinitperiod},
+         given={Paul\bibnamedelima B.},
+         giveni={P\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer-Verlag New York, Inc.}%
+    }
+    \strng{crossref}{recsyshandbook}
+    \strng{namehash}{RF+1}
+    \strng{fullhash}{RFRLSBKPB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{edition}{Second Edition}
+    \field{isbn}{9781489976369}
+    \field{pages}{85\bibrangedash 86}
+    \field{title}{Recommender Systems Handbook}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{year}{2015}
+  \endentry
+
+  \entry{kfold}{inbook}{}
+    \name{author}{4}{}{%
+      {{hash=RF}{%
+         family={Ricci},
+         familyi={R\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RL}{%
+         family={Rokach},
+         familyi={R\bibinitperiod},
+         given={Lior},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Shapira},
+         familyi={S\bibinitperiod},
+         given={Bracha},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KPB}{%
+         family={Kantor},
+         familyi={K\bibinitperiod},
+         given={Paul\bibnamedelima B.},
+         giveni={P\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer-Verlag New York, Inc.}%
+    }
+    \strng{crossref}{recsyshandbook}
+    \strng{namehash}{RF+1}
+    \strng{fullhash}{RFRLSBKPB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{edition}{Second Edition}
+    \field{isbn}{9781489976369}
+    \field{pages}{321\bibrangedash 322}
+    \field{title}{Recommender Systems Handbook}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{year}{2015}
+  \endentry
+
+  \entry{rmse}{inbook}{}
+    \name{author}{4}{}{%
+      {{hash=RF}{%
+         family={Ricci},
+         familyi={R\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RL}{%
+         family={Rokach},
+         familyi={R\bibinitperiod},
+         given={Lior},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Shapira},
+         familyi={S\bibinitperiod},
+         given={Bracha},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KPB}{%
+         family={Kantor},
+         familyi={K\bibinitperiod},
+         given={Paul\bibnamedelima B.},
+         giveni={P\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer-Verlag New York, Inc.}%
+    }
+    \strng{crossref}{recsyshandbook}
+    \strng{namehash}{RF+1}
+    \strng{fullhash}{RFRLSBKPB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{edition}{Second Edition}
+    \field{isbn}{9781489976369}
+    \field{pages}{282\bibrangedash 283}
+    \field{title}{Recommender Systems Handbook}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{year}{2015}
+  \endentry
+
+  \entry{ndcg}{inbook}{}
+    \name{author}{4}{}{%
+      {{hash=RF}{%
+         family={Ricci},
+         familyi={R\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RL}{%
+         family={Rokach},
+         familyi={R\bibinitperiod},
+         given={Lior},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Shapira},
+         familyi={S\bibinitperiod},
+         given={Bracha},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KPB}{%
+         family={Kantor},
+         familyi={K\bibinitperiod},
+         given={Paul\bibnamedelima B.},
+         giveni={P\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer-Verlag New York, Inc.}%
+    }
+    \strng{crossref}{recsyshandbook}
+    \strng{namehash}{RF+1}
+    \strng{fullhash}{RFRLSBKPB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{edition}{Second Edition}
+    \field{isbn}{9781489976369}
+    \field{pages}{290}
+    \field{title}{Recommender Systems Handbook}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{year}{2015}
+  \endentry
+
+  \entry{borda}{inbook}{}
+    \name{author}{4}{}{%
+      {{hash=RF}{%
+         family={Ricci},
+         familyi={R\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RL}{%
+         family={Rokach},
+         familyi={R\bibinitperiod},
+         given={Lior},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Shapira},
+         familyi={S\bibinitperiod},
+         given={Bracha},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KPB}{%
+         family={Kantor},
+         familyi={K\bibinitperiod},
+         given={Paul\bibnamedelima B.},
+         giveni={P\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer-Verlag New York, Inc.}%
+    }
+    \strng{crossref}{recsyshandbook}
+    \strng{namehash}{RF+1}
+    \strng{fullhash}{RFRLSBKPB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{edition}{Second Edition}
+    \field{isbn}{9781489976369}
+    \field{pages}{750,753}
+    \field{title}{Recommender Systems Handbook}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{year}{2015}
+  \endentry
+
+  \entry{HappyMovie}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=SLQ}{%
+         family={S{\'{a}}nchez},
+         familyi={S\bibinitperiod},
+         given={Lara\bibnamedelima Quijano},
+         giveni={L\bibinitperiod\bibinitdelim Q\bibinitperiod},
+      }}%
+      {{hash=RJA}{%
+         family={Recio{-}Garc{\'{\i}}a},
+         familyi={R\bibinitperiod},
+         given={Juan\bibnamedelima A.},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=DB}{%
+         family={D{\'{\i}}az{-}Agudo},
+         familyi={D\bibinitperiod},
+         given={Bel{\'{e}}n},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {{IEEE} Computer Society}%
+    }
+    \strng{namehash}{SLQRJADB1}
+    \strng{fullhash}{SLQRJADB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{{IEEE} 23rd International Conference on Tools with
+  Artificial Intelligence, {ICTAI} 2011, Boca Raton, FL, USA, November 7-9,
+  2011}
+    \verb{doi}
+    \verb 10.1109/ICTAI.2011.44
+    \endverb
+    \field{isbn}{978-1-4577-2068-0}
+    \field{pages}{239\bibrangedash 244}
+    \field{title}{HappyMovie: {A} Facebook Application for Recommending Movies
+  to Groups}
+    \verb{url}
+    \verb http://dx.doi.org/10.1109/ICTAI.2011.44
+    \endverb
+    \field{year}{2011}
+  \endentry
+
+  \entry{DBLP:conf/adaptive/SchaferFHS07}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=SJB}{%
+         family={Schafer},
+         familyi={S\bibinitperiod},
+         given={J.\bibnamedelima Ben},
+         giveni={J\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+      {{hash=FD}{%
+         family={Frankowski},
+         familyi={F\bibinitperiod},
+         given={Dan},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=HJL}{%
+         family={Herlocker},
+         familyi={H\bibinitperiod},
+         given={Jonathan\bibnamedelima L.},
+         giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Sen},
+         familyi={S\bibinitperiod},
+         given={Shilad},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \name{editor}{3}{}{%
+      {{hash=BP}{%
+         family={Brusilovsky},
+         familyi={B\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Kobsa},
+         familyi={K\bibinitperiod},
+         given={Alfred},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=NW}{%
+         family={Nejdl},
+         familyi={N\bibinitperiod},
+         given={Wolfgang},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{SJB+1}
+    \strng{fullhash}{SJBFDHJLSS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{The Adaptive Web, Methods and Strategies of Web
+  Personalization}
+    \verb{doi}
+    \verb 10.1007/978-3-540-72079-9_9
+    \endverb
+    \field{isbn}{978-3-540-72078-2}
+    \field{pages}{291\bibrangedash 324}
+    \field{series}{Lecture Notes in Computer Science}
+    \field{title}{Collaborative Filtering Recommender Systems}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/978-3-540-72079-9_9
+    \endverb
+    \field{volume}{4321}
+    \field{year}{2007}
+  \endentry
+
+  \entry{DBLP:conf/recsys/2016}{proceedings}{}
+    \name{editor}{4}{}{%
+      {{hash=SS}{%
+         family={Sen},
+         familyi={S\bibinitperiod},
+         given={Shilad},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=GW}{%
+         family={Geyer},
+         familyi={G\bibinitperiod},
+         given={Werner},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=FJ}{%
+         family={Freyne},
+         familyi={F\bibinitperiod},
+         given={Jill},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=CP}{%
+         family={Castells},
+         familyi={C\bibinitperiod},
+         given={Pablo},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {{ACM}}%
+    }
+    \strng{namehash}{SS+1}
+    \strng{fullhash}{SSGWFJCP1}
+    \field{labelnamesource}{editor}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.1145/2959100
+    \endverb
+    \field{isbn}{978-1-4503-4035-9}
+    \field{title}{Proceedings of the 10th {ACM} Conference on Recommender
+  Systems, Boston, MA, USA, September 15-19, 2016}
+    \verb{url}
+    \verb http://doi.acm.org/10.1145/2959100
+    \endverb
+    \field{year}{2016}
+  \endentry
+
+  \entry{stv}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=SER}{%
+         family={Society},
+         familyi={S\bibinitperiod},
+         given={Electoral\bibnamedelima Reform},
+         giveni={E\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SER1}
+    \strng{fullhash}{SER1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{What is STV?}
+    \verb{url}
+    \verb http://www.electoral-reform.org.uk/sites/default/files/What-is-STV.pd
+    \verb f
+    \endverb
+    \field{year}{2010}
+  \endentry
+
+  \entry{linearalgebra_svd}{inbook}{}
+    \name{author}{3}{}{%
+      {{hash=SLE}{%
+         family={Spense},
+         familyi={S\bibinitperiod},
+         given={Lawrence\bibnamedelima E.},
+         giveni={L\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=IAJ}{%
+         family={Insel},
+         familyi={I\bibinitperiod},
+         given={Arnold\bibnamedelima J.},
+         giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=FSH}{%
+         family={Friedberg},
+         familyi={F\bibinitperiod},
+         given={Stephen\bibnamedelima H.},
+         giveni={S\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Pearson Education, Inc.}%
+    }
+    \strng{namehash}{SLEIAJFSH1}
+    \strng{fullhash}{SLEIAJFSH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{edition}{2nd}
+    \field{isbn}{0131580345, 9870131580343}
+    \field{pages}{438\bibrangedash 446}
+    \field{subtitle}{A matrix approach}
+    \field{title}{Elementary Linear Algebra}
+    \list{location}{1}{%
+      {Upper Saddle River, NJ 07568}%
+    }
+    \field{year}{2008}
+  \endentry
+\endsortlist
+\endinput

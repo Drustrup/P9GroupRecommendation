@@ -1,0 +1,65 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Related Work}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Problem Areas}{2}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Cold-Start}{2}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Popularity Bias}{2}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Group Decisions and Satisfaction}{3}{subsection.1.2.3}
+\contentsline {section}{\numberline {1.3}Problem Statement}{3}{section.1.3}
+\contentsline {section}{\numberline {1.4}Scenario}{4}{section.1.4}
+\contentsline {chapter}{\numberline {2}Background}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Learning Model}{5}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Matrix Factorization Models}{5}{subsection.2.1.1}
+\contentsline {subsubsection}{\nonumberline Singular Value Decomposition}{6}{section*.3}
+\contentsline {subsubsection}{\nonumberline Gradient Descent}{7}{section*.5}
+\contentsline {subsubsection}{\nonumberline SVD++}{9}{section*.7}
+\contentsline {subsubsection}{\nonumberline Non-negative Matrix Factorization}{10}{section*.8}
+\contentsline {subsubsection}{\nonumberline Choice of Recommender System}{10}{section*.9}
+\contentsline {section}{\numberline {2.2}Data Preprocessing}{10}{section.2.2}
+\contentsline {section}{\numberline {2.3}Testing and Evaluation}{11}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}K-fold Testing}{11}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Evaluation Metrics}{11}{subsection.2.3.2}
+\contentsline {subsubsection}{\nonumberline Root Mean Square Error}{12}{section*.11}
+\contentsline {subsubsection}{\nonumberline Normalized Discounted Cumulative Gain}{12}{section*.12}
+\contentsline {section}{\numberline {2.4}Aggregation}{14}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Simulating Group Behavior}{16}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Rank Aggregation}{17}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Voting}{18}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}Discussing the Aggregations}{19}{subsection.2.4.4}
+\contentsline {chapter}{\numberline {3}Aggregation Design}{21}{chapter.3}
+\contentsline {section}{\numberline {3.1}Novel Aggregation Methods}{21}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Borda Weighted Count}{21}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Borda Escalated Count}{22}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Borda Transferable Count}{22}{subsection.3.1.3}
+\contentsline {section}{\numberline {3.2}Control Aggregations}{24}{section.3.2}
+\contentsline {chapter}{\numberline {4}Group Recommendation}{25}{chapter.4}
+\contentsline {section}{\numberline {4.1}Data Processing}{25}{section.4.1}
+\contentsline {section}{\numberline {4.2}Individual Recommendation}{25}{section.4.2}
+\contentsline {section}{\numberline {4.3}Ranking}{27}{section.4.3}
+\contentsline {section}{\numberline {4.4}Rank Aggregation}{27}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Borda Count}{27}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Borda Weighted Count}{28}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Borda Transferable Count}{28}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Borda Escalating Count}{30}{subsection.4.4.4}
+\contentsline {section}{\numberline {4.5}Concerns}{31}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Scalability}{31}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Real World Application}{32}{subsection.4.5.2}
+\contentsline {chapter}{\numberline {5}Evaluation}{33}{chapter.5}
+\contentsline {section}{\numberline {5.1}Evaluation Setup}{33}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Limitations of the Setup}{33}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.2}Satisfaction Evaluation}{34}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Influence of the Size of k}{36}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Evaluation of Results}{36}{subsection.5.2.2}
+\contentsline {chapter}{\numberline {6}Conclusion}{37}{chapter.6}
+\contentsline {section}{\numberline {6.1}Discussion}{38}{section.6.1}
+\contentsline {chapter}{\numberline {7}Future Work}{39}{chapter.7}
+\contentsline {section}{\numberline {7.1}Thesis Questions}{39}{section.7.1}
+\contentsline {subsubsection}{\nonumberline Reordering of Rank Lists}{39}{section*.26}
+\contentsline {subsubsection}{\nonumberline Obtaining Dataset}{39}{section*.27}
+\contentsline {subsubsection}{\nonumberline Alternative Rank Aggregations}{39}{section*.28}
+\contentsline {section}{\numberline {7.2}Obtaining a Dataset}{40}{section.7.2}
+\contentsline {section}{\numberline {7.3}Influence and Context}{41}{section.7.3}
+\vspace \bigskipamount 
+\contentsline {chapter}{Bibliography}{43}{section*.29}

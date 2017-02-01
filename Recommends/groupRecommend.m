@@ -22,9 +22,9 @@ for i=1:row
 end
 
 %result = random(topK);
-%result = bordaCount(topK);
+result = bordaCount(topK);
 %result = bordaTransferableCount(topK);
 %result = bordaCountWeighted(topK);
-result = bordaCountEscalating(topK);
+%result = bordaCountEscalating(topK);
 %result = bordaCountAverage(topK,k,group);
 end
