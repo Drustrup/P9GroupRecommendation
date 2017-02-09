@@ -1,13 +1,13 @@
 function result = bordaCount(topK)
 [row,col] = size(topK);
-returnSize = col;
+k = col;
 movies = unique(topK);
 points = zeros(1,numel(movies));
 topKMovies = fliplr(topK);
 topKVotes = zeros(size(topKMovies));
 for i=1:row
     for j=1:col
-        topKVotes(i,j)=j;
+        topKVotes(i,j)=j;   %Populate with users' votes
     end 
 end
 
@@ -22,8 +22,8 @@ for j=1:numel(movies)
 end
 result=[];
 for i=1:numel(points)
-    [result, points, movies, topKMovies, topKVotes] = transferVotesStratigic(points, movies, topKMovies, topKVotes, result, returnSize);
-    %[result, points, movies, topKMovies, topKVotes] = transferVotes(points, movies, topKMovies, topKVotes, result, returnSize);
+    [result, points, movies, topKMovies, topKVotes] = transferVotesStrategic(points, movies, topKMovies, topKVotes, result, k);
+    %[result, points, movies, topKMovies, topKVotes] = transferVotes(points, movies, topKMovies, topKVotes, result, k);
 end
 for i=1:numel(points)
     [M,I] = max(points);
