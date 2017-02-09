@@ -1,5 +1,5 @@
 clear all;
-%verifinig code
+%Verifinig code
 %{
 groups = importdata('test groups/verify.txt');
 ratings = importdata('test groups/verifyRatings.txt');
@@ -8,9 +8,10 @@ k = 5;
 meanList = mean(nDCGRatings(ratings, recommendations, groups, topKRatings, k));
 %}
 
-%Real code
-groups = importdata('test groups/groupSize12.txt');
-ratings = importdata('../dataset/trained_matrix.txt');[row,col] = size(groups);
+%Test code
+groups = importdata('test groups/groupSize40.txt');
+ratings = importdata('matrix_test.txt');
+[row,col] = size(groups);
 k = 10;
 meanList = zeros(1,row);
 for i=1:row
@@ -19,4 +20,3 @@ for i=1:row
     meanList(i) = mean(nDCGRatings(ratings, recommendations, group, topKRatings, k));
 end
 temp = sum(meanList)/row;
-

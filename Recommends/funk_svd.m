@@ -1,20 +1,24 @@
 %Funk SVD
 clear all;
-ratings = importdata('../dataset/movielens/u4_matrix.txt');
+ratings = importdata('../dataset/movielens/u_matrix.txt');
 movies = importdata('../dataset/movielens/u_different_movies.txt');
 users = importdata('../dataset/movielens/u_different_users.txt');
-k = 100;
+k = 20;
 
-A = rand(numel(users),k);
-B = rand(k,numel(movies));
+A = ones(numel(users),k)/10;
+B = ones(k,numel(movies))/10;
 
 lowA = A;
 lowB = B;
+%{
+valUsers = importdata('../dataset/movielens/u1_test_different_users.txt');
+valMovies = importdata('../dataset/movielens/u1_test_different_movies.txt');
+val = importdata('../dataset/movielens/u1_test_matrix.txt');
+%}
 
-valUsers = importdata('../dataset/movielens/u4_test_different_users.txt');
-valMovies = importdata('../dataset/movielens/u4_test_different_movies.txt');
-val = importdata('../dataset/movielens/u4_test_matrix.txt');
-
+valUsers = importdata('../dataset/movielens/u_different_users.txt');
+valMovies = importdata('../dataset/movielens/u_different_movies.txt');
+val = importdata('../dataset/movielens/u_matrix.txt');
 %totalRatings = importdata('../dataset/movielens/u_matrix.txt');
 
 validationArray = nonzeros(val);
@@ -28,13 +32,14 @@ rmse = k;
 pRmse = k + 1;
 lowRmse = 10;
 threshold = 0;
+
 while threshold < 1000000 && rmse < pRmse
-    x = randi([1 80000], 1,1);
+    x = randi([1 numel(rows)], 1,1);
     
     vectorA = A(rows(x),:);
     vectorB = B(:,cols(x));
-    error = ratings(rows(x),cols(x)) - sum(vectorA * vectorB);
-   
+    error = ratings(rows(x),cols(x)) - dot(vectorA, vectorB);
+    
      for i=1:k
         tempA = A(rows(x),i);
         A(rows(x),i) = A(rows(x),i) + learn * (error * B(i,cols(x)) - reg * A(rows(x),i));
