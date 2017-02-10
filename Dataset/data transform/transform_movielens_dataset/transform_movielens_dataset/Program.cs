@@ -11,7 +11,7 @@ namespace transform_movielens_dataset
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Select a case: \n Case 1, generate the base matrix. \n Case 2, generate the total matrix");
+            Console.WriteLine("Select a case: \n Case 1, generate the base matrix. \n Case 2, generate the total matrix \n Case 3, generate test matrix ");
             string selection = Console.ReadLine();
 
             switch (selection)
@@ -36,9 +36,9 @@ namespace transform_movielens_dataset
         public static void totalMatrixRatings()
         {
             Console.WriteLine("Hello, reading your data!");
-            string pattern = @"\t| \r | \n | \' ";
+            string pattern = @"\t| \r | \n | \' | \,";
 
-            string[] datasetUsers = File.ReadAllLines(@"e:/projects/p9/dataset/movielens/u_different_users.txt");
+            string[] datasetUsers = File.ReadAllLines(@"e:/projects/p9/dataset/ml-20m/different_users.txt");
             string[] userList = new string[datasetUsers.Length];
 
             for (int i = 0; i < datasetUsers.Length; i++)
@@ -48,7 +48,7 @@ namespace transform_movielens_dataset
             }
             datasetUsers = null;
 
-            string[] datasetTracks = File.ReadAllLines(@"e:/projects/p9/dataset/movielens/u_different_movies.txt");
+            string[] datasetTracks = File.ReadAllLines(@"e:/projects/p9/dataset/ml-20m/different_movies.txt");
             List<string> trackList = new List<string>();
 
             for (int i = 0; i < datasetTracks.Length; i++)
@@ -58,32 +58,31 @@ namespace transform_movielens_dataset
             }
             datasetTracks = null;
 
-            string[] datasetUsersAndTracks = File.ReadAllLines(@"e:/projects/p9/dataset/movielens/u.data");
-
+            string[] datasetUsersAndTracks = File.ReadAllLines(@"e:/projects/p9/dataset/ml-20m/ratings.csv");
+            
             //trackList = trackList.OrderBy(n => n).ToList();
 
 
-            List<Tuple<string, string, int>> userAndTrackList = new List<Tuple<string, string, int>>();
+            List<Tuple<string, string, double>> userAndTrackList = new List<Tuple<string, string, double>>();
             string track = null;
             string user = null;
-            int ratings = 0;
+            double ratings = 0;
 
             for (int i = 0; i < datasetUsersAndTracks.Length; i++)
             {
-                string[] temp = Regex.Split(datasetUsersAndTracks[i].Replace("\"", ""), pattern);
+                string[] temp = datasetUsersAndTracks[i].Replace("\"", "").Split(',');
 
                 user = temp[0];
                 track = temp[1];
-                ratings = Convert.ToInt16(temp[2]);
-                userAndTrackList.Add(new Tuple<string, string, int>(user, track, ratings));
+                ratings = Convert.ToDouble(temp[2]);
+                userAndTrackList.Add(new Tuple<string, string, double>(user, track, ratings));
 
             }
             datasetUsersAndTracks = null;
 
             userAndTrackList = userAndTrackList.OrderBy(x => Convert.ToInt16(x.Item1) ).ThenBy(x => Convert.ToInt16(x.Item2)).ToList();
-
-
-            string[] datasetValidationUsersAndTracks = File.ReadAllLines(@"e:/projects/p9/dataset/movielens/u1.test");
+            /**
+            string[] datasetValidationUsersAndTracks = File.ReadAllLines(@"e:/projects/p9/dataset/ml-20m/u1.test");
 
             List<Tuple<string, string, int>> validationUserAndTrackList = new List<Tuple<string, string, int>>();
 
@@ -117,9 +116,10 @@ namespace transform_movielens_dataset
                 }
             }
             datasetUsersAndTracks = null;
-
+    **/
+            int count = 0;
             Console.WriteLine("Done reading data, saving to file");
-            string path = @"e:/projects/p9/dataset/movielens/u1_matrix.txt";
+            string path = @"e:/projects/p9/dataset/ml-20m/matrix.txt";
             if (!File.Exists(path))
             {
                 using (StreamWriter sw = File.CreateText(path))
@@ -220,10 +220,10 @@ namespace transform_movielens_dataset
             //trackList = trackList.OrderBy(n => n).ToList();
 
 
-            List<Tuple<string, string, int>> userAndTrackList = new List<Tuple<string, string, int>>();
+            List<Tuple<string, string, double>> userAndTrackList = new List<Tuple<string, string, double>>();
             string track = null;
             string user = null;
-            int ratings = 0;
+            double ratings = 0;
 
             for (int i = 0; i < datasetUsersAndTracks.Length; i++)
             {
@@ -232,7 +232,7 @@ namespace transform_movielens_dataset
                 user = temp[0];
                 track = temp[1];
                 ratings = Convert.ToInt16(temp[2]);
-                userAndTrackList.Add(new Tuple<string, string, int>(user, track, ratings));
+                userAndTrackList.Add(new Tuple<string, string, double>(user, track, ratings));
 
             }
             datasetUsersAndTracks = null;
@@ -429,5 +429,6 @@ namespace transform_movielens_dataset
                 Console.WriteLine("User " + (i + 1) + " out of " + userList.Length);
             }
         }
+
     }
 }
