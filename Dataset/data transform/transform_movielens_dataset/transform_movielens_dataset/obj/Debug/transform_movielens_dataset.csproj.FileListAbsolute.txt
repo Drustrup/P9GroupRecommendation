@@ -4,3 +4,9 @@ E:\Projects\P9\Dataset\data transform\transform_movielens_dataset\transform_movi
 E:\Projects\P9\Dataset\data transform\transform_movielens_dataset\transform_movielens_dataset\obj\Debug\transform_movielens_dataset.csprojResolveAssemblyReference.cache
 E:\Projects\P9\Dataset\data transform\transform_movielens_dataset\transform_movielens_dataset\obj\Debug\transform_movielens_dataset.exe
 E:\Projects\P9\Dataset\data transform\transform_movielens_dataset\transform_movielens_dataset\obj\Debug\transform_movielens_dataset.pdb
+C:\Users\Flaka\OneDrive\Dokumenter\Gitty\P9GroupRecommendation\Dataset\data transform\transform_movielens_dataset\transform_movielens_dataset\bin\Debug\transform_movielens_dataset.exe.config
+C:\Users\Flaka\OneDrive\Dokumenter\Gitty\P9GroupRecommendation\Dataset\data transform\transform_movielens_dataset\transform_movielens_dataset\obj\Debug\transform_movielens_dataset.exe
+C:\Users\Flaka\OneDrive\Dokumenter\Gitty\P9GroupRecommendation\Dataset\data transform\transform_movielens_dataset\transform_movielens_dataset\obj\Debug\transform_movielens_dataset.pdb
+C:\Users\Flaka\OneDrive\Dokumenter\Gitty\P9GroupRecommendation\Dataset\data transform\transform_movielens_dataset\transform_movielens_dataset\bin\Debug\transform_movielens_dataset.exe
+C:\Users\Flaka\OneDrive\Dokumenter\Gitty\P9GroupRecommendation\Dataset\data transform\transform_movielens_dataset\transform_movielens_dataset\bin\Debug\transform_movielens_dataset.pdb
+C:\Users\Flaka\OneDrive\Dokumenter\Gitty\P9GroupRecommendation\Dataset\data transform\transform_movielens_dataset\transform_movielens_dataset\obj\Debug\transform_movielens_dataset.csprojResolveAssemblyReference.cache

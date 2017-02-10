@@ -38,7 +38,7 @@ namespace transform_movielens_dataset
             Console.WriteLine("Hello, reading your data!");
             string pattern = @"\t| \r | \n | \' | \,";
 
-            string[] datasetUsers = File.ReadAllLines(@"e:/projects/p9/dataset/ml-20m/different_users.txt");
+            string[] datasetUsers = File.ReadAllLines(Environment.CurrentDirectory + @"\..\..\..\..\..\ml-20m\different_users.txt");
             string[] userList = new string[datasetUsers.Length];
 
             for (int i = 0; i < datasetUsers.Length; i++)
@@ -48,7 +48,7 @@ namespace transform_movielens_dataset
             }
             datasetUsers = null;
 
-            string[] datasetTracks = File.ReadAllLines(@"e:/projects/p9/dataset/ml-20m/different_movies.txt");
+            string[] datasetTracks = File.ReadAllLines(Environment.CurrentDirectory + @"\..\..\..\..\..\ml-20m\different_movies.txt");
             List<string> trackList = new List<string>();
 
             for (int i = 0; i < datasetTracks.Length; i++)
@@ -58,7 +58,7 @@ namespace transform_movielens_dataset
             }
             datasetTracks = null;
 
-            string[] datasetUsersAndTracks = File.ReadAllLines(@"e:/projects/p9/dataset/ml-20m/ratings.csv");
+            string[] datasetUsersAndTracks = File.ReadAllLines(Environment.CurrentDirectory + @"\..\..\..\..\..\ml-20m\ratings.csv");
             
             //trackList = trackList.OrderBy(n => n).ToList();
 
@@ -68,7 +68,8 @@ namespace transform_movielens_dataset
             string user = null;
             double ratings = 0;
 
-            for (int i = 0; i < datasetUsersAndTracks.Length; i++)
+            //Start on index 1, as first line is metainfo
+            for (int i = 1; i < datasetUsersAndTracks.Length; i++)
             {
                 string[] temp = datasetUsersAndTracks[i].Replace("\"", "").Split(',');
 
@@ -80,7 +81,7 @@ namespace transform_movielens_dataset
             }
             datasetUsersAndTracks = null;
 
-            userAndTrackList = userAndTrackList.OrderBy(x => Convert.ToInt16(x.Item1) ).ThenBy(x => Convert.ToInt16(x.Item2)).ToList();
+            userAndTrackList = userAndTrackList.OrderBy(x => Convert.ToInt32(x.Item1) ).ThenBy(x => Convert.ToInt32(x.Item2)).ToList();
             /**
             string[] datasetValidationUsersAndTracks = File.ReadAllLines(@"e:/projects/p9/dataset/ml-20m/u1.test");
 
@@ -119,7 +120,8 @@ namespace transform_movielens_dataset
     **/
             int count = 0;
             Console.WriteLine("Done reading data, saving to file");
-            string path = @"e:/projects/p9/dataset/ml-20m/matrix.txt";
+            string path = Environment.CurrentDirectory + @"\..\..\..\..\..\ml-20m\matrix.txt";
+            //@"e:/projects/p9/dataset/ml-20m/matrix.txt";
             if (!File.Exists(path))
             {
                 using (StreamWriter sw = File.CreateText(path))
