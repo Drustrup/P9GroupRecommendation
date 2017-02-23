@@ -24,10 +24,10 @@ for i=1:row     %Populate topK and topKRatings matrices
 end
 
 %result = random(topK);
-%result = bordaCount(topK);
+result = bordaCount(topK);
 %result = bordaTransferableCount(topK);
 %result = bordaCountWeighted(topK);
 %result = bordaCountEscalating(topK);
-%result = bordaCountAverage(topK,k,group);  %LEGACY - To be reactivated
-result = getTopKTitles(users, topK);
+%result = average(ratings, users, topK); 
+%result = getTopKTitles(users, topK);
 end

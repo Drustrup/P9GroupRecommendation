@@ -1,7 +1,7 @@
 clear all;
-%{
-groups = importdata('test groups/groupSize12.txt');
-ratings = importdata('matrix/matrixmml_svd++.txt');
+
+groups = importdata('../Survey/groups/four.txt');
+ratings = importdata('matrix/mml/matrix_SVD++.txt');
 
 [row,col] = size(groups);
 k = 10;
@@ -13,9 +13,10 @@ for i=1:row
     meanList(i) = mean(nDCG(ratings, recommendations, group, k));
 end
 result = sum(meanList)/row;
-%}
+
 
 %get titles for survey
+%{
 groups = importdata('../Survey/groups/eight.txt');
 ratings = importdata('matrix/matrixmml_svd++.txt');
 [row,col] = size(groups);
@@ -35,3 +36,4 @@ for i=1:row
     fclose(fid) ;
     
 end
+%}
