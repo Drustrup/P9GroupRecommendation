@@ -1,8 +1,8 @@
-clear all;
+clear all
 
 groups = importdata('../Survey/groups/four.txt');
 ratings = importdata('matrix/mml/matrix_SVD++.txt');
-
+groups(:,1) = [];
 [row,col] = size(groups);
 k = 10;
 meanList = zeros(1,row);
