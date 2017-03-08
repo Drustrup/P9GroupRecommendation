@@ -17,4 +17,5 @@ for i = 1 : k
     result(i) = items(I);
     avgList(I) = [];
 end
+result = result';
 end
