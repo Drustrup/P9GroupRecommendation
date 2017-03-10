@@ -1,0 +1,15 @@
+{% extends "feer/base.html" %}
+{% load bootstrap3 %}
+{% bootstrap_messages %}
+
+{% block content %}
+<form action="" method="post">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  {% buttons %}
+    <button type="submit" class="btn btn-primary">
+      Submit
+    </button>
+  {% endbuttons %}
+</form>
+{% endblock content %}

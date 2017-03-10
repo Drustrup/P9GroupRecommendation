@@ -1,0 +1,58 @@
+{% extends "feer/base.html" %}
+
+{% block content %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Beers
+    <span style="float:right">
+      <a href="{% url 'beer_create' %}">Add new beer</a>
+    </span>
+  </div>
+
+  <table class="table table-hover" style="border-collapse:collapse;">
+    <thead>
+      <tr class="header-row">
+        <th></th>
+        <th>Name</th>
+        <th>Brewery</th>
+        <th>Style</th>
+        <th>Volume (ml)</th>
+        <th>Price (DKK)</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for beer in beer_list %}
+      <tr class="accordian-toggle visible-row" data-toggle="collapse" data-target="#beer{{ beer.id }}">
+        <td>
+        {% if beer in rated_beers %}
+          <a href="#"><i class="fa fa-star"></i></a>
+        {% else %}
+          <a href="{% url 'rating_create' %}"><i class="fa fa-star-o"></i></a>
+        {% endif %}
+        </td>
+        <td>{{ beer.name }}</td>
+        <td>{{ beer.brewery }}</td>
+        <td>{{ beer.style }}</td>
+        <td>{{ beer.volume }}</td>
+        <td><a href="{{ beer.purchase_url }}">{{ beer.price }}</a></td>
+        <td><a href="{% url 'beer_update' beer.id %}"><i class="fa fa-pencil warning"></i></a></td>
+        <td><a href="{% url 'beer_delete' beer.id %}"><i class="fa fa-trash danger"></i></a></td>
+      </tr>
+      <tr class="hidden-row">
+        <td colspan="7" class="hidden-row">
+          <div class="accordian-body collapse beer-info" id="beer{{ beer.id }}">
+            <ul class="beer-info-list">
+              <li class="label minimal-label"><a href="#">{{ beer.country}}</a></li>
+              <li class="label minimal-label"><a href="#">{{ beer.abv }} %</a></li>
+              <li class="label minimal-label"><a href="#">{{ beer.ibu }} IBU</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}
