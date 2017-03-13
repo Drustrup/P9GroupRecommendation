@@ -122,8 +122,14 @@ class DjangoSession(models.Model):
 
 class Groups(models.Model):
     groupid = models.IntegerField(db_column='groupID', primary_key=True)  # Field name made lowercase.
-    groupsize = models.IntegerField(db_column='groupSize', blank=True, null=True)  # Field name made lowercase.
-    results = models.IntegerField(blank=True, null=True)
+    user1 = models.IntegerField(blank=True, null=True)
+    user2 = models.IntegerField(blank=True, null=True)
+    user3 = models.IntegerField(blank=True, null=True)
+    user4 = models.IntegerField(blank=True, null=True)
+    user5 = models.IntegerField(blank=True, null=True)
+    user6 = models.IntegerField(blank=True, null=True)
+    user7 = models.IntegerField(blank=True, null=True)
+    user8 = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -227,6 +233,23 @@ class Result(models.Model):
         managed = False
         db_table = 'result'
 
+class Surveys(models.Model):
+    surveysid = models.IntegerField(db_column='surveysID', primary_key=True)  # Field name made lowercase.
+    count = models.IntegerField()
+    group1 = models.IntegerField()
+    group2 = models.IntegerField()
+    group3 = models.IntegerField()
+    group4 = models.IntegerField()
+    group5 = models.IntegerField()
+    group6 = models.IntegerField()
+    group7 = models.IntegerField()
+    group8 = models.IntegerField()
+    group9 = models.IntegerField()
+    group10 = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'surveys'
 
 class Userprefs(models.Model):
     userid = models.IntegerField(db_column='userID', primary_key=True)  # Field name made lowercase.
