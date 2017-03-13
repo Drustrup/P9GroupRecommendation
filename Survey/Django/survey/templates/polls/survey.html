@@ -1,0 +1,27 @@
+{% extends "polls/base.html" %}
+
+{% block content %}
+  <table class="table table-hover" style="border-collapse:collapse;">
+    <tbody>
+    {% for user in userpref %}
+      <tr class="accordian-toggle visible-row" data-toggle="collapse" data-target="#userpref{{ user.id }}">
+        {% if user in userlist %}
+          {% for pref in user %}
+            <td>{{ pref }}</td>
+          {% endfor %}
+      	{% endif %}
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <ul id="sortable">
+    {% for item in itemlist %}
+      <li class="ui-state-default">{{ item.name }}</li>
+    {% endfor %}
+  </ul>
+</div>
+<div>
+	<button href="{% url 'survey_step' questiongroup_id=1 step=2 %}">Step Forward</button>
+</div>
+
+{% endblock content %}
