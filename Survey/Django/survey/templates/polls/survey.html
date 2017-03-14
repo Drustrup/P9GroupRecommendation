@@ -3,15 +3,22 @@
 {% block content %}
   <table class="table table-hover" style="border-collapse:collapse;">
     <tbody>
-    {% for user in userpref %}
-      <tr class="accordian-toggle visible-row" data-toggle="collapse" data-target="#userpref{{ user.id }}">
-        {% if user in userlist %}
-          {% for pref in user %}
-            <td>{{ pref }}</td>
-          {% endfor %}
-      	{% endif %}
-      </tr>
+	<tr>
+	{% for user in users %}
+		<th> {{ user }} </th>
+	{%endfor%}
+	</tr>
+	<tr>
+    {% for prefs in userPrefs %}
+		<td>
+		{% for pref in prefs %}
+		
+			{{ pref }} <br>
+		
+		{% endfor %}
+		</td>
     {% endfor %}
+	</tr>
     </tbody>
   </table>
   <ul id="sortable">
