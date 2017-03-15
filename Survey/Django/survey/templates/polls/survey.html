@@ -5,30 +5,52 @@
     <tbody>
 	<tr>
 	{% for user in users %}
-		<th> {{ user }} </th>
+		<th> User {{ user }} </th>
 	{%endfor%}
 	</tr>
 	<tr>
     {% for prefs in userPrefs %}
 		<td>
+		<table border="1">
 		{% for pref in prefs %}
-		
-			{{ pref }} <br>
-		
+		<tr>
+			<td height="40" style="padding-left:3px";>{{ pref }} </td>
+		<tr>
 		{% endfor %}
+		</table>
 		</td>
     {% endfor %}
 	</tr>
     </tbody>
   </table>
-  <ul id="sortable">
-    {% for item in itemlist %}
-      <li class="ui-state-default">{{ item.name }}</li>
-    {% endfor %}
-  </ul>
-</div>
+  
+<table style="float: left; margin-top:1;" border="1" >
+	<th>
+		Available items 
+	</th>
+	<tr>
+		<td width="400">
+				<ul id="sortable" class="connect_lists" style="list-style-type:none;">
+					{% for item in itemlist %}
+						<li id="{{item}}" class="ui-state-default" style="background-color:white; margin:1px; border: 1px solid #000; padding: 5px;">{{ item }}</li>
+					{% endfor %}
+				</ul>
+		</td>
+	</tr>
+</table>
+<table style="display: inline-block; margin-left:5" border="1" >
+	<th>
+		Drag items here
+	</th>
+	<tr>
+		<td width="400">
+			<ol id="sortable-result" class= "connect_lists"> </ol>
+		</td>
+	</tr>
+</table>
 <div>
 	<button href="{% url 'survey_step' questiongroup_id=1 step=2 %}">Step Forward</button>
 </div>
+</tbody>
 
 {% endblock content %}

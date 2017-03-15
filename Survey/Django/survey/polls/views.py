@@ -8,6 +8,7 @@ from polls.models import Surveys, Groups, Userprefs, Items
 
 # Create your views here.
 def index(request):
+	step = 0;
 	context = {'nav_active': 'home'}
 	return render(request, 'polls/index.html', context)
 
@@ -26,18 +27,22 @@ def survey(request, questiongroup_id):
 		userList.pop(val)
 
 	prefs = []
+	itemList = []
 	for user in userList:
 		items = Items.objects.raw('SELECT * FROM items LEFT JOIN (userprefs) ON (items.itemID = userprefs.item1 OR items.itemID = userprefs.item2 OR items.itemID = userprefs.item3 OR items.itemID = userprefs.item4 OR items.itemID = userprefs.item5 OR items.itemID = userprefs.item6 OR items.itemID = userprefs.item7 OR items.itemID = userprefs.item8 OR items.itemID = userprefs.item9 OR items.itemID = userprefs.item10) where userid = %s', [user])
 		userPrefs = Userprefs.objects.raw('SELECT * FROM userprefs WHERE userid = %s', [user])
-		itemList = []
+		itemTemp = []
 		pref = [userPrefs[0].item1, userPrefs[0].item2, userPrefs[0].item3, userPrefs[0].item4, userPrefs[0].item5, userPrefs[0].item6, userPrefs[0].item7, userPrefs[0].item8, userPrefs[0].item9, userPrefs[0].item10]
 		for p in pref:
 			for i in items:
-				if p == i.itemid:
+				if i.item not in itemList:
 					itemList.append(i.item)
-		prefs.append(itemList)
-
+				if p == i.itemid:
+					itemTemp.append(i.item)
+		prefs.append(itemTemp)
+	
 	context = {'step': 0}
+	context.update({'itemlist': itemList})
 	context.update({'userPrefs': prefs})
 	context.update({'users': userList})
 

@@ -8,14 +8,35 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-    $( function() {
-      $( "#sortable, #sortable-result" ).sortable({
-        revert: true,
-        connectWith: ".connectedSortable"
-      });
-      $( "ul, li" ).disableSelection();
-    } );
+   $(function() {
+
+    $('#sortable,ol').sortable({
+        placeholder: 'ui-state-highlight',
+        connectWith: '.connect_lists',
+        receive: function(event, ui) {
+            var $this = $(this);
+            if ($this.children('li').length > 10 && $this.attr('id') != "sortable") {
+                console.log('Only one per list!');
+                $(ui.sender).sortable('cancel');
+            }
+        }
+    });
+
+});
+
   </script>
+  <style>
+  ol{ 
+    float:left; 
+    margin-right:10px;
+    height:335px;
+    width:380px;
+  }
+  ul{
+    margin-right:10px;
+    width:380px;
+  }
+  </style>
 
   {% bootstrap_css %}
   {% bootstrap_javascript %}
@@ -42,7 +63,7 @@
       <div class="collapse navbar-collapse" id="main-nav-bar">
         <ul class="nav navbar-nav">
           <li class="{% if nav_active == 'home' %} active {% endif %}"><a href="{% url 'index' %}">Home</a></li>
-          <li class="{% if nav_active == 'survey' %} active {% endif %}"><a href="{% url 'survey' questiongroup_id=10 %}">Survey</a></li>
+          <li class="{% if nav_active == 'survey' %} active {% endif %}"><a href="{% url 'survey' questiongroup_id=0 %}">Survey</a></li>
         </ul>
       </div>
     </div>
