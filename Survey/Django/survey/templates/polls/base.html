@@ -9,8 +9,9 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
     $( function() {
-      $( "#sortable" ).sortable({
-        revert: true
+      $( "#sortable, #sortable-result" ).sortable({
+        revert: true,
+        connectWith: ".connectedSortable"
       });
       $( "ul, li" ).disableSelection();
     } );
