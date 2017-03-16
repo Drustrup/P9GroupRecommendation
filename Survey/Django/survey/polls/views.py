@@ -3,19 +3,26 @@ from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
 from django.db import connections, models
 from polls.models import Surveys, Groups, Userprefs, Items
+from django.views.decorators.csrf import csrf_exempt
 
 #from .models import Items
 
 # Create your views here.
+@csrf_exempt
 def index(request):
-	step = 0;
 	context = {'nav_active': 'home'}
+	groups = Surveys.objects.raw('SELECT * FROM surveys ORDER BY count ASC LIMIT 1')
+	context.update({'questiongroup_id': groups[0].surveysid})
+	context.update({'step': 0})
 	return render(request, 'polls/index.html', context)
 
-def survey(request, questiongroup_id):
-	groups = Surveys.objects.raw('SELECT * FROM surveys WHERE surveysid = 1')
+@csrf_exempt
+def survey(request, questiongroup_id, step):
+	groups = Surveys.objects.raw('SELECT * FROM surveys WHERE surveysid = %s', [questiongroup_id])
 	groupList = [groups[0].group1, groups[0].group2, groups[0].group3, groups[0].group4, groups[0].group5, groups[0].group6, groups[0].group7, groups[0].group8, groups[0].group9, groups[0].group10]
-	users = Groups.objects.raw('SELECT * FROM groups WHERE groupid = %s', [groupList[0]])
+	step = int(step) + 0
+	
+	users = Groups.objects.raw('SELECT * FROM groups WHERE groupid = %s', [groupList[step]])
 	userList = [users[0].user1, users[0].user2, users[0].user3, users[0].user4, users[0].user5, users[0].user6, users[0].user7, users[0].user8]
 	
 	noneUsers = []
@@ -40,14 +47,18 @@ def survey(request, questiongroup_id):
 				if p == i.itemid:
 					itemTemp.append(i.item)
 		prefs.append(itemTemp)
-	
-	context = {'step': 0}
+	if step < 10:
+		step = step + 1
+
+	context = {'itemlist': itemList}
 	context.update({'itemlist': itemList})
 	context.update({'userPrefs': prefs})
 	context.update({'users': userList})
+	context.update({'questiongroup_id': groups[0].surveysid})
+	context.update({'step': step})
 
 	return render(request, 'polls/survey.html', context)
-
+'''
 def survey_step(request, questiongroup_id, step):
 	#Get the model fixed
 	context = {}
@@ -56,6 +67,7 @@ def survey_step(request, questiongroup_id, step):
 	context['questiongroup_id'] = questiongroup_id
 	context['step'] = step
 	return render(request, 'polls/survey.html', context)
+'''
 
 def survey_finish(request):
 	return HttpResponse("You reached the finish.")
