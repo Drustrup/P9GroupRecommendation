@@ -18,53 +18,17 @@ tr.hidden-row td {
   border-top: none !important;
 }
 
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-    opacity: 1;
-}
-
-/* Tooltip text */
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
- 
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 1;
+.connectedSortable{
+  float:left;
+  margin-right:10px;
+  height:335px;
+  width:380px;
 }
 
 .sorting-item {
   position: relative;
   display: inline-block;
-  padding: 5px 0;
-  border-radius: 6px;
-}
-
-.sorting-item .item-tooltip {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-  top: -5px;
-  left: 105%;
-}
-
-.sorting-item:hover .item-tooltip {
-  visibility: visible;
+  border: 1px solid black;
 }
 
 .beer-info {
