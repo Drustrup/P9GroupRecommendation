@@ -25,11 +25,11 @@ for i=1:row     %Populate topK and topKRatings matrices
 end
 
 %result = random(topK);
-%result = bordaCount(topK);
+result = bordaCount(topK);
 %result = bordaTransferableCount(topK);
 %result = bordaCountWeighted(topK);
 %result = bordaCountEscalating(topK);
-result = average(ratings, users, topK); 
+%result = average(ratings, users, topK); 
 %result = spearman_aggregation(topK);
 %result = getTopKTitles(users, topK);
 end

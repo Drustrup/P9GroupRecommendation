@@ -10,8 +10,8 @@ correlation = zeros(1,row);
 for i=1:row
     group = groups(i,:);
     [recommendations, topKRatings, topK] = groupRecommend(ratings, group,k);
-    %meanList(i) = mean(nDCGRatings(ratings, recommendations, group, topKRatings, k));
-    meanList(i) = mean(nDCG(ratings, recommendations, group, k));
+    meanList(i) = mean(nDCGRatings(ratings, recommendations, group, topKRatings, k));
+    %meanList(i) = mean(nDCG(ratings, recommendations, group, k));
     [r, p] = corr(recommendations', topK', 'type','kendall');
     correlation(i) = mean(r);
 end
