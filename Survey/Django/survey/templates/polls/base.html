@@ -21,16 +21,46 @@
           }
         }
     });
+	
+	
+	var ajaxFunction = function(event, ui){
+		var results = $(this).children();
+			console.log(results);
+			$.ajax({
+				data: results,
+				type: 'POST',
+				url: '/survey/{{ step }}/'
+			});
+	}
+	
+	function nextClick(event, ui){
+		var results = $('#sortable-result').children();
+		if (results.length == 10 && {{step}} < 9){
+			ajaxFunction(event, ui);
+			document.location.href="{% url 'survey' questiongroup_id step %}"
+		}
+		if ({{step}} == 9){
+			//insert into db and return the finnish page
+		}
+		else {
+			alert("You need to have 10 selected items")
+		}
+	}
+	
+	document.getElementById("next").onclick = function(event, ui) {nextClick(event, ui)};
+	/**
     $('#sortable-result').sortable({
-        stop: function(event, ui) {
-          var results = $(this).children();
-          $.ajax({
-            data: results,
-            type: 'POST',
-            url: '/survey/'
-          });
+        receive: function(event, ui) {
+			ajaxFunction(event, ui);
         }
     });
+	$('#sortable-result').sortable({
+        stop: function(event, ui) {
+			ajaxFunction(event, ui);
+          }
+    });
+	**/
+		
 });
 
   </script>
@@ -72,7 +102,7 @@
       <div class="collapse navbar-collapse" id="main-nav-bar">
         <ul class="nav navbar-nav">
           <li class="{% if nav_active == 'home' %} active {% endif %}"><a href="{% url 'index' %}">Home</a></li>
-          <li class="{% if nav_active == 'survey' %} active {% endif %}"><a href="{% url 'survey' questiongroup_id=0 %}">Survey</a></li>
+          <li class="{% if nav_active == 'survey' %} active {% endif %}"><a href="{% url 'survey' questiongroup_id step %}">Survey</a></li>
         </ul>
       </div>
     </div>
