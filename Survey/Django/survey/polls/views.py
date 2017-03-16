@@ -4,6 +4,8 @@ from django.core.urlresolvers import reverse_lazy
 from django.db import connections, models
 from polls.models import Surveys, Groups, Userprefs, Items
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.sessions.backends.db import SessionStore as DBStore
+from django.contrib.sessions.base_session import AbstractBaseSession
 
 #from .models import Items
 
@@ -14,6 +16,7 @@ def index(request):
 	groups = Surveys.objects.raw('SELECT * FROM surveys ORDER BY count ASC LIMIT 1')
 	context.update({'questiongroup_id': groups[0].surveysid})
 	context.update({'step': 0})
+	request.session['test'] = 'This works'
 	return render(request, 'polls/index.html', context)
 
 @csrf_exempt
@@ -21,7 +24,7 @@ def survey(request, questiongroup_id, step):
 	groups = Surveys.objects.raw('SELECT * FROM surveys WHERE surveysid = %s', [questiongroup_id])
 	groupList = [groups[0].group1, groups[0].group2, groups[0].group3, groups[0].group4, groups[0].group5, groups[0].group6, groups[0].group7, groups[0].group8, groups[0].group9, groups[0].group10]
 	step = int(step) + 0
-	
+	print(request.session['test'])
 	users = Groups.objects.raw('SELECT * FROM groups WHERE groupid = %s', [groupList[step]])
 	userList = [users[0].user1, users[0].user2, users[0].user3, users[0].user4, users[0].user5, users[0].user6, users[0].user7, users[0].user8]
 	
