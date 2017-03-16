@@ -8,20 +8,29 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-   $(function() {
-
+  var csrf_token = "{% csrf_token %}";
+  $(function() {
     $('#sortable,ol').sortable({
         placeholder: 'ui-state-highlight',
         connectWith: '.connect_lists',
         receive: function(event, ui) {
-            var $this = $(this);
-            if ($this.children('li').length > 10 && $this.attr('id') != "sortable") {
-                console.log('Only one per list!');
-                $(ui.sender).sortable('cancel');
-            }
+          var $this = $(this);
+          if ($this.children('li').length > 10 && $this.attr('id') != "sortable") {
+            console.log('Only one per list!');
+            $(ui.sender).sortable('cancel');
+          }
         }
     });
-
+    $('#sortable-result').sortable({
+        stop: function(event, ui) {
+          var results = $(this).children();
+          $.ajax({
+            data: results,
+            type: 'POST',
+            url: '/survey/'
+          });
+        }
+    });
 });
 
   </script>
