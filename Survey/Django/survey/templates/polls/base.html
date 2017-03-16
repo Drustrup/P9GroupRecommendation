@@ -39,10 +39,10 @@
 			ajaxFunction(event, ui);
 			document.location.href="{% url 'survey' questiongroup_id step %}"
 		}
-		if ({{step}} == 9){
+		else if ({{step}} == 9){
 			//insert into db and return the finnish page
 		}
-		else {
+		else if(result.length > 10){
 			alert("You need to have 10 selected items")
 		}
 	}
@@ -64,18 +64,6 @@
 });
 
   </script>
-  <style>
-  ol{ 
-    float:left; 
-    margin-right:10px;
-    height:335px;
-    width:380px;
-  }
-  ul{
-    margin-right:10px;
-    width:380px;
-  }
-  </style>
 
   {% bootstrap_css %}
   {% bootstrap_javascript %}

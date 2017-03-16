@@ -18,7 +18,13 @@ tr.hidden-row td {
   border-top: none !important;
 }
 
-.connectedSortable{
+.connect_lists{
+  float:left;
+  margin-right:10px;
+  width:380px;
+}
+
+.connect_lists.result{
   float:left;
   margin-right:10px;
   height:335px;
