@@ -24,7 +24,7 @@
 	
 	
 	var ajaxFunction = function(event, ui){
-		var results = $('#sortable-result').children();
+	  var results = $('#sortable-result').children();
       var resArray = [];
       for (var i = 0; i < results.length; i++) {
         resArray.push(results[i].id);
@@ -41,13 +41,13 @@
 		var results = $('#sortable-result').children();
 		if (results.length == 10 && {{step}} < 10){
 			ajaxFunction(event, ui);
-			document.location.href="{% url 'survey' questiongroup_id step %}"
+			document.location.href="{% url 'survey' questiongroup_id step %}";
+		}		
+		else if(results.length < 10){
+			alert("You need to have 10 selected items");
 		}
 		else if ({{step}} == 10){
-			//insert into db and return the finnish page
-		}
-		else if(result.length > 10){
-			alert("You need to have 10 selected items")
+			document.location.href="{% url 'Survey finished' %}";
 		}
 	}
 	
