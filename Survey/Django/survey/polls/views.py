@@ -47,7 +47,7 @@ def survey(request, questiongroup_id, step):
 		pref = [userPrefs[0].item1, userPrefs[0].item2, userPrefs[0].item3, userPrefs[0].item4, userPrefs[0].item5, userPrefs[0].item6, userPrefs[0].item7, userPrefs[0].item8, userPrefs[0].item9, userPrefs[0].item10]
 		for p in pref:
 			for i in items:
-				if i.item not in itemList:
+				if i not in itemList:
 					itemList.append(i)
 				if p == i.itemid:
 					itemTemp.append(i.item)
