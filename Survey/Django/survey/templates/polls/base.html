@@ -25,17 +25,20 @@
 	
 	var ajaxFunction = function(event, ui){
 		var results = $('#sortable-result').children();
-			console.log(results);
+      var resArray = [];
+      for (var i = 0; i < results.length; i++) {
+        resArray.push(results[i].id);
+      }
 			$.ajax({
-				data: results,
-				type: 'POST',
+				data: resArray,
+        type: 'POST',
 				url: '/survey/{{ questiongroup_id }}/{{ step }}/'
 			});
 	}
 	
 	function nextClick(event, ui){
 		var results = $('#sortable-result').children();
-		if (results.length == 10 && {{step}} < 9){
+		if (results.length == 2 && {{step}} < 9){
 			ajaxFunction(event, ui);
 			document.location.href="{% url 'survey' questiongroup_id step %}"
 		}
