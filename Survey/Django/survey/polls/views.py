@@ -72,6 +72,18 @@ def survey_step(request, questiongroup_id, step):
 	context['step'] = step
 	return render(request, 'polls/survey.html', context)
 '''
+@csrf_exempt
+def survey_finish(request, questiongroup_id ):
+	groups = Surveys.objects.raw('SELECT * FROM surveys WHERE surveysid = %s', [questiongroup_id])
+	groupList = [groups[0].group1, groups[0].group2, groups[0].group3, groups[0].group4, groups[0].group5, groups[0].group6, groups[0].group7, groups[0].group8, groups[0].group9, groups[0].group10]
 
-def survey_finish(request):
+	if request.method == 'POST':
+		result = request.POST.getlist('resarray[]', 'False')
+		#print(result[0] + result[1])
+		dbObject = Result(groupid = groupList[9], item1 = result[0], item2 = result[1], item3 = result[2], item4 = result[3], item5 = result[4], item6 = result[5], item7 = result[6], item8 = result[7], item9 = result[8], item10 = result[9])
+		dbObject.save()
+
+	temp = groups[0].count + 1;
+	Surveys.objects.filter(surveysid = questiongroup_id).update(count = temp)	
+
 	return HttpResponse("You reached the finish.")

@@ -29,12 +29,23 @@
       for (var i = 0; i < results.length; i++) {
         resArray.push(results[i].id);
       }
+		if ({{step}} < 10){
 			$.ajax({
 			data: {'resarray[]': resArray},
 			type: 'POST',
 			url: '/survey/{{ questiongroup_id }}/{{ step }}/',
 			async: false, 
 			});
+		}
+		else if ({{step}} == 10){
+			$.ajax({
+			data: {'resarray[]': resArray},
+			type: 'POST',
+			//url: '/survey/{{ questiongroup_id }}/finish/',
+			async: false, 
+			});
+		}
+			
 	}
 	
 	function nextClick(event, ui){
@@ -47,7 +58,8 @@
 			alert("You need to have 10 selected items");
 		}
 		else if ({{step}} == 10){
-			document.location.href="{% url 'Survey finished' %}";
+			ajaxFunction(event, ui);
+			document.location.href="{% url 'Survey finished' questiongroup_id %}";
 		}
 	}
 	
