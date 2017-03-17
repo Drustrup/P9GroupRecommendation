@@ -32,7 +32,8 @@
 			$.ajax({
 			data: {'resarray[]': resArray},
 			type: 'POST',
-			url: '/survey/{{ questiongroup_id }}/{{ step }}/'
+			url: '/survey/{{ questiongroup_id }}/{{ step }}/',
+			async: false, 
 			});
 	}
 	
