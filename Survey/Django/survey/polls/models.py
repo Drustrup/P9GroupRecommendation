@@ -216,7 +216,7 @@ class Items(models.Model):
 
 
 class Result(models.Model):
-    id = models.IntegerField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
     groupid = models.IntegerField(db_column='groupID', blank=True, null=True)  # Field name made lowercase.
     item1 = models.IntegerField(blank=True, null=True)
     item2 = models.IntegerField(blank=True, null=True)
