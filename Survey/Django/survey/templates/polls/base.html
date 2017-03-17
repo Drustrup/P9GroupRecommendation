@@ -30,9 +30,9 @@
         resArray.push(results[i].id);
       }
 			$.ajax({
-				data: resArray,
-        type: 'POST',
-				url: '/survey/{{ questiongroup_id }}/{{ step }}/'
+			data: {'resarray[]': resArray},
+			type: 'POST',
+			url: '/survey/{{ questiongroup_id }}/{{ step }}/'
 			});
 	}
 	
