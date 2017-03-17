@@ -39,11 +39,11 @@
 	
 	function nextClick(event, ui){
 		var results = $('#sortable-result').children();
-		if (results.length == 2 && {{step}} < 9){
+		if (results.length == 10 && {{step}} < 10){
 			ajaxFunction(event, ui);
 			document.location.href="{% url 'survey' questiongroup_id step %}"
 		}
-		else if ({{step}} == 9){
+		else if ({{step}} == 10){
 			//insert into db and return the finnish page
 		}
 		else if(result.length > 10){

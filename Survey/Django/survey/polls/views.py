@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
 from django.db import connections, models
-from polls.models import Surveys, Groups, Userprefs, Items
+from polls.models import Surveys, Groups, Userprefs, Items, Result
 from django.views.decorators.csrf import csrf_exempt
 
 #from .models import Items
@@ -26,7 +26,9 @@ def survey(request, questiongroup_id, step):
 	
 	if request.method == 'POST':
 		result = request.POST.getlist('resarray[]', 'False')
-		print(result[0] + result[1])
+		#print(result[0] + result[1])
+		dbObject = Result(groupid = groupList[step - 1], item1 = result[0], item2 = result[1], item3 = result[2], item4 = result[3], item5 = result[4], item6 = result[5], item7 = result[6], item8 = result[7], item9 = result[8], item10 = result[9])
+		dbObject.save()
 		
 	noneUsers = []
 	for i in range(0, len(userList)):
@@ -46,7 +48,7 @@ def survey(request, questiongroup_id, step):
 		for p in pref:
 			for i in items:
 				if i.item not in itemList:
-					itemList.append(i.item)
+					itemList.append(i)
 				if p == i.itemid:
 					itemTemp.append(i.item)
 		prefs.append(itemTemp)
@@ -54,7 +56,6 @@ def survey(request, questiongroup_id, step):
 		step = step + 1
 
 	context = {'itemlist': itemList}
-	context.update({'itemlist': itemList})
 	context.update({'userPrefs': prefs})
 	context.update({'users': userList})
 	context.update({'questiongroup_id': groups[0].surveysid})

@@ -32,7 +32,7 @@
 		<td width="400">
 				<ul id="sortable" class="connect_lists" style="list-style-type:none;">
 					{% for item in itemlist %}
-						<li id="{{item}}" class="ui-state-default" style="background-color:white; margin:1px; border: 1px solid #000; padding: 5px;">{{ item }}</li>
+						<li id="{{item.itemid}}" class="ui-state-default" style="background-color:white; margin:1px; border: 1px solid #000; padding: 5px;">{{ item.item }}</li>
 					{% endfor %}
 				</ul>
 		</td>
