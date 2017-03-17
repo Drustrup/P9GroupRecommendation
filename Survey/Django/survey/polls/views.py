@@ -25,10 +25,8 @@ def survey(request, questiongroup_id, step):
 	userList = [users[0].user1, users[0].user2, users[0].user3, users[0].user4, users[0].user5, users[0].user6, users[0].user7, users[0].user8]
 	
 	if request.method == 'POST':
-		#testArr = ["false"]
-		temp = request.POST.getlist('resarray[]', 'False')
-		#json = request.POST
-		print(temp[1])
+		result = request.POST.getlist('resarray[]', 'False')
+		print(result[0] + result[1])
 		
 	noneUsers = []
 	for i in range(0, len(userList)):
