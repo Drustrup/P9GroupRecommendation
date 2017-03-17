@@ -24,12 +24,12 @@
 	
 	
 	var ajaxFunction = function(event, ui){
-		var results = $(this).children();
+		var results = $('#sortable-result').children();
 			console.log(results);
 			$.ajax({
 				data: results,
 				type: 'POST',
-				url: '/survey/{{ step }}/'
+				url: '/survey/{{ questiongroup_id }}/{{ step }}/'
 			});
 	}
 	
