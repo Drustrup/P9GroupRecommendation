@@ -11,13 +11,13 @@
 	<tr>
     {% for prefs in userPrefs %}
 		<td>
-		<table border="1">
-		{% for pref in prefs %}
-		<tr>
-			<td height="40" style="padding-left:3px";>{{ pref }} </td>
-		<tr>
-		{% endfor %}
-		</table>
+			<table border="1">
+			{% for pref in prefs %}
+				<tr>
+					<td height="40" style="padding-left:3px";>{{forloop.counter}}. {{ pref }} </td>
+				<tr>
+			{% endfor %}
+			</table>
 		</td>
     {% endfor %}
 	</tr>
