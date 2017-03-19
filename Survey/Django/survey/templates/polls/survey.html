@@ -22,9 +22,9 @@
     {% endfor %}
 	</tr>
     </tbody>
-  </table>
-  
-<table style="float: left; " border="1" >
+</table>
+ <div style="float: left; margin-left:10">
+<table border="1" >
 	<th>
 		Available items 
 	</th>
@@ -38,6 +38,10 @@
 		</td>
 	</tr>
 </table>
+	<div>
+		<button id="next" onclick="location.href='{% url 'survey' %}'">Step Forward</button>
+	</div>
+</div>
 <table style="display: inline-block;" border="1" >
 	<th>
 		Drag items here
@@ -48,9 +52,5 @@
 		</td>
 	</tr>
 </table>
-<div>
-	<button id="next" onclick="location.href='{% url 'survey' %}'">Step Forward</button>
-</div>
-</tbody>
 
 {% endblock content %}
