@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.db import connections, models
 from polls.models import Surveys, Groups, Userprefs, Items, Result
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.sessions.backends.db import SessionStore
 
 #from .models import Items
 
@@ -12,24 +13,25 @@ from django.views.decorators.csrf import csrf_exempt
 def index(request):
 	context = {'nav_active': 'home'}
 	groups = Surveys.objects.raw('SELECT * FROM surveys ORDER BY count ASC LIMIT 1')
-	context.update({'questiongroup_id': groups[0].surveysid})
-	context.update({'step': 0})
+	request.session['questiongroup_id'] = groups[0].surveysid
+	request.session['step'] = 0
 	return render(request, 'polls/index.html', context)
 
 @csrf_exempt
-def survey(request, questiongroup_id, step):
+def survey(request):
+	questiongroup_id = request.session['questiongroup_id']
 	groups = Surveys.objects.raw('SELECT * FROM surveys WHERE surveysid = %s', [questiongroup_id])
 	groupList = [groups[0].group1, groups[0].group2, groups[0].group3, groups[0].group4, groups[0].group5, groups[0].group6, groups[0].group7, groups[0].group8, groups[0].group9, groups[0].group10]
-	step = int(step) + 0
-	users = Groups.objects.raw('SELECT * FROM groups WHERE groupid = %s', [groupList[step]])
-	userList = [users[0].user1, users[0].user2, users[0].user3, users[0].user4, users[0].user5, users[0].user6, users[0].user7, users[0].user8]
-	
+	step = request.session['step']
 	if request.method == 'POST':
 		result = request.POST.getlist('resarray[]', 'False')
-		#print(result[0] + result[1])
+		step = request.session['step']
 		dbObject = Result(groupid = groupList[step - 1], item1 = result[0], item2 = result[1], item3 = result[2], item4 = result[3], item5 = result[4], item6 = result[5], item7 = result[6], item8 = result[7], item9 = result[8], item10 = result[9])
 		dbObject.save()
-		
+
+	users = Groups.objects.raw('SELECT * FROM groups WHERE groupid = %s', [groupList[step]])
+	userList = [users[0].user1, users[0].user2, users[0].user3, users[0].user4, users[0].user5, users[0].user6, users[0].user7, users[0].user8]
+
 	noneUsers = []
 	for i in range(0, len(userList)):
 		if userList[i] is None:
@@ -52,38 +54,34 @@ def survey(request, questiongroup_id, step):
 				if p == i.itemid:
 					itemTemp.append(i.item)
 		prefs.append(itemTemp)
-	if step < 10:
-		step = step + 1
+		
+	if request.method == 'POST':	
+		if step < 10:
+			step = step + 1
 
+	request.session['step'] = step
 	context = {'itemlist': itemList}
 	context.update({'userPrefs': prefs})
 	context.update({'users': userList})
-	context.update({'questiongroup_id': groups[0].surveysid})
 	context.update({'step': step})
 
 	return render(request, 'polls/survey.html', context)
-'''
-def survey_step(request, questiongroup_id, step):
-	#Get the model fixed
-	context = {}
-    #context['userlist'] = MODELstuff
-    #context['userprefs'] = MODELstuff
-	context['questiongroup_id'] = questiongroup_id
-	context['step'] = step
-	return render(request, 'polls/survey.html', context)
-'''
+
 @csrf_exempt
-def survey_finish(request, questiongroup_id ):
+def survey_finish(request):
+	questiongroup_id = request.session['questiongroup_id']
+	step = request.session['step']
 	groups = Surveys.objects.raw('SELECT * FROM surveys WHERE surveysid = %s', [questiongroup_id])
 	groupList = [groups[0].group1, groups[0].group2, groups[0].group3, groups[0].group4, groups[0].group5, groups[0].group6, groups[0].group7, groups[0].group8, groups[0].group9, groups[0].group10]
 
 	if request.method == 'POST':
 		result = request.POST.getlist('resarray[]', 'False')
-		#print(result[0] + result[1])
-		dbObject = Result(groupid = groupList[9], item1 = result[0], item2 = result[1], item3 = result[2], item4 = result[3], item5 = result[4], item6 = result[5], item7 = result[6], item8 = result[7], item9 = result[8], item10 = result[9])
+		dbObject = Result(groupid = groupList[step], item1 = result[0], item2 = result[1], item3 = result[2], item4 = result[3], item5 = result[4], item6 = result[5], item7 = result[6], item8 = result[7], item9 = result[8], item10 = result[9])
 		dbObject.save()
 
 	temp = groups[0].count + 1;
 	Surveys.objects.filter(surveysid = questiongroup_id).update(count = temp)	
+	del request.session['step']
+	del request.session['questiongroup_id']
 
 	return HttpResponse("You reached the finish.")

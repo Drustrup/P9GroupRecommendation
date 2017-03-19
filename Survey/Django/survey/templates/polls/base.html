@@ -31,9 +31,9 @@
       }
 		if ({{step}} < 10){
 			$.ajax({
-			data: {'resarray[]': resArray},
+			data: {'resarray[]': resArray, 'step': {{step}}},
 			type: 'POST',
-			url: '/survey/{{ questiongroup_id }}/{{ step }}/',
+			url: '/survey/next/',
 			async: false, 
 			});
 		}
@@ -50,16 +50,16 @@
 	
 	function nextClick(event, ui){
 		var results = $('#sortable-result').children();
-		if (results.length == 10 && {{step}} < 10){
+		if (results.length == 10 && {{step}} < 9){
 			ajaxFunction(event, ui);
-			document.location.href="{% url 'survey' questiongroup_id step %}";
+			document.location.href="{% url 'survey' %}";
 		}		
 		else if(results.length < 10){
 			alert("You need to have 10 selected items");
 		}
-		else if ({{step}} == 10){
+		else if ({{step}} == 9){
 			ajaxFunction(event, ui);
-			document.location.href="{% url 'Survey finished' questiongroup_id %}";
+			document.location.href="{% url 'Survey finished' %}";
 		}
 	}
 	
@@ -106,7 +106,7 @@
       <div class="collapse navbar-collapse" id="main-nav-bar">
         <ul class="nav navbar-nav">
           <li class="{% if nav_active == 'home' %} active {% endif %}"><a href="{% url 'index' %}">Home</a></li>
-          <li class="{% if nav_active == 'survey' %} active {% endif %}"><a href="{% url 'survey' questiongroup_id step %}">Survey</a></li>
+          <li class="{% if nav_active == 'survey' %} active {% endif %}"><a href="{% url 'survey' %}">Survey</a></li>
         </ul>
       </div>
     </div>
