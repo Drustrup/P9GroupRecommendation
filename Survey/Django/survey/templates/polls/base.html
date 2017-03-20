@@ -79,14 +79,38 @@
 		var results = $('#sortable-result').children();
 		if (results.length == 10 && {{step}} < 9){
 			ajaxFunction(event, ui);
-			document.location.href="{% url 'survey' %}";
+			if (confirm('You have selected the list:\n \n 1. ' + 
+			results[0].innerHTML + '\n 2. ' + results[1].innerHTML + 
+			'\n 3. ' + results[2].innerHTML + '\n 4. ' + results[3].innerHTML + 
+			'\n 5. ' + results[4].innerHTML + '\n 6. ' + results[5].innerHTML +
+			'\n 7. ' + results[6].innerHTML + '\n 8. ' + results[7].innerHTML +
+			'\n 9. ' + results[8].innerHTML + '\n 10. ' + results[9].innerHTML + 
+			'\n \n Are you sure this is the list you wanna submit?') == true
+			) {
+				document.location.href="{% url 'survey' %}";
+			} 
+			else {
+				window.close();
+			}
 		}		
 		else if(results.length < 10){
 			alert("You need to have 10 selected items");
 		}
 		else if ({{step}} == 9){
 			ajaxFunction(event, ui);
-			document.location.href="{% url 'Survey finished' %}";
+			if (confirm('You have selected the list:\n \n 1. ' + 
+			results[0].innerHTML + '\n 2. ' + results[1].innerHTML + 
+			'\n 3. ' + results[2].innerHTML + '\n 4. ' + results[3].innerHTML + 
+			'\n 5. ' + results[4].innerHTML + '\n 6. ' + results[5].innerHTML +
+			'\n 7. ' + results[6].innerHTML + '\n 8. ' + results[7].innerHTML +
+			'\n 9. ' + results[8].innerHTML + '\n 10. ' + results[9].innerHTML + 
+			'\n \n Are you sure this is the list you wanna submit?'
+			) == true) {
+				document.location.href="{% url 'Survey finished' %}";
+			} 
+			else {
+				window.close();
+			}
 		}
 	}
 	

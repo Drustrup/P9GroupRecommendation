@@ -3,6 +3,8 @@
 {% block content %}
 {% csrf_token %}
   <table class="table table-hover" style="border-collapse:collapse;">
+  <p style="margin-left:10px; font-size: 16px">
+  Below is the different group members preferences listed with their favourit movie at item 1 and decending.</p> 
     <tbody>
 	<tr>
 	{% for user in users %}
@@ -24,10 +26,12 @@
 	</tr>
     </tbody>
 </table>
+ <p style="margin-left:10px; font-size: 16px">Pleas drag items from the "Available Items"-list 
+ to the "Group Recommendations"-list and arrange the with the most ideal item at the top of the list.</p> 
  <div style="float: left; margin-left:10">
 <table border="1" >
 	<th>
-		Available items 
+		Available Items 
 	</th>
 	<tr>
 		<td width="400">
@@ -45,7 +49,7 @@
 </div>
 <table style="display: inline-block;" border="1" >
 	<th>
-		Drag items here
+		Group Recommendations
 	</th>
 	<tr>
 		<td width="400">
