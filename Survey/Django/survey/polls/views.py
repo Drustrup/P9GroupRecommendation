@@ -9,7 +9,6 @@ from django.contrib.sessions.backends.db import SessionStore
 #from .models import Items
 
 # Create your views here.
-@csrf_exempt
 def index(request):
 	context = {'nav_active': 'home'}
 	groups = Surveys.objects.raw('SELECT * FROM surveys ORDER BY count ASC LIMIT 1')
@@ -17,7 +16,6 @@ def index(request):
 	request.session['step'] = 0
 	return render(request, 'polls/index.html', context)
 
-@csrf_exempt
 def survey(request):
 	questiongroup_id = request.session['questiongroup_id']
 	groups = Surveys.objects.raw('SELECT * FROM surveys WHERE surveysid = %s', [questiongroup_id])
@@ -67,7 +65,6 @@ def survey(request):
 
 	return render(request, 'polls/survey.html', context)
 
-@csrf_exempt
 def survey_finish(request):
 	questiongroup_id = request.session['questiongroup_id']
 	step = request.session['step']
@@ -84,4 +81,4 @@ def survey_finish(request):
 	del request.session['step']
 	del request.session['questiongroup_id']
 
-	return HttpResponse("You reached the finish.")
+	return render(request, 'polls/finish.html')
