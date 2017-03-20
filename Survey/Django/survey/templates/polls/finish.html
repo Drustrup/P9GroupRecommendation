@@ -1,0 +1,11 @@
+{% extends "polls/base.html" %}
+
+{% block content %}
+
+<h1>Thank you for participating in our survey.</h1>
+
+{% if show_code %}
+<p>Here is the code for succesfully completing our survey: {{ code }}.
+{% endif %}
+
+{% endblock content %}

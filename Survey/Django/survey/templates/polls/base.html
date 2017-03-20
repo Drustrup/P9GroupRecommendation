@@ -8,7 +8,23 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-  var csrf_token = "{% csrf_token %}";
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+  };
+  var csrftoken = getCookie('csrftoken');
+
   $(function() {
     $('#sortable,ol').sortable({
         placeholder: 'ui-state-highlight',
@@ -22,9 +38,20 @@
         }
     });
 	
-	
+	function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  };
+
 	var ajaxFunction = function(event, ui){
-	  var results = $('#sortable-result').children();
+	  $.ajaxSetup({
+      beforeSend: function(xhr, settings) {
+        if(!csrfSafeMethod(settings.type) && !this.crossDomain){
+          xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+      }
+    });
+    var results = $('#sortable-result').children();
       var resArray = [];
       for (var i = 0; i < results.length; i++) {
         resArray.push(results[i].id);
@@ -64,7 +91,7 @@
 	}
 	
 	document.getElementById("next").onclick = function(event, ui) {nextClick(event, ui)};
-	
+		
 });
 
   </script>
@@ -86,17 +113,19 @@
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-bar" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
-        </button> 
+        </button>
         <a class="navbar-brand" href="{% url 'index' %}">Survey</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
+      <!-- Removed header buttons.
       <div class="collapse navbar-collapse" id="main-nav-bar">
         <ul class="nav navbar-nav">
           <li class="{% if nav_active == 'home' %} active {% endif %}"><a href="{% url 'index' %}">Home</a></li>
           <li class="{% if nav_active == 'survey' %} active {% endif %}"><a href="{% url 'survey' %}">Survey</a></li>
         </ul>
       </div>
+      -->
     </div>
   </nav>
 
