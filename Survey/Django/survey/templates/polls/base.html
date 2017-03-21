@@ -78,7 +78,6 @@
 	function nextClick(event, ui){
 		var results = $('#sortable-result').children();
 		if (results.length == 10 && {{step}} < 9){
-			ajaxFunction(event, ui);
 			if (confirm('You have selected the list:\n \n 1. ' + 
 			results[0].innerHTML + '\n 2. ' + results[1].innerHTML + 
 			'\n 3. ' + results[2].innerHTML + '\n 4. ' + results[3].innerHTML + 
@@ -87,6 +86,7 @@
 			'\n 9. ' + results[8].innerHTML + '\n 10. ' + results[9].innerHTML + 
 			'\n \n Are you sure this is the list you wanna submit?') == true
 			) {
+				ajaxFunction(event, ui);
 				document.location.href="{% url 'survey' %}";
 			} 
 			else {
@@ -94,10 +94,9 @@
 			}
 		}		
 		else if(results.length < 10){
-			alert("You need to have 10 selected items");
+			alert("You have to select 10 items");
 		}
 		else if ({{step}} == 9){
-			ajaxFunction(event, ui);
 			if (confirm('You have selected the list:\n \n 1. ' + 
 			results[0].innerHTML + '\n 2. ' + results[1].innerHTML + 
 			'\n 3. ' + results[2].innerHTML + '\n 4. ' + results[3].innerHTML + 
@@ -106,6 +105,7 @@
 			'\n 9. ' + results[8].innerHTML + '\n 10. ' + results[9].innerHTML + 
 			'\n \n Are you sure this is the list you wanna submit?'
 			) == true) {
+				ajaxFunction(event, ui);
 				document.location.href="{% url 'Survey finished' %}";
 			} 
 			else {
@@ -115,7 +115,29 @@
 	}
 	
 	document.getElementById("next").onclick = function(event, ui) {nextClick(event, ui)};
+	/**
+	var sortableList = document.getElementById("sortable");
+	var sortable-resultList = document.getElementById("sortable-result");
+	
+	var onclickSortables;
+	var onclickSortablesResult = function() {
+        sortableList.appendChild(this);
+        this.onclick = onclickSortables;
+        return false;
+    };
+	onclickSortables = function() {
+        onclickSortablesResult.appendChild(this);
+        this.onclick = onclickSortablesResult;
+        return false;
+    };
+
+	for (var i=0; i < onclickSortables.getElementsByTagName("li").length; i++)
+		onclickSortables.getElementsByTagName("li")[i].onclick = onclickSortables;
+	for (var i=0; i < onclickSortablesResult.getElementsByTagName("li").length; i++)      
+		onclickSortablesResult.getElementsByTagName("li")[i].onclick = onclickSortablesResult;
 		
+	document.getElementById("move").onclick = function() {onclickSortablesResult()}
+	**/
 });
 
   </script>
