@@ -1,9 +1,24 @@
 {% extends "polls/base.html" %}
 {% block content %}
 
-<h1>Welcome to our survey</h1>
-<div>
-	<button id="takesurveybtn" onclick="location.href='{% url 'survey' %}'">Take Survey</button>
-</div>
+<table class="table">
+	<th>
+		<h1 class="display-4">Welcome to our survey</h1>
+	</th>
+	<tr>
+		<td>The button below will take you to the survey. In the survey you will be presented with a number of tables representing the top 10 preferences of users.<br>
+		The survey has 10 steps in total with group sizes between 4 and 8.<br>
+		Your task is to make a top 10 matching that distinct group as closely as possible with top 1 being the most recommended movie for that group. There is no right or wrong answer and relies solely on your intuition.<br>
+		For this, there are two tables at the bottom of the survey, one holding all the movies for that group and an empty table. You can drag movies between them to set up the order.<br>
+		The result table can only hold 10 movie titles and you cannot go to the next step without making a full top ten list.<br>
+		At the end of the survey, you'll be redirected to a page thanking you for your participation.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<button id="takesurveybtn" onclick="location.href='{% url 'survey' %}'">Take Survey</button>
+		</td>
+	</tr>
+</table>
 
 {% endblock content %}
