@@ -5,13 +5,13 @@ from django.db import connections, models
 from polls.models import Surveys, Groups, Userprefs, Items, Result
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.sessions.backends.db import SessionStore
-
+import random
 #from .models import Items
 
 # Create your views here.
 def index(request):
 	context = {'nav_active': 'home'}
-	groups = Surveys.objects.raw('SELECT * FROM surveys ORDER BY count ASC LIMIT 1')
+	groups = Surveys.objects.raw('SELECT * FROM surveys WHERE count = (SELECT count FROM surveys ORDER BY count ASC LIMIT 1) ORDER BY RAND() LIMIT 1')
 	request.session['questiongroup_id'] = groups[0].surveysid
 	request.session['step'] = 0
 	return render(request, 'polls/index.html', context)
