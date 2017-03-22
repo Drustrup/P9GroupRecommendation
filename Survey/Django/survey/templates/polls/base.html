@@ -113,8 +113,7 @@
 		}
 	}
 	
-	$(".hoveritem").hover( function(){
-		
+	$("td.hoveritem").mouseenter( function(){
 		var tdclass = $(this).attr('class');
 		var elms = document.getElementsByClassName(tdclass);
 		var n = elms.length;
@@ -125,16 +124,16 @@
 			}
 		}
 		for(var i = 0; i < n; i ++) {
-			elms[i].onmouseover = function() {
+			elms[i].onmouseenter = function() {
+			console.log(elms[i]);
 				changeColor("rgb(51,122,183)", "white");
 			};
-			elms[i].onmouseout = function() {
+			elms[i].onmouseleave = function() {
 				changeColor("white", "black");
 			};
 		}
 	});
 	
-	$('.hoveritem').trigger('mouseenter')
 
 	document.getElementById("next").onclick = function(event, ui) {nextClick(event, ui)};
 
