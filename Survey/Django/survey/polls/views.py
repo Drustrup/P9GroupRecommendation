@@ -62,6 +62,7 @@ def survey(request):
 	context.update({'userPrefs': prefs})
 	context.update({'users': userList})
 	context.update({'step': step})
+	context.update({'printstep': step +1})
 
 	return render(request, 'polls/survey.html', context)
 
