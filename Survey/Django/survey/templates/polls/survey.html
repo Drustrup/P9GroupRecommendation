@@ -8,24 +8,26 @@
 	</tr>
 	<tr>
 		<td>
-			<p style="font-size: 16px"> Below is the different group members preferences listed with their favourit movie at position 1 and decending. <br>Please create a list of movies matching every users preferences as good as possible in the bottom of the site.</p> 
+			<p style="font-size: 16px"> Below is the different group members preferences listed with their favorite movie at position 1 and descending. <br>Please create a list of movies matching every users' preferences as well
+			as possible in the bottom of the site. 
+			<br> To get a better overview you can hover over the items below to see their position in the other tables.</p>
 		</td>
 	</tr>
 </table>
-  <table class="table" style="border-collapse:collapse;">
+  <table class="table-bordered" style="border-collapse:collapse;">
     <tbody>
 	<tr>
 	{% for user in users %}
-		<th> User {{ user }} </th>
+		<th style="padding:5px"> User {{ user }} </th>
 	{%endfor%}
 	</tr>
 	<tr>
     {% for prefs in userPrefs %}
 		<td>
-			<table class="table-bordered">
+			<table class="table"	>
 			{% for pref in prefs %}
 				<tr>
-					<td height="40" style="padding-left:3px; padding-right:3px">{{forloop.counter}}. {{ pref }} </td>
+					<td height="40" class="hoveritem {{pref}}" style="padding-left:3px; padding-right:3px"> {{forloop.counter}}. {{ pref }} </td>
 				<tr>
 			{% endfor %}
 			</table>
@@ -34,8 +36,8 @@
 	</tr>
     </tbody>
 </table>
- <p style="margin-left:10px; font-size: 16px">Drag movies from the "Available Items"-list 
- to the "Recommendations"-list and arrange them by most relevant first and lesser but still relevant movies in the bottom. <br> The relevans is determined based on the movies representation in the lists above.</p>
+ <br><p style="margin-left:10px; font-size: 16px">Drag movies from the table called Available Items to the table 
+ to the Recommendations and order them by the ten most recommended items, the top item being the most recommended item.<br> The relevance is to be determined based on the users' preferences shown in the lists above.</p>
 <tbody> 
 <table style="margin-left:10px;">
 <td valign="top">

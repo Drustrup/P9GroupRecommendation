@@ -35,21 +35,6 @@ tr.hidden-row td {
   border: 1px solid black;
 }
 
-.beer-info {
-  padding: 10px;
-  background-color: #20202F;
-  max-height: 40px;
-}
-
-.beer-info-list {
-  margin-bottom: 0px;
-  padding-left: 0px;
-}
-
-.beer-info-list li a {
-  color: #fff;
-}
-
 .beer-info-list li a:hover, .beer-info-list li a:active  {
   text-decoration: none;
 }
