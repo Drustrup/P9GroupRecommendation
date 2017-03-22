@@ -26,36 +26,42 @@
 	</tr>
     </tbody>
 </table>
- <p style="margin-left:10px; font-size: 16px">Pleas drag items from the "Available Items"-list 
- to the "Group Recommendations"-list and arrange the with the most ideal item at the top of the list.</p> 
- <div style="float: left; margin-left:10">
-<table border="1" >
+ <p style="margin-left:10px; font-size: 16px">Please drag items from the "Available Items"-list 
+ to the "Group Recommendations"-list and arrange the with the most ideal item at the top of the list.</p>
+<tbody> 
+<table style="margin-left:10px;">
+<td valign="top">
+<table border="1" style="margin-right:10px;">
 	<th>
 		Available Items 
 	</th>
 	<tr>
-		<td width="400">
-				<ul id="sortable" class="connect_lists" style="list-style-type:none;">
+		<td>
+				<ul id="sortable" class="connect_lists" style="list-style-type:none; padding:0; padding-left:10px;">
 					{% for item in itemlist %}
-						<li id="{{item.itemid}}" class="ui-state-default" style="background-color:white; margin:1px; border: 1px solid #000; padding: 5px;">{{ item.item }}</li>
+						<li id="{{item.itemid}}" class="unselected" style="background-color:white; margin:1px; border: 1px solid #000; padding: 5px;">{{ item.item }}
 					{% endfor %}
 				</ul>
 		</td>
 	</tr>
+	</tbody>
 </table>
-	<div>
-		<button id="next" onclick="location.href='{% url 'survey' %}'">Step Forward</button>
-	</div>
-</div>
-<table style="display: inline-block;" border="1" >
+</td>
+<td valign="top">
+<table border="1" >
 	<th>
 		Group Recommendations
 	</th>
 	<tr>
 		<td width="400">
-			<ol id="sortable-result" class= "connect_lists result"> </ol>
+			<ol id="sortable-result" class= "connect_lists result" style=""> </ol>
 		</td>
 	</tr>
 </table>
+</td>
+</table>
 
+	<div>
+		<button id="next" onclick="location.href='{% url 'survey' %}'" style="margin-left:10px; margin-top:2px;">Step Forward</button>
+	</div>
 {% endblock content %}
