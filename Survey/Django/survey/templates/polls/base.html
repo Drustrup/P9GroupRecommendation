@@ -31,8 +31,7 @@
         connectWith: '.connect_lists',
         receive: function(event, ui) {
           var $this = $(this);
-          if ($this.children('li').length > 10 && $this.attr('id') != "sortable") {
-            console.log('Only one per list!');
+          if ($this.children('a').length > 10 && $this.attr('id') != "sortable") {
             $(ui.sender).sortable('cancel');
           }
         }
@@ -113,31 +112,9 @@
 			}
 		}
 	}
-	
-	document.getElementById("next").onclick = function(event, ui) {nextClick(event, ui)};
-	/**
-	var sortableList = document.getElementById("sortable");
-	var sortable-resultList = document.getElementById("sortable-result");
-	
-	var onclickSortables;
-	var onclickSortablesResult = function() {
-        sortableList.appendChild(this);
-        this.onclick = onclickSortables;
-        return false;
-    };
-	onclickSortables = function() {
-        onclickSortablesResult.appendChild(this);
-        this.onclick = onclickSortablesResult;
-        return false;
-    };
 
-	for (var i=0; i < onclickSortables.getElementsByTagName("li").length; i++)
-		onclickSortables.getElementsByTagName("li")[i].onclick = onclickSortables;
-	for (var i=0; i < onclickSortablesResult.getElementsByTagName("li").length; i++)      
-		onclickSortablesResult.getElementsByTagName("li")[i].onclick = onclickSortablesResult;
-		
-	document.getElementById("move").onclick = function() {onclickSortablesResult()}
-	**/
+	document.getElementById("next").onclick = function(event, ui) {nextClick(event, ui)};
+
 });
 
   </script>

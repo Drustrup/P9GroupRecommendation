@@ -2,9 +2,17 @@
 
 {% block content %}
 {% csrf_token %}
-  <table class="table table-hover" style="border-collapse:collapse;">
-  <p style="margin-left:10px; font-size: 16px">
-  Below is the different group members preferences listed with their favourit movie at item 1 and decending.</p> 
+<table class="table" style="border-collapse:collapse;">
+	<tr>
+		<td><p class="navbar-brand"> Step {{printstep}} out of 10 </p></td>
+	</tr>
+	<tr>
+		<td>
+			<p style="font-size: 16px"> Below is the different group members preferences listed with their favourit movie at item 1 and decending.</p> 
+		</td>
+	</tr>
+</table>
+  <table class="table" style="border-collapse:collapse;">
     <tbody>
 	<tr>
 	{% for user in users %}
@@ -14,10 +22,10 @@
 	<tr>
     {% for prefs in userPrefs %}
 		<td>
-			<table border="1">
+			<table class="table-bordered">
 			{% for pref in prefs %}
 				<tr>
-					<td height="40" style="padding-left:3px";>{{forloop.counter}}. {{ pref }} </td>
+					<td height="40" style="padding-left:3px; padding-right:3px">{{forloop.counter}}. {{ pref }} </td>
 				<tr>
 			{% endfor %}
 			</table>
@@ -31,15 +39,17 @@
 <tbody> 
 <table style="margin-left:10px;">
 <td valign="top">
-<table border="1" style="margin-right:10px;">
-	<th>
-		Available Items 
-	</th>
+<table class="table-bordered" style="margin-right:10px;">
+	<tr>
+		<th style="padding:5px">
+			Available Items 
+		</th>
+	</tr>
 	<tr>
 		<td>
 				<ul id="sortable" class="connect_lists" style="list-style-type:none; padding:0; padding-left:10px;">
 					{% for item in itemlist %}
-						<li id="{{item.itemid}}" class="unselected" style="background-color:white; margin:1px; border: 1px solid #000; padding: 5px;">{{ item.item }}
+						<a id="{{item.itemid}}" class="list-group-item" style=" margin:1px; padding: 5px; display:list-item">{{ item.item }}</a>
 					{% endfor %}
 				</ul>
 		</td>
@@ -48,20 +58,22 @@
 </table>
 </td>
 <td valign="top">
-<table border="1" >
-	<th>
-		Group Recommendations
+<table class="table-bordered">
+	<th style="padding:5px">
+		Recommendations
 	</th>
 	<tr>
 		<td width="400">
-			<ol id="sortable-result" class= "connect_lists result" style=""> </ol>
+			<ol id="sortable-result" class= "connect_lists result"> </ol>
 		</td>
 	</tr>
 </table>
 </td>
+<td valign="top">
+	<div>
+		<button id="next" class="btn btn-primary" onclick="location.href='{% url 'survey' %}'" style="margin-left:10px; margin-top:2px;">Step Forward <span class="glyphicon glyphicon-arrow-right"></span></button>
+	</div>
+</td>
 </table>
 
-	<div>
-		<button id="next" onclick="location.href='{% url 'survey' %}'" style="margin-left:10px; margin-top:2px;">Step Forward</button>
-	</div>
 {% endblock content %}
