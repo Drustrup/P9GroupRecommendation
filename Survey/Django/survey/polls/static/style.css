@@ -64,3 +64,8 @@ tr.hidden-row td {
 .span-right {
   float:right;
 }
+
+a.list-group-item:hover{
+	background-color:rgb(51,122,183);
+	color:#fff;
+}
