@@ -24,6 +24,8 @@ for i=1:row     %Populate topK and topKRatings matrices
     end
 end
 
+%topK = topKAvg(topK,ratings, users);
+
 %result = random(topK);
 result = bordaCount(topK);
 %result = bordaTransferableCount(topK);
