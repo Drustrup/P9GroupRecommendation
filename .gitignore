@@ -258,3 +258,10 @@ Recommends/gaimc/
 Survey/Django/survey/survey/__pycache__/
 Survey/Django/survey/polls/__pycache__/
 Survey/Django/survey/polls/migrations/__pycache__/
+Article/master.aux
+Article/master.bbl
+Article/master.log
+Article/master.out
+Article/master.pdf
+Article/master.synctex.gz
+Article/master.blg
