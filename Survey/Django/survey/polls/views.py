@@ -19,7 +19,7 @@ def index(request):
 def survey(request):
 	questiongroup_id = request.session['questiongroup_id']
 	groups = Surveys.objects.raw('SELECT * FROM surveys WHERE surveysid = %s', [questiongroup_id])
-	groupList = [groups[0].group1, groups[0].group2, groups[0].group3, groups[0].group4, groups[0].group5, groups[0].group6, groups[0].group7, groups[0].group8, groups[0].group9, groups[0].group10]
+	groupList = [groups[0].group1, groups[0].group2, groups[0].group3, groups[0].group4, groups[0].group5]
 	step = request.session['step']
 	if request.method == 'POST':
 		result = request.POST.getlist('resarray[]', 'False')
@@ -67,12 +67,12 @@ def survey(request):
 	return render(request, 'polls/survey.html', context)
 
 def survey_finish(request):
-	if request.session['step'] < 9:
+	if request.session['step'] < 4:
 		return render(request, 'polls/index.html')
 	questiongroup_id = request.session['questiongroup_id']
 	step = request.session['step']
 	groups = Surveys.objects.raw('SELECT * FROM surveys WHERE surveysid = %s', [questiongroup_id])
-	groupList = [groups[0].group1, groups[0].group2, groups[0].group3, groups[0].group4, groups[0].group5, groups[0].group6, groups[0].group7, groups[0].group8, groups[0].group9, groups[0].group10]
+	groupList = [groups[0].group1, groups[0].group2, groups[0].group3, groups[0].group4, groups[0].group5]
 
 	if request.method == 'POST':
 		result = request.POST.getlist('resarray[]', 'False')
