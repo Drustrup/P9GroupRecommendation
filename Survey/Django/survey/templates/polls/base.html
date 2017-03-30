@@ -4,9 +4,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script>
   function getCookie(name) {
     var cookieValue = null;
@@ -31,7 +32,7 @@
         connectWith: '.connect_lists',
         receive: function(event, ui) {
           var $this = $(this);
-          if ($this.children('a').length > 10 && $this.attr('id') != "sortable") {
+          if ($this.children('li').length > 10 && $this.attr('id') != "sortable") {
             $(ui.sender).sortable('cancel');
           }
         }
@@ -50,12 +51,13 @@
         }
       }
     });
-    var results = $('#sortable-result').children();
+    var resultsTemp = $('#sortable-result').children();
+	var results = resultsTemp.children();
       var resArray = [];
       for (var i = 0; i < results.length; i++) {
         resArray.push(results[i].id);
       }
-		if ({{step}} < 10){
+		if ({{step}} < 5){
 			$.ajax({
 			data: {'resarray[]': resArray, 'step': {{step}}},
 			type: 'POST',
@@ -63,7 +65,7 @@
 			async: false, 
 			});
 		}
-		else if ({{step}} == 10){
+		else if ({{step}} == 5){
 			$.ajax({
 			data: {'resarray[]': resArray},
 			type: 'POST',
@@ -75,8 +77,9 @@
 	}
 	
 	function nextClick(event, ui){
-		var results = $('#sortable-result').children();
-		if (results.length == 10 && {{step}} < 9){
+		var resultsTemp = $('#sortable-result').children();
+		var results = resultsTemp.children();
+		if (results.length == 10 && {{step}} < 4){
 			if (confirm('You have selected the list:\n \n 1. ' + 
 			results[0].innerHTML + '\n 2. ' + results[1].innerHTML + 
 			'\n 3. ' + results[2].innerHTML + '\n 4. ' + results[3].innerHTML + 
@@ -95,7 +98,7 @@
 		else if(results.length < 10){
 			alert("You have to select 10 items");
 		}
-		else if ({{step}} == 9){
+		else if ({{step}} == 4){
 			if (confirm('You have selected the list:\n \n 1. ' + 
 			results[0].innerHTML + '\n 2. ' + results[1].innerHTML + 
 			'\n 3. ' + results[2].innerHTML + '\n 4. ' + results[3].innerHTML + 
@@ -113,10 +116,42 @@
 		}
 	}
 	
-	$("td.hoveritem").mouseenter( function(){
-		var tdclass = $(this).attr('class');
-		var elms = document.getElementsByClassName(tdclass);
+
+	
+	$("a.hoveritem").mouseenter(function(){
+		var hoverclass = $(this).attr('class');
+		var elms = document.getElementsByClassName(hoverclass);
 		var n = elms.length;
+		var x = 0;
+		var pos = [];
+		for (var i = 0; i < n; i++){
+			if (elms[i].nodeName == 'TD') {
+				pos[x] = elms[i].parentNode.rowIndex + 1;
+				x = x + 1; 
+			}
+		}
+		console.log(pos);
+		
+		var tiptext = "Appears in " + x + " lists at ";
+		if (pos.length == 1){
+			tiptext += "position " + pos[0];
+		}
+		else{
+			tiptext += "positions: \n " + pos[0];
+			var i = 1
+			for( i; i < pos.length-1; i++){
+				tiptext += ", " + pos[i];
+			}
+			tiptext += " and " + pos[i];
+		}
+		
+		$(this).attr('title', tiptext);
+	});
+	
+	$("a.hoveritem, td.hoveritem").mouseenter( function(){
+		var hoverclass = $(this).attr('class');
+		var elms = document.getElementsByClassName(hoverclass);
+		var n = elms.length;		
 		function changeColor(color, text) {
 		for(var i = 0; i < n; i ++) {
 			elms[i].style.backgroundColor = color;
@@ -129,12 +164,13 @@
 				changeColor("rgb(51,122,183)", "white");
 			};
 			elms[i].onmouseleave = function() {
-				changeColor("white", "black");
+				changeColor("white", "rgb(51, 51, 51)");
 			};
 		}
 	});
-	
-
+	$(document).ready(function(){
+		$('[data-toggle="tooltip"]').tooltip();
+	});
 	document.getElementById("next").onclick = function(event, ui) {nextClick(event, ui)};
 
 });
