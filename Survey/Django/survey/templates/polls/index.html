@@ -1,24 +1,27 @@
 {% extends "polls/base.html" %}
+{% load staticfiles %}
 {% block content %}
 
-<table class="table">
-	<th>
-		<h1 class="display-4">Welcome to our survey</h1>
-	</th>
-	<tr>
-		<td>The button below will take you to the survey. In the survey you will be presented with a number of tables representing the top 10 preferences of users.<br>
-		The survey has 10 steps in total with group sizes between 4 and 8.<br>
-		Your task is to make a top 10 matching that distinct group as closely as possible with top 1 being the most recommended movie for that group. There is no right or wrong answer and relies solely on your intuition.<br>
-		For this, there are two tables at the bottom of the survey, one holding all the movies for that group and an empty table. You can drag movies between them to set up the order.<br>
-		The result table can only hold 10 movie titles and you cannot go to the next step without making a full top ten list.<br>
-		At the end of the survey, you'll be redirected to a page thanking you for your participation.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<button id="takesurveybtn" onclick="location.href='{% url 'survey' %}'">Take Survey</button>
-		</td>
-	</tr>
-</table>
+<div class="container-fluid" style="margin-left: 10">
+  <h1 class="display-4">Welcome to our survey</h1>
+  <div class="row">
+    <div class="col-md-3">
+      In this survey you will be presented with 10 different groups each with 4 to 8 people. Your task is to create a list of 10 recommended movies for each of these groups based on their preferences. The users' preferences are given as a top 10 list of movies for each user in the group. An example of 2 users can be seen in the picture on the right.<br>
+      You create the list by dragging items from an available list of all the movies appearing amongst the preferences to an empty list and arranging them by what you think the group would like to see the most. It is possible to reorder the list of items you select by dragging them up or down.
+      We thank you for your participation, the button below will take you to the survey.
+      <button id="takesurveybtn" onclick="location.href='{% url 'survey' %}'">Take Survey</button>
+    </div>
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <img src="{% static 'users.png' %}" alt="users png" class="img-responsive" />
+        <div class="caption">An example of two users and their preferences. If you hover your mouse over a movie title, the title will light up in the other users' lists.</div>
+      </div>
+    </div>
+    <div class="col-md-5 thumbnail">
+      <img src="{% static 'recbox.png' %}" alt="recbox png" class="img-responsive" />
+      <div class="caption">As shown above, you can drag movies between lists.</div>
+    </div>
+  </div>
+</div>
 
 {% endblock content %}

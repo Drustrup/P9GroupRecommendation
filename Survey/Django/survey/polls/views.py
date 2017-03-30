@@ -67,6 +67,8 @@ def survey(request):
 	return render(request, 'polls/survey.html', context)
 
 def survey_finish(request):
+	if request.session['step'] < 9:
+		return render(request, 'polls/index.html')
 	questiongroup_id = request.session['questiongroup_id']
 	step = request.session['step']
 	groups = Surveys.objects.raw('SELECT * FROM surveys WHERE surveysid = %s', [questiongroup_id])
