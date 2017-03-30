@@ -24,11 +24,11 @@
 	<tr>
     {% for prefs in userPrefs %}
 		<td>
-			<table class="table"	>
+			<table>
 			{% for pref in prefs %}
-				<tr>
+				<tr class="border_bottom">
 					<td height="40" class="hoveritem {{pref}}" style="padding-left:3px; padding-right:3px"> {{forloop.counter}}. {{ pref }} </td>
-				<tr>
+				</tr>
 			{% endfor %}
 			</table>
 		</td>
