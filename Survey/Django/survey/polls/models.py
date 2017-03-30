@@ -241,11 +241,6 @@ class Surveys(models.Model):
     group3 = models.IntegerField()
     group4 = models.IntegerField()
     group5 = models.IntegerField()
-    group6 = models.IntegerField()
-    group7 = models.IntegerField()
-    group8 = models.IntegerField()
-    group9 = models.IntegerField()
-    group10 = models.IntegerField()
 
     class Meta:
         managed = False
