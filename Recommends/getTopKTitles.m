@@ -21,15 +21,23 @@ for i = 1 : row
 end
 
 result = result';
-
 %{
-fid = fopen('four.txt','a');
-fprintf(fid, '%.f\t %s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\t %s', result{1,:}) ;
-fprintf(fid, '\n%.f\t %s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\t %s', result{2,:}) ; 
-fprintf(fid, '\n%.f\t %s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\t %s', result{3,:}) ; 
-fprintf(fid, '\n%.f\t %s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\t %s', result{4,:}) ; 
+
+fid = fopen('eight.txt','a');
+fprintf(fid, '%.f\t %.f\t %.f\t %.f\t %.f\t %.f\t %.f\t %.f\n', result{1,:});
+fprintf(fid, '%s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\n', result{2,:});
+fprintf(fid, '%s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\n', result{3,:});
+fprintf(fid, '%s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\n', result{4,:});
+fprintf(fid, '%s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\n', result{5,:});
+fprintf(fid, '%s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\n', result{6,:});
+fprintf(fid, '%s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\n', result{7,:});
+fprintf(fid, '%s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\n', result{8,:});
+fprintf(fid, '%s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\n', result{9,:});
+fprintf(fid, '%s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\n', result{10,:});
+fprintf(fid, '%s\t %s\t %s\t %s\t %s\t %s\t %s\t %s\n', result{11,:});
 fprintf(fid, '\n') ; 
 fclose(fid) ;
+
 %}
 
  %dlmwrite('test.csv', result(2:end,:), '-append') ;

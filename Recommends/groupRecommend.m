@@ -27,7 +27,7 @@ end
 %topK = topKAvg(topK,ratings, users);
 
 %result = random(topK);
-result = bordaCount(topK);
+%result = bordaCount(topK);
 %result = bordaTransferableCount(topK);
 %result = bordaCountWeighted(topK);
 %result = bordaCountEscalating(topK);
