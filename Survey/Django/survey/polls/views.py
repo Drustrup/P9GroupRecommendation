@@ -5,6 +5,8 @@ from django.db import connections, models
 from polls.models import Surveys, Groups, Userprefs, Items, Result
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.sessions.backends.db import SessionStore
+from datetime import timedelta
+import datetime
 import random
 #from .models import Items
 
@@ -80,8 +82,12 @@ def survey_finish(request):
 		dbObject.save()
 
 	temp = groups[0].count + 1;
-	Surveys.objects.filter(surveysid = questiongroup_id).update(count = temp)	
+	Surveys.objects.filter(surveysid = questiongroup_id).update(count = temp)
+	now = datetime.datetime.now()
+	nowFormated = ''.join(e for e in str(now) if e.isalnum())
+	context = {'surveyid': questiongroup_id}
+	context.update({'time':nowFormated})
 	del request.session['step']
 	del request.session['questiongroup_id']
 
-	return render(request, 'polls/finish.html')
+	return render(request, 'polls/finish.html', context)

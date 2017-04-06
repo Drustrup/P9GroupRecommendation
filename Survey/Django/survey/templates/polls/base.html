@@ -25,7 +25,7 @@
     return cookieValue;
   };
   var csrftoken = getCookie('csrftoken');
-
+  
   $(function() {
     $('#sortable,ol').sortable({
         placeholder: 'ui-state-highlight',
@@ -34,6 +34,7 @@
           var $this = $(this);
           if ($this.children('li').length > 10 && $this.attr('id') != "sortable") {
             $(ui.sender).sortable('cancel');
+			
           }
         }
     });
@@ -130,7 +131,6 @@
 				x = x + 1; 
 			}
 		}
-		console.log(pos);
 		
 		var tiptext = "Appears in " + x + " lists at ";
 		if (pos.length == 1){
@@ -151,16 +151,17 @@
 	$("a.hoveritem, td.hoveritem").mouseenter( function(){
 		var hoverclass = $(this).attr('class');
 		var elms = document.getElementsByClassName(hoverclass);
-		var n = elms.length;		
+		var n = elms.length;
 		function changeColor(color, text) {
 		for(var i = 0; i < n; i ++) {
+					
+			//console.log(elms[i].classList.contains("select"))
 			elms[i].style.backgroundColor = color;
 			elms[i].style.color = text;
 			}
 		}
 		for(var i = 0; i < n; i ++) {
 			elms[i].onmouseenter = function() {
-			console.log(elms[i]);
 				changeColor("rgb(51,122,183)", "white");
 			};
 			elms[i].onmouseleave = function() {
@@ -171,6 +172,26 @@
 	$(document).ready(function(){
 		$('[data-toggle="tooltip"]').tooltip();
 	});
+
+	$(document).ready(function(){
+		
+		$( "sortable" ).sortable({
+			create: function (event, ui) {
+				sort();
+			}
+		});
+		sort();
+		function sort() {
+			var sortableList = $('#sortable');
+			var listitems = $('li', sortableList);
+
+			listitems.sort(function (a, b) {
+				return ($(a).text().toUpperCase() > $(b).text().toUpperCase()) ? 1 : -1;
+			});
+			sortableList.append(listitems);
+		}
+	});
+	
 	document.getElementById("next").onclick = function(event, ui) {nextClick(event, ui)};
 
 });
