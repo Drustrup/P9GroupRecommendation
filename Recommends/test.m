@@ -1,7 +1,7 @@
 clear all
 
 groups = importdata('../Survey/groups/eight.txt');
-ratings = importdata('matrix/mml/matrixmml_svd++_3-4-17.txt');
+ratings = importdata('matrix/matrixmml_svd++_3-4-17.txt');
 
 %save userpreferences
 %{
