@@ -24,17 +24,21 @@ groups(:,1) = [];
 [row,col] = size(groups);
 k = 10;
 meanList = zeros(1,row);
-correlation = zeros(1,row);
+distance = zeros(1,row);
 for i=1:row
     group = groups(i,:);
     [recommendations, topKRatings, topK] = groupRecommend(ratings, group,k);
-    %meanList(i) = mean(nDCGRatings(ratings, recommendations, group, topKRatings, k));
-    meanList(i) = mean(nDCG(ratings, recommendations, group, k));
-    [r, p] = corr(recommendations', topK', 'type','kendall');
-    correlation(i) = mean(r);
+    meanList(i) = mean(nDCGRatings(ratings, recommendations, group, topKRatings, k));
+    %meanList(i) = mean(nDCG(ratings, recommendations, group, k
+    [r,c] = size(topK);
+    dist = zeros(1, r);
+    for j = 1 : r
+        dist(j) = kendallDistance(recommendations, topK(j,:));
+    end
+    distance(i) = mean(dist);
 end
-result = sum(meanList)/row;
-correlation = sum(correlation)/row;
+nDCG = sum(meanList)/row; % 1 is good 0 bad 
+distance = sum(distance)/row; % 1 is bad 0 good
 
 
 

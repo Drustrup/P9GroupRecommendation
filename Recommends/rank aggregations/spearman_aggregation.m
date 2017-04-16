@@ -1,4 +1,4 @@
-function [result] = spearman(topK)
+function [result] = spearman_aggregation(topK)
 
 [userCount, k] = size(topK); 
  
@@ -22,13 +22,13 @@ for j = 1 : n
 end
 %W = W / userCount;
 %W = (W * -1) + 3;   
-%[val, mi, mj]=bipartite_matching(W);
-[mi, mj]=munkres(W);
+[val, mi, mj]=bipartite_matching(W);
+%[mi, mj]=munkres(W);
 
 result = zeros(1,k);
 for i = 1 : k
-    %result(i) = items(mj(i)) - n;
-    result(i) = items(mi(i)) - n;
+    result(mj(i)) = items(mi(i)) - n;
+    %result(i) = items(mi(i)) - n;
 end
-
+result = flip(result);
 end
