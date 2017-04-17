@@ -28,19 +28,22 @@ for i = 1 : numel(items)
     end
 end
 
+nol = numel(items) + 1;
 for i = 1 : numel(items)
    if xIndex(i) == 0
-       xIndex(i) = numel(items);
+       xIndex(i) = nol;
    end
    if yIndex(i) == 0
-       yIndex(i) = numel(items);
+       yIndex(i) = nol;
    end
 end
 
 count = 0;
 for i = 1 : numel(items) - 1
     for j = i + 1 : numel(items)
-        if (xIndex(i) < xIndex(j) && yIndex(i) > yIndex(j)) || (xIndex(i) > xIndex(j) && yIndex(i) < yIndex(j))
+        if xIndex(i) == nol || xIndex(j) == nol && yIndex(i) == nol || yIndex(j) == nol
+            count = count + 1;
+        elseif (xIndex(i) < xIndex(j) && yIndex(i) > yIndex(j)) || (xIndex(i) > xIndex(j) && yIndex(i) < yIndex(j))
             count = count + 1;
         end
     end
