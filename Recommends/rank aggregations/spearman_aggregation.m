@@ -6,7 +6,7 @@ items = unique(topK);
 n = numel(items);
 items = items + n;
 topK = topK + n;
-W = zeros(n,n);
+W = zeros(n,k);
 for j = 1 : n
     c = items(j);
     for z = 1 : k
@@ -22,13 +22,34 @@ for j = 1 : n
 end
 %W = W / userCount;
 %W = (W * -1) + 3;   
-[val, mi, mj]=bipartite_matching(W);
-%[mi, mj]=munkres(W);
 
+%When using bipartite_matching
+
+[val, mi, mj]=bipartite_matching(W);
 result = zeros(1,k);
 for i = 1 : k
     result(mj(i)) = items(mi(i)) - n;
-    %result(i) = items(mi(i)) - n;
 end
-result = flip(result);
+result= flip(result); 
+
+%When using bipartite_matching reversed W
+%{
+W = W * -1 + 3;
+[val, mi, mj]=bipartite_matching(W);
+result = zeros(1,k);
+for i = 1 : k
+    result(mj(i)) = items(mi(i)) - n;
+end
+result= result; 
+%}
+%When using munkres
+%{
+W = W * -1;
+[mi, mj]=munkres(W);
+result = zeros(1,k);
+for i = 1 : k
+    result(i) = items(mi(i)) - n;
+end
+result= result; 
+%}
 end
