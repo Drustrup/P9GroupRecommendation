@@ -1,6 +1,6 @@
 clear all
 
-groups = importdata('../Survey/groups/eight.txt');
+groups = importdata('../Survey/groups/four.txt');
 ratings = importdata('matrix/matrixmml_svd++_3-4-17.txt');
 
 %save userpreferences
