@@ -1,5 +1,5 @@
 %Find user preferences
-function [result, topKRatings, topK] = groupRecommendation(ratings, users,k)
+function [result, topKRatings, topK] = groupRecommend(ratings, users,k)
 [row,col] = size(ratings);
 group = ones(numel(users),col); %Make matrix full of with 1's
 
