@@ -31,8 +31,8 @@ end
 %result = bordaTransferableCount(topK);
 %result = bordaCountWeighted(topK);
 %result = bordaCountEscalating(topK);
-%result = average(ratings, users, topK); 
-%result = spearman_aggregation(topK);
+%result = average(ratings, users, topK);
+%result = spearman(topK);
 %result = getTopKTitles(users, topK);
-result = markovChain(topK); %NOT YET IMPLEMENTED
+%result = markovChain(topK); %NOT YET IMPLEMENTED
 end
