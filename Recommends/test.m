@@ -1,4 +1,4 @@
-clear all
+clear all;
 
 groups = importdata('../Survey/groups/four.txt');
 ratings = importdata('matrix/matrixmml_svd++_3-4-17.txt');
@@ -29,7 +29,7 @@ for i=1:row
     group = groups(i,:);
     [recommendations, topKRatings, topK] = groupRecommend(ratings, group,k);
     meanList(i) = mean(nDCGRatings(ratings, recommendations, group, topKRatings, k));
-    %meanList(i) = mean(nDCG(ratings, recommendations, group, k
+    %meanList(i) = mean(nDCG(ratings, recommendations, group, k));
     [r,c] = size(topK);
     dist = zeros(1, r);
     for j = 1 : r
