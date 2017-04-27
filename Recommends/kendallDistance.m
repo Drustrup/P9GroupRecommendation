@@ -1,6 +1,7 @@
 function [result] = kendallDistance(X, Y)
 %X = [1, 2, 3, 4, 7];
-%Y = [2, 3, 5, 1, 6];
+%Y = [8, 9, 10, 11, 12];
+%Y = [7, 4, 3, 2, 1];
 items = union(X,Y);
 xIndex = zeros(1, numel(items));
 yIndex = zeros(1, numel(items));
@@ -41,7 +42,8 @@ end
 count = 0;
 for i = 1 : numel(items) - 1
     for j = i + 1 : numel(items)
-        if xIndex(i) == nol || xIndex(j) == nol && yIndex(i) == nol || yIndex(j) == nol
+        %if xIndex(i) == nol || xIndex(j) == nol && yIndex(i) == nol || yIndex(j) == nol
+        if xIndex(i) == xIndex(j) || yIndex(i) == yIndex(j)
             count = count + 1;
         elseif (xIndex(i) < xIndex(j) && yIndex(i) > yIndex(j)) || (xIndex(i) > xIndex(j) && yIndex(i) < yIndex(j))
             count = count + 1;
