@@ -11,8 +11,8 @@ end
 
 %Matrix holding the top k recommendations
 [row,col] = size(group);
-topK = ones(row,k);         %Holds item ids
-topKRatings = ones(row,k);  %Holds item ratings
+topK = zeros(row,k);         %Holds item ids
+topKRatings = zeros(row,k);  %Holds item ratings
 temp = group;
 for i=1:row     %Populate topK and topKRatings matrices
     topK(i,1) = i;
@@ -32,7 +32,7 @@ end
 %result = bordaCountWeighted(topK);
 %result = bordaCountEscalating(topK);
 %result = average(ratings, users, topK);
-%result = spearman(topK);
+result = spearman(topK);
 %result = getTopKTitles(users, topK);
 %result = markovChain(topK); %NOT YET IMPLEMENTED
 end
