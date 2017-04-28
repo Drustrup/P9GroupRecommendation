@@ -34,5 +34,6 @@ end
 %result = average(ratings, users, topK);
 result = spearman(topK);
 %result = getTopKTitles(users, topK);
-%result = markovChain(topK); %NOT YET IMPLEMENTED
+result = markovChain(topK);
+%result = strictMarkovChain(topK);
 end

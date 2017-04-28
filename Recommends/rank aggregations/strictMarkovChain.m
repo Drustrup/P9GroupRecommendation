@@ -1,6 +1,8 @@
 %Returns a top10 list of movies using markov chain
+%Strictly adheres to the method described by Dwork et Al, Rank Aggregation Methods
 %State space is all movies
 %A state can only transition to a state which a majority ranks higher
+%Strict addition: A higher ranking is only noted if both items are ranked
 function answer = markovChain(topK)
 [row,col] = size(topK);     %Row (line of prefs) and col (users) of size topK
 users = row;                %Number of users
@@ -31,11 +33,11 @@ for i=1:n       %For every item
                 index2 = find(topK(m,:) == id2);
                 if isempty(index1)              %One item isn't rated
                     if not(isempty(index2))     %Other item is rated
-                        score = score - 1;
+                        continue;
                     end
                 elseif isempty(index2)          %Other item isn't rated
                     if not(isempty(index1))
-                        score = score + 1;
+                        continue;
                     end
                 else                            %both items are rated
                     if index1 < index2          %item1 is preferred
