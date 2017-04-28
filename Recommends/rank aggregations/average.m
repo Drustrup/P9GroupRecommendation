@@ -16,6 +16,7 @@ for i = 1 : k
     [V,I] = max(avgList);
     result(i) = items(I);
     avgList(I) = [];
+    items(I) = [];
 end
 result = result';
 end
