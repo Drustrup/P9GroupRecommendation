@@ -3,6 +3,12 @@
 \usepackage{booktabs} % For formal tables
 \usepackage[titletoc,toc,title]{appendix}
 
+\usepackage{xargs} 
+\usepackage{xcolor}
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommandx{\note}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+
+
 % Copyright
 %\setcopyright{none}
 %\setcopyright{acmcopyright}
@@ -31,7 +37,7 @@
 \begin{document}
 \title{Group Recommendation}
 %\titlenote{Produces the permission block, and copyright information}
-\subtitle{Using Voting as Mediator}
+\subtitle{Using Rank Aggregation}
 %\subtitlenote{The full version of the author's guide is available as \texttt{acmart.pdf} document}
 
 

@@ -1,9 +1,25 @@
 \subsection{Distance}
 
-\subsubsection*{Kendall Tau Distance}
+\subsubsection{Kendall Tau Distance}
+\note{This is a rough draft}
+Kendall tau distance is a measure of the difference between the difference of ranked lists\citep{rank:aggregation}. It counts the pairwise disagreement between two ranked lists as specified in the Equations \ref{eq:kendalldistance1} and \ref{eq:kendalldistance2}. The count is the normalized by dividing with $n(n-1)/2$ where $n$ is \_, giving the maximum number of possible values. \note{check up on this}
+These two equations is used when working with full lists where every list contains every item. 
 
-\begin{equation}
-K(\sigma,\tau) = | \{(i,j) | i < j, \sigma (i) < \sigma (j) \land \tau (i) > \tau (j) \lor \sigma (i) > \sigma (j) \land \tau (i) < \tau (j) \} |
-\end{equation}\citep{rank:aggregation}
+\begin{equation}\label{eq:kendalldistance1}
+K(\sigma,\tau) = | \{(i,j) | i < j, \sigma (i) < \sigma (j) \land \tau (i) > \tau (j)|
+\end{equation}
+\begin{equation}\label{eq:kendalldistance2}
+K(\sigma,\tau) = | \{(i,j) | i < j, \sigma (i) > \sigma (j) \land \tau (i) < \tau (j) \} |
+\end{equation}
 
-\subsubsection*{Spearman Distance}
+As we in this article are focusing on partial lists we have to make some modifications to the standard Kendall tau distance which we do by adding a third case in which it needs to count a disagreement. If a item occurs on one list but not the other it is assigned the value of the total number of items plus 1. When then add Equation \ref{eq:kendalldistance3} to Kendall tau distance in case we encounter equal items on one list which is undesirable. 
+
+\begin{equation}\label{eq:kendalldistance3}
+K(\sigma,\tau) = | \{(i,j) | i < j, \sigma (i) = \sigma (j) \lor \tau (i) = \tau (j) \} |
+\end{equation}
+
+To find the distance from a recommended list to a groups preferences each list of user preferences are compared to the result list and the average distance is the result. 
+
+
+
+%\subsubsection{Spearman Distance}

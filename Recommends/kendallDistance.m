@@ -42,7 +42,6 @@ end
 count = 0;
 for i = 1 : numel(items) - 1
     for j = i + 1 : numel(items)
-        %if xIndex(i) == nol || xIndex(j) == nol && yIndex(i) == nol || yIndex(j) == nol
         if xIndex(i) == xIndex(j) || yIndex(i) == yIndex(j)
             count = count + 1;
         elseif (xIndex(i) < xIndex(j) && yIndex(i) > yIndex(j)) || (xIndex(i) > xIndex(j) && yIndex(i) < yIndex(j))
