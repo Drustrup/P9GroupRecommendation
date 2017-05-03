@@ -1,6 +1,7 @@
 clear all;
-
-groups = importdata('../Survey/groups/four.txt');
+    
+groups = importdata('../Survey/groups/eight.txt');
+%groups = importdata('test groups/groupSize12.txt');
 ratings = importdata('matrix/matrixmml_svd++_3-4-17.txt');
 
 %save userpreferences
@@ -24,12 +25,13 @@ groups(:,1) = [];
 [row,col] = size(groups);
 k = 10;
 meanList = zeros(1,row);
+meanListRatings = zeros(1,row);
 distance = zeros(1,row);
 for i=1:row
     group = groups(i,:);
     [recommendations, topKRatings, topK] = groupRecommend(ratings, group,k);
-    meanList(i) = mean(nDCGRatings(ratings, recommendations, group, topKRatings, k));
-    %meanList(i) = mean(nDCG(ratings, recommendations, group, k));
+    meanListRatings(i) = mean(nDCGRatings(ratings, recommendations, group, topKRatings, k));
+    meanList(i) = mean(nDCG(ratings, recommendations, group, k));
     [r,c] = size(topK);
     dist = zeros(1, r);
     for j = 1 : r
@@ -38,6 +40,7 @@ for i=1:row
     distance(i) = mean(dist);
 end
 nDCG = sum(meanList)/row; % 1 is good 0 bad 
+nDCGRatings = sum(meanListRatings)/row;
 distance = sum(distance)/row; % 1 is bad 0 good
 
 
