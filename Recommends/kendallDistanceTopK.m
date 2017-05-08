@@ -6,26 +6,41 @@ function [result] = kendallDistanceTopK(X, Y)
 items = union(X,Y);
 xIndex = zeros(1, numel(items));
 yIndex = zeros(1, numel(items));
-
+xVal = xIndex;
+yVal = yIndex;
+%{
 for i = 1 : numel(X)
    
     [Mx,Ix] = find(items==X(i));
-    xIndex(Ix) = items(i);
-    
+    xVal(Ix) = items(Ix);
+
     [My,Iy] = find(items==Y(i));
-    yIndex(Iy) = items(i);
-
+    yVal(Iy) = items(i);
 end
-
+%}
+countX = 1;
+countY = 1;
 for i = 1 : numel(items)
     
-    if xIndex(i) == 0
+    [M,Ix] = find(X==items(i));
+    if ~isempty(Ix)
+        xIndex(i) = Ix;
+        xVal(i) = X(countX);
+        countX = countX + 1;
+    else 
         xIndex(i) = NaN;
+        xVal(i) = NaN;
     end
     
-    if yIndex(i) == 0
+    [M,Iy] = find(Y==items(i));
+    if ~isempty(Iy)
+        yIndex(i) = Iy;
+        yVal(i) = Y(countY);
+        countY = countY + 1;
+    else
         yIndex(i) = NaN;
-    end    
+        yVal(i) = NaN;    
+    end
 end
 
 k = numel(X);
@@ -42,14 +57,16 @@ count = zeros(1,4);
 zS = zeros(1,z);
 zT = zeros(1,z);
 for i = 1 : z
-    zS(i) = xIndex(Z(i));
-    zT(i) = yIndex(Z(i));
+    [sM,sI] = find(xVal == Z(i));
+    [tM,tI] = find(yVal == Z(i));
+    zS(i) = xIndex(sI);
+    zT(i) = yIndex(tI);
 end
 
 for i = 1 : z - 1
     for j = i + 1 : z
         if (zS(i) < zS(j) && zT(i) > zT(j)) || (zS(i) > zS(j) && zT(i) < zT(j))
-            count(i) = count(i) + 1;
+            count(1) = count(1) + 1;
         end
     end
 end
