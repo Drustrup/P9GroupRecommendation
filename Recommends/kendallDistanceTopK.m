@@ -8,16 +8,7 @@ xIndex = zeros(1, numel(items));
 yIndex = zeros(1, numel(items));
 xVal = xIndex;
 yVal = yIndex;
-%{
-for i = 1 : numel(X)
-   
-    [Mx,Ix] = find(items==X(i));
-    xVal(Ix) = items(Ix);
 
-    [My,Iy] = find(items==Y(i));
-    yVal(Iy) = items(i);
-end
-%}
 countX = 1;
 countY = 1;
 for i = 1 : numel(items)
@@ -59,8 +50,8 @@ zT = zeros(1,z);
 for i = 1 : z
     [sM,sI] = find(xVal == Z(i));
     [tM,tI] = find(yVal == Z(i));
-    zS(i) = xIndex(sI);
-    zT(i) = yIndex(tI);
+    zS(i) = sI;
+    zT(i) = tI;
 end
 
 for i = 1 : z - 1
