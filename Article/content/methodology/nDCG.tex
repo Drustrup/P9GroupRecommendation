@@ -1,1 +1,25 @@
 \subsection{Normalized Discounted Cumulative Gain}
+For evaluating the quality of the ranking, we use Normalized Discounted Cumulative Gain, which is common to the information retrieval field in comparing ranked lists of queries. We take this as a satisfaction measure to calculate the quality of the group recommendation to that of a recommendation of each user in turn. This value is also normalized against an ideal recommendation for that user.
+
+%Cumulative gain compares two lists for how relevant the items are. Discounted also considers the position of each item for the quality score, applying a weight on the relevance score that penalizes the score for being lower on a lower ranking. This summed score is normalized against the ideal DCG value, which is the individual user's ranked list, and can be seen in .
+
+The relevance value of an item is inversely related to its placement on the ranked list by the user. The relevance value of a given item not on a user's list is 0.
+
+As per Equation \ref{eq:methodology_dcg}, a DCG value is calculated for a set of $p$ ranked items as the sum of items' relevance scores divided by the logarithm of its ranking. As per Equation \ref{eq:methodology_ndcg}, this value is normalized against ideal recommendation for that user, which corresponds to a reordering of the group recommendation per his given relevance scores for each item.
+
+\begin{equation}\label{eq:methodology_dcg}
+\text{DCG}_p = \sum_{i=1}^{p}\frac{\textit{rel}_i}{\log_2(i + 1)}
+\end{equation}
+
+\begin{equation}\label{eq:methodology_ndcg}
+\text{nDCG}_p = \frac{\text{DCG}_p}{\text{IDCG}_p}
+\end{equation}
+
+\subsection{Adjusted Normalized Discounted Cumulative Gain}
+To more accurately portray the quality of the ranking, we present the adjusted nDCG measure.
+
+The difference is that the relevance score of items are not provided by its ranking, but directly from the predicted ratings for that item.
+
+As there is often not much overlap between individual users' recommendations, it can better reflect the quality of a recommendation for that user, as a recommendation is not punished as harshly by not including items on a user's individual recommendation. It also more closely reflects the user's rating of an item's relevance, as it is not decided by the ranking. Overall, this leads to much higher nDCG scores, as even total misses are no longer necessarily seen as such.
+
+Conversely, it can be argued adjusted nDCG measure is inferior, as the aggregation methods only considers the ranked elements when making the aggregation, so the increased score is from the perspective of the aggregation methods entirely random.
