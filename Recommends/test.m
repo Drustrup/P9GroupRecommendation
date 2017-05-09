@@ -1,7 +1,9 @@
 clear all;
-    
-groups = importdata('../Survey/groups/eight.txt');
-%groups = importdata('test groups/groupSize12.txt');
+
+tic;
+
+%groups = importdata('../Survey/groups/eight.txt');
+groups = importdata('test groups/groupSize8.txt');
 ratings = importdata('matrix/matrixmml_svd++_3-4-17.txt');
 
 %save userpreferences
@@ -26,24 +28,29 @@ groups(:,1) = [];
 k = 10;
 meanList = zeros(1,row);
 meanListRatings = zeros(1,row);
-distance = zeros(1,row);
+kendall = zeros(1,row);
+spear = zeros(1,row);
 for i=1:row
     group = groups(i,:);
     [recommendations, topKRatings, topK] = groupRecommend(ratings, group,k);
     meanListRatings(i) = mean(nDCGRatings(ratings, recommendations, group, topKRatings, k));
     meanList(i) = mean(nDCG(ratings, recommendations, group, k));
     [r,c] = size(topK);
-    dist = zeros(1, r);
+    kendist = zeros(1, r);
+    speardist = zeros(1, r);
     for j = 1 : r
-        dist(j) = kendallDistance(recommendations, topK(j,:));
+        kendist(j) = kendallDistanceTopK(recommendations, topK(j,:));
+        speardist(j) = spearmanDistance(recommendations, topK(j,:));
     end
-    distance(i) = mean(dist);
+    kendall(i) = mean(kendist);
+    spear(i) = mean(speardist);
 end
 nDCG = sum(meanList)/row; % 1 is good 0 bad 
 nDCGRatings = sum(meanListRatings)/row;
-distance = sum(distance)/row; % 1 is bad 0 good
+kendall = sum(kendall)/row; % 1 is bad 0 good
+spear = sum(spear)/row;     % 1 is bad 0 good
 
-
+time = toc;
 
 %get titles for survey
 %{
