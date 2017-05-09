@@ -1,5 +1,6 @@
 function [result] = kendallDistanceTopK(X, Y)
-%X = [2, 1, 3, 4, 5];
+%X = [1,2, 3, 4, 5];
+%Y = [1,2, 3, 4, 5];
 %Y = [8, 9, 10, 11, 12];
 %Y = [5, 4, 3, 2, 1];
 %Y = [1,9,2,8,4];
@@ -39,7 +40,7 @@ Z = intersect(X,Y);
 z = numel(Z);
 S = setdiff(X,Y);
 T = setdiff(Y,X);
-dif = numel(S);
+dif = k-z;
 p = 0.5;
 
 count = zeros(1,4);
@@ -72,7 +73,10 @@ count(2) = dif * (k + z + 1) - sum(sIndex)-sum(tIndex);
 count(3) = dif^2;
 
 %Case 4: i and j are both missing in one list
-count(4) = 2*p * (dif/2);
+count(4) = 2 * p * (dif / 2);
 
-result = sum(count)/(numel(items)*(numel(items)-1)/2);
+%temp = ((k-z)*((2+p)*k-p*z + 1 - p) + count(1) - sum(sIndex)-sum(tIndex))/(numel(items)*(numel(items)-1)/2); 
+%Khaus = (0.5 * dif * (5 * k - z + 1 ) + count(1) - sum(sIndex)-sum(tIndex))/(numel(items)*(numel(items)-1)/2);
+result = (0.5 * dif * (5 * k - z + 1 ) + count(1) - sum(sIndex)-sum(tIndex))/(numel(items)*(numel(items)-1)/2);
+%result = sum(count)/(numel(items)*(numel(items)-1)/2);
 end
