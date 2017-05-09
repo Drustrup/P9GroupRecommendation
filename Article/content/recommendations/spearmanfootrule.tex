@@ -1,7 +1,7 @@
 \subsection{Spearman Footrule}\label{sec:spearmanfootrule}
 \note{early draft}
 Spearman footrule rank aggregation creates a bipartite graph $(I,P,E)$. 
-$I$ is the union of users top-k lists and $P$ is the total number of positions equal to $|I|$. $E$ is the weight between an item $i \in I$ and a position $p \in P$. In Equation \ref{eq:spearmanfootrule} it is shown how the weights is calculated for full lists. 
+$I$ is the union of users top-k lists and $P$ is the total number of positions equal to $|I|$. $E$ is the weight between an item $i \in I$ and a position $p \in P$. In Equation \ref{eq:spearmanfootrule} it is shown how the weights are calculated for full lists. 
 
 %where the weight on the edges in $E$ is the footrule distance from note u to position v. utilises the minimum cost maximum matching method to find the best possible ranked list based on a set $L$ of ranked lists. 
 
@@ -9,10 +9,10 @@ $I$ is the union of users top-k lists and $P$ is the total number of positions e
 W(c,p) = \displaystyle\sum_{i=1}^{k} |r_i(c)/|r_i| - p/n|
 \end{equation}
 
-In order to take items not appearing on some list, as we work with partial lists, into account, we make use of \ref{eq:spearmanfootruleempty} in order to weight infrequent items higher. 
+In order to take into account items not appearing on some list, as we work with partial lists, we make use of Equation \ref{eq:spearmanfootruleempty} in order to weight infrequent items higher.
 
 \begin{equation}\label{eq:spearmanfootruleempty}
 W(c,p) = \displaystyle\sum_{i=1}^{k} |(|r_i| + 1)/|r_i| - p/n|
 \end{equation}
 
-After determining the distances/weights the problem can be deduced to a minimum cost maximum matching problem in this case in the form of the Hungarian algorithm\note{section with the Hungarian algorithm?}. This method returns a list of length $|P|$ with to lowest edge weight as possible. We then return the top-k of the list as the groups recommendations.
+After determining the weights of the edges, the problem can be solved as a minimum cost maximum matching problem. In this case it is solved in the form of the Hungarian algorithm\note{section with the Hungarian algorithm?}. This method returns a list of length $|P|$ with the lowest edge weight possible. Then we return the top-k of the list as groups recommendation.
