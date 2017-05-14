@@ -1,5 +1,9 @@
 \documentclass[sigplan]{acmart}
 
+%New command for paragraphs
+\newcommand{\adparagraph}[1]{\paragraph{#1}\mbox{}\\\noindent}
+
+%Fixes the style of the ACM article template 
 \settopmatter{printacmref=false} % Removes citation information below abstract
 \renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
 \pagestyle{plain} % removes running headers
@@ -33,7 +37,7 @@
 \begin{document}
 \title{Group Recommendation}
 %\titlenote{Produces the permission block, and copyright information}
-\subtitle{Using Rank Aggregation}
+\subtitle{Using Information Retrieval Rank Aggregation Methods}
 %\subtitlenote{The full version of the author's guide is available as \texttt{acmart.pdf} document}
 
 \author{Lasse Drustrup Christensen}
