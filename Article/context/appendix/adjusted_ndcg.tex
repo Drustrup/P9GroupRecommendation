@@ -1,0 +1,8 @@
+\section{Adjusted nDCG}
+To more accurately portray the quality of the ranking, we present the adjusted nDCG measure.
+
+The difference is that the relevance score of items are not provided by its ranking, but directly from the predicted ratings for that item.
+
+As there is often not much overlap between individual users' recommendations, it can better reflect the quality of a recommendation for that user, as a recommendation is not punished as harshly by not including items on a user's individual recommendation. It also more closely reflects the user's rating of an item's relevance, as it is not decided by the ranking. Overall, this leads to much higher nDCG scores, as even total misses are no longer necessarily seen as such.
+
+Conversely, it can be argued adjusted nDCG measure is inferior, as the aggregation methods only considers the ranked elements when making the aggregation, so the increased score is from the perspective of the aggregation methods entirely random.
