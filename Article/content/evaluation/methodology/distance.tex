@@ -1,0 +1,31 @@
+\subsubsection{Distance Measures}\label{sec:distance}
+
+\adparagraph{Kendall Tau Distance}
+\note{This is a rough draft}
+Kendall tau distance is a measure of the difference between ranked lists\citep{rank:aggregation}. It counts the pairwise disagreement between two ranked lists as specified in the Equations \ref{eq:kendalldistance1}, \ref{eq:kendalldistance2} and \ref{eq:kendalldistancefinal}. The count is then normalized by dividing with $n(n-1)/2$ where $n$ is the total number of available positions, giving the maximum number of possible values. \note{check up on this}
+These two equations are used when working with full lists where every list contains every item. 
+
+\begin{equation}\label{eq:kendalldistance1}
+K1(\sigma,\tau) = | \{(i,j) | i < j, \sigma (i) < \sigma (j) \land \tau (i) > \tau (j)|
+\end{equation}
+\begin{equation}\label{eq:kendalldistance2}
+K2(\sigma,\tau) = | \{(i,j) | i < j, \sigma (i) > \sigma (j) \land \tau (i) < \tau (j) \} |
+\end{equation}
+
+\begin{equation}\label{eq:kendalldistancefinal}
+K(\sigma,\tau) = k2(\sigma,\tau) + k1(\sigma,\tau)
+\end{equation}
+
+The above measure is for full lists but as we work on top-k lists we have found a modification of the standard Kendall tau distance\cite{comparing:topk}. 
+
+ which we do by adding a third case in which it needs to count a disagreement. If a item occurs on one list but not the other it is assigned the value of the total number of items plus 1. We then add Equation \ref{eq:kendalldistance3} to Kendall tau distance in case we encounter equal items on one list which is undesirable.
+
+\begin{equation}\label{eq:kendalldistance3}
+K(\sigma,\tau) = | \{(i,j) | i < j, \sigma (i) = \sigma (j) \lor \tau (i) = \tau (j) \} |
+\end{equation}
+
+To find the distance from a recommended list to a groups preferences each list of user preferences are compared to the result list and the average distance is the result. 
+
+
+
+\adparagraph{Footrule Distance}
