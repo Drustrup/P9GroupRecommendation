@@ -1,1 +1,11 @@
 \subsection{Markov Chain}\label{sec:markovchain}
+%Technical description of MC4
+The state space corresponds to a set of all the items. The corresponding transition matrix for \MC will have an equal chance of transitioning to any other state that can beat it in a majority of pairwise contests. This approach is a generalization of the Copeland Method, where a winner is the candidate which wins the most pairwise contests.
+
+The concept behind building the list of recommendations works by explicitly finding the transition matrix. For \MC, the states are connected to other states that wins per the Copeland method. Then we can iterate through the set, and note who performs best to make the transition matrix. Using the power set on the transition matrix we can find the stationary probability distribution to aggregate the candidates.
+
+%Non-strict markov chain
+The method presented by Dwork et al is used on full lists, whereas we work on partial lists in our domain. To better suit our domain, we present some adjustments to the method. A partial list might not contain both items needed for a pairwise comparison, so in the event of only one item being on the list, it wins that pairwise contest, as the losing item must be further down the list.
+
+%Strict markov chain
+For completeness, we also tested a stricter interpretation of \MC where only the majority winners with both items present were considered.
