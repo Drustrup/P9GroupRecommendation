@@ -266,4 +266,5 @@ Article/master.synctex.gz
 Article/master.blg
 Article/examples/
 Recommends/spearmanDistance.asv
+Recommends/kendallDistance.m
 

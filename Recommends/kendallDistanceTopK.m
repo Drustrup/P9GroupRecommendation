@@ -73,10 +73,11 @@ count(2) = dif * (k + z + 1) - sum(sIndex)-sum(tIndex);
 count(3) = dif^2;
 
 %Case 4: i and j are both missing in one list
-count(4) = 2 * p * (dif / 2);
+%count(4) = 2 * p * nchoosek(dif, 2);
 
 %temp = ((k-z)*((2+p)*k-p*z + 1 - p) + count(1) - sum(sIndex)-sum(tIndex))/(numel(items)*(numel(items)-1)/2); 
 %Khaus = (0.5 * dif * (5 * k - z + 1 ) + count(1) - sum(sIndex)-sum(tIndex))/(numel(items)*(numel(items)-1)/2);
-result = (0.5 * dif * (5 * k - z + 1 ) + count(1) - sum(sIndex)-sum(tIndex))/(numel(items)*(numel(items)-1)/2);
+result = (0.5 * (k - z) * (5 * k - z + 1 ) + count(1) - sum(sIndex)-sum(tIndex))/(numel(items)*(numel(items)-1)/2);
+%temp = sum(count)/(numel(items)*(numel(items)-1)/2);
 %result = sum(count)/(numel(items)*(numel(items)-1)/2);
 end
