@@ -1,6 +1,10 @@
 \section{Related Work}
-\note{Not finished}
 %Context
-Dwork et al presented 4 Markov Chain methods. The fourth method, henceforth \MC had the most promising results, so it is the method we use for this paper.\cite{rank:aggregation}
+In their work on aggregation of search queries, Dwork et al presented 4 Markov Chain(MC) methods.
 
+To Dwork et Al, the idea of MC that the current state impacts future states were useful to get a better aggregation and provide a better interplay between candidates by comparing all candidates against each other. 
 
+%Enhancement of other heuristics
+It was their belief that this property of MC provided a natural extension to common aggregation methods such as Borda Count\note{First mention? BC?}.
+
+Of the four methods presented, \MC managed to achieve some of the best results when scored on distance measures such as Kendall distance or Spearman's footrule, so of the four \MC will be our focus in this article.\cite{rank:aggregation}
