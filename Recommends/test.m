@@ -2,8 +2,7 @@ clear all;
 
 tic;
 
-%groups = importdata('../Survey/groups/eight.txt');
-groups = importdata('test groups/groupSize8.txt');
+groups = importdata('groups/groupSize4.txt');
 ratings = importdata('matrix/matrixmml_svd++_3-4-17.txt');
 
 %save userpreferences
