@@ -5,24 +5,6 @@ tic;
 groups = importdata('groups/groupSize4.txt');
 ratings = importdata('matrix/matrixmml_svd++_3-4-17.txt');
 
-%save userpreferences
-%{
-userPrefs = zeros(943,11);
-for i = 1: 943
-   user = zeros(1,10);
-    for j = 1: 10
-        [M,I] = max(ratings(i,:));
-        user(j) = I;
-        ratings(i,I) = 0;
-    end
-    userPrefs(i,:) = [i, user];
-    fid = fopen('userPrefs.txt','a');
-    fprintf(fid,'%.f\t %.f\t %.f\t %.f\t %.f\t %.f\t %.f\t %.f\t %.f\t %.f\t %.f\n', userPrefs(i,:));
-    fclose(fid);
-end
-%}
-
-groups(:,1) = [];
 [row,col] = size(groups);
 k = 10;
 meanList = zeros(1,row);
