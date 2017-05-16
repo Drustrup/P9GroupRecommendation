@@ -7,8 +7,6 @@ function [result] = kendallDistanceTopK(X, Y)
 items = union(X,Y);                 %Get the set of all items
 xIndex = zeros(1, numel(items));    %List of all indices of set x
 yIndex = zeros(1, numel(items));    %Same for y
-xVal = xIndex;                      %List of values matching Index
-yVal = yIndex;                      %on the same index position
 
 countX = 1;
 countY = 1;
@@ -17,21 +15,17 @@ for i = 1 : numel(items)
     [M,Ix] = find(X==items(i));
     if ~isempty(Ix)
         xIndex(i) = Ix;
-        xVal(i) = X(countX);
         countX = countX + 1;
     else 
         xIndex(i) = NaN;
-        xVal(i) = NaN;
     end
     
     [M,Iy] = find(Y==items(i));
     if ~isempty(Iy)
         yIndex(i) = Iy;
-        yVal(i) = Y(countY);
         countY = countY + 1;
     else
         yIndex(i) = NaN;
-        yVal(i) = NaN;    
     end
 end
 
@@ -48,8 +42,8 @@ count = zeros(1,4);     %Four cases for Kendall, record every result
 zS = zeros(1,z);
 zT = zeros(1,z);
 for i = 1 : z
-    [sM,sI] = find(xVal == Z(i));   %Look through shared items
-    [tM,tI] = find(yVal == Z(i));
+    [sM,sI] = find(X == Z(i));   %Look through shared items
+    [tM,tI] = find(Y == Z(i));
     zS(i) = sI;
     zT(i) = tI;
 end
