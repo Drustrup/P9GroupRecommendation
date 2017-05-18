@@ -19,42 +19,42 @@ Lastly performing best and somewhat equal we have BC and MC. Worth noting is tha
         xtick = {4,8,12,16,20,40},
         legend pos=south east]
     \addplot[smooth,mark=*,blue] plot coordinates {
-        (4,0.5002)
-        (8,0.5419)
-        (12,0.5559)
-        (16,0.5624)
-        (20,0.5653)
-        (40,0.572)
+        (4,0.4708)
+        (8,0.5367)
+        (12,0.5537)
+        (16,0.5607)
+        (20,0.5648)
+        (40,0.5719)
     };
     \addlegendentry{Borda Count}
 
     \addplot[smooth,color=red,mark=x] plot coordinates {
-            (4,0.4994)
-            (8,0.5424)
-            (12,0.5563)
-            (16,0.5627)
-            (20,0.5658)
-            (40,0.5723)
+            (4,0.4672)
+            (8,0.5363)
+            (12,0.5542)
+            (16,0.5614)
+            (20,0.565)
+            (40,0.5722)
         };
     \addlegendentry{Markov Chain}
     
         \addplot[smooth,color=black,mark=square*] plot coordinates {
-            (4,0.5202)
-            (8,0.554)
-            (12,0.565)
-            (16,0.5698)
-            (20,0.5718)
-            (40,0.5763)
+            (4,0.5039)
+            (8,0.5494)
+            (12,0.5633)
+            (16,0.5686)
+            (20,0.5715)
+            (40,0.5761)
         };
     \addlegendentry{Spearman Footrule}
     
     \addplot[smooth,color=green,mark=triangle*] plot coordinates {
-            (4,0.5416)
-            (8,0.5723)
-            (12,0.5794)
-            (16,0.5838)
-            (20,0.5846)
-            (40,0.5884)
+            (4,0.5187)
+            (8,0.569)
+            (12,0.5783)
+            (16,0.5828)
+            (20,0.5844)
+            (40,0.5883)
         };
     \addlegendentry{Average}
     
@@ -62,4 +62,3 @@ Lastly performing best and somewhat equal we have BC and MC. Worth noting is tha
 \end{tikzpicture}
 \caption{Results using Kendall Tau distance} \label{fig:kendalldistance}
 \end{figure}
-
