@@ -9,11 +9,11 @@ movies = unique(topK);      %Find all unique movie ids
 n = numel(movies);          %Number of unique items
 resSize = n;                %Named var for number of results
 result = zeros(1, resSize); %The result matrix
-leap = 0.05; %Percentage points to leap
+leap = 0.05;                %Percentage points to leap
 
 
 scoreMatrix = zeros(n);     %Score: item is ranked higher than other items
-tMatrix = zeros(n)+(leap/n);   %Transition matrix
+tMatrix = zeros(n)+(leap/n);%Transition matrix
 
 %Find out which items are ranked highest on compared to each other
 for i=1:n       %For every item
@@ -53,7 +53,7 @@ end
 
 %Populate the transition matrix using scores
 for i=1:n       %For every movie
-    links = find(scoreMatrix(i,:) > 0); %Find outdegrees
+    links = find(scoreMatrix(i,:) < 0); %Find outdegrees
     ele = numel(links);                 %Total # of outdegrees
     tMatrix(i,i) = ((n-ele)/n)*(1-leap);%Move to itself if alternative not better
     
@@ -73,8 +73,8 @@ for i=1:30
 end
 
 %Put the result indices in results
-result(1) = 1;      %Insert 1st to compare against
-for i=2:n           %Iterate through remaining items
+%result(1) = 1;      %Insert 1st to compare against
+for i=1:n           %Iterate through remaining items
     for j=1:resSize %Iterate through result list
         if(result(j) == 0)  %If empty spot
             result(j) = i;
@@ -107,7 +107,7 @@ for i=1:resSize
 end
 
 %Flip to get the correct answer
-result = flip(result);
+%result = flip(result);
 
 %Return it
 answer = result(1:ansSize);

@@ -1,8 +1,7 @@
 clear all;
-
 tic;
 
-groups = importdata('groups/groupSize4.txt');
+groups = importdata('groups/groupSize40.txt');
 ratings = importdata('matrix/matrixmml_svd++_3-4-17.txt');
 
 [row,col] = size(groups);
@@ -56,3 +55,13 @@ for i=1:row
 end
 %}
 
+out = ['nDCG: ', num2str(nDCG)]; 
+disp(out);
+out = ['aDCG: ', num2str(nDCGRatings)];
+disp(out);
+out = ['Kend: ', num2str(kendall)];
+disp(out);
+out = ['Spea: ', num2str(spear)];
+disp(out);
+out= ['Time: ', num2str(time)];
+disp(out);
