@@ -1,6 +1,6 @@
 function [result] = average(ratings, users, topK)
 items = sort(unique(topK),'ascend');
-avgList = zeros(numel(items),1);
+avgList = zeros(1,numel(items));
 [row,k] = size(topK);
 count = 1;
 while count <= numel(items)
@@ -11,12 +11,12 @@ while count <= numel(items)
     avgList(count) = avg/numel(users);
     count = count + 1;
 end
-result = zeros(k,1);
+result = zeros(1,k);
 for i = 1 : k
     [V,I] = max(avgList);
     result(i) = items(I);
     avgList(I) = [];
     items(I) = [];
 end
-result = result';
+%result = result';
 end
