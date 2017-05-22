@@ -1,6 +1,16 @@
 \subsection{Dataset}\label{sec:dataset}
-We use the dataset called MovieLens 100k published by GroupLens\cite{movielens100k}.
+We use the dataset called MovieLens 100k published by GroupLens\cite{movielens100k}. MovieLens 100K contains 100.000 ratings between 1 to 5 by 943 users across 1682 movies.
+
 \subsubsection{Individual Recommendations}
-We used the library called MyMediaLite\citep{mymedialite}.
+We used the library called MyMediaLite\cite{mymedialite}.\note{for what? Seems tied to 1M/100M movielens}
+
+With room for one and a half million ratings, the 100k dataset is somewhat sparse, so we used SVD++ \note{citation, assuming it's not included in mymedialite} to predict the missing ratings. With the focus on the aggregation aspect of the group recommender system, SVD++ was chosen for its reliable precision, and ease of replication.
+
 \subsubsection{Group Generation}
-\note{should it stand here?}
+Since many voting systems perform differently depending on the number of users\note{cite to 9th semester report (or its source) or other} we made groups of several sizes.
+
+For our dataset we made groups consisting of 4, 8, 12, 16, 20, and 40 users. Each size category numbers 1000 groups. The groups were randomly created, and while the same user can appear in multiple groups of various sizes, no two groups are identical.
+
+Our expectations with this setup was that as the size of the group would go up, so would the difficulty of making recommendations. So it would be interesting to note whether all methods' recommendations decreased in quality at the same rate.
+
+\note{should it be here?}

@@ -1,8 +1,10 @@
 \adparagraph{nDCG}
-Figure \ref{fig:ndcg} shows the nDCG score for BC, MC, SF, and Avg. With nDCG a higher score is better as covered in Section \ref{sec:methodology_ndcg}.
-BC and MC gets the best results, but they all follow the same general trend with a sharp decrease in score that quickly levels out.
-
-One outlying case SF starts out close to Avg for a group size of four, but decreases much less in score and is closer to BC and MC as the size increases.
+Figure \ref{fig:ndcg} shows the nDCG score for BC, MC, SF, and Avg. For nDCG a higher score is better as covered in Section \ref{sec:methodology_ndcg}.
+All methods see a sharp drop off in the quality of their recommendations as the group sizes increase.
+BC drops the most in the jump from 4 to 8 group members, however it also have the best results, and outperforms all other methods across all group sizes.
+MC is second best by only a few percentage points and follows the same trend and quickly plateaus in score.
+One outlying case SF starts out close to Avg for a group size of four, but retains a higher score and is closer to BC and MC as the size increases.
+Avg is the worst performing.
 
 \begin{figure}[H]
 	\begin{tikzpicture}

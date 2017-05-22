@@ -12,21 +12,21 @@ markov = zeros(5,1);
 for i=1:5
     %Average
     [h,p] = ttest(avglist(:,i), bordalist(:,i));
-    avg(i,1) = p;
+    avg(i,1) = h;
     [h,p] = ttest(avglist(:,i), markovlist(:,i));
-    avg(i,2) = p;
+    avg(i,2) = h;
     [h,p] = ttest(avglist(:,i), spearlist(:,i));
-    avg(i,3) = p;
+    avg(i,3) = h;
     
     %borda
     [h,p] = ttest(bordalist(:,i), markovlist(:,i));
-    borda(i,2) = p;
+    borda(i,1) = h;
     [h,p] = ttest(bordalist(:,i), spearlist(:,i));
-    borda(i,3) = p;
+    borda(i,2) = h;
     
     %markov
     [h,p] = ttest(markovlist(:,i), spearlist(:,i));
-    markov(i,3) = p;
+    markov(i,1) = h;
 end
 
 %end
