@@ -1,18 +1,20 @@
-\subsection{Spearman Footrule}\label{sec:spearmanfootrule}
-\note{early draft}
-Spearman footrule rank aggregation creates a bipartite graph $(I,P,E)$. 
-$I$ is the union of users top-k lists and $P$ is the total number of positions equal to $|I|$. $E$ is the weight between an item $i \in I$ and a position $p \in P$. In Equation \ref{eq:spearmanfootrule} it is shown how the weights are calculated for full lists. 
+\subsection{Spearman's Footrule}\label{sec:spearmansfootrule}
+Dwark et al also propose to use Spearman's footrule(SF) for aggregating ranked lists\citep{rank:aggregation}.
+SF utilises the graph theory called bipartite graphs to construct a weighted complete bipartite graph $(S,P,W)$. 
+Let $S$ be the set of items which is equal to the union of the ranked top-k lists $\tau_1, ..., \tau_k$. Then we have the set $P = \{1,...,k\}$ which is the available positions. Lastly the set $W$ is the set of edge weights between items $s\in S$ and positions $p\in P$. The weights $W(s,p)$ is found by using the scaled footrule distance equation which can be seen in equation \ref{eq:spearmanfootrule}. 
+ 
+%$I$ is the union of users top-k lists and $P$ is the total number of positions equal to $|I|$. $E$ is the weight between an item $i \in I$ and a position $p \in P$. In Equation \ref{eq:spearmanfootrule} it is shown how the weights are calculated for full lists. 
 
 %where the weight on the edges in $E$ is the footrule distance from note u to position v. utilises the minimum cost maximum matching method to find the best possible ranked list based on a set $L$ of ranked lists. 
 
 \begin{equation}\label{eq:spearmanfootrule}
-W(c,p) = \displaystyle\sum_{i=1}^{k} |r_i(c)/|r_i| - p/n|
+W(c,p) = \displaystyle\sum_{i=1}^{k} |r_i(c)/|r_i| - p/k|
 \end{equation}
 
-In order to take into account items not appearing on some list, as we work with partial lists, we make use of Equation \ref{eq:spearmanfootruleempty} in order to weight infrequent items higher.
+As we work with partial lists we will encounter lists with missing items. For this reason we have added a second case, in addition to the approach described by Dwark et al, which can be seen in Equation \ref{eq:spearmanfootruleempty}. In this case we adapt the Spearman's footrule distance variable $\ell$ which is used on partial lists. $\ell$ needs to be larger than $k$ and in our case it is $k + 1$. The reason for this is to punish infrequent items by giving them a higher weight.
 
 \begin{equation}\label{eq:spearmanfootruleempty}
-W(c,p) = \displaystyle\sum_{i=1}^{k} |(|r_i| + 1)/|r_i| - p/n|
+W(c,p) = \displaystyle\sum_{i=1}^{k} |(\ell/|r_i| - p/k|
 \end{equation}
 
-After determining the weights of the edges, the problem can be solved as a minimum cost maximum matching problem. In this case it is solved in the form of the Hungarian algorithm\note{section with the Hungarian algorithm?}. This method returns a list of length $|P|$ with the lowest edge weight possible. Then we return the top-k of the list as groups recommendation.
+After determining the edge weights, the problem can be solved as a minimum cost maximum matching problem, which is the problem of finding the highest number of node matches with the lowest edge cost. To do this, we decided to use the Hungarian method\note{Or an extension called Munkres (sæt en cite)}. The result of this method is the top-k list to be recommended.

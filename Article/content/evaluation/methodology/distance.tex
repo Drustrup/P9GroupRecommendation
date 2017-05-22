@@ -1,39 +1,58 @@
 \subsubsection{Distance Measures}\label{sec:distance}
-\note{add sort description of what $\sigma$ and $\tau$ are.}
+Before going though the distance measures, we want to set up some general notation that they both use. As we work with comparing two top-k lists we denote them as $\tau_1$ and $\tau_2$. $\tau_1 (i)$ is the notation for the position of element $i$ in $\tau_i$. $Z = \tau_1 \cap \tau_2$, $z=|Z|$, $S$ is the items in $\tau_1$ but not $\tau_2$ and $T$ is vice versa, and of curse $k$ is the size of the lists. 
 \adparagraph{Kendall Tau Distance}
-\note{This is a rough draft}
-Kendall tau distance (KTD) is a measure of the difference between ranked lists\citep{rank:aggregation}. It counts the pairwise disagreement between two ranked lists as specified in the Equations \ref{eq:kendalldistance1}, \ref{eq:kendalldistance2} and \ref{eq:kendalldistancefinal}. The count is then normalized by dividing with $n(n-1)/2$ where $n$ is the total number of available positions, giving the maximum number of possible values. \note{check up on this}
-These two equations are used when working with full lists where every list contains every item. 
+Kendall tau distance(KTD) is a measure use the determine similarity between ranked lists. Having full lists it simply compare two lists pairwise 
+
+In order to adjust KTD to a partial list we used the $K_{Haus}$ algorithm purposed by Fagin et al\note{Right way to reference?} in the article \cite{comparing:topk}. This approach has four different cases. 
+
+The first case is when $i$ and $j$ appears in both $\tau_1$ and $\tau_2$. In this case ...
+
+The second case is when $i$ and $j$ appears in $\tau_1$ or $\tau_2$ but only $i$ or $j$ in the other.
+
+Third case is when $i$ appears in one list and $j$ in the other.
+
+Lastly, the fourth case is when both $i$ and $j$ appear in one list but not the other.
+
+
+%Kendall tau distance (KTD) is a measure of the difference between ranked lists\cite{rank:aggregation}. It counts the pairwise disagreement between two ranked lists as specified in the Equations \ref{eq:kendalldistance1}, \ref{eq:kendalldistance2} and \ref{eq:kendalldistancefinal}. The count is then normalized by dividing with $n(n-1)/2$ where $n$ is the total number of available positions, giving the maximum number of possible values. \note{check up on this}
+%These two equations are used when working with full lists where every list contains every item. 
 
 \begin{equation}\label{eq:kendalldistance1}
-K_1(\sigma,\tau) = | \{(i,j) | i < j, \sigma (i) < \sigma (j) \land \tau (i) > \tau (j)|
+K_1(\tau_1,\tau_2) = | \{(i,j) | i < j, \tau_1 (i) < \tau_1 (j) \land \tau_2 (i) > \tau_2 (j)|
 \end{equation}
 \begin{equation}\label{eq:kendalldistance2}
-K_2(\sigma,\tau) = | \{(i,j) | i < j, \sigma (i) > \sigma (j) \land \tau (i) < \tau (j) \} |
+K_2(\tau_1,\tau_2) = | \{(i,j) | i < j, \tau_1 (i) > \tau_1 (j) \land \tau_2 (i) < \tau_2 (j) \} |
 \end{equation}
 \begin{equation}\label{eq:kendalldistancefinal}
-K(\sigma,\tau) = K_1(\sigma,\tau) + K_2(\sigma,\tau)
+K(\tau_1,\tau_2) = K_1(\tau_1,\tau_2) + K_2(\tau_1,\tau_2)
 \end{equation}
 
-The above measure is for full lists but as we work on top-k lists we have found a modification of the standard KTD\cite{comparing:topk}. 
+%The above measure is for full lists but as we work on top-k lists we have found a modification of the standard KTD\cite{comparing:topk}. 
 
- which we do by adding a third case in which it needs to count a disagreement. If a item occurs on one list but not the other it is assigned the value of the total number of items plus 1. We then add Equation \ref{eq:kendalldistance3} to KTD in case we encounter equal items on one list which is undesirable.
+% which we do by adding a third case in which it needs to count a disagreement. If a item occurs on one list but not the other it is assigned the value of the total number of items plus 1. We then add Equation \ref{eq:kendalldistance3} to KTD in case we encounter equal items on one list which is undesirable.
 
 \begin{equation}\label{eq:kendalldistance3}
-K(\sigma,\tau) = | \{(i,j) | i < j, \sigma (i) = \sigma (j) \lor \tau (i) = \tau (j) \} |
+K(\tau_1,\tau_2) = | \{(i,j) | i < j, \tau_1 (i) = \tau_1 (j) \lor \tau_2 (i) = \tau_2 (j) \} |
 \end{equation}
 
 To find the distance from a recommended list to a groups preferences each list of user preferences are compared to the result list and the average distance is the result. 
 
 
-
 \adparagraph{Spearman's Footrule Distance}
-The Spearman's footrule distance (SFD) subtracts item indexes from each other in order to determine the distance between them as can be seen in \ref{eq:sfd}. 
-
-As we work with partial lists some items will be missing on the lists. In order to handle this we insert $\ell$ which is equal to $(3 * k - z + 1)/2$ placing the item \note{find reason}.  
+Another distance measure we are going to use is Sperman's footrule distance(STD). SFD finds the exact distance between an item in to different lists. The way it finds this item distance is by subtracting the item indexes from each as can be seen in \ref{eq:sfd}. 
 
 \begin{equation}\label{eq:sfd}
-F(\sigma, \tau) = \sum_{i=1}^{k} | \sigma (i) - \tau (i) |
+F(\tau_1, \tau_2) = \sum_{i=1}^{k} | \tau_1 (i) - \tau_2 (i) |
 \end{equation}
 
-The distance given by this measure is normalized to be between 1 and 0. 
+Again, as we work with partial lists we use an alternate version called $F_{Haus}$, see Equation \ref{eq:fhaus}, which is also purposed by Fagin et al\citep{comparing:topk}.
+As the lists $\tau_1$ and $\tau_2$ may contain different items they naturally is going to miss some items. The missing items is replaced by the variable $\ell$ which needs to be larger than $k$. Based on the article by Fargin et al we set $\ell$ to be equal to $(3 * k - z + 1)/2$.
+
+\footnotesize
+\begin{equation}\label{eq:fhaus}
+F_{Haus}(\tau_1,\tau_2)= (k-z)(3k-z+1)+\sum_{i\in Z} | \tau_1 (i) - \tau_2 (i) | - \sum_{i\in S} \tau_1 (i) - \sum_{i\in Z} \tau_2(i)
+\end{equation}
+\normalsize
+% some items will be missing on the lists. In order to handle this we insert $\ell$ which is equal to $(3 * k - z + 1)/2$ placing the item \note{find reason}.  
+
+In order to normalize we divide the result of Equation \ref{eq:fhaus} by $n^2 /2$ which is the maximum value of the algorithm. Doing so we will get a value of 0 if $\tau_1$ and $\tau_2$ are in the same order or 1 if the lists are reverse of each other or if they are completely disjoint. 
