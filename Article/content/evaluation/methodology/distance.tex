@@ -1,24 +1,11 @@
 \subsubsection{Distance Measures}\label{sec:distance}
-Before going though the distance measures, we want to set up some general notation that they both use. As we work with comparing two top-k lists we denote them as $\tau_1$ and $\tau_2$. $\tau_1 (i)$ is the notation for the position of element $i$ in $\tau_i$. $Z = \tau_1 \cap \tau_2$, $z=|Z|$, $S$ is the items in $\tau_1$ but not $\tau_2$ and $T$ is vice versa, and of curse $k$ is the size of the lists. 
+Before going though the distance measures, we want to set up some general notation that both methods use. As we work with comparing two top-k lists, which is partial lists, we denote them as $\tau_1$ and $\tau_2$. $\tau_1 (i)$ is the notation for the position of element $i$ in $\tau_i$. $Z = \tau_1 \cap \tau_2$, $z=|Z|$, $S$ is the items in $\tau_1$ but not $\tau_2$ and $T$ is vice versa, and of curse $k$ is the length of the top-k lists. 
+
 \adparagraph{Kendall Tau Distance}
-Kendall tau distance(KTD) is a measure use the determine similarity between ranked lists. Having full lists it simply compare two lists pairwise 
-
-In order to adjust KTD to a partial list we used the $K_{Haus}$ algorithm purposed by Fagin et al\note{Right way to reference?} in the article \cite{comparing:topk}. This approach has four different cases. 
-
-The first case is when $i$ and $j$ appears in both $\tau_1$ and $\tau_2$. In this case ...
-
-The second case is when $i$ and $j$ appears in $\tau_1$ or $\tau_2$ but only $i$ or $j$ in the other.
-
-Third case is when $i$ appears in one list and $j$ in the other.
-
-Lastly, the fourth case is when both $i$ and $j$ appear in one list but not the other.
-
-
-%Kendall tau distance (KTD) is a measure of the difference between ranked lists\cite{rank:aggregation}. It counts the pairwise disagreement between two ranked lists as specified in the Equations \ref{eq:kendalldistance1}, \ref{eq:kendalldistance2} and \ref{eq:kendalldistancefinal}. The count is then normalized by dividing with $n(n-1)/2$ where $n$ is the total number of available positions, giving the maximum number of possible values. \note{check up on this}
-%These two equations are used when working with full lists where every list contains every item. 
+The idea of Kendall tau distance(KTD) is to compare two ranked lists based on the order in which the items appear. This basically means that it makes pairwise comparisons of item indexes $\{i,j\}$ where $i < j$, so if $i$ is before $j$ in $\tau_1$ then this should also be the case in $\tau_2$ in order to get a good score. The score is based on a count of how many times $i$ and $j$ are in reverse order. The equation for KTD for complete lists can be seen in Equation \ref{eq:kendalldistancefinal} where $K_1$ and $K_2$ can be seen in Equation \ref{eq:kendalldistance1} and \ref{eq:kendalldistance2} respectively.
 
 \begin{equation}\label{eq:kendalldistance1}
-K_1(\tau_1,\tau_2) = | \{(i,j) | i < j, \tau_1 (i) < \tau_1 (j) \land \tau_2 (i) > \tau_2 (j)|
+K_1(\tau_1,\tau_2) = | \{(i,j) | i < j, \tau_1 (i) < \tau_1 (j) \land \tau_2 (i) > \tau_2 (j)\}|
 \end{equation}
 \begin{equation}\label{eq:kendalldistance2}
 K_2(\tau_1,\tau_2) = | \{(i,j) | i < j, \tau_1 (i) > \tau_1 (j) \land \tau_2 (i) < \tau_2 (j) \} |
@@ -27,16 +14,39 @@ K_2(\tau_1,\tau_2) = | \{(i,j) | i < j, \tau_1 (i) > \tau_1 (j) \land \tau_2 (i)
 K(\tau_1,\tau_2) = K_1(\tau_1,\tau_2) + K_2(\tau_1,\tau_2)
 \end{equation}
 
-%The above measure is for full lists but as we work on top-k lists we have found a modification of the standard KTD\cite{comparing:topk}. 
+In order to adjust KTD to work for partial lists we used the $K_{Haus}$ algorithm porposed by Fagin et al\cite{comparing:topk}. This approach has four different cases. \note{itemize is just a test}
+\begin{itemize}
+\item The first case is when both $i$ and $j$ appears in $\tau_1$ and $\tau_2$. In this case the method utilises Equation \ref{eq:kendalldistancefinal} but only on the items in the set $Z$.
 
-% which we do by adding a third case in which it needs to count a disagreement. If a item occurs on one list but not the other it is assigned the value of the total number of items plus 1. We then add Equation \ref{eq:kendalldistance3} to KTD in case we encounter equal items on one list which is undesirable.
+\item The second case is when $i$ and $j$ appears in $\tau_1$ or $\tau_2$ but only $i$ or $j$ in the other. To find the cases this apply the formula $(k-z)(k+z+1)- \sum_{i \in S} \tau_1(i)- \sum_{i \in T} \tau_2(i)$. What this does is it finds the maximum number of items and subtracting the positions from the list containing the disjoint items.
 
-\begin{equation}\label{eq:kendalldistance3}
-K(\tau_1,\tau_2) = | \{(i,j) | i < j, \tau_1 (i) = \tau_1 (j) \lor \tau_2 (i) = \tau_2 (j) \} |
+
+\item Third case is when $i$ appears in one list and $j$ in the other. The cases in which this is found is simply by $(k-z)^2$. That this means is that we find the amount of items the lists differ and takes the power of it.  
+
+\item Case fourth is when both $i$ and $j$ appear in one list but not the other. In this case Equation \ref{eq:case4} is used. $p$ in this case is a penalty value between 0 and 1. As the method we use is an average approach this value is naturally 0.5. $p$ is multiplied with the binomial coefficient of the length of different items in the top-k lists.
+
+\end{itemize}
+\begin{equation}\label{eq:case4}
+2p\left(\!
+    \begin{array}{c}
+      k-z \\
+      2
+    \end{array}
+  \!\right)
 \end{equation}
 
-To find the distance from a recommended list to a groups preferences each list of user preferences are compared to the result list and the average distance is the result. 
 
+Combining these cases into one method, we get the $K_{Haus}$ algorithm which can be seen in Equation \ref{eq:khaus}. 
+\footnotesize
+\begin{equation}\label{eq:khaus}
+K_{Haus}(\tau_1,\tau_2) = \frac{1}{2}(k-z)(5k-z+1)+ \sum_{i,j \in Z} K_{i,j}(\tau_1,\tau_2) + \sum_{i \in S}\tau_1(i) - \sum_{i \in S}\tau_1(i)
+\end{equation}
+\normalsize
+
+The result of the $K_{Haus}$, which is normalized by dividing it by $n(n-n)/2$, is an average approximation of the distance between the lists. It is an approximation because in case four, the method assumes that there is an equally large chance of the items being in the correct order. Due to this, this method returns 0.78 if the lists are completely disjoint. If the lists are reverse of each other it scores 1 and 0 if the lists are equal. For a more detail explanation of $K_{Haus}$ go to Fagin et al\cite{comparing:topk} article.
+
+ 
+\note{Mention somewhere that the results are averages of all group members and all groups}
 
 \adparagraph{Spearman's Footrule Distance}
 Another distance measure we are going to use is Sperman's footrule distance(STD). SFD finds the exact distance between an item in to different lists. The way it finds this item distance is by subtracting the item indexes from each as can be seen in \ref{eq:sfd}. 
