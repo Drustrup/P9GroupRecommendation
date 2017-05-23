@@ -9,6 +9,11 @@ Among the remainder, while \MC does outperform both BC and SF, the difference is
 \begin{figure}[H]
 	\begin{tikzpicture}
 	\begin{axis}[
+	y tick label style={
+        /pgf/number format/.cd,
+            precision=3,
+        /tikz/.cd
+    },
 	xlabel=Group Size,
 	ylabel=Rating nDCG,
 	xtick = {4,8,12,16,20,40}]
@@ -54,12 +59,11 @@ Among the remainder, while \MC does outperform both BC and SF, the difference is
 	
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Results for adjusted nDCG test}\label{fig:andcg}
+	\caption{Results for Rating nDCG test}\label{fig:andcg}
 \end{figure}
 
 \begin{table}[H]
 	\centering
-	\label{tbl:andcg}
 	\begin{tabular}{|l|lllll|}\hline
 		& 4 to 8 & 8 to 12 & 12 to 16 & 16 to 20 & 20 to 40 \\\hline
 		BC 	& 0.084	& 0.063	& 0.42	& 0		& 0.032 \\
@@ -67,5 +71,6 @@ Among the remainder, while \MC does outperform both BC and SF, the difference is
 		SF  & 0.094	& 0.042	& 0.042	&-0.011	& 0.011 \\
 		Avg	& 0.61	& 0.22 	& 0.11	& 0.063	& 0.11  \\ \hline
 	\end{tabular}
-	\caption{Percentage decrease between the groups for adjusted nDCG}
+	\caption{Percentage decrease between the groups for Rating nDCG}
+	\label{tbl:andcg}
 \end{table}

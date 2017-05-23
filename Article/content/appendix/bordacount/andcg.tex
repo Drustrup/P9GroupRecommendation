@@ -1,8 +1,15 @@
-\adparagraph{Ranting nDCG}
+\adparagraph{Rating nDCG}
 
 \begin{figure}[H]
 \begin{tikzpicture}
 \begin{axis}[
+	y tick label style={
+        /pgf/number format/.cd,
+            fixed,
+            fixed zerofill,
+            precision=1,
+        /tikz/.cd
+    },
 	xlabel=Group Size,
 	ylabel=nDCG,
 	xtick = {4,8,12,16,20,40}]
