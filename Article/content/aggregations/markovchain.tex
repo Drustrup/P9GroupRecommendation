@@ -1,16 +1,17 @@
 \subsection{Markov Chain}\label{sec:markovchain}
-The proposed Markov Chain method by Dwork et Al, \MC is a generalization of the Copeland Method, where a winner is the candidate which wins the most pairwise contests.
+The proposed Markov Chain method by Dwork et Al, \MC is a generalization of the Copeland Method\note{find cite for this}, where a winner is the candidate which wins the most pairwise contests\citep{rank:aggregation}.
 
 The concept behind building the list of recommendations works by explicitly finding the transition matrix. For \MC, the states are connected to other states that wins per the Copeland method. Then we can iterate through the set, and note who performs best to make the transition matrix. Using the power set on the transition matrix we can find the stationary probability distribution to aggregate the candidates.
 
-For \MC the state space corresponds to a set of all the items ranked . The corresponding transition matrix for \MC will have an equal chance of transitioning to any other state that can beat it in a majority of pairwise contests.
+The \MC state space corresponds to a set of all the items ranked. The corresponding transition matrix for \MC will have an equal chance of transitioning to any other state that can beat it in a majority of pairwise contests.
 
-Given partial lists $\tau_1,...,\tau_k$, collectively known as $\tau$, with rankings of items, and the state space, $S$, of \MC corresponding to the set of all items ranked in those partial lists. If the current state is item $i$ then we can transition to uniformly picked state $j$ if item $j$ picked uniformly from $S$ is ranked higher than item $i$ on a majority of partial lists on in $\tau$ which ranked both $i$ and $j$. Otherwise, we stay in state $i$.
+Given partial lists $\tau_1,...,\tau_k$, collectively known as $\tau$, with rankings of items, and the state space, $S$, of \MC corresponding to the set of all items ranked in those partial lists. If the current state is item $i$ we can transition to uniformly picked state $j \in S$ where $j$ is ranked higher than item $i$ on a majority of lists in $\tau$ which ranked both $i$ and $j$. Otherwise, we stay in state $i$.
 
 %Non-strict markov chain
 \MC as presented by Dwork et al is used on metasearch and aggregating query results, whereas we work in the recommendation domain. To better suit our domain, we make a small adjustment to the method. For search engine comparison, partial lists might not contain both items needed for a pairwise comparison, so in the event of only one item being on the list, it is unknown if the other search engines have ranked the item or not, so Dwork et al restrict themselves to the pairwise comparisons available, and rely on the connectivity in the chain to correct any outcomes.
 
 For our domain we have estimated the rankings giving us a top-k of a full list. So we follow this line of thinking for partial lists containing neither of the items, as the highest rank is not available. However, if the partial list contains one of the items, it wins that pairwise contest, as the losing item is known to be somewhere down the list.
+
 
 %Strict markov chain
 %For completeness, we also tested a stricter interpretation of \MC where only the majority winners with both items present were considered.
