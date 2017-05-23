@@ -1,9 +1,11 @@
-\adparagraph{Adjusted nDCG}
-In Figure \ref{fig:andcg} we see the scores of the adjusted nDCG measure. All methods generally have high levels of satisfaction according to the measure, with none scoring below 95 percent satisfaction.
+\adparagraph{Rating nDCG}
+In Figure \ref{fig:andcg} we see the scores of the Rating nDCG measure. All methods generally have high levels of satisfaction according to the measure, with none scoring below 95 percent satisfaction.
 
 Avg is ahead, but it is also the only method using the average rating of all the candidate items for its recommendation.
 
-BC, MC, and SF see a slight increase in score from 16 to 20, which is a curious result.
+As can be seen in Table \ref{tbl:andcg}, BC, \MC, and SF do not decrease in score from 16 to 20, which is a curious result. SF even gains a little. In general, the fall in nDCG score is extremely low compared to the other measures. This is due to most, if not all of the candidate items being highly rated and this could indicates than even a random selection of movies could score highly on the Rating nDCG measure.
+
+Among the remainder, while \MC does outperform both BC and SF, the difference is small.
 \begin{figure}[H]
 	\begin{tikzpicture}
 	\begin{axis}[
@@ -54,3 +56,16 @@ BC, MC, and SF see a slight increase in score from 16 to 20, which is a curious 
 	\end{tikzpicture}
 	\caption{Results for adjusted nDCG test}\label{fig:andcg}
 \end{figure}
+
+\begin{table}[H]
+	\centering
+	\label{tbl:andcg}
+	\begin{tabular}{|l|lllll|}\hline
+		& 4 to 8 & 8 to 12 & 12 to 16 & 16 to 20 & 20 to 40 \\\hline
+		BC 	& 0.084	& 0.063	& 0.42	& 0		& 0.032 \\
+		MC  & 0.27	& 0.73	& 0.42	& 0		& 0.042 \\
+		SF  & 0.094	& 0.042	& 0.042	&-0.011	& 0.011 \\
+		Avg	& 0.61	& 0.22 	& 0.11	& 0.063	& 0.11  \\ \hline
+	\end{tabular}
+	\caption{Percentage decrease between the groups for adjusted nDCG}
+\end{table}

@@ -1,10 +1,10 @@
 \adparagraph{nDCG}
-Figure \ref{fig:ndcg} shows the nDCG score for BC, MC, SF, and Avg. For nDCG a higher score is better as covered in Section \ref{sec:methodology_ndcg}.
+Figure \ref{fig:ndcg} shows the nDCG score for BC, \MC, SF, and Avg. For nDCG a higher score is better as covered in Section \ref{sec:methodology_ndcg}.
 All methods see a sharp drop off in the quality of their recommendations as the group sizes increase.
-BC drops the most in the jump from 4 to 8 group members, however it also have the best results, and outperforms all other methods across all group sizes.
-MC is second best by only a few percentage points and follows the same trend and quickly plateaus in score.
-One outlying case SF starts out close to Avg for a group size of four, but retains a higher score and is closer to BC and MC as the size increases.
-Avg is the worst performing.
+As shown in Table \ref{tbl:ndcg}, BC drops the most in the jump from 4 to 8 group members, however it also have the best results, and outperforms all other methods across all group sizes.
+\MC is second best by only a few percentage points and follows the same trend and quickly plateaus in score.
+One outlying case SF starts out close to Avg for a group size of four, but retains a higher score and is closer to BC and \MC as the size increases.
+Avg is the worst performing overall.
 
 \begin{figure}[H]
 	\begin{tikzpicture}
@@ -56,3 +56,16 @@ Avg is the worst performing.
 	\end{tikzpicture}
 	\caption{Results for nDCG test}\label{fig:ndcg}
 \end{figure}
+
+\begin{table}[H]
+	\centering
+	\label{tbl:ndcg}
+	\begin{tabular}{|l|lllll|}\hline
+		& 4 to 8 & 8 to 12 & 12 to 16 & 16 to 20 & 20 to 40 \\\hline
+		BC 	& 12.66	& 5.19	& 2.6	& 1.28	& 2.88 \\
+		MC  & 11.86	& 4.86	& 2.36	& 1.15	& 2.55 \\
+		SF  & 10.51	& 4.20	& 2.00	& 1.13	& 2.05 \\
+		Avg	& 11.81	& 3.50 	& 1.92	& 0.56	& 1.72 \\ \hline
+	\end{tabular}
+	\caption{Percentage decrease between the groups for nDCG}
+\end{table}
