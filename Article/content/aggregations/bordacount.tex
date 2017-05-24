@@ -1,2 +1,9 @@
 \subsection{Borda Count}\label{sec:bordacount}
-\cite{ourreport}
+Borda Count(BC) was originally used as a voting system but has over the years been used in different domains because of its ability to aggregate lists.\note{cite}
+
+The way BC works as a voting system is by the voters ranking the $k$ candidates by assigning votes 1 to $k$ giving $k$ points to their favourite candidate $k-1$ to their second favourite down to 1 point the their least.
+
+In our case we feed the BC method with a array of ranked top-k lists, the items in the lists are assigned points by giving item one $k$ points and item $k$ 1 point\cite{ourreport}. The points of the all the items are summed together and the items are sorted in descending order. If ties should occur the order of the items are selected arbitrary. Naturally, an item not no at users' top-k scores zero points from that user.
+\note{Equation can be added, but it would only be a summation}
+
+
