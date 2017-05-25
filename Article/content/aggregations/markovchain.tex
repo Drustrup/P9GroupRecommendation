@@ -12,6 +12,7 @@ Given partial lists $\tau_1,...,\tau_k$, collectively known as $\tau$, with rank
 
 For our domain we have estimated the rankings giving us a top-k of a full list. So we follow this line of thinking for partial lists containing neither of the items, as the highest rank is not available. However, if the partial list contains one of the items, it wins that pairwise contest, as the losing item is known to be somewhere down the list.
 
+%$p_{ij} = Pr(X_{n+1} = \sum_{l=1}^{k} \tau_l(i) < \tau_l(j) | X_n = \sum_{l=1}^{k} \tau_l(i) > \tau_l(j) )$
 
 %Strict markov chain
 %For completeness, we also tested a stricter interpretation of \MC where only the majority winners with both items present were considered.
