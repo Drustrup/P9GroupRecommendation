@@ -74,15 +74,15 @@ For \MC and BC we get some interesting results. They still follow each other rea
 	\label{tbl:sfd}
 \end{table}
 
-Table \ref{tbl:sfd_ttest} shows the t-tests for SFD. While the results put the means of BC and MC almost on top of each other, the tests show no indication that they are not statistically different. This could indicate that while the methods more often come to different conclusions for the same groups, the overall mean for this measure evens out to about the same.\note{does this make sense for you, Lasse?}
+Table \ref{tbl:sfd_ttest} shows the t-tests for SFD. BC and MC have two cases where the results are not distinct enough to be statistically different.
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|l|llllll|}\hline
 		& 4 & 8 & 12 & 16 & 20 & 40 \\\hline
-		BC/MC	& $6e^{-52}$	& 0	& 0	& 0	& 0 & 0 \\
-		BC/SF	& $3e^{-38}$	& 0	& 0	& 0	& 0 & 0 \\
-		BC/Avg	& $1e^{-112}$	& 0	& 0	& 0	& 0 & 0 \\
+		BC/MC	& $5e^{-86}$	& 0.027	& \textbf{0.875}	& \textbf{0.222}	& 0.0145 & 0.001 \\
+		BC/SF	& $4e^{-265}$	& $3e^{-288}$	& $7e^{-295}$	& $2e^{-274}$	& $3e^{-277}$ & $2e^{-275}$ \\
+		BC/Avg	& $7e^{-176}$	& $2e^{-254}$	& $5e^{-249}$	& $4e^{-253}$	& $5e^{-269}$ & $5e^{-297}$ \\
 		MC/SF	& $7e^{-42}$	& $2e^{-243}$ 	& $1e^{-250}$	& $6e^{-258}$	& $2e^{-246}$ & $1e^{-242}$ \\
 		MC/Avg	& $2e^{-217}$	& $2e^{-250}$ 	& $2e^{-248}$	& $2e^{-249}$	& $1e^{-265}$ & $1e^{-305}$ \\
 		SF/Avg	& $2e^{-288}$	& 0	& 0	& 0	& 0 & 0 \\ \hline
