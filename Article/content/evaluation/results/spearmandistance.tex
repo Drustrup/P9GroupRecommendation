@@ -73,3 +73,20 @@ For \MC and BC we get some interesting results. They still follow each other rea
 	\caption{Percentage increase between the groups for SFD}
 	\label{tbl:sfd}
 \end{table}
+
+Table \ref{tbl:sfd_ttest} shows the t-tests for SFD. While the results put the means of BC and MC almost on top of each other, the tests show no indication that they are not statistically different. This could indicate that while the methods more often come to different conclusions for the same groups, the overall mean for this measure evens out to about the same.\note{does this make sense for you, Lasse?}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|llllll|}\hline
+		& 4 & 8 & 12 & 16 & 20 & 40 \\\hline
+		BC/MC	& $6e^{-52}$	& 0	& 0	& 0	& 0 & 0 \\
+		BC/SF	& $3e^{-38}$	& 0	& 0	& 0	& 0 & 0 \\
+		BC/Avg	& $1e^{-112}$	& 0	& 0	& 0	& 0 & 0 \\
+		MC/SF	& $7e^{-42}$	& $2e^{-243}$ 	& $1e^{-250}$	& $6e^{-258}$	& $2e^{-246}$ & $1e^{-242}$ \\
+		MC/Avg	& $2e^{-217}$	& $2e^{-250}$ 	& $2e^{-248}$	& $2e^{-249}$	& $1e^{-265}$ & $1e^{-305}$ \\
+		SF/Avg	& $2e^{-288}$	& 0	& 0	& 0	& 0 & 0 \\ \hline
+	\end{tabular}
+	\caption{P-values for SFD T-test}
+	\label{tbl:sfd_ttest}
+\end{table}

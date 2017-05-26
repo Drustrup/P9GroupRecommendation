@@ -69,3 +69,22 @@ Avg is the worst performing overall.
 	\caption{Percentage decrease between the groups for nDCG}
 	\label{tbl:ndcg}
 \end{table}
+
+The p-values for the t-test for nDCG is shown in Table \ref{tbl:ndcg_ttest}. We made paired t-tests for all methods, where the p-value is a number between 0 and 1 for the percentage chance that the difference between two sets of results is coincidental. At $0.05$ or higher, it's considered that there is no statistically significant difference. Our paired t-tests show that all results for the nDCG measure are statistically different from each other.
+
+Any zeros in the table are considered to be so small that it was rounded down and is of some small non-zero value.\note{Find lower bound for matlab?}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|llllll|}\hline
+		& 4 & 8 & 12 & 16 & 20 & 40 \\\hline
+		BC/MC	& $3e^{-270}$	& $3e^{-234}$	& $2e^{-220}$	& $4e^{-218}$	& $1e^{-213}$ & $3e^{-205}$ \\
+		BC/SF	& $0$	& $2e^{-296}$	& $7e^{-272}$	& $4e^{-249}$	& $1e^{-237}$ & $1e^{-227}$ \\
+		BC/Avg	& $2e^{-310}$	& 0 & 0	& 0	& 0 & 0 \\
+		MC/SF	& $2e^{-203}$	& $2e^{-166}$ 	& $3e^{-142}$	& $2e^{-129}$	& $1e^{-130}$ & $2e^{-133}$ \\
+		MC/Avg	& $5e^{-228}$	& $5e^{-273}$ 	& $3e^{-278}$	& $5e^{-289}$	& $1e^{-309}$ & 0 \\
+		SF/Avg	& $2e^{-72}$	& $2e^{-138}$ 	& $2e^{-147}$	& $6e^{-165}$	& $9e^{-166}$ & $5e^{-211}$ \\ \hline
+	\end{tabular}
+	\caption{P-values for the nDCG T-test}
+	\label{tbl:ndcg_ttest}
+\end{table}

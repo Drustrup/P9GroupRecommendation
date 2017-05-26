@@ -74,3 +74,20 @@ Among the remainder, while \MC does outperform both BC and SF, the difference is
 	\caption{Percentage decrease between the groups for Rating nDCG}
 	\label{tbl:andcg}
 \end{table}
+
+Table \ref{tbl:andcg_ttest} shows the t-test results for Rating nDCG. For BC and SF, there are two cases, which has been marked in bold, where the difference is not significant enough to not possibly owing to randomness. It can also be seen that the p-values for all but Avg are many orders of magnitudes smaller than seen for other measures, owing to the similarity in the results.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|llllll|}\hline
+		& 4 & 8 & 12 & 16 & 20 & 40 \\\hline
+		BC/MC	& $5e^{-64}$	& $5e^{-38}$	& $2e^{-37}$	& $3e^{-58}$	& $3e^{-60}$ & $5e^{-70}$ \\
+		BC/SF	& \textbf{0.058}	& $1e^{-5}$	& $1e^{-5}$	& $2e^{-4}$	& $5e^{-5}$ & \textbf{0.089} \\
+		BC/Avg	& $1e^{-251}$	& $2e^{-275}$ 	& $5e^{-299}$	& 0	& 0 & 0 \\
+		MC/SF	& $1e^{-49}$	& $3e^{-52}$ 	& $2e^{-55}$	& $7e^{-62}$	& $6e^{-66}$ & $8e^{-68}$ \\
+		MC/Avg	& $9e^{-221}$	& $7e^{-247}$ 	& $1e^{-266}$	& $3e^{-296}$	& $2e^{-308}$ & 0 \\
+		SF/Avg	& $5e^{-212}$	& $1e^{-262}$ 	& $6e^{-280}$	& $3e^{-287}$	& $4e^{-305}$ & 0 \\ \hline
+	\end{tabular}
+	\caption{P-values for Rating nDCG T-test}
+	\label{tbl:andcg_ttest}
+\end{table}

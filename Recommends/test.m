@@ -1,7 +1,7 @@
 clear all;
 tic;
 
-groups = importdata('groups/groupSize40.txt');
+groups = importdata('groups/groupSize4.txt');
 ratings = importdata('matrix/matrixmml_svd++_3-4-17.txt');
 
 [row,col] = size(groups);
@@ -27,6 +27,8 @@ for i=1:row
 end
 nDCG = sum(meanList)/row; % 1 is good 0 bad 
 nDCGRatings = sum(meanListRatings)/row;
+kendlist = kendall;
+spearlist = spear;
 kendall = sum(kendall)/row; % 1 is bad 0 good
 spear = sum(spear)/row;     % 1 is bad 0 good
 

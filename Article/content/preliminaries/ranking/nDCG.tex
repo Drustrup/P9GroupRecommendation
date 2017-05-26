@@ -18,8 +18,8 @@ As per Equation \ref{eq:methodology_dcg}, a DCG value is calculated for a set of
 \adparagraph{Rating nDCG}
 In an effort to more accurately portray the quality of the ranking, we present the Rating nDCG measure.
 
-The difference is that the relevance score of items are not provided by its ranking, but directly from the predicted ratings for that item.
+The difference is that the relevance score of items are not represented by their ranking, but directly from the predicted ratings for that item.
 
-As there is often not much overlap between individual users' recommendations, it can better reflect the quality of a recommendation for that user, as a recommendation is not punished as harshly by not including items on a user's individual recommendation. It also more closely reflects the user's rating of an item's relevance, as it is not decided by the ranking. Overall, this leads to much higher nDCG scores, as even total misses are no longer necessarily seen as such.
+As there is often not much overlap between individual users' recommendations, it can better reflect the quality of a recommendation for that user, as a recommendation is not punished as harshly by not including items on a user's individual top-k list. It also more closely reflects the user's rating of an item's relevance, as it is not decided by the ranking. Overall, this leads to much higher nDCG scores, as even total misses are no longer necessarily seen as such.
 
 Conversely, it can be argued Rating nDCG measure is inferior, as the aggregation methods, aside from Avg, only consider the ranked elements when making the aggregation, so the increased score is from the perspective of the aggregation methods entirely random.

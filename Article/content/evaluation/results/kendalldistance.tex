@@ -75,3 +75,20 @@ Lastly, performing best and somewhat equal we have BC and \MC. Worth noting is t
 	\caption{Percentage increase between the groups for KDT}
 	\label{tbl:kendall}
 \end{table}
+
+For the t-tests shown in Table \ref{tbl:ktd_ttest}, all results are shown to be statistically significant in their differences, except for one case between BC and MC. The remainder are different enough to be statistically significant, but the p-values are still considerably higher than usual between BC and MC for a sample of this size.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|llllll|}\hline
+		& 4 & 8 & 12 & 16 & 20 & 40 \\\hline
+		BC/MC	& $0.038$	& $0.031$	& $0.02$	& \textbf{0.071}	& $9e^{-5}$	& $0.002$ \\
+		BC/SF	& $2e^{-201}$	& $1e^{-231}$	& $1e^{-236}$	& $7e^{-226}$ & $5e^{-227}$ & $1e^{-198}$ \\
+		BC/Avg	& $3e^{-276}$	& $4e^{-296}$ 	& $3e^{-305}$	& $9e^{-303}$	& 0 & 0 \\
+		MC/SF	& $2e^{-230}$	& $8e^{-239}$ 	& $6e^{-239}$	& $7e^{-239}$	& $2e^{-226}$ & $4e^{-216}$ \\
+		MC/Avg	& $4e^{-259}$	& $2e^{-283}$ 	& $7e^{-298}$	& $7e^{-303}$ & $4e^{-321}$ & 0 \\
+		SF/Avg	& $1e^{-93}$	& $1e^{-143}$ 	& $5e^{-159}$	& $2e^{-177}$	& $3e^{-199}$ & $3e^{-261}$ \\ \hline
+	\end{tabular}
+	\caption{P-values for KTD T-test}
+	\label{tbl:ktd_ttest}
+\end{table}
