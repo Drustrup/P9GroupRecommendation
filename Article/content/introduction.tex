@@ -33,7 +33,13 @@ Having the group recommendations we are faced with the challenge of evaluating t
 \note{Lukas: Possible direction for the introduction?}
 
 \subsection{Composition of a Group Recommender}
-As we take the aspect of aggregating recommendations the group recommendation system will consist of two parts namely an individual recommender and an aggregation method. \note{need some extension and probably an illustration}
+As we are going to aggregate recommendations we implemented it as specified in Figure \ref{fig:composition}. Initially we use the dataset to make the individual recommendations and generate the random groups which uses the individual recommendations as a lookup. The next step is where we want to make a contribution and we are trying several different approaches which we evaluate on..
+%As we take the aspect of aggregating recommendations the group recommendation system will consist of two parts namely an individual recommender and an aggregation method. \note{need some extension and probably an illustration}
+\begin{figure}
+\centering
+\includegraphics[scale=.4]{graphics/composition}
+\caption{Model of the system}\label{fig:composition}
+\end{figure}
 
 \subsection{Thesis}\note{Placeholder title}
 How can we by supplying a rank aggregation method with an array ranked top-k lists $\tau_1, ... , \tau_u$, where $u$ is the number of group members, get a recommendation performing better than an average aggregation. \note{this should probably be more specific and technical}

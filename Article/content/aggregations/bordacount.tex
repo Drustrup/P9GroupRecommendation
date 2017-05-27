@@ -1,9 +1,14 @@
 \subsection{Borda Count}\label{sec:bordacount}
-Borda Count(BC) was originally used as a voting system but has over the years been used in different domains because of its ability to aggregate lists.\note{cite}
+Borda Count(BC) was originally used as a voting system but has over the years been used in different domains because of its ability to aggregate ranked lists.\note{cite}
 
 The way BC works as a voting system is by the voters ranking the $k$ candidates by assigning votes 1 to $k$ giving $k$ points to their favourite candidate $k-1$ to their second favourite down to 1 point the their least.
 
-In our case we feed the BC method with a array of ranked top-k lists, the items in the lists are assigned points by giving item one $k$ points and item $k$ 1 point\cite{ourreport}. The points of the all the items are summed together and the items are sorted in descending order. If ties should occur the order of the items are selected arbitrary. Naturally, an item not no at users' top-k scores zero points from that user.
-\note{Equation can be added, but it would only be a summation}
+In our case we feed the BC method with an array of ranked top-k lists, the items in the lists are assigned points by giving item one $k$ points down to one point for item $k$\cite{ourreport}.  Naturally, an item not on a users' top-k scores zero points from that user. The way the aggregations are made is by using Equation \ref{eq:bc}. $U$ is the set of users top-k lists in a group and $u$ is a users' list. $I$ is the set of items gotten by fining the union of all $u\in U$, so $I = \tau_1 \cup ... \cup \tau_u$ and $i$ is an item in $I$. What the equation does is that it for each $i\in I$ it sums up the points of that item from each of the users top-k lists.
 
+% The points of the all the items are summed together and the items are sorted in descending order. If ties should occur the order of the items are selected arbitrary. 
 
+\begin{equation}\label{eq:bc}
+bc(i) = \sum_{u\in U} \tau_u(i)
+\end{equation}
+
+The $k$ items getting most points is returned as the recommendation list.
