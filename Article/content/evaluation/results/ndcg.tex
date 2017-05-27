@@ -57,6 +57,8 @@ Avg is the worst performing overall.
 	\caption{Results for nDCG test}\label{fig:ndcg}
 \end{figure}
 
+Another trend is observable in Table \ref{tbl:ndcg}. The highest scoring method is also dropping the most in score, aside from Avg from group size 4 to 8. This effect is visible on all group sizes for all methods.
+
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|l|lllll|}\hline
@@ -70,9 +72,9 @@ Avg is the worst performing overall.
 	\label{tbl:ndcg}
 \end{table}
 
-The p-values for the t-test for nDCG is shown in Table \ref{tbl:ndcg_ttest}. We made paired t-tests for all methods, where the p-value is a number between 0 and 1 for the percentage chance that the difference between two sets of results is coincidental. At $0.05$ or higher, it's considered that there is no statistically significant difference. Our paired t-tests show that all results for the nDCG measure are statistically different from each other.
+The p-values for the t-test for nDCG is shown in Table \ref{tbl:ndcg_ttest}. Our paired t-tests show that all results for the nDCG measure are statistically different from each other.
 
-Any zeros in the table are considered to be so small that it was rounded down and is of some small non-zero value.\note{Find lower bound for matlab?}
+Any zeros in the table are considered to be so small that it was rounded down and is of some small non-zero value.
 
 \begin{table}[H]
 	\centering

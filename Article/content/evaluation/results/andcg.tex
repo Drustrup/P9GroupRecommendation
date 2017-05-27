@@ -2,10 +2,6 @@
 In Figure \ref{fig:andcg} we see the scores of the Rating nDCG measure. All methods generally have high levels of satisfaction according to the measure, with none scoring below 95 percent satisfaction.
 
 Avg is ahead, but it is also the only method using the average rating of all the candidate items for its recommendation.
-
-As can be seen in Table \ref{tbl:andcg}, BC, \MC, and SF do not decrease in score from 16 to 20, which is a curious result. SF even gains a little. In general, the fall in nDCG score is extremely low compared to the other measures. This is due to most, if not all of the candidate items being highly rated and this could indicates than even a random selection of movies could score highly on the Rating nDCG measure.
-
-Among the remainder, while \MC does outperform both BC and SF, the difference is small.
 \begin{figure}[H]
 	\begin{tikzpicture}
 	\begin{axis}[
@@ -61,6 +57,10 @@ Among the remainder, while \MC does outperform both BC and SF, the difference is
 	\end{tikzpicture}
 	\caption{Results for Rating nDCG test}\label{fig:andcg}
 \end{figure}
+
+As can be seen in Table \ref{tbl:andcg}, BC, \MC, and SF do not decrease in score from 16 to 20, which is a curious result. SF even gains a little. In general, the fall in nDCG score is extremely low compared to the other measures. This is due to most, if not all of the candidate items being highly rated and this could indicates than even a random selection of movies could score highly on the Rating nDCG measure.
+
+Among the remainder, while \MC does outperform both BC and SF, the difference is small.
 
 \begin{table}[H]
 	\centering

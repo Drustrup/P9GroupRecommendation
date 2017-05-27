@@ -1,14 +1,14 @@
 \subsection{Discussion} \label{sec:discussion}
 
-Across all the methods tested we saw a similar fall in nDCG scores and distance for the distance measures as group size increased.
+Across all the methods tested we saw a similar fall in nDCG scores and distance for the distance measures as group size increased, except for some methods in Rating nDCG.
 
-We also saw a trend of the nDCG score translating to an almost equivalent distance measure performance. Though SF performs well in SFD, but it falls behind on other measures, with the same to be said for Avg and its performance for Rating nDCG. This stresses the importance of testing a general purpose method from many angles.
+We also saw a trend of the nDCG score being a good indicator for how well the same  methods performed for the distance measure. Though SF performs well in SFD, but it falls behind on other measures, with the same to be said for Avg and its performance for Rating nDCG. This stresses the importance of testing a general purpose method from many angles.
 
 Across all the measurements, \MC is almost identical in performance to that of BC. As the underlying heuristic of the \MC method is the Copeland Method, it raises the possibility that other extensions of Markov Chain can achieve even greater results.
 
 However for \MC, other factors such as complexity and speed limits the utility of it compared to BC, as BC is both simple to implement and runs very fast.\note{find the concrete time complexity of the methods}
 
-Of all the measures, Avg has the worst results, yet is also not without merit. The results from Rating nDCG in isolation sees Avg perform the best. So if Rating nDCG is a better measurement because it does not consider the rankings, and instead looks directly at the ratings given by the users, then Avg is providing the better recommendations. Conversely, if other methods considered rating instead of ranking, they could likely increase their own Rating nDCG score to match Avg.
+Of all the measures, Avg has the worst results overall, depending on how Rating nDCG is viewed. The results from Rating nDCG in isolation sees Avg perform the best. So if Rating nDCG is a better measurement because it does not consider the rankings, and instead looks directly at the ratings given by the users, then Avg is providing the better recommendations. However, in such a scenario, the difference between Avg and its nearest competitor is so small that there is little practical value to gain.
 
 Overall, the best performing method for our tests is BC, as it consistently exceeds or matches the other methods.
 
