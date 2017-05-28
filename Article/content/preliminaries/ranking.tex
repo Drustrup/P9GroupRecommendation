@@ -1,8 +1,13 @@
 \subsection{Ranking}
-Ranking is the idea of the position of an item in a ranked list is important 
+Ranking is the idea of the position of an item in a ranked list is important. This means that if there is a list of ratings $\tau$ the list is ranked if $\tau (1) > \tau (2) > ... > \tau (k)$
 
-There a several methods to compare ranked lists
+When we talk about a top-k list in this paper we are referring to an ranked list of user preferences which is ordered by their item ratings in descending order.
 
+There are several reasons for the use of ranked lists. 
+The first reason is that we want to return a ranked list as a result of the aggregation because we want to ease the decision making without taking the decision. 
+Secondly, there are a good selection of measurements for the quality of a ranked list. Many of these measures takes two lists, $\tau_1$ and $\tau_2$, which are both ranked lists of the same size. 
+
+In our case one of the lists is a top-k list and the second list is the ranked list of recommendations.
 
 \subsubsection{Satisfaction Measures}
 \input{content/preliminaries/ranking/ndcg}
