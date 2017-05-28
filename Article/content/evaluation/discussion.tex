@@ -8,7 +8,7 @@ Across all the measurements, \MC is almost identical in performance to that of B
 
 However for \MC, other factors such as complexity and speed limits the utility of it compared to BC, as BC is both simple to implement and runs very fast.\note{find the concrete time complexity of the methods}
 
-Of all the measures, Avg has the worst results overall, depending on how Rating nDCG is viewed. The results from Rating nDCG in isolation sees Avg perform the best. So if Rating nDCG is a better measurement because it does not consider the rankings, and instead looks directly at the ratings given by the users, then Avg is providing the better recommendations. However, in such a scenario, the difference between Avg and its nearest competitor is so small that there is little practical value to gain.
+Of all the measures, Avg has the worst results overall, depending on how Rating nDCG is viewed. The results from Rating nDCG in isolation sees Avg perform the best. So if Rating nDCG is a better measurement because it does not consider the rankings, and instead looks directly at the ratings given by the users, then Avg is providing the better recommendations. However, in such a scenario, the difference between Avg and its nearest competitor is so small that there is little practical value to gain. Should it be the case that Rating nDCG is the best measure, we have a theory about rearranging the users top-k list and order them according to average. We will expand on this in future work in Section \ref{sec:futurework}.
 
 Overall, the best performing method for our tests is BC, as it consistently exceeds or matches the other methods.
 
