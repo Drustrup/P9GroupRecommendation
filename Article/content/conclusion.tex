@@ -1,17 +1,15 @@
 \section{Conclusion and Future Work}\label{sec:conclusion}
-Throughout this article we have strived to find the best performing method for aggregating individual ranked top-k lists into one top-k list suitable for a group of people.
+Throughout this paper we have strived to find the best performing method for aggregating individual top-k lists into one ranked list of size $k$, suitable for a group of people.
 
 %Overall BC performer best with MC as close second. 
-What we found out was that BC in the most cases proves to be the superior approach and the cases where it is outperformed the different is very small and nearly insignificant. Worth noting is that MC's performance is almost as good as BC and further work could be done in trying to improve on these methods. 
+What we found was that BC, in most cases, proves to be the superior approach and the cases where it is outperformed the different is nearly insignificant. Worth noting is that MC's performance is almost as good as BC and further work could be done in trying to improve on these methods. 
 
 %Interesting that BC performer better than MC and SF in group recommender when it is not the case in IR 
-It was actually somewhat surprising that BC was the best performing because in a paper aggregating ranked search engine results it showed that BC was the worst, compared to SF and MF, and MF was the best.
+It was actually surprising that BC was the best performing because in a paper aggregating ranked search engine results it showed that BC was the worst, compared to SF and MF, and MF was the best performing\citep{rank:aggregation}. 
 
 %What measures to use and in what cases to use them?
-Furthermore, we want to emphasize the importance of doing extensive testing as if we had limited our test we could easily have found that Avg or SF would have been the best methods. Specifically in the case with SF and SFD we can see how important to select an appropriate as well.\note{formulate this better}
+Furthermore, we want to emphasize the importance of doing extensive testing as if we had limited our test we could easily have found that Avg or SF would have been the best methods. Specifically in the case with SF and SFD we can see how important the selection of an appropriate measure is.
 
-That being said all the evaluation measures shows that as the groups gets bigger the decrease in the measures starts to fade out when the groups gets larger than 12 users. 
-	%Measures follow the same pattern
-	%Rating nDCG vs. nDCG	
-\note{rating nDCG vs. nDCG }
+That being said all the evaluation measures shows that as the groups gets larger the decrease in the measures starts to fade out. The biggest drop is between group size 4 and 8 and after that the decrease starts fading and in the most cases the decrease is less than $1\%$ between size 16 and 20. 
+
 \input{content/futurework/futurework}
