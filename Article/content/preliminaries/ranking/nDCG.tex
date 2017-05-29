@@ -3,24 +3,26 @@ For evaluating the quality of the ranking, we use Normalized Discounted Cumulati
 
 %Cumulative gain compares two lists for how relevant the items are. Discounted also considers the position of each item for the quality score, applying a weight on the relevance score that penalizes the score for being lower on a lower ranking. This summed score is normalized against the ideal DCG value, which is the individual user's ranked list, and can be seen in .
 
-The relevance value of an item is inversely related to its placement on the ranked list belonging to a user. The relevance value of a given item not on a user's list is 0.
-
-As per Equation \ref{eq:methodology_dcg}, a DCG value is calculated for a set of $p$ ranked items as the sum of items' relevance scores divided by the logarithm of its ranking $i + 1$ where $i \geq 1$. As per Equation \ref{eq:methodology_ndcg}, this value is normalized against an ideal recommendation for that user, which corresponds to a its top-k list.
-
 \begin{equation}\label{eq:methodology_dcg}
 \text{DCG}_p = \sum_{i=1}^{p}\frac{\textit{rel}_i}{\log_2(i + 1)}
 \end{equation}
 
+The relevance, $rel$, value of an item is inversely related to its placement on the ranked list belonging to a user. The relevance value of a given item not on a user's list is 0.
+
 \begin{equation}\label{eq:methodology_ndcg}
 \text{nDCG}_p = \frac{\text{DCG}_p}{\text{IDCG}_p}
 \end{equation}
-\note{make equation for rating ndcg showing which value we changes}
 
+As per Equation \ref{eq:methodology_dcg}, a DCG value is calculated for a set of $p$ ranked items as the sum of items' relevance scores divided by the logarithm of its ranking $i + 1$ where $i \geq 1$. As per Equation \ref{eq:methodology_ndcg}, this value is normalized against an ideal recommendation for that user, which corresponds to the relevance of its top-k list.
 
 \adparagraph{Rating nDCG}
 In an effort to more accurately portray the quality of the ranking, we present the Rating nDCG measure.
 
-The difference is that the relevance score of items are not represented by their ranking, but directly from the predicted ratings for that item.
+The difference is that the relevance score of items are not represented by their ranking, but directly from the predicted ratings for that item with the rating value, $rat$. This slightly changes the DCG calcuation for Rating nDCG into Equation \ref{eq:methodology_dcg_rating}.
+
+\begin{equation}\label{eq:methodology_dcg_rating}
+\text{DCG}_p = \sum_{i=1}^{p}\frac{\textit{rat}_i}{\log_2(i + 1)}
+\end{equation}
 
 As there is often not much overlap between individual users' recommendations, it can better reflect the quality of a recommendation for that user, as a recommendation is not punished as harshly by not including items on a user's individual top-k list. It also more closely reflects the user's rating of an item's relevance, as it is not decided by the ranking. Overall, this leads to much higher nDCG scores, as even total misses are no longer necessarily seen as such.
 
