@@ -18,7 +18,11 @@ In order to adjust KTD for partial lists we used the $K_{Haus}$ algorithm propos
 
 The first case is when both $i$ and $j$ appear in $\tau_1$ and $\tau_2$. In this case the method utilizes Equation \ref{eq:kendalldistancefinal} but only on the items in the set, $Z$.
 
-The second case is when $i$ and $j$ both appear in $\tau_1$ or $\tau_2$ but only $i$ or $j$ appears in the other. Case two is calculated according this formula $(k-z)(k+z+1)- \sum_{i \in S} \tau_1(i)- \sum_{i \in T} \tau_2(i)$. The formula takes the maximum number of items and subtracts the positions from the list containing the items.\note{Revise this explanation, as it is more complex.}
+The second case is when $i$ and $j$ both appear in $\tau_1$ or $\tau_2$ but only $i$ or $j$ appears in the other. The number of cases this apply can be calculated according to Equation \ref{eq:case2}. The equation sums the position in $\tau_1$ and $\tau_2$ for the items in the sets $S$ and $T$ and subtracts it from $|\tau_1 \cup \tau_2| + 1$ which is time with $|S|$.
+
+\begin{equation}\label{eq:case2}
+(k-z)(k+z+1)- \sum_{i \in S} \tau_1(i)- \sum_{i \in T} \tau_2(i)
+\end{equation}
 
 Third case is when $i$ appears in one list and $j$ in the other. For these cases the distance is measured as $(k-z)^2$, which is the disjunctive union of both lists to the power of 2.
 
