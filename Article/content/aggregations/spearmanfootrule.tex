@@ -13,4 +13,4 @@ As we work with partial lists we will encounter lists with missing items. For th
 W(c,p) = \displaystyle\sum_{i=1}^{k} |(\ell/|r_i| - p/k|
 \end{equation}
 
-After determining the edge weights, the problem can be solved as a minimum cost maximum matching problem, which is the problem of finding the highest number of node matches with the lowest edge cost. To do this, we decided to use the Hungarian method\note{Or an extension called Munkres (sæt en cite)}. The result of this method is a top-k list of items to be recommended.
+After determining the edge weights, the problem can be solved as a minimum cost maximum matching problem, which is the problem of finding the highest number of node matches with the lowest edge cost. To do this, we decided to use the Munkres extension of the Hungarian method of the same name\cite{Munkres1957}. The result of this method is a top-k list of items to be recommended.
