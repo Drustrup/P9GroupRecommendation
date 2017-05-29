@@ -1,5 +1,5 @@
 \subsection{Markov Chain}\label{sec:markovchain}
-The proposed Markov Chain method by Dwork et Al, \MC is a generalization of the Copeland Method\note{find cite for this}, where a winner is the candidate which wins the most pairwise contests\citep{rank:aggregation}.
+The proposed Markov Chain method by Dwork et Al, \MC is a generalization of the Copeland Method\cite{saari1996}, where a winner is the candidate which wins the most pairwise contests\cite{rank:aggregation}.
 
 The concept behind building the list of recommendations works by explicitly finding the transition matrix. For \MC, the states are connected to other states that wins per the Copeland method. Then we can iterate through the set, and note who performs best to make the transition matrix. Using the power set on the transition matrix we can find the stationary probability distribution to aggregate the candidates.
 
