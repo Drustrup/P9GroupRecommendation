@@ -1,5 +1,5 @@
 \adparagraph{Normalized Discounted Cumulative Gain}\label{sec:methodology_ndcg}
-For evaluating the quality of the ranking, we use Normalized Discounted Cumulative Gain(nDCG), which is common to the information retrieval field in comparing ranked lists of queries\note{cite}. We take this as a satisfaction measure to calculate the quality of the group recommendation to that of a recommendation of each user in turn. This value is also normalized against an ideal recommendation for that user.
+For evaluating the quality of the ranking, we use Normalized Discounted Cumulative Gain(nDCG), which is common to the information retrieval field in comparing ranked lists of queries\cite{ndcg}. We take this as a satisfaction measure to calculate the quality of the group recommendation to that of a recommendation of each user in turn. This value is also normalized against an ideal recommendation for that user.
 
 %Cumulative gain compares two lists for how relevant the items are. Discounted also considers the position of each item for the quality score, applying a weight on the relevance score that penalizes the score for being lower on a lower ranking. This summed score is normalized against the ideal DCG value, which is the individual user's ranked list, and can be seen in .
 
@@ -15,6 +15,8 @@ As per Equation \ref{eq:methodology_dcg}, a DCG value is calculated for a set of
 \text{nDCG}_p = \frac{\text{DCG}_p}{\text{IDCG}_p}
 \end{equation}
 \note{make equation for rating ndcg showing which value we changes}
+
+
 \adparagraph{Rating nDCG}
 In an effort to more accurately portray the quality of the ranking, we present the Rating nDCG measure.
 

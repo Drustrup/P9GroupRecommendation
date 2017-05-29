@@ -43,8 +43,6 @@ K_{Haus}(\tau_1,\tau_2) = \frac{1}{2}(k-z)(5k-z+1)+ \sum_{i,j \in Z} K_{i,j}(\ta
 
 The result of the $K_{Haus}$ is normalized by dividing it by $n(n-n)/2$, which gives an approximation of the average distance between the lists. It is an approximation because in case four, the method assumes that there is an equally large chance of the items being in the correct order. Due to this, the method returns 0.78 if the lists are completely disjoint. If the lists are reverse of each other it scores 1 and 0 if the lists are equal. %For a more detail explanation of $K_{Haus}$ go to Fagin et al\cite{comparing:topk} article.
 
- 
-\note{Mention somewhere that the results are averages of all group members and all groups}
 
 \adparagraph{Spearman's Footrule Distance}
 Another distance measure we use is the Spearman's Footrule Distance(SFD). SFD finds the exact distance between item $i$ in two different ranked lists containing $i$. The way it finds this item distance is by subtracting the item indexes from each other as can be seen in \ref{eq:sfd}. 
