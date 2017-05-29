@@ -1,7 +1,6 @@
 \subsection{Average}\label{sec:average}
-As a control algorithm we choose Average(Avg) aggregation as it is one of the more common used and well performing methods within group recommendation.\note{cite} The implementation we have done does only work with the items in the top-k list. It finds the union of all the users $u\in U$ lists so $\tau_1 \cup ... \cup \tau_u = I$. The Avg method then uses the full lists, $\sigma_1, ..., \sigma_u$, from the individual recommendations to find the average rating for the items $i \in I$. Equation \ref{eq:avg} illustrates how Avg works.
+As a control algorithm we choose Average(Avg) aggregation as it is one of the more commonly used and well performing methods within group recommendation\cite{recbook:average}. The implementation we have done does only work with the items in the top-k list. It finds the union of all the users $u\in U$ lists so $\tau_1 \cup ... \cup \tau_u = I$. The Avg method then uses the full lists, $\sigma_1, ..., \sigma_u$, from the individual recommendations to find the average rating for the items $i \in I$. Equation \ref{eq:avg} illustrates how Avg works.
 
 \begin{equation}\label{eq:avg}
-Avg(i) = \frac{\sum_{u \in U} \sigma_u(i)}{|U|} 
+Avg(i) = \sum_{u \in U}\frac{\sigma_u(i)}{|U|} 
 \end{equation}
-\note{ u in U doesn't stand under sum}
