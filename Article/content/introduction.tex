@@ -6,12 +6,14 @@ The problem with the traditional recommender systems is that it typically make r
 One of the problems regarding taking the social context into consideration is that the recommender have to strive for consensus between the people it recommends to. An already complex problem is made even harder by having to solve it for multiple users simultaneously with new rules in play. From here, we will reference to this problem as making a group recommendation.
 
 %Different methods for group recommendations 
-When making group recommendations there are two main approaches, namely profile aggregation and recommendation aggregation.\note{cite, page 516 in rec. book} The idea behind profile aggregation is to aggregate the users' preferences into a single group profile and make aggregations based on that profile. The other approach is to consider each user and aggregate the recommendations for the individual users into one aggregation that fits the groups preferences. In this paper we have chosen to focus on the latter, as we want to make the method work for shifting groups and we deem this approach to fit this case best. \note{find source or fitting argument, Lukas: not sure there are any}
+When making group recommendations there are two main approaches, namely profile aggregation and recommendation aggregation\cite{recbook:profilvsrec}. The idea behind profile aggregation is to aggregate the users' preferences into a single group profile and make aggregations based on that profile. The other approach is to consider each user and aggregate the recommendations for the individual users into one aggregation that fits the groups preferences. In this paper we have chosen to focus on aggregation recommendations.
+
+%as we want to make the method work for shifting groups and we deem this approach to fit this case best. \note{find source or fitting argument, Lukas: not sure there are any}
 
 %Describe the approach of using top-k lists
 As we are going to aggregate the users recommendations we have chosen to only to focus at the top-k part of their recommendations and return a top-k lists as a result. Furthermore, the top-k lists will be ranked with the highest rated item at first position on the list. Throughout the paper we have worked with a $k$ of size 10.
 
-With ranked top-k lists being partial lists, we have selected three types of aggregation list which have shown good results when used for aggregating search engine results within the information retrieval domain for partial lists. The methods we are using is Borda Count, Markov Chain, and Spearman's Footrule. We also implemented an Average aggregation method as a control algorithm.
+With ranked top-k lists being partial lists, we have selected three types of aggregation list which have shown good results when used for aggregating search engine results within the information retrieval domain for partial lists. The methods we are using is Borda Count, Markov Chain, and Spearman's Footrule\cite{Masthoff2004, rank:aggregation}. We also implemented an Average aggregation method as a control algorithm.
 
 %Problem regarding evaluation of the aggregation results
 Having the group recommendations we are faced with the challenge of evaluating the result as there are no dataset supplying us with a ground truth for group recommendation. However, from the information retrieval domain, we can find measures to evaluate the quality of queries that can be used to evaluate the quality of a partial list of recommendations and there are many datasets available for individual recommendations.
@@ -38,10 +40,10 @@ As we are going to aggregate recommendations we implemented it as can be seen in
 \caption{Model of the system}\label{fig:composition}
 \end{figure}
 
-\subsection{Thesis}\note{Placeholder title}
+\subsection{Research Question}
 %How can we by supplying a rank aggregation method with an array ranked top-k lists $\tau_1, ... , \tau_u$, where $u$ is the number of group members, get a recommendation performing better than an average aggregation. \note{this should probably be more specific and technical}
 
-Among common aggregation methods, given ranked top-k lists $\tau_1, ... , \tau_u$, where $u$ is the number of group members as individual recommendations, which can provide the most optimal group recommendation per measures such as satisfaction or distance from individual preferences of the group?
+Among common aggregation methods, given ranked top-k lists $\tau_1, ... , \tau_u$, where $u$ is the number of group members, which can provide the most optimal group recommendation per measures such as satisfaction or distance from individual preferences of the group?
 
 \subsection{Structure of the Paper}
 The structure of the paper is as follows. Section \ref{sec:preliminaries} contains the preliminaries including the measures used during the evaluation. Section \ref{sec:aggregations} describes the aggregation methods used. In Section \ref{sec:evaluation} the performances of the aggregation methods are documented. Section \ref{sec:discussion} we discuss the results of the evaluation and in Section \ref{sec:conclusion} we will present our conclusion and future work.

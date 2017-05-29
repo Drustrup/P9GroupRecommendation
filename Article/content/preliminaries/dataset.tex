@@ -1,7 +1,7 @@
 \subsection{Dataset}\label{sec:dataset}
-We use the dataset called MovieLens 100k published by GroupLens\cite{movielens100k}. MovieLens 100K contains 100.000 ratings between 1 to 5 by 943 users across 1682 movies.
+We use the dataset called MovieLens 100k published by GroupLens in 1998\cite{movielens100k}. MovieLens 100K contains 100.000 ratings between 1 to 5 collected from 943 users across 1682 movies.
 
-With room for one and a half million ratings, the 100k dataset is somewhat sparse. So we will be using rating prediction in order to populate the ratings.\note{Any good arguments for why we need to populate the data? To ensure every user has enough votes? Full lists are easier to aggregate on?}
+With room for approximately one and a half million ratings, making the 100k rating dataset spars. So we will be using rating prediction in order to populate the rating matrix.
 
 \subsubsection{Individual Recommendations}
 For rating prediction, we used the library called MyMediaLite\cite{mymedialite}. MyMediaLite is a library for .NET that holds a bundle of recommendation methods for both item recommendation and rating prediction. We will be using the library, because this gives a tested foundation that's easy to reproduce for testing aggregation methods.
