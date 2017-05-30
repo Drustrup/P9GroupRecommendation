@@ -55,10 +55,10 @@ Avg is ahead, but it is also the only method using the average rating of all the
 	
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Results for Rating nDCG test}\label{fig:andcg}
+	\caption{Results using Rating nDCG}\label{fig:andcg}
 \end{figure}
 
-As can be seen in Table \ref{tbl:andcg}, BC, \MC, and SF do not decrease in score from 16 to 20, which is a curious result. SF even gains a little. In general, the fall in nDCG score is extremely low compared to the other measures. This is due to most, if not all of the candidate items being highly rated and this could indicates than even a random selection of movies could score highly on the Rating nDCG measure.
+As can be seen in Table \ref{tbl:andcg}, BC, \MC, and SF do not decrease in score from 16 to 20, and SF increases in score. In general, the fall in nDCG score is extremely low compared to the other measures. This could indicate, that the individual recommendations are biased towards some selection of items.
 
 Among the remainder, while \MC does outperform both BC and SF, the difference is small.
 
@@ -75,7 +75,7 @@ Among the remainder, while \MC does outperform both BC and SF, the difference is
 	\label{tbl:andcg}
 \end{table}
 
-Table \ref{tbl:andcg_ttest} shows the t-test results for Rating nDCG. For BC and SF, there are two cases, which has been marked in bold, where the difference is not significant enough to not possibly owing to randomness. It can also be seen that the p-values for all but Avg are many orders of magnitudes smaller than seen for other measures, owing to the similarity in the results.
+Table \ref{tbl:andcg_ttest} shows the t-test results for Rating nDCG. For BC and SF, there are two cases, which has been marked in bold, where the difference is not significant enough to not be considered random. It can also be seen that the p-values for all but Avg are many orders of magnitudes smaller than seen for other measures, due to the similarity in the results.
 
 \begin{table}[H]
 	\centering
@@ -88,6 +88,6 @@ Table \ref{tbl:andcg_ttest} shows the t-test results for Rating nDCG. For BC and
 		MC/Avg	& $9e^{-221}$	& $7e^{-247}$ 	& $1e^{-266}$	& $3e^{-296}$	& $2e^{-308}$ & 0 \\
 		SF/Avg	& $5e^{-212}$	& $1e^{-262}$ 	& $6e^{-280}$	& $3e^{-287}$	& $4e^{-305}$ & 0 \\ \hline
 	\end{tabular}
-	\caption{P-values for Rating nDCG T-test}
+	\caption{P-values for Rating nDCG t-test}
 	\label{tbl:andcg_ttest}
 \end{table}

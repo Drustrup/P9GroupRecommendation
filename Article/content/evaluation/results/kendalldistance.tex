@@ -1,7 +1,7 @@
 \adparagraph{Kendall Tau Distance}
-Looking at Figure \ref{fig:kendalldistance} we can see the results of the SFD test. As mentioned in Section \ref{sec:distance} the distance measures have a score between 0 and 1 where 0 correspond to equal lists, 1 is that the lists are reverse of each other, and 0.78 is that the lists are disjoint as we use a average approach. 
+Looking at Figure \ref{fig:kendalldistance} we can see the results of the KTD test. As mentioned in Section \ref{sec:distance} the distance measures have a score between 0 and 1 where 0 correspond to equal lists, 1 is that the lists are reverse of each other, and 0.78 is that the lists are disjoint as we use a average approach. 
 
-A general trend when looking at the graph is that all the methods follow the same curve where there is a somewhat large difference with an average increase of $7.28$ percent between group sizes 4 and 8. However as the groups grow the increase in the KTD fades out and becomes very low and as such the increase between 20 and 40 is approximately 0.945 percent.
+A general trend when looking at the graph is that all the methods follow the same curve where there is a somewhat large difference with an average increase of $7.28$ percent between group sizes 4 and 8. However as the groups grow the increase in the KTD fades out and becomes very low and as such the increase between 20 and 40 is approximately 0.945 percent.\note{Per this paragraph - Be specific about the methods instead of averages for them all. Reference the tables. Move it closer to relevant table.}
 
 Looking at the approaches individually Avg clearly scores the highest. The reason is that Avg disregards the item ranks in the top-k lists and aggregates them based on the average rating between the group members instead.
 
@@ -9,13 +9,13 @@ SF performs worse than both \MC and BC, which could be seen as having to do with
    
 %Next we have SF. This is surprising because, within the information retrieval domain, SF usually perform notably better than BC does. \note{Find cite for this} We do not have a reasonable explanation for why this is the case, but we expect it to have something to do with SF placing items placed using a median like approach which may have same issues as average.
 
-Lastly, performing best and somewhat equal we have BC and \MC. Worth noting is that when the groups are small \MC performers slightly better than BC, but already at group size 8 BC out scales \MC.
+Lastly, performing best and almost equal we have BC and \MC. Worth noting is that when the groups are small \MC performers slightly better than BC, but already at group size 8 BC out scales \MC.
 
 \begin{figure}[H]
 \begin{tikzpicture}
     \begin{axis}[
         xlabel=Group Size,
-        ylabel=Kendall Distance,
+        ylabel=Kendall Tau Distance,
         xtick = {4,8,12,16,20,40},
         legend pos=south east]
     \addplot[smooth,mark=*,blue] plot coordinates {
@@ -46,7 +46,7 @@ Lastly, performing best and somewhat equal we have BC and \MC. Worth noting is t
             (20,0.5718)
             (40,0.5763)
         };
-    \addlegendentry{Spearman Footrule}
+    \addlegendentry{Spearman's Footrule}
     
     \addplot[smooth,color=green,mark=triangle*] plot coordinates {
             (4,0.5416)
@@ -89,6 +89,6 @@ For the t-tests shown in Table \ref{tbl:ktd_ttest}, all results are shown to be 
 		MC/Avg	& $4e^{-259}$	& $2e^{-283}$ 	& $7e^{-298}$	& $7e^{-303}$ & $4e^{-321}$ & 0 \\
 		SF/Avg	& $1e^{-93}$	& $1e^{-143}$ 	& $5e^{-159}$	& $2e^{-177}$	& $3e^{-199}$ & $3e^{-261}$ \\ \hline
 	\end{tabular}
-	\caption{P-values for KTD T-test}
+	\caption{P-values for KTD t-test}
 	\label{tbl:ktd_ttest}
 \end{table}

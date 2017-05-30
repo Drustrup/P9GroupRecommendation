@@ -1,8 +1,8 @@
 \adparagraph{nDCG}
-Figure \ref{fig:ndcg} shows the nDCG score for BC, \MC, SF, and Avg. For nDCG a higher score is better.
+Figure \ref{fig:ndcg} shows the nDCG score for BC, \MC, SF, and Avg. For nDCG a higher score is better and is within 1 to 0.
 All methods see a sharp drop off in the quality of their recommendations as the group sizes increase.
 As shown in Table \ref{tbl:ndcg}, BC drops the most in the jump from 4 to 8 group members, however it also have the best results, and outperforms all other methods across all group sizes.
-\MC is the second best by only a few percentage points and follows the same trend and quickly plateaus in score.
+\MC is the second best and follows the same trend and quickly plateaus in score.
 One outlying case SF starts out close to Avg for a group size of four, but retains a higher score and is closer to BC and \MC as the size increases.
 Avg is the worst performing overall.
 
@@ -54,7 +54,7 @@ Avg is the worst performing overall.
 	
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Results for nDCG test}\label{fig:ndcg}
+	\caption{Results using nDCG}\label{fig:ndcg}
 \end{figure}
 
 Another trend is observable in Table \ref{tbl:ndcg}. The highest scoring method is also dropping the most in score, aside from Avg from group size 4 to 8. This effect is visible on all group sizes for all methods.
@@ -74,7 +74,7 @@ Another trend is observable in Table \ref{tbl:ndcg}. The highest scoring method 
 
 The p-values for the t-test for nDCG is shown in Table \ref{tbl:ndcg_ttest}. Our paired t-tests show that all results for the nDCG measure are statistically different from each other.
 
-Any zeros in the table are considered to be so small that it was rounded down and is of some small non-zero value.
+Any zeros in the table are considered to be so small that it was rounded down and is some small non-zero value.
 
 \begin{table}[H]
 	\centering
@@ -87,6 +87,6 @@ Any zeros in the table are considered to be so small that it was rounded down an
 		MC/Avg	& $5e^{-228}$	& $5e^{-273}$ 	& $3e^{-278}$	& $5e^{-289}$	& $1e^{-309}$ & 0 \\
 		SF/Avg	& $2e^{-72}$	& $2e^{-138}$ 	& $2e^{-147}$	& $6e^{-165}$	& $9e^{-166}$ & $5e^{-211}$ \\ \hline
 	\end{tabular}
-	\caption{P-values for the nDCG T-test}
+	\caption{P-values for the nDCG t-test}
 	\label{tbl:ndcg_ttest}
 \end{table}

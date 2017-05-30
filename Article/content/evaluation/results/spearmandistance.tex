@@ -1,9 +1,9 @@
-\adparagraph{Spearman Distance}
+\adparagraph{Spearman's Footrule Distance}
 In Figure \ref{fig:footruledistance} are the results of the SFD tests. As in KTD it is normalized to be between 0 and 1 where if 0 the list are equal.
 
-In general the tendencies are very similar to those of KTD and the approaches follow the same curve with all most the same distance jumps between the group sizes. This can be noted in Table \ref{tbl:sfd}.
+In general the tendencies are very similar to those of KTD and the approaches follow the same curve with all most the same distance jumps between the group sizes. This can be noted in Table \ref{tbl:sfd}.\note{Bring up to standards. Put closer to table it references. Optional: Make some observations.}
 
-Not surprisingly SF performs the best in this test. This is due to it have a natural advantage when using SFD as they are based on the same principle. This somewhat deems its result in this test invalid.
+Not surprisingly SF performs the best in this test. SF has a natural advantage over the other methods when using SFD as they are based on the same principles.
 
 Avg again performs the worst when looking at the SFD results. This is for the same reason as with the SFD measure, Avg does not take the rank of items into account.
 
@@ -13,7 +13,7 @@ For \MC and BC we get some interesting results. They still follow each other rea
 \begin{tikzpicture}
     \begin{axis}[
         xlabel=Group Size,
-        ylabel=Spearman Distance,
+        ylabel=Spearman's Footrule Distance,
         xtick = {4,8,12,16,20,40},
         legend pos=south east]
     \addplot[smooth,mark=*,blue] plot coordinates {
@@ -44,7 +44,7 @@ For \MC and BC we get some interesting results. They still follow each other rea
             (20,0.7533)
             (40,0.764)
         };
-    \addlegendentry{Spearman Footrule}
+    \addlegendentry{Spearman's Footrule}
     
     \addplot[smooth,color=green,mark=triangle*] plot coordinates {
             (4,0.7268)
@@ -87,6 +87,6 @@ Table \ref{tbl:sfd_ttest} shows the t-tests for SFD. BC and MC have two cases wh
 		MC/Avg	& $2e^{-217}$	& $2e^{-250}$ 	& $2e^{-248}$	& $2e^{-249}$	& $1e^{-265}$ & $1e^{-305}$ \\
 		SF/Avg	& $2e^{-288}$	& 0	& 0	& 0	& 0 & 0 \\ \hline
 	\end{tabular}
-	\caption{P-values for SFD T-test}
+	\caption{P-values for SFD t-test}
 	\label{tbl:sfd_ttest}
 \end{table}

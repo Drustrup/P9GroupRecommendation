@@ -1,8 +1,8 @@
 \subsubsection{Distance Measures}\label{sec:distance}
-Before going through the distance measures, we want to cover some general notations that both methods use. $\tau(i)$ is the notation for the position of element $i$ in $\tau$. $Z = \tau_1 \cap \tau_2$, $z=|Z|$, $S$ is the set of items in $\tau_1$ but not $\tau_2$ and $T$ is vice versa, and $k$ is the length of the top-k lists.
+Before going through the distance measures, we want to cover some general notations that both methods use. $\tau(i)$ is the notation for the position of element $i$ in $\tau$. $Z = \tau_1 \cap \tau_2$, $z=|Z|$, $S$ is the set of items only in $\tau_1$ and not in $\tau_2$ and $T$ is the set of items in $tau_2$ not in $tau_1$. $k$ is the length of the top-k lists.
 
 \adparagraph{Kendall Tau Distance}
-The idea of Kendall tau distance(KTD) is to compare two ranked lists based on the order in which the items appear. This basically means that it makes pairwise comparisons of item indexes $\{i,j\}$ where $i < j$, so that if $i$ is before $j$ in $\tau_1$ then this should also be the case in $\tau_2$ in order to get a good score. The score is based on a count of how many times $i$ and $j$ are in reverse order. The equation for KTD for complete lists can be seen in Equation \ref{eq:kendalldistancefinal} where $K_1$ and $K_2$ can be seen in Equation \ref{eq:kendalldistance1} and \ref{eq:kendalldistance2} respectively.
+The idea of Kendall tau distance(KTD) is to compare two ranked lists based on the order in which the items appear\note{Citation}. This means that it makes pairwise comparisons of item indexes $\{i,j\}$ where $i < j$, so that if $i$ is before $j$ in $\tau_1$ then this should also be the case in $\tau_2$ in order to get a good score. The score is based on a count of how many times $i$ and $j$ are in reverse order. The equation for KTD for complete lists can be seen in Equation \ref{eq:kendalldistancefinal} where $K_1$ and $K_2$ can be seen in Equation \ref{eq:kendalldistance1} and \ref{eq:kendalldistance2} respectively.
 
 \begin{equation}\label{eq:kendalldistance1}
 K_1(\tau_1,\tau_2) = | \{(i,j) | i < j, \tau_1 (i) < \tau_1 (j) \land \tau_2 (i) > \tau_2 (j)\}|
@@ -18,15 +18,15 @@ In order to adjust KTD for partial lists we used the $K_{Haus}$ algorithm propos
 
 The first case is when both $i$ and $j$ appear in $\tau_1$ and $\tau_2$. In this case the method utilizes Equation \ref{eq:kendalldistancefinal} but only on the items in the set, $Z$.
 
-The second case is when $i$ and $j$ both appear in $\tau_1$ or $\tau_2$ but only $i$ or $j$ appears in the other. The number of cases this apply can be calculated according to Equation \ref{eq:case2}. The equation sums the position in $\tau_1$ and $\tau_2$ for the items in the sets $S$ and $T$ and subtracts it from $|\tau_1 \cup \tau_2| + 1$ which is time with $|S|$.
+The second case is when $i$ and $j$ both appear in $\tau_1$ or $\tau_2$ but only $i$ or $j$ appears in the other. The number of cases this apply can be calculated according to Equation \ref{eq:case2}. The equation sums the item positions from the sets $S$ and $T$ in the lists $\tau_1$ and $\tau_2$ and subtracts it from $|\tau_1 \cup \tau_2| + 1$ which is multiplied by $|S|$.
 
 \begin{equation}\label{eq:case2}
 (k-z)(k+z+1)- \sum_{i \in S} \tau_1(i)- \sum_{i \in T} \tau_2(i)
 \end{equation}
 
-Third case is when $i$ appears in one list and $j$ in the other. For these cases the distance is measured as $(k-z)^2$, which is the disjunctive union of both lists to the power of 2.
+The third case is when $i$ appears in one list and $j$ in the other. The result of the third case is calculated by $(k-z)^2$, which is the length of the lists minus the intersection, to the power of 2.
 
-The fourth case is when both $i$ and $j$ appear in one list but not the other. In this case Equation \ref{eq:case4} is used. $p$ in this case is a penalty value between 0 and 1. As the method we use is an average approach this value is naturally 0.5. $p$ is multiplied with the binomial coefficient of the length of different items in the top-k lists.
+The fourth case is when both $i$ and $j$ appear in one list but not the other. In this case Equation \ref{eq:case4} is used. $p$ in this case is a penalty value between 0 and 1. As the method we use is an average approach this value is 0.5. $p$ is multiplied with the binomial coefficient of the length of different items in the top-k lists.\note{What is a binomial coefficient}
 
 \begin{equation}\label{eq:case4}
 2p\left(\!
@@ -49,7 +49,7 @@ The result of the $K_{Haus}$ is normalized by dividing it by $n(n-n)/2$, which g
 
 
 \adparagraph{Spearman's Footrule Distance}
-Another distance measure we use is the Spearman's Footrule Distance(SFD). SFD finds the exact distance between item $i$ in two different ranked lists containing $i$. The way it finds this item distance is by subtracting the item indexes from each other as can be seen in \ref{eq:sfd}. 
+Another distance measure we use is the Spearman's Footrule Distance(SFD)\note{Citation}. SFD finds the exact distance between item $i$ in two different ranked lists containing $i$. The way it finds this item distance is by subtracting the item indexes from each other as can be seen in \ref{eq:sfd}. 
 
 \begin{equation}\label{eq:sfd}
 F(\tau_1, \tau_2) = \sum_{i=1}^{k} | \tau_1 (i) - \tau_2 (i) |

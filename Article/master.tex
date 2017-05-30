@@ -49,7 +49,7 @@
 \author{Lasse Drustrup Christensen}
 %\authornote{}
 \affiliation{%
-  \institution{Department of Computer Science Aalborg University}
+  \institution{Department of Computer Science \\ Aalborg University}
   \streetaddress{Selma Lagerl\"{o}fs Vej 300}
   \city{Aalborg East} 
   \state{Denmark} 
@@ -61,7 +61,7 @@
 %\authornote{}
 %\orcid{}
 \affiliation{%
-  \institution{Department of Computer Science Aalborg University}
+  \institution{Department of Computer Science \\ Aalborg University}
   \streetaddress{Selma Lagerl\"{o}fs Vej 300}
   \city{Aalborg East} 
   \state{Denmark} 
@@ -70,7 +70,7 @@
 \email{lnda12@student.aau.dk}
 
 \author{\textbf{Supervisor}\\ Peter Dolog}
-\affiliation{\institution{Department of Computer Science Aalborg University}}
+\affiliation{\institution{Department of Computer Science \\ Aalborg University}}
 \email{dolog@cs.aau.dk}
 
 % The default list of authors is too long for headers}
@@ -78,18 +78,13 @@
 
 
 \begin{abstract}
-In this paper we engage in the problem regarding recommending items to a group of people based on the preferences of the individual user. We approach this problem as a rank aggregation one and focus on the top-k preferences of the users.
-The methods used for aggregation are Borda Count, Markov Chain and Spearman's Footrule. 
+In this paper we worked on the problem of recommending items to a group of people based on the preferences of the individual users. We approached this problem as a rank aggregation problem and focused on the top-k preferences of the users.
+The methods used for the aggregations were Borda Count, Markov Chain, Spearman's Footrule, and Average.
 
-One of our primary goals was to present a testing setup enabling us to give a satisfying theoretical conclusion on which aggregation method to use. With the setup we use Borda Count and Markov Chain show promising results but in the end Borda Count is the one performing best.
-
-\footnote{This is an abstract footnote}
+One of our primary goals were to present a testing setup to give a satisfying theoretical conclusion on which aggregation method to use. For the setup we used Borda Count and Markov Chain showed promising results, but Borda Count was the best performing method.
 \end{abstract}
 
-% We no longer use \terms command
-%\terms{Theory}
-
-\keywords{Group Recommendation, Borda count, Kendall tau distance, Markov chain, nDCG,...}
+\keywords{Group Recommendation, Rank Aggregation, Borda Count, Markov Chain, Spearman's Footrule, Average, nDCG, Kendall Tau Distance, Spearman's Footrule Distance}
 
 
 \maketitle
@@ -100,9 +95,12 @@ One of our primary goals was to present a testing setup enabling us to give a sa
 \input{content/evaluation}
 \input{content/discussion}
 \input{content/conclusion}
+\input{content/acknowledgements}
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{references} 
+
+\newpage
 
 \input{content/appendix.tex}
 
