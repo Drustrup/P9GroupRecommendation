@@ -3,11 +3,11 @@ In this section we are going to give a overview of the group generation system w
 
 \paragraph{Individual Recommendation} We need to make some individual recommendations for every user. The recommendation method use in this step is interchangeable and can be selected to fit ones purpose and data. The only condition for the recommender is that it finds a complete list of recommendations of the users in a group. In Section \ref{sec:individualrecommender} is a further description of the recommender we are going to use.
 
-\paragraph{Groups} In the groups stage we generate a list of groups for testing purposes. These groups consist of user id's and are generated at random but it is ensured that the same user only occurs once in each group. The specific setup of the groups is described in Section \ref{sec:groupgeneration}
+\paragraph{Groups} In the groups stage we generate a list of groups for testing purposes. These groups consist of user id's and are generated at random but it is ensured that the same user only occurs once in each group. The specific setup of the groups is described in Section \ref{sec:groupgeneration}.
 
 \paragraph{Preprocessing} Before being able to aggregate the ratings preprocessing is needed. The preprocessing step takes a group as input and is concerned with finding the $k$ highest rated items for each of the users in the group. The items are arranged in a ranked lists with the highest rated item first and descending. The lists are stored in an array. A more detailed explanation of the preprocessing can be found in the introduction to Section \ref{sec:aggregations}.
 
-\paragraph{Aggregation} In the aggregation stage a selection of different aggregation methods was implemented and was interchangeable with each other. All the methods took the array of lists, which was supplied from the preprocessing stage, as input. The output of the aggregations is the group recommendation in the form of a ranked list of size $k$. In Section \ref{sec:aggregations} are a description of the aggregation methods used. 
+\paragraph{Aggregation} In the aggregation stage a selection of different aggregation methods was implemented and was interchangeable with each other. All the methods took the array of lists, which was supplied from the preprocessing stage, as input. The output of the aggregations is the group recommendation in the form of a ranked list of size $k$. In the subsections of Section \ref{sec:aggregations} are a description of the aggregation methods. 
 
 \paragraph{Evaluation} The last stage is evaluation. At this stage we are going to perform several test and measurements. The setup and results for the evaluation can be seen in Section \ref{sec:evaluation}. 
 
