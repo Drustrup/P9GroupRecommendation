@@ -1,5 +1,16 @@
-\section{Aggregation Methods}\label{sec:aggregations}
+\section{Recommendation Aggregation}\label{sec:aggregations}
 In this section we explain the workings and concept behind the four aggregation methods.
+
+\note{Rewrite this to preprocessing}
+Ranking is the idea of the position of an item in a ranked list is important. This means that if there is a list of ratings $\tau$ the list is ranked if $\tau (1) > \tau (2) > ... > \tau (k)$
+
+When we talk about a top-k list in this paper we are referring to an ranked list of user preferences which is ordered by their item ratings in descending order.
+
+There are several reasons for the use of ranked lists. 
+The first reason is that we want to return a ranked list as a result of the aggregation since we want to ease the decision-making without making the final decision.
+Secondly, there are a good selection of measurements for the quality of a ranked list. Many of these measures take two lists, $\tau_1$ and $\tau_2$, which are both ranked lists of the same size. 
+
+In our case one of the lists is a top-k list and the second list is the ranked list of recommendations.
 \input{content/aggregations/bordacount}
 \input{content/aggregations/markovchain}
 \input{content/aggregations/spearmanfootrule}

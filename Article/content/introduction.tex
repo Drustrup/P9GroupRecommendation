@@ -1,5 +1,5 @@
 \section{Introduction}
-Many of the decisions we make are based on recommendations, from either people we know or recommender system tailored to personal preferences. This can be helpful due to the high amounts of information we process in our everyday lives\note{citation}. The recommendations, or more specifically in our case, the recommender system, can cut down the number of options to a manageable level and thereby augment the decision-making process without forcing a decision.
+Many of the decisions we make are based on recommendations, from either people we know or recommender system tailored to personal preferences. This can be helpful due to the high amounts of information we process in our everyday lives\cite{Edwards2001}. The recommendations, or more specifically in our case, the recommender system, can cut down the number of options to a manageable level and thereby augment the decision-making process without forcing a decision.
 
 The problem with the traditional recommender systems is that they typically make recommendations tailored to one person but often these decisions needs to be taken in a social context. 
 
@@ -33,15 +33,6 @@ For group recommendations we are faced with the challenge of evaluating the resu
 
 %The recommender system is doubly challenged as while a single user can navigate the given recommendations and reflect on each item for the best optimal choice, a group will have a hard time making insightful decisions about items they lack the shared information of the group to comment on.
 
-\subsection{Composition of a Group Recommender}\note{Fix this part + figure}
-As we are going to aggregate recommendations we implemented a group recommender system with the steps shown in Figure \ref{fig:composition}. A dataset will provide for us to make some individual recommendations for users arranged into groups for later testing. The next part of the group recommender is the aggregation half, which is the focus of the paper. Using the output of the first part of the system, we will be trying several different aggregation approaches. The results of these are the group recommendations to be evaluated.
-%As we take the aspect of aggregating recommendations the group recommendation system will consist of two parts namely an individual recommender and an aggregation method. \note{need some extension and probably an illustration}
-\begin{figure}
-\centering
-\includegraphics[scale=.4]{graphics/composition}
-\caption{Stages of the group recommender system}\label{fig:composition}
-\end{figure}
-
 \subsection{Research Questions}\note{extend and specify + more math}
 %How can we by supplying a rank aggregation method with an array ranked top-k lists $\tau_1, ... , \tau_u$, where $u$ is the number of group members, get a recommendation performing better than an average aggregation. \note{this should probably be more specific and technical}
 
@@ -49,5 +40,5 @@ Among common aggregation methods, given ranked top-k lists $\tau_1, ... , \tau_u
 
 Also, is it the case for all aggregation methods that as the number of users, $u$, goes so, does the quality of the recommendation go down per our measures?
 
-\subsection{Structure of the Paper}
+\subsection{Structure of the Paper}\note{remember to adjust this}
 The structure of the paper is as follows. Section \ref{sec:preliminaries} contains the preliminaries including the measures used during the evaluation. Section \ref{sec:aggregations} describes the aggregation methods used. In Section \ref{sec:evaluation} the performances of the aggregation methods are documented. Section \ref{sec:discussion} we discuss the results of the evaluation and in Section \ref{sec:conclusion} we will present our conclusion and future work.

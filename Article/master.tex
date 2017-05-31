@@ -26,7 +26,6 @@
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 \newcommandx{\note}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}\xspace}
 
-
 % Copyright
 \setcopyright{none}
 %\setcopyright{acmcopyright}
@@ -40,10 +39,10 @@
 
 
 \begin{document}
-\linenumbers
-\title{Group Recommendation}
+%\linenumbers
+\title{Beyond Average}
 %\titlenote{Produces the permission block, and copyright information}
-\subtitle{Using Information Retrieval Rank Aggregation Methods}
+\subtitle{Aggregation Methods for Group Based Recommendation Systems}
 %\subtitlenote{The full version of the author's guide is available as \texttt{acmart.pdf} document}
 
 \author{Lasse Drustrup Christensen}
@@ -85,12 +84,13 @@ One of our primary goals were to present a testing setup to give a satisfying th
 \end{abstract}
 
 \keywords{Group Recommendation, Rank Aggregation, Borda Count, Markov Chain, Spearman's Footrule, Average, nDCG, Kendall Tau Distance, Spearman's Footrule Distance}
-
-
+\input{formalia/titlepage}
+\input{formalia/summary}
 \maketitle
 
 \input{content/introduction}
-\input{content/preliminaries}
+\input{content/systemoverview}
+%\input{content/preliminaries}
 \input{content/aggregations}
 \input{content/evaluation}
 \input{content/discussion}
