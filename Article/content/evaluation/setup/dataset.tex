@@ -1,4 +1,4 @@
-\subsubsection{Dataset}\label{sec:dataset}
+\subsubsection{Dataset}\label{sec:dataset}\note{Adjust Dataset, individual rec., and group gen. to eval.}
 We use the MovieLens 100k dataset published by GroupLens in 1998\cite{movielens100k}. MovieLens 100K contains 100.000 ratings between 1 to 5 collected from 943 users across 1682 movies.
 
 With room for approximately one and a half million ratings, the 100k rating dataset is sparse. We will be using rating prediction in order to populate the rating matrix.
@@ -6,8 +6,7 @@ With room for approximately one and a half million ratings, the 100k rating data
 \subsubsection{Individual Recommendations}\label{sec:individualrecommendation}
 For rating prediction, we used the library called MyMediaLite\cite{mymedialite}. MyMediaLite is a library for .NET that holds a bundle of recommendation methods for both item recommendation and rating prediction. We will be using the library, because this gives a tested foundation that is easy to reproduce for testing other aggregation methods.
 
-Among the methods provided by MyMediaLite, SVD++ is one of the best performing on the 100k dataset on their own records\footnote{www.mymedialite.net/examples/datasets.html}. With SVD++ we can predict the missing ratings. For the parameters of SVD++, we used the settings shown in Table \ref{tbl:svdpp}.
-
+Among the methods provided by MyMediaLite, SVD++ is one of the best performing on the 100k dataset on their own records using the parameters in Table \ref{tbl:svdpp}\footnote{www.mymedialite.net/examples/datasets.html}. For the sake of convenience we are using the same parameters as they are proven to be efficient. 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|l|l|}\hline
@@ -17,11 +16,9 @@ Among the methods provided by MyMediaLite, SVD++ is one of the best performing o
 		Learning Rate & 0.01 \\
 		Bias Learning Rate & 0.07 \\ 
 		Number of iterations & 50 \\
-		Frequency Regularization & True \\ 
-		RMSE & 0.90651 \\
-		MAE & 0.71352 \\ \hline
+		Frequency Regularization & True \\\hline
 	\end{tabular}
-	\caption{Parameters for the SVD++ component}
+	\caption{Parameters values for the SVD++ component}
 	\label{tbl:svdpp}
 \end{table}
 

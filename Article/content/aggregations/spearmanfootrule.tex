@@ -1,4 +1,4 @@
-\subsection{Spearman's Footrule}\label{sec:spearmansfootrule}
+\subsubsection{Spearman's Footrule}\label{sec:spearmansfootrule}
 Dwork et al propose Spearman's footrule(SF) for aggregating ranked lists\citep{rank:aggregation}.
 SF utilizes bipartite graphs from graph theory to construct a weighted complete bipartite graph $(S,P,W)$.
 Let $S$ be the set of items equal to the union of the top-k lists $\tau_1, ..., \tau_u$. Then we have the set $P = \{1,...,k\}$, which are the available positions in the list to be recommended. Lastly, the set $W$ is the set of edge weights between items $s\in S$ and positions $p\in P$. The weights $W(s,p)$ are found by using the scaled footrule distance equation which can be seen in Equation \ref{eq:spearmanfootrule}\cite{rank:aggregation}.

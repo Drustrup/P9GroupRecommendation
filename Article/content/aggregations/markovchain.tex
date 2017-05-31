@@ -1,19 +1,19 @@
 \subsubsection{Markov Chain}\label{sec:markovchain}
 Dwork et al propose a Markov Chain for aggregating ranked lists\cite{rank:aggregation}.
 
-The proposed Markov Chain method by Dwork et al, \MC, generalizes the heuristics of Copeland Method\cite{saari1996}, where a winner is the candidate which wins the most pairwise contests.
+The Markov Chain method purposed, \MC, generalizes the heuristics of Copeland Method, where a winner is the candidate which wins the most pairwise contests\cite{saari1996}.
 
 \MC is a process where we note the possibility of transitioning from one state to another state over time. The \MC state space, $S$, corresponds to a set of all the items, $I$, such that $S = {x_1, x_2,..., x_i}$ for $i = |I|$.
 
 The transition probabilities between states are represented by a transition matrix, $P = |I| \times |I|$, covering the probability, $p_{ij}$, between items $i \in I$ and $j \in I$.
 
-Let $c_i$ be the set of items from $I$, that for at majority of ranked lists, $\tau = {\tau_1, \tau_2,...\tau_u}$, that $\tau_u(i) > \tau_u(j)$ for $i,j \in I$. Then the probability of $P$ is found according to Equation \ref{eq:markovchain_p}.
-$\lambda$ is a variable for teleporting, which we found to give a slight impact on . Via testing, we found that $\lambda = 0.05$ is a good value\note{Put most of this lambda in setup?}.
+Let $c_i$ be the set of items from $I$, that for at majority of ranked lists, $\tau_1, ...,\tau_u$, that $\tau_u(i) > \tau_u(j)$ for $i,j \in I$. Then the probability of $P$ is found according to Equation \ref{eq:markovchain_p}.
+$\lambda$ is a variable for teleporting, which we found to give a slight impact on \note{Finish the sentence pls}. Via testing, we found that $\lambda = 0.05$ is a good value\note{Put most of this lambda in setup?}.
 
 \begin{equation}\label{eq:markovchain_p}
 p_{ij} = (\frac{|c_i|}{|I|})(1-\lambda)+(\frac{\lambda}{|I|})\\
 p_{ii} = (\frac{|I|-|c_i|}{|I|})(1-\lambda)+(\frac{\lambda}{|I|})
-\end{equation}
+\end{equation}\note{make newline}
 
 With the transition matrix calculated, we can find our result via the stationary distribution of $P$, which is the distribution vector for a transition matrix where the distribution stops changing. Given a distribution vector, $d$, for $P$, given $P$ fulfills some niceness criteria\note{Specify}, we can approximate the stationary distribution for $P$ via application of the power-iteration algorithm. So the approximation, $r$, is found in Equation \ref{eq:markovchain_power} for a number of steps, $t$.
 
