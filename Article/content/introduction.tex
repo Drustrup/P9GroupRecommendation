@@ -18,27 +18,19 @@ As we are going to aggregate the users recommendations we have chosen to only fo
 With ranked top-k lists being partial lists, we have selected three types of aggregation list which have shown good results when used for aggregating search engine results within the information retrieval domain for partial lists. The methods we are using is Borda Count, Markov Chain, and Spearman's Footrule\cite{Masthoff2004, rank:aggregation}. We also implemented an Average aggregation method as a control algorithm\cite{Masthoff2004}.
 
 %Problem regarding evaluation of the aggregation results
-For group recommendations we are faced with the challenge of evaluating the result without a dataset to provide a ground truth. However, from the information retrieval domain, we can find measures to evaluate the quality of queries that can be used to evaluate the quality of a partial list of recommendations and there are many datasets available for individual recommendations.
+For group recommendations we faced the challenge of evaluating the result without a dataset to provide a ground truth. However, from the information retrieval domain, we found measures to evaluate the quality of queries that can be used to evaluate the quality of a partial list of recommendations and there are many datasets available for individual recommendations.
 
-%Lukas
-%As it is no longer of question of should the computers be involved when humans make decisions but how.
+%Baltrunas
+For one such dataset, there have been made some discoveries for group recommendation. With some overlap with us in chosen methods, such as Borda Count, and measures, such as nDCG, Baltrunas et al found that the quality of the recommendation did not always drop even when the group size grows. However, their biggest group size was 8, and it was unclear if the trend could be seen for bigger group sizes\note{Check here, if you want to imply we're looking for this or whether the quality stops decreasing for increasing groupsizes}.
 
-%Recommender systems can strengthen decision making without taking away the final choice from humans. This opens the 
-
-%For making a decision, Edwards et al provide a 19 step guide for picking the option with the highest utility, and they argue that the problem for a user would be in picking from among the many options presented, also known as information overload\cite{Edwards2001}.
-
-%Recommender systems deal with reducing the problem for a user to a manageable amount of choices. Given a user's preferences, a good recommender system can narrow down the number of choices to a manageable level.
-
-%However when the problem area is expanded to include multiple users in need of a single choice, the problem area is two-fold, as the many individual preferences must be aligned into that of a single recommendation.
-
-%The recommender system is doubly challenged as while a single user can navigate the given recommendations and reflect on each item for the best optimal choice, a group will have a hard time making insightful decisions about items they lack the shared information of the group to comment on.
+%We find out whether this is the case
 
 \subsection{Research Questions}\note{extend and specify + more math}
-%How can we by supplying a rank aggregation method with an array ranked top-k lists $\tau_1, ... , \tau_u$, where $u$ is the number of group members, get a recommendation performing better than an average aggregation. \note{this should probably be more specific and technical}
-
 Among common aggregation methods, given ranked top-k lists $\tau_1, ... , \tau_u$, where $u$ is the number of group members, which method can provide the most optimal group recommendation per measures such as satisfaction or distance from individual preferences of the group?
 
-Also, is it the case for all aggregation methods that as the number of users, $u$, goes so, does the quality of the recommendation go down per our measures?
+Also, is it the case for all aggregation methods that as the number of users, $u$, increases, does the quality of the recommendations decrease per our measures? For a set of groups, $G = \{ g_1, ..., g_n \}$ of corresponding group sizes, $U = \{ u_1, ..., u_n \}$, and group recommendation setup $f(x)$ that takes those groups as input and returns an evaluation of that recommendation, can we find a group size such that $f(g_a) > f(g_b)$ where $u_a > u_b$\note{Correct this part}.
+
+%Find if derivative of f(g_1) = derivative of f(g_2), for any u_n where u_1 < u_2
 
 \subsection{Structure of the Paper}\note{remember to adjust this}
 The structure of the paper is as follows. Section \ref{sec:preliminaries} contains the preliminaries including the measures used during the evaluation. Section \ref{sec:aggregations} describes the aggregation methods used. In Section \ref{sec:evaluation} the performances of the aggregation methods are documented. Section \ref{sec:discussion} we discuss the results of the evaluation and in Section \ref{sec:conclusion} we will present our conclusion and future work.
