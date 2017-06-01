@@ -2,17 +2,22 @@
 Before going through the distance measures, we want to cover some general notations that both methods use. We use $\tau$ and $\omega$ as they are specified in Section \ref{sec:aggregations}. $\tau(i)$ and $\omega(i)$ is the notation for the position of item $i$ in $\tau$ and $\omega$. $Z = \tau \cap \omega$, $z=|Z|$, $S$ is the set of items only in $\tau$ and not in $\omega$ and $T$ is the set of items in $\tau$ not in $\omega$. $k$ is the length of the top-k lists.
 
 \adparagraph{Kendall Tau Distance}
-The idea of Kendall tau distance(KTD) is to compare two ranked lists based on the order in which the items appear\note{Citation}. This means that it makes pairwise comparisons of item indexes $\{i,j\}$ where $i < j$, so that if $i$ is before $j$ in $\tau$ then this should also be the case in $\omega$ in order to get a good score. The score is based on a count of how many times $i$ and $j$ are in reverse order. The equation for KTD for complete lists can be seen in Equation \ref{eq:kendalldistancefinal} where $K_1$ and $K_2$ can be seen in Equation \ref{eq:kendalldistance1} and \ref{eq:kendalldistance2} respectively.
+The idea of Kendall tau distance(KTD) is to compare two ranked lists based on the order in which the items appear\cite{comparing:topk}. This means that it makes pairwise comparisons of item indexes $\{i,j\}$ where $i < j$, so that if $i$ is before $j$ in $\tau$ then this should also be the case in $\omega$ in order to get a good score. The score is based on a count of how many times $i$ and $j$ are in reverse order. In Equation \ref{eq:kendalldistance} KDT is outlined. $P$ is the set of unordered pairs of distinct items in $\tau$ and $\omega$. If $i$ and $j$ is in the in $\tau$ and $\omega$ then $\bar{K}_{i,j}(\tau,\omega) = 0$ but if $i$ and $j$ is in reverse order then $\bar{K}_{i,j}(\tau,\omega) = 1$.	
 
-\begin{equation}\label{eq:kendalldistance1}
-K_1(\tau,\omega) = | \{(i,j) | i < j, \tau (i) < \tau (j) \land \omega (i) > \omega (j)\}|
+\begin{equation}\label{eq:kendalldistace}
+K(\tau,\omega) = \sum_{\{i,j\} \in P }\bar{K}_{i,j}(\tau,\omega)
 \end{equation}
-\begin{equation}\label{eq:kendalldistance2}
-K_2(\tau,\omega) = | \{(i,j) | i < j, \tau (i) > \tau (j) \land \omega (i) < \omega (j) \} |
-\end{equation}
-\begin{equation}\label{eq:kendalldistancefinal}
-K(\tau,\omega) = K_1(\tau,\omega) + K_2(\tau,\omega)
-\end{equation}
+% The equation for KTD for complete lists can be seen in Equation \ref{eq:kendalldistancefinal} where $K_1$ and $K_2$ can be seen in Equation \ref{eq:kendalldistance1} and \ref{eq:kendalldistance2} respectively.
+
+%\begin{equation}\label{eq:kendalldistance1}
+%K_1(\tau,\omega) = | \{(i,j) | i < j, \tau (i) < \tau (j) \land \omega (i) > \omega (j)\}|
+%\end{equation}
+%\begin{equation}\label{eq:kendalldistance2}
+%K_2(\tau,\omega) = | \{(i,j) | i < j, \tau (i) > \tau (j) \land \omega (i) < \omega (j) \} |
+%\end{equation}
+%\begin{equation}\label{eq:kendalldistancefinal}
+%K(\tau,\omega) = K_1(\tau,\omega) + K_2(\tau,\omega)
+%\end{equation}
 
 In order to adjust KTD for partial lists we used the $K_{Haus}$ algorithm proposed by Fagin et al\cite{comparing:topk}. This approach has four different cases.
 
@@ -49,7 +54,7 @@ The result of the $K_{Haus}$ is normalized by dividing it by $n(n-n)/2$, which g
 
 
 \adparagraph{Spearman's Footrule Distance}
-Another distance measure we use is the Spearman's Footrule Distance(SFD)\note{Citation}. SFD finds the exact distance between item $i$ in two different ranked lists containing $i$. The way it finds this item distance is by subtracting the item indexes from each other as can be seen in \ref{eq:sfd}. 
+Another distance measure we use is the Spearman's Footrule Distance(SFD)\cite{comparing:topk}. SFD finds the exact distance between item $i$ in two different ranked lists containing $i$. The way it finds this item distance is by subtracting the item indexes from each other as can be seen in \ref{eq:sfd}. 
 
 \begin{equation}\label{eq:sfd}
 F(\tau, \omega) = \sum_{i=1}^{k} | \tau (i) - \omega (i) |
