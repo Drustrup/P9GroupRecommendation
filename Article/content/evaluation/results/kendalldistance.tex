@@ -1,5 +1,4 @@
 \adparagraph{Kendall Tau Distance}
-\note{Per this paragraph - Be specific about the methods instead of averages for them all. Reference the tables. Move it closer to relevant table.}
 Looking at Figure \ref{fig:kendalldistance} we can see the results of the KTD test. As covered in Section \ref{sec:distance} the distance measures have a score between 0 and 1 where 0 correspond to equal lists, 1 is that the lists are reverse of each other, and 0.78 is that the lists are disjoint as we use a average approach.
 
 Looking at the approaches individually Avg clearly scores the highest. The reason is that Avg disregards the item ranks in the top-k lists and aggregates them based on the average rating between the group members instead. SF performs worse than both \MC and BC, which could be seen as having to do with SF ranking its candidates using a median like approach, which is closer to how Avg performs. Lastly, performing best and almost equal we have BC and \MC. Worth noting is that when the groups are small \MC performers slightly better than BC, but already at group size 8 BC out scales \MC.
