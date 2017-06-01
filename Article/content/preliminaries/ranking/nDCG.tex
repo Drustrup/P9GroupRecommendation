@@ -19,7 +19,7 @@ In Equation \ref{eq:methodology_dcg}, a $DCG$ value is calculated for a set of $
 
 In Equation \ref{eq:methodology_ndcg}, the $DCG$ value is normalized against the ideal $DCG$, $IDCG$, which is the $DCG$ value based on the ideal recommendations for that user. The $IDCG$ is the set $ideal$, which in this case, as we are concerned with the position of the items, is $k,...,1$ for every top-k list, exchanged with $rel$ in Equation \ref{eq:methodology_dcg}. 
 
-\adparagraph{Rating nDCG}\note{Add specification for IDCG scores}
+\adparagraph{Rating nDCG}
 In an effort to more accurately portray the quality of the ranking, we present the Rating nDCG measure.
 
 The difference is that the relevance score of items are not represented by their ranking, but directly from the predicted ratings for that item with the set of rating values, $rat$. $rat$ is defined by, for every $i\in \omega$ we find the rating for that item in a users full list of recommendations $\sigma$, so assuming that $\omega(i)$ is the position of $i$ in $\omega$ and $\sigma(i)$ is the rating of item $i$ for a user, then $rat(\omega(i) = \sigma(i)$.

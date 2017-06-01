@@ -31,7 +31,7 @@ The second case is when $i$ and $j$ both appear in $\tau$ or $\omega$ but only $
 
 The third case is when $i$ appears in one list and $j$ in the other. The result of the third case is calculated by $(k-z)^2$, which is the length of the lists minus the intersection, to the power of 2.
 
-The fourth case is when both $i$ and $j$ appear in one list but not the other. In this case Equation \ref{eq:case4} is used. $p$ in this case is a penalty value between 0 and 1. As the method we use is an average approach this value is 0.5. $p$ is multiplied with the binomial coefficient of the length of different items in the top-k lists.\note{What is a binomial coefficient}
+The fourth case is when both $i$ and $j$ appear in one list but not the other. In this case Equation \ref{eq:case4} is used. $p$ in this case is a penalty value between 0 and 1. As the method we use is an average approach this value is 0.5. $p$ is multiplied with the binomial coefficient of the length of different items in the top-k lists.
 
 \begin{equation}\label{eq:case4}
 2p\left(\!
