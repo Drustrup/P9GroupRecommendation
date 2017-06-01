@@ -1,15 +1,28 @@
 \section{Conclusion and Future Work}\label{sec:conclusion}
-Throughout this paper we have strived to find the best performing method for aggregating individual top-k lists into one ranked list of size $k$, suitable for a group of people.
+In this paper we have evaluated several aggregation methods for group recommendations. Our findings are simple to reproduce, and give a good indication of the performance of the various methods tested. The multiple measures we use also reinforce the results aside from Rating nDCG.
 
-%Overall BC performer best with MC as close second. 
-What we found was that BC, in most cases, proved to be the superior approach and the cases where it was outperformed, the difference was nearly insignificant. Worth noting is that MC's performance is almost as good as that of BC and further work could be done in trying to improve on these methods.
+We got results similar to that of Baltrunas et al for their setup, and found that the rate of decrease in quality does not continue at the same rate beyond a group size of 8, and that the rate decreases sharply. We confirmed the same trend for all the measures tested.
 
-%Interesting that BC performer better than MC and SF in group recommender when it is not the case in IR
-It was interesting that BC was the best performing because in a paper aggregating ranked search engine results it showed that BC was the worst, compared to SF and MF, and MF was the best performing\citep{rank:aggregation}. 
+We worked with Markov Chains, specifically \MC, which to the best of our knowledge have not been tested for the group recommendation domain, and it performed almost on par with BC.
 
-%What measures to use and in what cases to use them?
-Furthermore, we want to emphasize the importance of doing extensive testing because in a more limited test run we could have concluded that Avg or SF would have been the best methods. Specifically, in the case with SF and SFD we can see how important the selection of an appropriate measure is.
-
-That being said all the evaluation measures shows that as the group size increased the decrease in score for the measures starts to fade out. The biggest drop was between group size 4 and 8. After that the decrease fades and for most cases the decrease was less than $1\%$ between size 16 and 20.
+%Throughout this paper we have strived to find the best performing method for aggregating individual top-k lists into one ranked list of size $k$, suitable for a group of people.
+%
+%%Overall BC performer best with MC as close second. 
+%What we found was that BC, in most cases, proved to be the superior approach and the cases where it was outperformed, the difference was nearly insignificant. Worth noting is that MC's performance is almost as good as that of BC and further work could be done in trying to improve on these methods.
+%
+%%Interesting that BC performer better than MC and SF in group recommender when it is not the case in IR
+%It was interesting that BC was the best performing because in a paper aggregating ranked search engine results it showed that BC was the worst, compared to SF and MF, and MF was the best performing\citep{rank:aggregation}. 
+%
+%%What measures to use and in what cases to use them?
+%Furthermore, we want to emphasize the importance of doing extensive testing because in a more limited test run we could have concluded that Avg or SF would have been the best methods. Specifically, in the case with SF and SFD we can see how important the selection of an appropriate measure is.
+%
+%%We have shown the rate declines exponentially  we got close to their results and extended them - Multiple measures indicate the same
+%That being said all the evaluation measures shows that as the group size increased the decrease in score for the measures starts to fade out. The biggest drop was between group size 4 and 8. After that the decrease fades and for most cases the decrease was less than $1\%$ between size 16 and 20.
 
 \input{content/futurework/futurework}
+
+%What method performs the best - Borda
+%We have shown the rate declines exponentially  we got close to their results and extended them - Multiple measures indicate the same
+
+%Our framework is functional
+%Markov Chain can compete with other methods in performance
