@@ -1,47 +1,28 @@
 \subsubsection{Markov Chain}\label{sec:markovchain}
-Dwork et al propose a Markov Chain for aggregating ranked lists\cite{rank:aggregation}.
+%Dwork et al propose a Markov Chain for aggregating ranked lists called \MC\cite{rank:aggregation}. \MC has a set of states, $S = \{1, 2,..., |I|\}$, corresponding to a set of all the items, $I$.
 
-The Markov Chain method purposed, \MC, generalizes the heuristics of Copeland Method, where a winner is the candidate which wins the most pairwise contests\cite{saari1996}.
+Dwork et al propose a Markov Chain for aggregating ranked lists, called \MC\cite{rank:aggregation}. \MC generalizes the heuristics of Copeland Method, where a winner is the candidate which wins the most pairwise contests\cite{saari1996}.
 
-\MC is a process where we note the possibility of transitioning from one state to another state over time. The \MC state space, $S$, corresponds to a set of all the items, $I$, such that $S = {x_1, x_2,..., x_i}$ for $i = |I|$.
+\MC is a process where we note the possibility of transitioning from one state to another state over time. The \MC state space, $S$, corresponds to a set of all the items, $I$, such that $S = \{1, 2,..., |I|\}$. The transition probabilities between states are represented by a transition matrix, $P = |I| \times |I|$, covering the probability, $p_{ij}$, between any item pair $i \in I$ and $j \in I$.
 
-The transition probabilities between states are represented by a transition matrix, $P = |I| \times |I|$, covering the probability, $p_{ij}$, between items $i \in I$ and $j \in I$.
+To calculate the probabilities, let $c_i$ be the set of items from $I$, that for the majority of the ranked lists we aggregate for, $\tau_1, \tau_2, ...,\tau_u$, it holds that $\tau_u(i) > \tau_u(j)$. The probabilities of $P$ is found according to Equation \ref{eq:markovchain_p_ij}. $\lambda$ is a variable for teleporting, which provides a small increase in accurate. Via tuning, we found that $\lambda = 0.05$ is a good value. For the case of a missing item from either or both lists, the item is considered to be on the lowest possible rank.
 
-Let $c_i$ be the set of items from $I$, that for at majority of ranked lists, $\tau_1, ...,\tau_u$, that $\tau_u(i) > \tau_u(j)$ for $i,j \in I$. Then the probability of $P$ is found according to Equation \ref{eq:markovchain_p}.
-$\lambda$ is a variable for teleporting, which we found to give a slight impact on \note{Finish the sentence pls}. Via testing, we found that $\lambda = 0.05$ is a good value\note{Put most of this lambda in setup?}.
-
-\begin{equation}\label{eq:markovchain_p}
-p_{ij} = (\frac{|c_i|}{|I|})(1-\lambda)+(\frac{\lambda}{|I|})\\
-p_{ii} = (\frac{|I|-|c_i|}{|I|})(1-\lambda)+(\frac{\lambda}{|I|})
-\end{equation}\note{make newline}
-
-With the transition matrix calculated, we can find our result via the stationary distribution of $P$, which is the distribution vector for a transition matrix where the distribution stops changing. Given a distribution vector, $d$, for $P$, given $P$ fulfills some niceness criteria\note{Specify}, we can approximate the stationary distribution for $P$ via application of the power-iteration algorithm. So the approximation, $r$, is found in Equation \ref{eq:markovchain_power} for a number of steps, $t$.
-
-\begin{equation}\label{eq:markovchain_power}
-r = dP^t
+\begin{equation}\label{eq:markovchain_p_ij}
+p_{ij} = (\frac{|c_i|}{|I|})(1-\lambda)+(\frac{\lambda}{|I|})
 \end{equation}
 
-The result of \MC aggregation then becomes the $k$ first items of the sorted distribution $r$.
-%A Markov Chain is a process where we note the possibility of transitioning from one state to another state over time. The transitions are determined only on the account of the previous state, and is commonly represented by a transition matrix, $P$, that holds all pairwise transition probabilities in the state space, denoted as $S$, of the Markov Chain.
-%
-%The probability of moving from state $x$ to state $y$, where $x, y \in S$, is then given by the probability, $p_ij$, from the transition matrix, $P$, where $P : S \rightarrow S$.
-%
-%%New versus old
-%
-%The \MC state space corresponds to a set of all the items ranked. The corresponding transition matrix for \MC will have an equal chance of transitioning to any other state that can beat it in a majority of pairwise contests.
-%
-%The proposed Markov Chain method by Dwork et Al, \MC is a generalization of the Copeland Method\cite{saari1996}, where a winner is the candidate which wins the most pairwise contests\cite{rank:aggregation}.
-%
-%The concept behind building the list of recommendations works by explicitly finding the transition matrix. For \MC, the states are connected to other states that wins per the Copeland method. Then we can iterate through the set, and note who performs best to make the transition matrix. Using the power set on the transition matrix we can find the stationary probability distribution to aggregate the candidates.
-%
-%Given partial lists $\tau_1,...,\tau_u$, collectively known as $\tau$, with rankings of items, and the state space, $S$, of \MC corresponding to the set of all items ranked in those partial lists. If the current state is item $i$ we can transition to uniformly picked state $j \in S$ where $j$ is ranked higher than item $i$ on a majority of lists in $\tau$ which ranked both $i$ and $j$. Otherwise, we stay in state $i$.
-%
-%%Non-strict markov chain
-%\MC as presented by Dwork et al is used on metasearch and aggregating query results, whereas we work in the recommendation domain. To better suit our domain, we make a small adjustment to the method. For search engine comparison, partial lists might not contain both items needed for a pairwise comparison, so in the event of only one item being on the list, it is unknown if the other search engines have ranked the item or not, so Dwork et al restrict themselves to the pairwise comparisons available, and rely on the connectivity in the chain to correct any outcomes.
-%
-%For our domain we have estimated the rankings giving us a top-k of a full list. So we follow this line of thinking for partial lists containing neither of the items, as the highest rank is not available. However, if the partial list contains one of the items, it wins that pairwise contest, as the losing item is known to be somewhere down the list.
-%
-%%$p_{ij} = Pr(X_{n+1} = \sum_{l=1}^{k} \tau_l(i) < \tau_l(j) | X_n = \sum_{l=1}^{k} \tau_l(i) > \tau_l(j) )$
-%
-%%Strict markov chain
-%%For completeness, we also tested a stricter interpretation of \MC where only the majority winners with both items present were considered.
+For the probability of state $i$ staying in state $i$, we have Equation \ref{eq:markovchain_p_ii}.
+
+\begin{equation}\label{eq:markovchain_p_ii}
+p_{ii} = (\frac{|I|-|c_i|}{|I|})(1-\lambda)+(\frac{\lambda}{|I|})
+\end{equation}
+
+When the transition matrix is calculated, the result can be found via the stationary distribution for $P$. A distribution vector is a vector of size $|I|$, which holds non-negative values, representing how the states are distributed. For an initial distribution, $x$, then $xP^t$, is the same initial distribution after $t$ steps down the chain. The stationary distribution is where the state distribution stops changing regardless of taking more steps.
+
+For practical purposes, we can approximate the stationary distribution for $P$ via application of the power-iteration algorithm. So the approximate distribution, $r$, is found in Equation \ref{eq:markovchain_power} for a number of steps, $t$. Via tuning, we found that $t = 30$ was a good value.
+
+\begin{equation}\label{eq:markovchain_power}
+r = xP^t
+\end{equation}
+
+The result of \MC is then found as the $k$ items with the biggest shares of $r$.
