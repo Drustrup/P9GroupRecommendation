@@ -1,13 +1,7 @@
 \adparagraph{Spearman's Footrule Distance}
-In Figure \ref{fig:footruledistance} are the results of the SFD tests. As in KTD it is normalized to be between 0 and 1 where if 0 the list are equal.
+In Figure \ref{fig:footruledistance} are the results of the SFD tests. As in KTD, the distance is between 0 and 1, and 0 represents the perfect match.
 
-In general the tendencies are very similar to those of KTD and the approaches follow the same curve with all most the same distance jumps between the group sizes. This can be noted in Table \ref{tbl:sfd}.\note{Bring up to standards. Put closer to table it references. Optional: Make some observations.}
-
-Not surprisingly SF performs the best in this test. SF has a natural advantage over the other methods when using SFD as they are based on the same principles.
-
-Avg again performs the worst when looking at the SFD results. This is for the same reason as with the SFD measure, Avg does not take the rank of items into account.
-
-For \MC and BC we get some interesting results. They still follow each other really close. However in this test \MC perform marginally better in the most cases except at group size 12 and 16 where BC is slightly better.
+SF performs the best in this test, which is unsurprising. SF has a natural advantage over the other methods when using SFD as SF works to minimize distance per the SFD principle. Avg again performs the worst when looking at the SFD results. This is for the same reason as with the KTD measure, Avg does not take the rank of items into account. For \MC and BC we get some interesting results. They still follow each other really close. However in this test \MC performs marginally better in the most cases except at group size 12 and 16 where BC is slightly better.
 
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -60,6 +54,8 @@ For \MC and BC we get some interesting results. They still follow each other rea
 \end{tikzpicture}
 \caption{Results using SFD} \label{fig:footruledistance}
 \end{figure}
+
+In general the tendencies are very similar to those of KTD and the approaches follow the same curve with all most the same distance jumps between the group sizes. This can be noted in Table \ref{tbl:sfd}. The best performing methods do fall faster, but it is relative to its performance.
 
 \begin{table}[H]
 	\centering
