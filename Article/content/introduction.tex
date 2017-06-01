@@ -18,10 +18,14 @@ As we are going to aggregate the users recommendations we have chosen to only fo
 With ranked top-k lists being partial lists, we have selected three types of aggregation list which have shown good results when used for aggregating search engine results within the information retrieval domain for partial lists. The methods we are using is Borda Count, Markov Chain, and Spearman's Footrule\cite{Masthoff2004, rank:aggregation}. We also implemented an Average aggregation method as a control algorithm\cite{Masthoff2004}.
 
 %Problem regarding evaluation of the aggregation results
-For group recommendations we faced the challenge of evaluating the result without a dataset to provide a ground truth. However, from the information retrieval domain, we found measures to evaluate the quality of queries that can be used to evaluate the quality of a rank list of recommendations and there are many datasets available for individual recommendations.
+For group recommendations we faced the challenge of evaluating the result without a dataset to provide a ground truth. However, from the information retrieval domain, we found measures to evaluate the quality of queries that can be used to evaluate the quality of a ranked list of recommendations and there are many datasets available for individual recommendations.
 
 %Baltrunas
-For one such dataset, there have been made some discoveries for group recommendation. With some overlap with us in chosen methods, such as Borda Count, and measures, such as nDCG, Baltrunas et al found that the quality of the recommendation did not always drop even when the group size grows\citep{Baltrunas:2010:GRR:1864708.1864733}. However, their biggest group size was 8, and it was unclear if the trend could be seen for bigger group sizes\note{Check here, if you want to imply we're looking for this or whether the quality stops decreasing for increasing groupsizes}.
+One such dataset is the 100k MovieLens dataset used by Baltrunas et al for a group recommender setup\cite{movielens100k}\citep{Baltrunas:2010:GRR:1864708.1864733}. 
+They used aggregation methods such as Borda Count and Average and evaluated their performance using Normalized Discounted Cumulative Gain. Their test was done on groups of size 2, 3, 4, and 8 and the findings they made were that the quality of the recommendation did not always drop even when the group size grew. Furthermore, their result showed a significant quality drop from group size 4 to 8. We adapted some of their approaches, more specifically Borda Count, Average, and Normalized Discounted Cumulative Gain, and setup in order to make further tests for larger groups to document if the decrease continues at the same rate as between group size 4 and 8.
+
+
+%With some overlap with us in chosen methods, such as Borda Count, and measures, such as nDCG, Baltrunas et al found that the quality of the recommendation did not always drop even when the group size grows\citep{Baltrunas:2010:GRR:1864708.1864733}. However, their biggest group size was 8, and it was unclear if the trend could be seen for bigger group sizes\note{Check here, if you want to imply we're looking for this or whether the quality stops decreasing for increasing groupsizes}.
 
 %We find out whether this is the case
 
