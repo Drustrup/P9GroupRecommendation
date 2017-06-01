@@ -9,11 +9,6 @@ A top-k list is specified as a ranked list of length $k$ consisting of the highe
 
 The top-k lists are stored in a array which is used as input for the aggregation methods.
 
-%Ranking is the idea of the position of an item in a ranked list is important. This means that if there is a list of ratings $\tau$ the list is ranked if $\tau (1) > \tau (2) > ... > \tau (k)$
-
-%There are several reasons for the use of ranked lists. The first reason is that we want to return a ranked list as a result of the aggregation since we want to ease the decision-making without making the final decision. Secondly, there are a good selection of measurements for the quality of a ranked list. Many of these measures take two lists, $\tau_1$ and $\tau_2$, which are both ranked lists of the same size. 
-
-%In our case one of the lists is a top-k list and the second list is the ranked list of recommendations.
 \subsection{Rank Aggregation}\label{sec:aggregations}
 In this section we describe the aggregation methods. Common for all the aggregation methods is that they aggregate an array of top-k lists into one ranked list, $\omega$, of length $k$ containing recommendations of a group which is returned. The order of $\omega$ may differ between the methods as they rank it based on which items they deem most relevant for the group with the most relevant item first. 
 

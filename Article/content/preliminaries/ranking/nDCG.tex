@@ -1,5 +1,7 @@
 \adparagraph{Normalized Discounted Cumulative Gain}\label{sec:methodology_ndcg}
-For evaluating the quality of the ranking, we use Normalized Discounted Cumulative Gain(nDCG), which is common to the information retrieval field in comparing ranked lists of queries\cite{ndcg}. We take this as a satisfaction measure to calculate the quality of the group recommendation to that of a recommendation for each user in turn. This value is also normalized against the ideal $DCG$, $IDCG$, which is the $DCG$ value based on the ideal recommendations for that user.
+For evaluating the quality of the result list, $\omega$, we use nDCG by comparing it against users' top-k lists $\tau$. 
+
+In Equation \ref{eq:methodology_dcg}, a $DCG$ value is calculated for a set of $k$ ranked items as the sum of the set of items' relevance scores divided by the logarithm of its ranking $n + 1$ where $n \geq 1$. The relevance, $rel$, is defined as a set of scores for items in the $\omega$, compared to the position of the items in a correspondence $\tau$ list. More specifically for all items $i \in \omega$, if $i \in \tau$ then, assuming that $\tau(i)$ and $\omega(i)$ is the position of $i$ in the lists, $rel(\omega(i)) = \tau(i)$. If $i \notin \tau$, then $rel(\omega(i)) = 0$.
 
 %Cumulative gain compares two lists for how relevant the items are. Discounted also considers the position of each item for the quality score, applying a weight on the relevance score that penalizes the score for being lower on a lower ranking. This summed score is normalized against the ideal DCG value, which is the individual user's ranked list, and can be seen in .
 
@@ -7,7 +9,7 @@ For evaluating the quality of the ranking, we use Normalized Discounted Cumulati
 \text{DCG}_k = \sum_{n=1}^{k}\frac{\textit{rel}_n}{\log_2(n + 1)}
 \end{equation}
 
-The relevance, $rel$, is a set of scores for items in the result list, $\omega$, compared to the position of the items in a correspondence top-k list $\tau$. More specifically for all items $i \in \omega$, if $i \in \tau$ then, assuming that $\tau(i)$ and $\omega(i)$ is the position of $i$ in the lists, $rel(\omega(i)) = \tau(i)$. If $i \notin \tau$, then $rel(\omega(i)) = 0$.
+
 
 %is inversely related to its placement on the ranked list belonging to a user. The relevance value of a given item not on a user's list is 0.
 
@@ -15,7 +17,7 @@ The relevance, $rel$, is a set of scores for items in the result list, $\omega$,
 \text{nDCG}_k = \frac{\text{DCG}_k}{\text{IDCG}_k}
 \end{equation}
 
-As per Equation \ref{eq:methodology_dcg}, a $DCG$ value is calculated for a set of $k$ ranked items as the sum of items' relevance scores divided by the logarithm of its ranking $n + 1$ where $n \geq 1$. In Equation \ref{eq:methodology_ndcg}, this value is normalized against the $IDCG$ value which correspond to the $DCG$ where $rel$ exchange with $ideal$ which in this case, as we are concerned with the position of the items, is $k,...,1$ for every top-k list. 
+In Equation \ref{eq:methodology_ndcg}, the $DCG$ value is normalized against the ideal $DCG$, $IDCG$, which is the $DCG$ value based on the ideal recommendations for that user. The $IDCG$ is the set $ideal$, which in this case, as we are concerned with the position of the items, is $k,...,1$ for every top-k list, exchanged with $rel$ in Equation \ref{eq:methodology_dcg}. 
 
 \adparagraph{Rating nDCG}\note{Add specification for IDCG scores}
 In an effort to more accurately portray the quality of the ranking, we present the Rating nDCG measure.
