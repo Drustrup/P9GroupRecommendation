@@ -18,17 +18,19 @@ As we are going to aggregate the users recommendations we have chosen to only fo
 With ranked top-k lists being partial lists, we have selected three types of aggregation list which have shown good results when used for aggregating search engine results within the information retrieval domain for partial lists. The methods we are using is Borda Count, Markov Chain, and Spearman's Footrule\cite{Masthoff2004, rank:aggregation}. We also implemented an Average aggregation method as a control algorithm\cite{Masthoff2004}.
 
 %Problem regarding evaluation of the aggregation results
-For group recommendations we faced the challenge of evaluating the result without a dataset to provide a ground truth. However, from the information retrieval domain, we found measures to evaluate the quality of queries that can be used to evaluate the quality of a partial list of recommendations and there are many datasets available for individual recommendations.
+For group recommendations we faced the challenge of evaluating the result without a dataset to provide a ground truth. However, from the information retrieval domain, we found measures to evaluate the quality of queries that can be used to evaluate the quality of a rank list of recommendations and there are many datasets available for individual recommendations.
 
 %Baltrunas
-For one such dataset, there have been made some discoveries for group recommendation. With some overlap with us in chosen methods, such as Borda Count, and measures, such as nDCG, Baltrunas et al found that the quality of the recommendation did not always drop even when the group size grows. However, their biggest group size was 8, and it was unclear if the trend could be seen for bigger group sizes\note{Check here, if you want to imply we're looking for this or whether the quality stops decreasing for increasing groupsizes}.
+For one such dataset, there have been made some discoveries for group recommendation. With some overlap with us in chosen methods, such as Borda Count, and measures, such as nDCG, Baltrunas et al found that the quality of the recommendation did not always drop even when the group size grows\citep{Baltrunas:2010:GRR:1864708.1864733}. However, their biggest group size was 8, and it was unclear if the trend could be seen for bigger group sizes\note{Check here, if you want to imply we're looking for this or whether the quality stops decreasing for increasing groupsizes}.
 
 %We find out whether this is the case
 
 \subsection{Research Questions}\note{extend and specify + more math}
 Among common aggregation methods, given ranked top-k lists $\tau_1, ... , \tau_u$, where $u$ is the number of group members, which method can provide the most optimal group recommendation per measures such as satisfaction or distance from individual preferences of the group?
 
-Also, is it the case for all aggregation methods that as the number of users, $u$, increases, does the quality of the recommendations decrease per our measures? For a set of groups, $G = \{ g_1, ..., g_n \}$ of corresponding group sizes, $U = \{ u_1, ..., u_n \}$, and group recommendation setup $f(x)$ that takes those groups as input and returns an evaluation of that recommendation, can we find a group size such that $f(g_a) > f(g_b)$ where $u_a > u_b$\note{Correct this part}.
+%Is it the case for all aggregation methods that as the number of users, $u$, increases, the quality of the recommendations decrease per our measures? For a set of groups, $G = \{ g_1, ..., g_n \}$ of corresponding group sizes, $U = \{ u_1, ..., u_n \}$, and group recommendation setup $f(x)$ that takes those groups as input and returns an evaluation of that recommendation, can we find a group size such that $f(g_a) > f(g_b)$ where $u_a > u_b$\note{Correct this part}.
+
+Baltrunas et al supplies us with some results for the performance of a group recommender setup. They present results of groups with sizes 2, 3, 4, and 8 and the results are for the measure nDCG. Their results for group sizes 2, 3, and 4 are very close and well performing, but they show a drop off in performance for group size 4 to 8. Is it possible to reproduce similar test results and with larger groups to investigate if the drop off continues? Furthermore, is it possible to verify the results with additional measures?
 
 %Find if derivative of f(g_1) = derivative of f(g_2), for any u_n where u_1 < u_2
 
