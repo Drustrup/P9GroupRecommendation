@@ -1,4 +1,4 @@
-\adparagraph{Rating nDCG}
+%\adparagraph{Rating nDCG}
 
 \begin{figure}[H]
 \begin{tikzpicture}
@@ -11,7 +11,7 @@
         /tikz/.cd
     },
 	xlabel=Group Size,
-	ylabel=nDCG,
+	ylabel=Rating nDCG,
 	xtick = {4,8,12,16,20,40}]
 	\addplot[smooth,mark=*,blue] plot coordinates {
 		(4,0.9534)
@@ -21,7 +21,7 @@
 		(20,0.9516)
 		(40,0.9513)
 	};
-	\addlegendentry{Borda Count}
+	\addlegendentry{BC}
 	
 	\addplot[smooth,color=brown,mark=square*] plot coordinates {
 		(4,0.9538)
@@ -57,5 +57,5 @@
 
 \end{axis}
 \end{tikzpicture}
-\caption{Results on rating nDCG test for Borda Count extensions}
+\caption{Results using Rating nDCG on BC extensions}\label{fig:appenixrndcg}
 \end{figure}
