@@ -1,8 +1,8 @@
 \subsubsection{Dataset}\label{sec:dataset}
-We used the MovieLens 100k dataset published by GroupLens in 1998\cite{movielens100k}. MovieLens 100K contains 100.000 ratings between 1 to 5 collected from 943 users across 1682 movies. With room for approximately one and a half million ratings, the 100k rating dataset is sparse. We used rating prediction to populate the rating matrix.
+We used the MovieLens 100k dataset published by GroupLens in 1998\cite{movielens100k}. MovieLens 100K contains 100.000 ratings between 1 to 5 collected from 943 users across 1682 movies. With room for approximately one and a half million ratings, the 100k rating dataset is sparse. 
 
 \subsubsection{Individual Recommendations}\label{sec:individualrecommendation}
-For rating prediction, we used the library called MyMediaLite\cite{mymedialite}. MyMediaLite is a library for .NET that holds a bundle of recommendation methods for both item recommendation and rating prediction. We will be using the library, because this gives a tested foundation that is easy to reproduce for testing other aggregation methods and the focus of our paper lies in testing the aggregation methods.
+For rating prediction, we used the library called MyMediaLite\cite{mymedialite}. MyMediaLite is a library for .NET that holds a bundle of recommendation methods for both item recommendation and rating prediction. We will be using the library, because this gives a tested foundation that is easy to reproduce and the focus of our paper lies in testing the aggregation methods.
 
 Among the methods provided by MyMediaLite, SVD++ is one of the best performing on the 100k dataset on their own records using the parameters in Table \ref{tbl:svdpp}\footnote{www.mymedialite.net/examples/datasets.html}. For the sake of convenience we are using the same parameters as they are proven to be efficient.
 
@@ -22,6 +22,6 @@ Among the methods provided by MyMediaLite, SVD++ is one of the best performing o
 \end{table}
 
 \subsubsection{Group Generation}\label{sec:groupgeneration}
-For the aggregation we made groups consisting of 4, 8, 12, 16, 20, and 40 users from the MovieLens 100K dataset. This allows us to further the findings by Baltrunas et al\cite{Baltrunas:2010:GRR:1864708.1864733}, who had group sizes from 2 to 8.
+For the aggregation we made groups consisting of 4, 8, 12, 16, 20, and 40 users from the MovieLens 100K dataset. The reason for this is because we wanted to reproduce and futher the results found by Baltrunas et al\cite{Baltrunas:2010:GRR:1864708.1864733}, who had group sizes from 2 to 8.
 
-Given that the dataset contains 943 users, we limited our group size to 40, as to not have any groups containing more than 5\% of all the users. This ensured some amount of diversity in the group. 40 is also ten times the size of our smallest group, enough to indicate the trend for the quality of recommendations. The groups were created of randomly picked users, and the same user can appear in multiple groups, but never in the same group twice.
+Given that the dataset contains 943 users, we limited our group size to 40, as to not have any groups containing more than 5\% of all the users. This ensured some amount of diversity in the groups. 40 is also ten times the size of our smallest group, enough to indicate the trend for the quality of recommendations. The groups were created of randomly picked users, and the same user can appear in multiple groups, but never in the same group twice.
