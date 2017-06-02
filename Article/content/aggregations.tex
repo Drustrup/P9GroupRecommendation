@@ -7,10 +7,10 @@ Prior to making the rank aggregation we do some preprocessing. As specified in F
 
 A top-k list is specified as a ranked list of length $k$ consisting of the highest rated items order in descending order. More specifically let $\tau$ be a top-k list and let $\tau(i)$ be the rating of item $i$, which is an arbitrary item, then list is ranked if $\tau (1) > \tau (2) > ... > \tau (k)$.
 
-The top-k lists are stored in a array which is used as input for the aggregation methods.
+The top-k lists are stored in an array which is used as input for the aggregation methods.
 
 \subsection{Rank Aggregation}\label{sec:aggregations}
-In this section we describe the aggregation methods. Common for all the aggregation methods is that they aggregate an array of top-k lists into one ranked list, $\omega$, of length $k$ containing recommendations of a group which is returned. The order of $\omega$ may differ between the methods as they rank it based on which items they deem most relevant for the group with the most relevant item first. 
+In this section we describe the aggregation methods. Common for all the methods is that they aggregate an array of top-k lists into one ranked list, $\omega$, of length $k$ containing recommendations of a group. The order of $\omega$ may differ between the methods as they rank it based on which items they deem most relevant for the group, with the most relevant item first. 
 
 \input{content/aggregations/bordacount}
 \input{content/aggregations/markovchain}
