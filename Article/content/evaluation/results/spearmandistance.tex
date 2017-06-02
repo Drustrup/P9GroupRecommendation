@@ -3,6 +3,9 @@ In Figure \ref{fig:footruledistance} are the results of the SFD tests. As in KTD
 
 SF performs the best in this test, which is unsurprising. SF has a natural advantage over the other methods when using SFD as SF works to minimize distance per the SFD principle. Avg again performs the worst when looking at the SFD results. This is for the same reason as with the KTD measure, Avg does not take the rank of items into account. For \MC and BC we get some interesting results. They still follow each other really close. However in this test \MC performs marginally better in the most cases except at group size 12 and 16 where BC is slightly better.
 
+In general the tendencies are very similar to those of KTD and the approaches follow the same curve with all most the same distance jumps between the group sizes. This can be noted in Table \ref{tbl:sfd}. The best performing methods do fall faster, but it is relative to its performance.
+
+Table \ref{tbl:sfd_ttest} shows the t-tests for SFD. BC and MC have two cases where the results are not distinct enough to be statistically different. BC and MC for group size 12 show the highest likelihood of of all comparisons to be indistinguishable.
 \begin{figure}[H]
 \begin{tikzpicture}
     \begin{axis}[
@@ -55,8 +58,6 @@ SF performs the best in this test, which is unsurprising. SF has a natural advan
 \caption{Results using SFD} \label{fig:footruledistance}
 \end{figure}
 
-In general the tendencies are very similar to those of KTD and the approaches follow the same curve with all most the same distance jumps between the group sizes. This can be noted in Table \ref{tbl:sfd}. The best performing methods do fall faster, but it is relative to its performance.
-
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|l|lllll|}\hline
@@ -69,8 +70,6 @@ In general the tendencies are very similar to those of KTD and the approaches fo
 	\caption{Percentage increase between the groups for SFD}
 	\label{tbl:sfd}
 \end{table}
-
-Table \ref{tbl:sfd_ttest} shows the t-tests for SFD. BC and MC have two cases where the results are not distinct enough to be statistically different. BC and MC for group size 12 show the highest likelihood of of all comparisons to be indistinguishable.
 
 \begin{table}[H]
 	\centering

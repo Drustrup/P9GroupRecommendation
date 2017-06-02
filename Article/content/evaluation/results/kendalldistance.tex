@@ -3,6 +3,7 @@ Looking at Figure \ref{fig:kendalldistance} we can see the results of the KTD te
 
 Looking at the approaches individually Avg clearly scores the highest. The reason is that Avg disregards the item ranks in the top-k lists and aggregates them based on the average rating between the group members instead. SF performs worse than both \MC and BC, which could be seen as having to do with SF ranking its candidates using a median like approach, which is closer to how Avg performs. Lastly, performing best and almost equal we have BC and \MC. Worth noting is that when the groups are small \MC performers slightly better than BC, but already at group size 8 BC out scales \MC.
 
+
 \begin{figure}[H]
 \begin{tikzpicture}
     \begin{axis}[
@@ -54,9 +55,10 @@ Looking at the approaches individually Avg clearly scores the highest. The reaso
 \end{tikzpicture}
 \caption{Results using KDT} \label{fig:kendalldistance}
 \end{figure}
-
+\newpage
 When looking at the percentage distance increase between group sizes in Table \ref{tbl:kendall}, it is seen that all the methods follow the same trend across the group sizes. Where there is a large difference with an average increase of $7.28$ percent between group sizes 4 and 8, as the groups grow the increase in the KTD quickly fades and becomes very low between groups. By the time we reach groups 20 and 40 the change in distance is only 0.945 percent.
 
+For the t-tests shown in Table \ref{tbl:ktd_ttest}, all results are shown to be statistically significant in their differences, except for one case between BC and MC. The remainder are different enough to be statistically significant, but the p-values are still considerably higher than usual between BC and MC for a sample of this size.
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|l|lllll|}\hline
@@ -70,7 +72,6 @@ When looking at the percentage distance increase between group sizes in Table \r
 	\label{tbl:kendall}
 \end{table}
 
-For the t-tests shown in Table \ref{tbl:ktd_ttest}, all results are shown to be statistically significant in their differences, except for one case between BC and MC. The remainder are different enough to be statistically significant, but the p-values are still considerably higher than usual between BC and MC for a sample of this size.
 
 \begin{table}[H]
 	\centering

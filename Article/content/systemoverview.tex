@@ -1,6 +1,10 @@
 \section{System Overview}\label{sec:systemoverview}
 In this section we give a short overview of the group recommendation system which is depicted in Figure \ref{fig:composition}. Each of the stages will be outlined with a short description. 
-
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.4]{graphics/composition}
+\caption{Stages of the group recommender system}\label{fig:composition}
+\end{figure}
 \paragraph{Individual Recommendation} We make individual recommendations for every user. The recommendation methods used in this step is interchangeable and can be selected to fit the data and purpose of the recommendation. The only condition for the recommender is that it finds a complete list of recommendations of the users in a group. In Section \ref{sec:individualrecommender} the recommender we use is further elaborated on.
 
 \paragraph{Groups} In the groups stage we generated a list of groups for testing purposes. These groups consist of user id's and were generated at random but it is ensured that the same user only appears once in each group. The specific setup of the groups is described in Section \ref{sec:groupgeneration}.
@@ -20,8 +24,3 @@ A more detailed description of the stages in group recommendation can be found i
 
 %As we are going to aggregate recommendations we implemented a group recommender system with the steps shown in Figure \ref{fig:composition}. A dataset will provide for us to make some individual recommendations for users arranged into groups for later testing. The next part of the group recommender is the aggregation half, which is the focus of the paper. Using the output of the first part of the system, we will be trying several different aggregation approaches. The results of these are the group recommendations to be evaluated.
 %As we take the aspect of aggregating recommendations the group recommendation system will consist of two parts namely an individual recommender and an aggregation method. \note{need some extension and probably an illustration}
-\begin{figure}[t!]
-\centering
-\includegraphics[scale=.4]{graphics/composition}
-\caption{Stages of the group recommender system}\label{fig:composition}
-\end{figure}

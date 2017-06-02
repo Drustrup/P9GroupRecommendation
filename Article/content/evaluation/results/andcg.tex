@@ -2,6 +2,12 @@
 In Figure \ref{fig:andcg} we see the scores of the Rating nDCG measure. All methods generally have high levels of satisfaction according to the measure, with none scoring below 95 percent satisfaction.
 
 Avg is ahead of the other methods, but it is also the only method using the average rating of all the candidate items for its recommendation. The remainder are mostly identical in performance to each other.
+
+As can be seen in Table \ref{tbl:andcg}, BC, \MC, and SF do not decrease in score from 16 to 20, and SF increases in score. In general, the fall in nDCG score is extremely low compared to the other measures. This could indicate, that the individual recommendations are biased towards some selection of items.
+
+Among the remainder, while \MC does outperform both BC and SF, the difference is small.
+
+Table \ref{tbl:andcg_ttest} shows the t-test results for Rating nDCG. For BC and SF, there are two cases, which has been marked in bold, where the difference is not significant enough to not be considered random. It can also be seen that the p-values for all but Avg are many orders of magnitudes smaller than seen for other measures, due to the similarity in the results.
 \begin{figure}[H]
 	\begin{tikzpicture}
 	\begin{axis}[
@@ -58,10 +64,6 @@ Avg is ahead of the other methods, but it is also the only method using the aver
 	\caption{Results using Rating nDCG}\label{fig:andcg}
 \end{figure}
 
-As can be seen in Table \ref{tbl:andcg}, BC, \MC, and SF do not decrease in score from 16 to 20, and SF increases in score. In general, the fall in nDCG score is extremely low compared to the other measures. This could indicate, that the individual recommendations are biased towards some selection of items.
-
-Among the remainder, while \MC does outperform both BC and SF, the difference is small.
-
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|l|lllll|}\hline
@@ -74,8 +76,6 @@ Among the remainder, while \MC does outperform both BC and SF, the difference is
 	\caption{Percentage decrease between the groups for Rating nDCG}
 	\label{tbl:andcg}
 \end{table}
-
-Table \ref{tbl:andcg_ttest} shows the t-test results for Rating nDCG. For BC and SF, there are two cases, which has been marked in bold, where the difference is not significant enough to not be considered random. It can also be seen that the p-values for all but Avg are many orders of magnitudes smaller than seen for other measures, due to the similarity in the results.
 
 \begin{table}[H]
 	\centering
