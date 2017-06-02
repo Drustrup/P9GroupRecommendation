@@ -75,10 +75,15 @@
 
 
 \begin{abstract}
-In this paper we worked on the problem of recommending items to a group of people based on the preferences of the individual users. We approached this problem as a rank aggregation problem and focused on the top-k preferences of the users.
-The methods used for the aggregations were Borda Count, Markov Chain, Spearman's Footrule, and Average.
-
-One of our primary goals were to present a testing setup to give a satisfying theoretical conclusion on which aggregation method to use. For the setup we used Borda Count and Markov Chain showed promising results, but Borda Count was the best performing method.
+In this paper we evaluate four different aggregation methods, Borda Count, Markov Chain, Spearman's Footrule, and Average, on four different measures, nDCG using ranks, nDCG using ratings, Kendall Tau Distance, and Spearman's Footrule Distance.
+	
+For individual recommendation, we use SVD++ from MyMediaLite, and groups generated from the MovieLens 100K dataset, of sizes ranging from 4 to 40.
+	
+Our findings show that Borda Count has the overall best performance. Markov Chain, using the Copeland method as a heuristic, also nearly performs on par with Borda Count, and that the quality of the recommendations drop as the size of groups increase per all measures, but that the decrease becomes almost nothing after group size 20.
+%In this paper we worked on the problem of recommending items to a group of people based on the preferences of the individual users. We approached this problem as a rank aggregation problem and focused on the top-k preferences of the users.
+%The methods used for the aggregations were Borda Count, Markov Chain, Spearman's Footrule, and Average.
+%
+%One of our primary goals were to present a testing setup to give a satisfying theoretical conclusion on which aggregation method to use. For the setup we used Borda Count and Markov Chain showed promising results, but Borda Count was the best performing method.
 \end{abstract}
 
 \keywords{Group Recommendation, Rank Aggregation, Borda Count, Markov Chain, Spearman's Footrule, Average, nDCG, Kendall Tau Distance, Spearman's Footrule Distance}
