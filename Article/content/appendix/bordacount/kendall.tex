@@ -1,10 +1,10 @@
-\adparagraph{Kendall Tau Distance}
+%\adparagraph{Kendall Tau Distance}
 
 \begin{figure}[H]
 \begin{tikzpicture}
 \begin{axis}[
         xlabel=Group Size,
-        ylabel=Kendall Distance,
+        ylabel=Kendall Tau Distance,
         xtick = {4,8,12,16,20,40},
         legend pos=south east]
 	\addplot[smooth,mark=*,blue] plot coordinates {
@@ -15,7 +15,7 @@
         (20,0.5653)
         (40,0.572)
     };
-    \addlegendentry{Borda Count}	
+    \addlegendentry{BC}	
 	
 	    \addplot[smooth,color=brown,mark=square*] plot coordinates {
 		(4,0.5033)
@@ -51,5 +51,5 @@
 	
 \end{axis}
 \end{tikzpicture}
-\caption{Results on Kendall Tau distance test for Borda Count extensions}
+\caption{Results using KTD on BC extensions}\label{fig:appendixkendall}
 \end{figure}
