@@ -18,8 +18,23 @@ So instead of a recommendation, the challenge is counting votes. For Group Recom
 
 Borda Count in particular was notable for the project. In the previous semester, the group working on this project was exploring extensions of Borda Count. The results were promising, but there was a lack of a ground truth to really give meaning to the results.
 
-For the project, initially, we were chasing the possibility of making a dataset establishing a ground truth. The dataset itself would have been a great contribution. However, given the amount of data needed for a proper dataset, we had to look towards paid services to attract the numbers needed. In this case, we turned to Amazon Mechanical Turk, where it is possible to pay people to answer surveys or other simple tasks.
+For the project, initially, we were chasing the possibility of creating a dataset to establish a ground truth for our earlier findings. The dataset itself would have been a great contribution as there is not a lot of available data for the group recommendation field. However, given the amount of data needed for a proper dataset, we had to look towards paid services to attract the numbers needed. In this case, we turned to Amazon Mechanical Turk, where it is possible to pay people to answer surveys or other simple tasks. With that in mind we applied for funding and got a 100 euro to spend for the project with the stipulations that the dataset be freely available to all AAU students and were reusable for others in the field.
 
-The aim of the
+So to evaluate our results, we could not ask amazon turkers to rate our group recommendations, as they would not be reusable. As such the plan for the survey was to have the users provide the recommendations on the assumption that humans are good group recommender systems. We could then compare group recommender systems in how they recommended as opposed to humans.
+
+As the survey designer for Mechanical Turk was not complex enough to cover our use case, it was decided to make our own server and webpage to handle the survey and collect the answers. Initially, we started development on a Java server using JavaServer Pages, but after a while we switched to python with the Django framework. For webhosting, we found a provider online.
+
+The survey was simple. The survey participant was given information about the preferences for a group, and was asked to make a ranked list of recommendations for the group.
+
+To avoid overloading the participant with information and make the survey take too long, we spent a lot of time on making it easier for the participant.
+
+However, 3 days after we launched the survey, we found ourselves suspended from the Mechanical Turk with no recourse for recouping the money or refuting the suspension.
+
+At this point, around half the alloted time for the project was gone and we had nowhere near enough data to establish any ground truth, and we turned the project towards testing new aggregation methods in the group recommendation domain. Additionally, we would use many types of measures to make up for our lack of a real dataset.
+
+In the end, we implemented many aggregation methods, of which Borda Count, a Markov Chain variant; \MC, Spearman's footrule, and average made it to the article.
+
+A paper on these methods had made some interesting insights for these measures on group sizes between 2 and 8, so we pivoted to further test the results of the paper. With the extra measures we implemented, we also confirmed the results for more than just Normalized Discounted Cumulative Gain.
+
 \end{adjustwidth*}
 \end{titlepage}
