@@ -6,7 +6,7 @@ In Equation \ref{eq:methodology_dcg}, a $DCG$ value is calculated for a set of $
 %Cumulative gain compares two lists for how relevant the items are. Discounted also considers the position of each item for the quality score, applying a weight on the relevance score that penalizes the score for being lower on a lower ranking. This summed score is normalized against the ideal DCG value, which is the individual user's ranked list, and can be seen in .
 
 \begin{equation}\label{eq:methodology_dcg}
-\text{DCG}_k = \sum_{n=1}^{k}\frac{\textit{rel}_n}{\log_2(n + 1)}
+\text{DCG}_k = \sum_{n=1}^{k}\frac{\textit{rel(n)}}{\log_2(n + 1)}
 \end{equation}
 
 
@@ -22,13 +22,13 @@ In Equation \ref{eq:methodology_ndcg}, the $DCG$ value is normalized against the
 \adparagraph{Rating nDCG}
 In an effort to more accurately portray the quality of the ranking, we present the Rating nDCG measure.
 
-The difference is that the relevance score of items are not represented by their ranking, but directly from the predicted ratings for that item with the set of rating values, $rat$. $rat$ is defined by, for every $i\in \omega$ we find the rating for that item in a users full list of recommendations $\sigma$, so assuming that $\omega(i)$ is the position of $i$ in $\omega$ and $\sigma(i)$ is the rating of item $i$ for a user, then $rat(\omega(i) = \sigma(i)$.
-Intuitively when the relevance set is changed to a rating set for $DCG$ it also needs to be changed of $IDCG$. The $ideal$ set for Rating nDCG is the ratings of the items on a top-k list, $\tau$. So if $\tau(1)$ is the rating of item one, then the $ideal$ set is $\tau(1),...,\tau(k)$.
+The difference is that the relevance score of items are not represented by their ranking, but directly from the predicted ratings for that item with the set of rating values, $rat$. It is defined as the rating for every $i\in \omega$ for that item in a users full list of recommendations $\sigma$, such that $\omega(i)$ is the position of $i$ in $\omega$ and $\sigma(i)$ is the rating of item $i$ for a user, and $rat(\omega(i) = \sigma(i)$.
+Intuitively when the relevance set is changed to a rating set for $DCG$ it also needs to be changed for $IDCG$. The $ideal$ set for Rating nDCG is the ratings of the items on a top-k list, $\tau$. So if $\tau(1)$ is the rating of item one, then the $ideal$ set is $\tau(1),...,\tau(k)$.
 
- This slightly changes the DCG calcuation for Rating nDCG into Equation \ref{eq:methodology_dcg_rating}.
+This slightly changes the DCG calcuation for Rating nDCG into Equation \ref{eq:methodology_dcg_rating}.
 
 \begin{equation}\label{eq:methodology_dcg_rating}
-\text{RatingDCG}_k = \sum_{n=1}^{k}\frac{\textit{rat}_n}{\log_2(n + 1)}
+\text{RatingDCG}_k = \sum_{n=1}^{k}\frac{\textit{rat(n)}}{\log_2(n + 1)}
 \end{equation}
 
 As there is often not much overlap between individual users' recommendations, it can better reflect the quality of a recommendation for that user, as a recommendation is not punished as harshly by not including items on a user's individual top-k list. It also more closely reflects the user's rating of an item's relevance, as it is not decided by the ranking. Overall, this leads to much higher nDCG scores, as even total misses are no longer necessarily seen as such.
