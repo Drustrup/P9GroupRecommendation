@@ -5,7 +5,7 @@ Dwork et al propose a Markov Chain for aggregating ranked lists, called \MC\cite
 
 \MC is a process where we note the possibility of transitioning from one state to another state over time. The \MC state space, $S$, corresponds to a set of all the items, $I$, such that $S = \{1, 2,..., |I|\}$. The transition probabilities between states are represented by a transition matrix, $P = |I| \times |I|$, covering the probability, $p_{ij}$, between any item pair $i \in I$ and $j \in I$.
 
-To calculate the probabilities, let $c_i$ be the set of items from $I$, that for the majority of the ranked lists we aggregate for, $\tau_1, \tau_2, ...,\tau_u$, it holds that $\tau_u(i) > \tau_u(j)$. The probabilities of $P$ is found according to Equation \ref{eq:markovchain_p_ij}. $\lambda$ is a variable for teleporting, which provides a small increase in accurate. Via tuning, we found that $\lambda = 0.05$ is a good value. For the case of a missing item from either or both lists, the item is considered to be on the lowest possible rank.
+To calculate the probabilities, let $c_i$ be the set of items from $I$, that for the majority of the ranked lists we aggregate for, $\tau_1, \tau_2, ...,\tau_u$, it holds that $\tau_u(i) > \tau_u(j)$. As such, for the item placed first on every ranked list, $c_i = I-i$, and for the item placed last for every list would have $c_i$ be the empty set. The probabilities of $P$ is found according to Equation \ref{eq:markovchain_p_ij}. $\lambda$ is a variable for teleporting that makes $P$ irreducible such that it has no absorbing states, and provides a small increase in accuracy.  Via tuning, we found that $\lambda = 0.05$ is a good value. For the case of a missing item from either or both lists, the item is considered to be on the lowest possible rank.
 
 \begin{equation}\label{eq:markovchain_p_ij}
 p_{ij} = (\frac{|c_i|}{|I|})(1-\lambda)+(\frac{\lambda}{|I|})
@@ -25,4 +25,4 @@ For practical purposes, we can approximate the stationary distribution for $P$ v
 r = xP^t
 \end{equation}
 
-The result of \MC is then found as the $k$ items with the biggest shares of $r$.
+The result of \MC, $\omega$, is then found as the $k$ items with the biggest shares of $r$.
