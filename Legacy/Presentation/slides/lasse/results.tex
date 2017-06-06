@@ -1,0 +1,302 @@
+\section{Results}
+
+\begin{frame}
+     \begin{center}
+     	\huge Results 
+     \end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Methodology}
+	The setup of the new test is the same as the previous tests
+	\begin{itemize}
+		\item The exact same random generated groups as in the previous tests
+		\item Groups of the sizes 4, 8, 12, 16, 20, and 40
+		\item There are 1000 groups of each size
+		\item The preferences looked at is the top 10
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Group Size 4}
+\begin{figure}[h]
+\centering
+\begin{minipage}{.46\textwidth}\centering
+\begin{tikzpicture}
+ \begin{axis}[
+ 	height=5cm,
+ 	width=4cm,
+ 	ybar =-10pt,
+ 	x = .8cm,
+ 	ymin=0.0, 
+ 	ymax=0.70,
+ 	ytick = {0, 0.1,0.2,0.3,...,0.70},
+ 	scaled y ticks = false,
+	enlarge x limits ={abs=.4cm},
+	nodes near coords,
+    every node near coord/.append style={font=\tiny,/pgf/number format/.cd,precision=4},
+ 	ylabel={nDCG},
+	xtick={0,1,2,3,4},  % NEW BIT
+	xticklabels={BC, BTC, BWC, BEC, RS},
+	%legend style={at={(0.5,-0.1)},
+	%anchor=north,legend columns=-1},
+	ymajorgrids = true,]
+
+		\addplot coordinates {(0,0.6398)};    
+		\addplot coordinates {(1,0.6394)};    
+		\addplot coordinates {(2,0.6394)};    
+		\addplot coordinates {(3,0.6453)};    
+		\addplot coordinates {(4,0.5451)};
+        %\legend{BC, BTC, BWC, BEC, Random}
+     \end{axis}
+\end{tikzpicture}\captionof{figure}{From the report}
+\end{minipage}
+\begin{minipage}{.46\textwidth}\centering
+\begin{tikzpicture}
+ \begin{axis}[
+ 	height=5cm,
+ 	ybar =-10pt,
+ 	x = .8cm,
+ 	ymin=0.0, 	
+ 	ymax=0.70,
+ 	ytick = {0,0.1,0.20,0.3,...,0.70},
+	enlarge x limits ={abs=.4cm},
+	nodes near coords,
+    every node near coord/.append style={font=\tiny,/pgf/number format/.cd,precision=4},
+	xtick={0,1,2,3,4},  % NEW BIT
+	xticklabels={BC, BTC, BWC, BEC, RS},
+	%legend style={at={(0.5,-0.1)},
+	%anchor=north,legend columns=-1},
+	ymajorgrids = true,]
+
+		\addplot coordinates {(0,0.4368)};    
+		\addplot coordinates {(1,0.4346)};    
+		\addplot coordinates {(2,0.436)};    
+		\addplot coordinates {(3,0.4354)};    
+		\addplot coordinates {(4,0.2288)};
+        %\legend{BC, BTC, BWC, BEC, Random}
+     \end{axis}
+\end{tikzpicture}\captionof{figure}{The new result}
+\end{minipage}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Group Size 12}
+\begin{figure}[h]
+\centering
+\begin{minipage}{.46\textwidth}\centering
+\begin{tikzpicture}
+ \begin{axis}[
+ 	height=5cm,
+ 	width=4cm,
+ 	ybar =-10pt,
+ 	x = .8cm,
+ 	ymin=0.00, 
+ 	ymax=0.70,
+ 	ytick = {0,0.1,0.2,0.3,...,0.70},
+ 	scaled y ticks = false,
+	enlarge x limits ={abs=.4cm},
+	nodes near coords,
+    every node near coord/.append style={font=\tiny,/pgf/number format/.cd,precision=4},
+ 	ylabel={nDCG},
+	xtick={0,1,2,3,4},  % NEW BIT
+	xticklabels={BC, BTC, BWC, BEC, RS},
+	%legend style={at={(0.5,-0.1)},
+	%anchor=north,legend columns=-1},
+	ymajorgrids = true,]
+
+		\addplot coordinates {(0,0.5573)};    
+		\addplot coordinates {(1,0.5934)};    
+		\addplot coordinates {(2,0.5584)};    
+		\addplot coordinates {(3,0.5539)};    
+		\addplot coordinates {(4,0.3753)};
+        %\legend{BC, BTC, BWC, BEC, Random}
+     \end{axis}
+\end{tikzpicture}\captionof{figure}{From the report}
+\end{minipage}
+\begin{minipage}{.46\textwidth}\centering
+\begin{tikzpicture}
+ \begin{axis}[
+ 	height=5cm,
+ 	ybar =-10pt,
+ 	x = .8cm,
+ 	ymin=0.0, 	
+ 	ymax=0.70,
+ 	ytick = {0,0.1,0.20,0.3,...,0.70},
+	enlarge x limits ={abs=.4cm},
+	nodes near coords,
+    every node near coord/.append style={font=\tiny,/pgf/number format/.cd,precision=4},
+	xtick={0,1,2,3,4},  % NEW BIT
+	xticklabels={BC, BTC, BWC, BEC, RS},
+	%legend style={at={(0.5,-0.1)},
+	%anchor=north,legend columns=-1},
+	ymajorgrids = true,]
+
+		\addplot coordinates {(0,0.2706)};    
+		\addplot coordinates {(1,0.2574)};    
+		\addplot coordinates {(2,0.2704)};    
+		\addplot coordinates {(3,0.2699)};    
+		\addplot coordinates {(4,0.0929)};
+        %\legend{BC, BTC, BWC, BEC, Random}
+     \end{axis}
+\end{tikzpicture}\captionof{figure}{The new result}
+\end{minipage}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Group Size 40}
+\begin{figure}[h]
+\centering
+\begin{minipage}{.46\textwidth}\centering
+\begin{tikzpicture}
+ \begin{axis}[
+ 	height=5cm,
+ 	width=4cm,
+ 	ybar =-10pt,
+ 	x = .8cm,
+ 	ymin=0.00, 
+ 	ymax=0.70,
+ 	ytick = {0,0.1,0.20,0.3,0.4,0.5,0.60},
+ 	scaled y ticks = false,
+	enlarge x limits ={abs=.4cm},
+	nodes near coords,
+    every node near coord/.append style={font=\tiny,/pgf/number format/.cd,precision=4},
+ 	ylabel={nDCG},
+	xtick={0,1,2,3,4},  % NEW BIT
+	xticklabels={BC, BTC, BWC, BEC, RS},
+	%legend style={at={(0.5,-0.1)},
+	%anchor=north,legend columns=-1},
+	ymajorgrids = true,]
+
+		\addplot coordinates {(0,0.4886)};    
+		\addplot coordinates {(1,0.5518)};    
+		\addplot coordinates {(2,0.4891)};    
+		\addplot coordinates {(3,0.4873)};    
+		\addplot coordinates {(4,0.2231)};
+        %\legend{BC, BTC, BWC, BEC, Random}
+     \end{axis}
+\end{tikzpicture}\captionof{figure}{From the report}
+\end{minipage}
+\begin{minipage}{.46\textwidth}\centering
+\begin{tikzpicture}
+ \begin{axis}[
+ 	height=5cm,
+ 	ybar =-10pt,
+ 	x = .8cm,
+ 	ymin=0.0, 	
+ 	ymax=0.70,
+ 	ytick = {0,0.1,0.20,0.3,0.4,0.5,0.60},
+	enlarge x limits ={abs=.4cm},
+	nodes near coords,
+    every node near coord/.append style={font=\tiny,/pgf/number format/.cd,precision=4},
+	xtick={0,1,2,3,4},  % NEW BIT
+	xticklabels={BC, BTC, BWC, BEC, RS},
+	%legend style={at={(0.5,-0.1)},
+	%anchor=north,legend columns=-1},
+	ymajorgrids = true,]
+
+		\addplot coordinates {(0,0.2029)};    
+		\addplot coordinates {(1,0.1898)};    
+		\addplot coordinates {(2,0.2028)};    
+		\addplot coordinates {(3,0.2026)};    
+		\addplot coordinates {(4,0.0447)};
+        %\legend{BC, BTC, BWC, BEC, Random}
+     \end{axis}
+\end{tikzpicture}\captionof{figure}{The new result}
+\end{minipage}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Possible Solutions}
+	\begin{itemize}
+		\item Ordering the individual ranked list by the average for the group
+		\item Calculate nDCG using the predicted ratings
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ratings for nDCG}
+	\begin{table}[h]
+		\centering
+		\begin{minipage}{.48\textwidth}\centering
+			\resizebox{\textwidth}{!}{%			
+			\begin{tabular}{|l|lllll|}
+				\hline
+						& BC 	 & BTC 		& BWC  		& BEC  		& RS  		\\ \hline
+				Size 4	& 0.6398 & 0.6394   & 0.6394 	& 0.6453	& 0.5451	\\ \hline
+			\end{tabular}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{.48\textwidth}\centering
+			\resizebox{\textwidth}{!}{%			
+			\begin{tabular}{|l|lllll|}
+				\hline
+						& BC 	 & BTC 		& BWC  		& BEC  		& RS  		\\ \hline
+				Size 12	& 0.5573 & 0.5934   & 0.5584 	& 0.5539	& 0.3753	\\ \hline
+			\end{tabular}}
+		\end{minipage}
+	\end{table}
+\begin{figure}[h]
+\centering
+\begin{minipage}{.46\textwidth}\centering
+\begin{tikzpicture}
+ \begin{axis}[
+ 	height=5cm,
+ 	width=4cm,
+ 	ybar =-10pt,
+ 	x = .8cm,
+ 	ymin=0.00, 
+ 	ymax=0.70,
+ 	ytick = {0,0.1,0.20,0.3,0.4,0.5,0.60},
+ 	scaled y ticks = false,
+	enlarge x limits ={abs=.4cm},
+	nodes near coords,
+    every node near coord/.append style={font=\tiny,/pgf/number format/.cd,precision=4},
+ 	ylabel={nDCG},
+	xtick={0,1,2,3,4},  % NEW BIT
+	xticklabels={BC, BTC, BWC, BEC, RS},
+	%legend style={at={(0.5,-0.1)},
+	%anchor=north,legend columns=-1},
+	ymajorgrids = true,]
+    
+		\addplot coordinates {(0,0.6405)};    
+		\addplot coordinates {(1,0.6382)};    
+		\addplot coordinates {(2,0.643)};    
+		\addplot coordinates {(3,0.6372)};
+		\addplot coordinates {(4,0.5583)};
+        %\legend{BC, BTC, BWC, BEC, Random}
+     \end{axis}
+\end{tikzpicture}\captionof{figure}{Group size 4}
+\end{minipage}
+\begin{minipage}{.46\textwidth}\centering
+\begin{tikzpicture}
+ \begin{axis}[
+ 	height=5cm,
+ 	ybar =-10pt,
+ 	x = .8cm,
+ 	ymin=0.0, 	
+ 	ymax=0.70,
+ 	ytick = {0,0.1,0.20,0.3,0.4,0.5,0.60},
+	enlarge x limits ={abs=.4cm},
+	nodes near coords,
+    every node near coord/.append style={font=\tiny,/pgf/number format/.cd,precision=4},
+	xtick={0,1,2,3,4},  % NEW BIT
+	xticklabels={BC, BTC, BWC, BEC, RS},
+	%legend style={at={(0.5,-0.1)},
+	%anchor=north,legend columns=-1},
+	ymajorgrids = true,]
+   
+		\addplot coordinates {(0,0.5887)};    
+		\addplot coordinates {(1,0.5764)};    
+		\addplot coordinates {(2,0.5901)};    
+		\addplot coordinates {(3,0.5867)};
+		\addplot coordinates {(4,0.4597)}; 
+        %\legend{BC, BTC, BWC, BEC, Random}
+     \end{axis}
+\end{tikzpicture}\captionof{figure}{Group size 12}
+\end{minipage}
+\end{figure}
+\end{frame}
