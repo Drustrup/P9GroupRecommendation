@@ -1,10 +1,240 @@
 \section{Results}
 \begin{frame}
      \begin{center}
-     	\huge Results 
+     	\huge Evaluation 
      \end{center}
 \end{frame}
 
 \begin{frame}
-\frametitle{Results}
+\frametitle{Testing Setup}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Results - Satisfaction Measures}
+\begin{adjustwidth*}{-2.1cm}{-2.1cm}
+\begin{figure}[h]
+\centering
+\begin{minipage}{.52\textwidth}\centering
+\begin{tikzpicture}
+	\begin{axis}[
+	height=6cm,
+ 	width=5.8cm,
+	xlabel=Group Size,
+	ylabel=nDCG,
+	xtick = {4,8,12,16,20,40}]
+	\addplot[smooth,mark=*,blue] plot coordinates {
+		(4,0.6028)
+		(8,0.5265)
+		(12,0.4992)
+		(16,0.4862)
+		(20,0.48)
+		(40,0.4662)
+	};
+	\addlegendentry{BC}
+
+	\addplot[smooth,color=red,mark=x] plot coordinates {
+		(4,0.5862)
+		(8,0.5167)
+		(12,0.4916)
+		(16,0.48)
+		(20,0.4745)
+		(40,0.4624)
+	};
+	\addlegendentry{MC}
+	
+	\addplot[smooth,color=black,mark=square*] plot coordinates {
+		(4,0.5586)
+		(8,0.4999)
+		(12,0.4789)
+		(16,0.4693)
+		(20,0.464)
+		(40,0.4545)
+	};
+	\addlegendentry{SF}
+	
+	\addplot[smooth,color=green,mark=triangle*] plot coordinates {
+		(4,0.5319)
+		(8,0.4691)
+		(12,0.4527)
+		(16,0.444)
+		(20,0.4415)
+		(40,0.4339)
+	};
+	\addlegendentry{Avg}
+	
+	\end{axis}
+	\end{tikzpicture}\captionof{figure}{Ranking nDCG}
+\end{minipage}
+\begin{minipage}{.5\textwidth}\centering
+\begin{tikzpicture}
+	\begin{axis}[
+	height=6cm,
+ 	width=5.8cm,
+	y tick label style={
+        /pgf/number format/.cd,
+            precision=3,
+        /tikz/.cd
+    },
+	xlabel=Group Size,
+	ylabel=Rating nDCG,
+	xtick = {4,8,12,16,20,40}]
+	\addplot[smooth,mark=*,blue] plot coordinates {
+		(4,0.9534)
+		(8,0.9526)
+		(12,0.952)
+		(16,0.9516)
+		(20,0.9516)
+		(40,0.9513)
+	};
+	\addlegendentry{BC}
+	
+	\addplot[smooth,color=red,mark=x] plot coordinates {
+		(4,0.9565)
+		(8,0.9539)
+		(12,0.9532)
+		(16,0.9528)
+		(20,0.9528)
+		(40,0.9524)
+	};
+	\addlegendentry{MC}
+	
+	\addplot[smooth,color=black,mark=square*] plot coordinates {
+		(4,0.9529)
+		(8,0.952)
+		(12,0.9516)
+		(16,0.9512)
+		(20,0.9513)
+		(40,0.9512)
+	};
+	\addlegendentry{SF}
+	
+	\addplot[smooth,color=green,mark=triangle*] plot coordinates {
+		(4,0.9671)
+		(8,0.9612)
+		(12,0.9591)
+		(16,0.958)
+		(20,0.9574)
+		(40,0.9563)
+	};
+	\addlegendentry{Avg}
+	
+	\end{axis}
+	\end{tikzpicture}\captionof{figure}{Rating nDCG}
+\end{minipage}
+\end{figure}
+\end{adjustwidth*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results - Distance Measures}
+\begin{adjustwidth*}{-2.1cm}{-2.1cm}
+\begin{figure}[h]
+\centering
+\begin{minipage}{.52\textwidth}\centering
+\begin{tikzpicture}
+	\begin{axis}[
+	height=6cm,
+ 	width=5.8cm,
+	xlabel=Group Size,
+        ylabel=Kendall Tau Distance,
+        xtick = {4,8,12,16,20,40},
+        legend pos=south east]
+    \addplot[smooth,mark=*,blue] plot coordinates {
+        (4,0.5002)
+        (8,0.5419)
+        (12,0.5559)
+        (16,0.5624)
+        (20,0.5653)
+        (40,0.572)
+    };
+    \addlegendentry{BC}
+
+    \addplot[smooth,color=red,mark=x] plot coordinates {
+            (4,0.4994)
+            (8,0.5424)
+            (12,0.5563)
+            (16,0.5627)
+            (20,0.5658)
+            (40,0.5723)
+        };
+    \addlegendentry{MC}
+    
+        \addplot[smooth,color=black,mark=square*] plot coordinates {
+            (4,0.5202)
+            (8,0.554)
+            (12,0.565)
+            (16,0.5698)
+            (20,0.5718)
+            (40,0.5763)
+        };
+    \addlegendentry{SF}
+    
+    \addplot[smooth,color=green,mark=triangle*] plot coordinates {
+            (4,0.5416)
+            (8,0.5723)
+            (12,0.5794)
+            (16,0.5838)
+            (20,0.5846)
+            (40,0.5884)
+        };
+    \addlegendentry{Avg}
+    
+    \end{axis}
+	\end{tikzpicture}\captionof{figure}{Kendall Tau Distance}
+\end{minipage}
+\begin{minipage}{.5\textwidth}\centering
+\begin{tikzpicture}
+	\begin{axis}[
+	height=6cm,
+ 	width=5.8cm,
+	xlabel=Group Size,
+        ylabel=Spearman's Footrule Distance,
+        xtick = {4,8,12,16,20,40},
+        legend pos=south east]
+    \addplot[smooth,mark=*,blue] plot coordinates {
+        (4,0.69)
+        (8,0.7325)
+        (12,0.749)
+        (16,0.7567)
+        (20,0.76)
+        (40,0.7685)
+    };
+    \addlegendentry{BC}
+
+    \addplot[smooth,color=red,mark=x] plot coordinates {
+            (4,0.6799)
+            (8,0.73194)
+            (12,0.7491)
+            (16,0.7569)
+            (20,0.7604)
+            (40,0.7682)
+        };
+    \addlegendentry{MC}
+    
+        \addplot[smooth,color=black,mark=square*] plot coordinates {
+            (4,0.6678)
+            (8,0.7198)
+            (12,0.7396)
+            (16,0.7492)
+            (20,0.7533)
+            (40,0.764)
+        };
+    \addlegendentry{SF}
+    
+    \addplot[smooth,color=green,mark=triangle*] plot coordinates {
+            (4,0.7268)
+            (8,0.7659)
+            (12,0.7745)
+            (16,0.78)
+            (20,0.7809)
+            (40,0.7855)
+        };
+    \addlegendentry{Avg}
+    
+    \end{axis}
+	\end{tikzpicture}\captionof{figure}{Spearman's Footrule Distance}
+\end{minipage}
+\end{figure}
+\end{adjustwidth*}
 \end{frame}
