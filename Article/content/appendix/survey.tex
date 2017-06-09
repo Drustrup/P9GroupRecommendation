@@ -17,14 +17,16 @@ For web hosting, we went to DigitalOcean, which offered a Ubuntu server setup wi
 %The survey
 The survey itself asks participants to personally give a recommendation to a group of users. The participant knows each user's own top 10 preference, and must decide on their own what aggregation strategy they wish to follow. An important aspect of the survey was making it as easy to complete as possible. As we had to pay each participant, each such improvement could be translated to a saving, which in turn translated to a larger and more useful dataset. So to make it more intuitive and not overload each user with information, we made it so that hovering the mouse over a movie title will make the movie's position light up on all the other users' rankings, shown in Figure \ref{fig:appendix_userprefs}, and gave the user a tooltip about other movie positions. Additionally, we made the ranking system into a drag-and-drop, such that the participant could drag and easily rearrange their recommendations. This can be seen in Figure \ref{fig:appendix_recbox}.
 
-\begin{figure}\label{fig:appendix_recbox}
+\begin{figure}
 	\includegraphics[scale=0.35]{graphics/recbox.png}
 	\caption{The list of available items and the box holding the recommendations of the survey participant}
+	\label{fig:appendix_recbox}
 \end{figure}
 
-\begin{figure}\label{fig:appendix_userprefs}
+\begin{figure}
 	\includegraphics[scale=0.5]{graphics/users.png}
 	\caption{Two lists of movie preferences for a user}
+	\label{fig:appendix_userprefs}
 \end{figure}
 
 After making a recommendation, the user could proceed to the next step, and upon completing all steps they would reach a screen providing them with a code. With each step, the group size is increased by one, going from 4 to 8 users. The code is important, as the participant must present this as evidence to the crowdsourcing site as proof of their participation. For our survey, we decided to generate a unique code for each participant mixing the assigned groups and a timestamp, so that we could deduce which user responded when and with what. This precaution was necessary so that it was possible to filter out participants rushing through the survey with no care for their answers.
