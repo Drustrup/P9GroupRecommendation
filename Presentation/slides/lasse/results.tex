@@ -6,8 +6,14 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Testing Setup}
-
+\frametitle{Verification Methods}
+As that works for partial lists
+\begin{itemize}
+\item Ranking nDCG
+\item Rating nDCG
+\item Kendall tau distance 
+\item Spearman's footrule distance 
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -15,13 +21,11 @@
 \begin{adjustwidth*}{-2.1cm}{-2.1cm}
 \begin{figure}[h]
 \centering
-\begin{minipage}{.52\textwidth}\centering
+\begin{minipage}{.46\textwidth}\centering
 \begin{tikzpicture}
 	\begin{axis}[
 	height=6cm,
- 	width=5.8cm,
-	xlabel=Group Size,
-	ylabel=nDCG,
+ 	width=6cm,
 	xtick = {4,8,12,16,20,40}]
 	\addplot[smooth,mark=*,blue] plot coordinates {
 		(4,0.6028)
@@ -66,18 +70,16 @@
 	\end{axis}
 	\end{tikzpicture}\captionof{figure}{Ranking nDCG}
 \end{minipage}
-\begin{minipage}{.5\textwidth}\centering
+\begin{minipage}{.58\textwidth}\centering
 \begin{tikzpicture}
 	\begin{axis}[
 	height=6cm,
- 	width=5.8cm,
+ 	width=6cm,
 	y tick label style={
         /pgf/number format/.cd,
             precision=3,
         /tikz/.cd
     },
-	xlabel=Group Size,
-	ylabel=Rating nDCG,
 	xtick = {4,8,12,16,20,40}]
 	\addplot[smooth,mark=*,blue] plot coordinates {
 		(4,0.9534)
@@ -131,15 +133,13 @@
 \begin{adjustwidth*}{-2.1cm}{-2.1cm}
 \begin{figure}[h]
 \centering
-\begin{minipage}{.52\textwidth}\centering
+\begin{minipage}{.46\textwidth}\centering
 \begin{tikzpicture}
 	\begin{axis}[
 	height=6cm,
- 	width=5.8cm,
-	xlabel=Group Size,
-        ylabel=Kendall Tau Distance,
-        xtick = {4,8,12,16,20,40},
-        legend pos=south east]
+ 	width=6cm,
+    xtick = {4,8,12,16,20,40},
+    legend pos=south east]
     \addplot[smooth,mark=*,blue] plot coordinates {
         (4,0.5002)
         (8,0.5419)
@@ -183,15 +183,13 @@
     \end{axis}
 	\end{tikzpicture}\captionof{figure}{Kendall Tau Distance}
 \end{minipage}
-\begin{minipage}{.5\textwidth}\centering
+\begin{minipage}{.58\textwidth}\centering
 \begin{tikzpicture}
 	\begin{axis}[
 	height=6cm,
- 	width=5.8cm,
-	xlabel=Group Size,
-        ylabel=Spearman's Footrule Distance,
-        xtick = {4,8,12,16,20,40},
-        legend pos=south east]
+ 	width=6cm,
+    xtick = {4,8,12,16,20,40},
+    legend pos=south east]
     \addplot[smooth,mark=*,blue] plot coordinates {
         (4,0.69)
         (8,0.7325)
@@ -237,4 +235,72 @@
 \end{minipage}
 \end{figure}
 \end{adjustwidth*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Extending Existing Results}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=.5]{graphics/baltruna}
+\caption{Ranking nDCG from Baltrunas paper\footnote{http://dl.acm.org/citation.cfm?id=1864733}}
+\end{figure}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{figure}
+\begin{tikzpicture}
+	\begin{axis}[
+	height=6cm,
+ 	width=6cm,
+	y tick label style={
+        /pgf/number format/.cd,
+            precision=3,
+        /tikz/.cd
+    },
+	xtick = {4,8,12,16,20,40}]
+	\addplot[smooth,mark=*,blue] plot coordinates {
+		(4,0.9534)
+		(8,0.9526)
+		(12,0.952)
+		(16,0.9516)
+		(20,0.9516)
+		(40,0.9513)
+	};
+	\addlegendentry{BC}
+	
+	\addplot[smooth,color=red,mark=x] plot coordinates {
+		(4,0.9565)
+		(8,0.9539)
+		(12,0.9532)
+		(16,0.9528)
+		(20,0.9528)
+		(40,0.9524)
+	};
+	\addlegendentry{MC}
+	
+	\addplot[smooth,color=black,mark=square*] plot coordinates {
+		(4,0.9529)
+		(8,0.952)
+		(12,0.9516)
+		(16,0.9512)
+		(20,0.9513)
+		(40,0.9512)
+	};
+	\addlegendentry{SF}
+	
+	\addplot[smooth,color=green,mark=triangle*] plot coordinates {
+		(4,0.9671)
+		(8,0.9612)
+		(12,0.9591)
+		(16,0.958)
+		(20,0.9574)
+		(40,0.9563)
+	};
+	\addlegendentry{Avg}
+	
+	\end{axis}
+	\end{tikzpicture}\captionof{figure}{Rating nDCG}
+\end{figure}
+\end{column}
+\end{columns}
 \end{frame}
