@@ -243,7 +243,7 @@ As that works for partial lists
 \begin{column}{0.5\textwidth}
 \begin{figure}
 \includegraphics[scale=.5]{graphics/baltruna}
-\caption{Ranking nDCG from Baltrunas paper\footnote{http://dl.acm.org/citation.cfm?id=1864733}}
+\caption{Rating nDCG from Baltrunas paper\footnote{http://dl.acm.org/citation.cfm?id=1864733}}
 \end{figure}
 \end{column}
 \begin{column}{0.5\textwidth}
@@ -303,4 +303,69 @@ As that works for partial lists
 \end{figure}
 \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}
+\definecolor{bblue}{HTML}{4F81BD}
+\definecolor{rred}{HTML}{C0504D}
+\definecolor{ggreen}{HTML}{9BBB59}
+\definecolor{ppurple}{HTML}{9F4C7C}
+\begin{figure}
+\begin{tikzpicture}
+    \begin{axis}[
+        width  = 0.85*\textwidth,
+        height = 8cm,
+        major x tick style = transparent,
+        ybar,
+        bar width=4pt,
+        ymajorgrids = true,
+        ylabel = {Run time speed},
+        symbolic x coords={4,8,12,16,20,40},
+        xtick = data,
+        scaled y ticks = false,
+    ]
+        \addplot[style={bblue,fill=bblue,mark=none}]
+            coordinates {
+        		(4,0.9534)
+        		(8,0.9526)
+				(12,0.952)
+				(16,0.9516)
+				(20,0.9516)
+				(40,0.9513)};
+				\addlegendentry{BC}
+            
+
+        \addplot[style={rred,fill=rred,mark=none}]
+             coordinates {
+				(4,0.9565)
+				(8,0.9539)
+				(12,0.9532)
+				(16,0.9528)
+				(20,0.9528)
+				(40,0.9524)};
+            	\addlegendentry{MC}
+
+        \addplot[style={ggreen,fill=ggreen,mark=none}]
+             coordinates {		(4,0.9529)
+				(8,0.952)
+				(12,0.9516)
+				(16,0.9512)
+				(20,0.9513)
+				(40,0.9512)
+			};
+			\addlegendentry{SF}
+	
+        \addplot[style={ppurple,fill=ppurple,mark=none}]
+             coordinates {		
+             	(4,0.9671)
+				(8,0.9612)
+				(12,0.9591)
+				(16,0.958)
+				(20,0.9574)
+				(40,0.9563)
+			};
+			\addlegendentry{Avg}
+    \end{axis}
+\end{tikzpicture}
+\end{figure}
 \end{frame}
