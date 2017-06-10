@@ -1,0 +1,21 @@
+\subsection*{Borda Count Example}
+Borda count assigns scores to the items giving 5 points to item 1 down to 1 to item 5.
+The scores are summed together as shown in the table below.
+
+\begin{table}[h]
+\begin{tabular}{|l|l|l|}\hline
+Items & Score summation & Score \\\hline
+A     & $5 + 4 + 2 +3$  & 14    \\
+B     & $4 + 0 + 2 +0$  & 6     \\
+C     & $3+5+0+0$       & 8     \\
+D     & $2+4+1+0$       & 7     \\
+E     & $1+1+5+2$       & 9     \\
+F     & $0 + 3+0+1$     & 4     \\
+G     & $0+0+3+5$       & 8     \\
+H     & $0+0+0+4$       & 4    \\\hline
+\end{tabular}
+\caption{Example of how Borda Count calculates scores}
+\end{table}
+
+The resulting recommendation for Borda count would then be: $A,E,C,G,D$
+The order of C and G is arbitrary since they have the same score. One could argue that the item reviving the highest score form one user or the one with most users voting on it should be first.

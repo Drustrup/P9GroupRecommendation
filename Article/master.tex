@@ -17,6 +17,10 @@
 %Graph packages
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usetikzlibrary{positioning,chains,fit,shapes,calc}
+
+\newcommand\mytext[1][\scriptsize]{#1}
+
 
 %appendix setup
 \usepackage{booktabs} % For formal tables
@@ -106,5 +110,6 @@ Our findings show that Borda Count has the overall best performance. Markov Chai
 \clearpage
 
 \input{content/appendix.tex}
+\input{content/examples}
 
 \end{document}
