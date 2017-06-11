@@ -4,11 +4,11 @@
 \begin{column}{0.5\textwidth}
 Construct a weighted complete bipartite graph $G(I,P,W)$
 \begin{align*}
-W(i,p) = \displaystyle\sum_{n=1}^{k} |\frac{\tau_n(i)}{k} - \frac{p}{k}|
+W(i,p) = \displaystyle\sum_{n=1}^{u} |\frac{\tau_n(i)}{k} - \frac{p}{k}|
 \end{align*}
 
 \begin{align*}
-W(i,p) = \displaystyle\sum_{n=1}^{k} |\frac{\ell}{k} -\frac{p}{k}|
+W(i,p) = \displaystyle\sum_{n=1}^{u} |\frac{\ell}{k} -\frac{p}{k}|
 \end{align*}
 \end{column}
 \begin{column}{0.5\textwidth}
@@ -126,15 +126,16 @@ W(i,p) = \displaystyle\sum_{n=1}^{k} |\frac{\ell}{k} -\frac{p}{k}|
 \begin{columns}
 \begin{column}{0.5\textwidth}
 \begin{align*}
-W(i,p) = \displaystyle\sum_{n=1}^{k} |\frac{\tau_n(i)}{k} - \frac{p}{k}|
+W(i,p) = \displaystyle\sum_{n=1}^{u} |\frac{\tau_n(i)}{k} - \frac{p}{k}|
 \end{align*}
 
 \begin{align*}
-W(i,p) = \displaystyle\sum_{n=1}^{k} |\frac{\ell}{k} - \frac{p}{k}|
+W(i,p) = \displaystyle\sum_{n=1}^{u} |\frac{\ell}{k} - \frac{p}{k}|
 \end{align*}
 \end{column}
 \begin{column}{0.5\textwidth}
 \small
+\vspace{-0.5cm}
 \begin{table}
 \captionsetup{font=footnotesize}
 \begin{tabular}{|l|lllll|} \hline
@@ -162,8 +163,9 @@ W(B,1) = (2/5 - 1/5) + (6/5 - 1/5) + (4/5 - 1/5) + (6/5 - 1/5) = 2.8
 \begin{frame}[t]
 \frametitle{Spearman's Footrule}
 \begin{columns}
-\begin{column}{0.5\textwidth}
+\begin{column}{0.6\textwidth}
 \begin{table}[h]
+\captionsetup{font=footnotesize}
 \footnotesize
 \begin{tabular}{|l|llllllll|}\hline
   & 1   & 2   & 3   & 4   & 5   & 6   & 7   & 8   \\\hline
@@ -178,10 +180,56 @@ H & 3.2 & 2.4 & 2   & 1.6 & 1.2 & 0.8 & 1.6 & 2.4 \\\hline
 \end{tabular}
 \caption{Calculated weights for the bipartite graph}
 \end{table}
-\normalsize
+\begin{table}
+\begin{tabular}{llllll}
+Recommendations: & A & G & C & E & D
+\end{tabular}
+\end{table}
 \end{column}
-\begin{column}{0.5\textwidth}
+\begin{column}{0.4\textwidth}
+\definecolor{myblue}{RGB}{80,80,160}
+\definecolor{mygreen}{RGB}{80,160,80}
+\vspace{-1.7cm}
+\begin{figure}[h]
+\begin{tikzpicture}[thick,
+every node/.style={draw,circle},
+  fsnode/.style={fill=myblue},
+  ssnode/.style={fill=mygreen},
+  every fit/.style={ellipse,draw,inner sep=-8pt,text width=2cm},
+  ->,shorten >= 2pt,shorten <= 2pt
+]
 
+% the vertices of U
+\begin{scope}[start chain=going below,node distance=3.5mm]
+\foreach \i in {A,B,C,D,E,F,G,H}
+  \node[fsnode,on chain] (f\i) [label=left: \i] {};
+\end{scope}
+
+% the vertices of V
+\begin{scope}[xshift=2.5cm,yshift=0cm,start chain=going below,node distance=3.5mm]
+\foreach \i in {1,2,...,8}
+  \node[ssnode,on chain] (s\i) [label=right: \i] {};
+\end{scope}
+
+% the set U
+\node [myblue,fit=(fA) (fH),label=above:$I$] {};
+% the set V
+\node [mygreen,fit=(s1) (s8),label=above:$P$] {};
+
+% the edges
+\draw[-] (fA) -- (s1);
+\draw[-] (fG) -- (s2);
+\draw[-] (fC) -- (s3);
+\draw[-] (fE) -- (s4);
+\draw[-] (fD) -- (s5);
+\draw[-] (fB) -- (s6);
+\draw[-] (fF) -- (s7);
+\draw[-] (fH) -- (s8);
+
+\end{tikzpicture}
+\captionsetup{font=footnotesize}
+\caption{Result of minimum cost maximum matching problem on our bipartite graph}
+\end{figure}
 \end{column}
 \end{columns}
 \end{frame}
