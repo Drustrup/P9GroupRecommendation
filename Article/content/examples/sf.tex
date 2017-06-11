@@ -43,7 +43,7 @@ H & 3.2 & 2.4 & 2   & 1.6 & 1.2 & 0.8 & 1.6 & 2.4 \\\hline
 \definecolor{myblue}{RGB}{80,80,160}
 \definecolor{mygreen}{RGB}{80,160,80}
 
-\begin{figure}
+\begin{figure}[h]
 \begin{tikzpicture}[thick,
   every node/.style={draw,circle},
   fsnode/.style={fill=myblue},
@@ -146,9 +146,7 @@ H & 3.2 & 2.4 & 2   & 1.6 & 1.2 & 0.8 & 1.6 & 2.4 \\\hline
 \caption{Complete bipartite graph}
 \end{figure}
 
-
-
-\begin{figure}
+\begin{figure}[h]
 \begin{tikzpicture}[thick,
   every node/.style={draw,circle},
   fsnode/.style={fill=myblue},
@@ -187,3 +185,5 @@ H & 3.2 & 2.4 & 2   & 1.6 & 1.2 & 0.8 & 1.6 & 2.4 \\\hline
 \end{tikzpicture}
 \caption{Result of minimum cost maximum matching problem on our bipartite graph}
 \end{figure}
+
+The result is the top 5 of the item list return from sf which is: $A,G,C,E,D$
