@@ -88,6 +88,16 @@
 
 \graphicspath{{graphics/}{../../Report/graphics/}}
 
+
+\usepackage{appendixnumberbeamer}
+\newcommand{\backupbegin}{
+   \newcounter{finalframe}
+   \setcounter{finalframe}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \setcounter{framenumber}{\value{finalframe}}
+}
+
 \begin{document}
 
 %\captionsetup[figure]{font=small,singlelinecheck=off,justification=raggedright}
@@ -126,11 +136,12 @@
 
 \begin{frame}
 \centering
-\huge Questions?
+\huge Questions
 \end{frame}
-
+\appendix
+\backupbegin
 \input{slides/examples/examples}
-
+\backupend
 \section*{}
 
 \end{document}
