@@ -1,0 +1,83 @@
+\begin{frame}[t]
+\frametitle{Markov Chain}
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\footnotesize
+\vspace{-0.55cm}
+\begin{table}
+	\begin{tabular}{|l|llllllll|}\hline
+		& A & B & C & D & E & F & G & H \\ \hline
+		A &   & $\leftarrow$ & $\leftarrow$ & $\leftarrow$ & $\leftarrow$ & $\leftarrow$ & $\leftarrow$ & $\leftarrow$ \\
+		B & $\uparrow$ &   & $\leftarrow$ & $\leftarrow$ & $\uparrow$ & $\uparrow$ & $\uparrow$ & $\leftarrow$ \\
+		C & $\uparrow$ & $\uparrow$ &   & $\leftarrow$ & $\uparrow$ & $\leftarrow$ & $\uparrow$ & $\leftarrow$ \\
+		D & $\uparrow$ & $\uparrow$ & $\uparrow$ &   & $\uparrow$ & $\leftarrow$ & $\uparrow$ & $\leftarrow$ \\
+		E & $\uparrow$ & $\leftarrow$ & $\leftarrow$ & $\uparrow$ &   & $\leftarrow$ & $\leftarrow$ & $\leftarrow$ \\
+		F & $\uparrow$ & $\uparrow$ & $\uparrow$ & $\uparrow$ & $\uparrow$ &   & $\uparrow$ & $\uparrow$ \\
+		G & $\uparrow$ & $\leftarrow$ & $\uparrow$ & $\uparrow$ & $\uparrow$ & $\leftarrow$ &   & $\leftarrow$ \\
+		H & $\uparrow$ & $\uparrow$ & $\uparrow$ & $\uparrow$ & $\uparrow$ & $\uparrow$ & $\uparrow$ &  \\ \hline
+	\end{tabular}
+	\caption{Copeland comparisons}
+\end{table}
+\vspace{-0.9cm}
+\small
+\begin{table}
+	\begin{tabular}{|l|llllllll|}\hline
+		& A & B & C & D & E & F & G & H \\ \hline
+		A & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+		B & $\frac{1}{7}$ & $\frac{4}{7}$ & 0 & 0 & $\frac{1}{7}$ & 0 & $\frac{1}{7}$ & 0 \\\hline
+		C & $\frac{1}{7}$ & $\frac{1}{7}$ & $\frac{4}{7}$ & 0 & $\frac{1}{7}$ & 0 & 0 & 0 \\\hline
+		D & $\frac{1}{7}$ & $\frac{1}{7}$ & $\frac{1}{7}$ & $\frac{4}{7}$ & 0 & 0 & 0 & 0 \\\hline
+		E & $\frac{1}{7}$ & 0 & 0 & 0 & $\frac{6}{7}$ & 0 & 0 & 0 \\\hline
+		F & $\frac{1}{7}$ & 0 & $\frac{1}{7}$ & $\frac{1}{7}$ & $\frac{1}{7}$ & $\frac{3}{7}$ & 0 & 0 \\\hline
+		G & $\frac{1}{7}$ & 0 & 0 & 0 & $\frac{1}{7}$ & 0 & $\frac{5}{7}$ & 0 \\\hline
+		H & $\frac{1}{7}$ & $\frac{1}{7}$ & $\frac{1}{7}$ & $\frac{1}{7}$ & $\frac{1}{7}$ & 0 & $\frac{1}{7}$ & $\frac{1}{7}$ \\ \hline
+	\end{tabular}
+	\caption{Transition Matrix}
+\end{table}
+\normalsize
+\end{column}
+\begin{column}{0.5\textwidth}
+	\small
+	\vspace{-1cm}
+	\begin{table}
+		\captionsetup{font=footnotesize}
+		\begin{tabular}{|l|lllll|} \hline
+			Rank  & 1 & 2 & 3 & 4 & 5 \\\hline
+			$u_1$ & A & B & C & D & E \\
+			$u_2$ & C & D & F & A & E \\
+			$u_3$ & E & A & G & B & D \\
+			$u_4$ & G & H & A & E & F\\\hline
+		\end{tabular}
+		\caption{Top-k list of a group with 4 users}
+	\end{table}
+
+	\begin{align*}
+	p_{ij} = (\frac{|c_i|}{|I|})(1-\lambda)+(\frac{\lambda}{|I|})
+	\end{align*}
+	\normalsize
+	\begin{align*}
+	p_{ii} = (\frac{|I|-|c_i|}{|I|})(1-\lambda)+(\frac{\lambda}{|I|})
+	\end{align*}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Markov Chain}
+
+\begin{table}
+	\begin{tabular}{llllll}
+		Recommendations: & A & E & G & C & B
+	\end{tabular}
+\end{table}
+\end{frame}
+
+%
+%\begin{columns}
+%\begin{column}{0.5\textwidth}
+%
+%\end{column}
+%\begin{column}{0.5\textwidth}
+%
+%\end{column}
+%\end{columns}
