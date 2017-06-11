@@ -7,21 +7,11 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Dataset}
-\begin{itemize}
-	\item Short about survey
-	\item Short about Amazon
-\end{itemize}
-\end{frame}
-
-\begin{frame}
 \frametitle{Data Collection Status}
-\begin{itemize}
-	\item Server is online
-	\begin{itemize}
-		\item pictures of linux/putty/digitalocean/db?
-	\end{itemize}
-\end{itemize}
+\begin{figure}
+	\centering
+	\includegraphics[scale=.5]{graphics/surveystatus.png}
+\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -55,17 +45,42 @@
 
 \begin{frame}
 \frametitle{Intermediate results}
-\begin{itemize}
-	\item Picture for each measure for our limited data
-\end{itemize}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|llllll|} \hline
+		& 4 & 5 & 6 & 7 & 8 & All \\ \hline
+		nDCG	& $0.51613$	& $0.52479$	& $0.51513$	& $0.48191$ & $0.44613$ & $0.49682$ \\
+		RnDCG	& $0.9481$	& $0.952$	& $0.95379$	& $0.94858$ & $0.94527$ & $0.94955$ \\
+		SFD	& $0.7483$	& $0.72895$	& $0.72891$	& $0.74332$ & $0.75898$ & $0.78134$ \\
+		KTD	& $0.54287$	& $0.53961$	& $0.55176$	& $0.56376$ & $0.58471$ & $0.55654$ \\ \hline
+	\end{tabular}
+	\caption{Survey scores according to measures}
+\end{table}
 \end{frame}
 
 \begin{frame}
-\frametitle{Insights}
-\begin{itemize}
-	\item Humans do better on nDCG
-	\item Humans do a bit worse on Rating nDCG
-	\item Humans do a bit worse on KTD
-	\item Humans do worse on SFD
-\end{itemize}
+\frametitle{Survey T-test}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|llll|}\hline
+		& BC & Markov & Spear & Avg \\ \hline
+		nDCG	& $2.94e^{-4}$	& $0.0023$	& \textbf{0.0508}	& \textbf{0.4533} \\
+		RnDCG	& \textbf{0.2507}	& \textbf{0.0746}	& \textbf{0.2948}	& $2.56e^{-4}$ \\
+		SFD	& $0.0116$	& $0.0021$ 	& $2.35e^{-4}$	& \textbf{0.8826} \\
+		KTD	& $6.07e^{-4}$	& $5.02e^{-4}$ 	& $0.0480$	& \textbf{0.9064} \\ \hline
+	\end{tabular}
+	\caption{Survey results t-test comparison for size 4}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|llll|}\hline
+		& BC & Markov & Spear & Avg \\ \hline
+		nDCG	& $3.27e^{-4}$	& $0.0012$	& $0.0101$	& \textbf{0.2473} \\
+		RnDCG	& $0.0178$	& $0.0059$	& $0.0283$	& $8.20e^{-6}$ \\
+		SFD	& $4.48e^{-4}$	& $3.96e^{-4}$ 	& $2.87e^{-5}$	& \textbf{0.2154} \\
+		KTD	& $2.8e^{-4}$	& $3.17e^{-4}$ 	& $0.0057$	& \textbf{0.234} \\ \hline
+	\end{tabular}
+	\caption{Survey results t-test comparison for size 8}
+\end{table}
 \end{frame}
