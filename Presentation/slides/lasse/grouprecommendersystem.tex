@@ -1,4 +1,4 @@
-\section{Group Recommender System}
+\section{Previous Semester}
 \begin{frame}
      \begin{center}
      	\huge Previous Semester
@@ -7,12 +7,11 @@
 
 \begin{frame}
 \frametitle{Previous Semester}
+\begin{center}
 \textit{How can recommendations be made to a group of people by reflecting a groups decision making process, ensuring a high level of satisfaction in the group?}
-\end{frame}
+\end{center}
 
-\begin{frame}
-\frametitle{Previous Semester}
-Working with the assumption that Borda Count could be improved
+Working with the assumption that Borda Count was a good mediator but could be improved
 
 \begin{itemize}
 \item Borda Transferable Count - Mix of Borda Count and Single Transferable Vote
@@ -30,44 +29,80 @@ Working with the assumption that Borda Count could be improved
 \end{itemize}
 \end{frame}
 
+\section{Current Semester}
 \begin{frame}
      \begin{center}
-     	\huge This Semester
+     	\huge Current Semester
      \end{center}
 \end{frame}
 
 \begin{frame}
 \frametitle{Group Recommendation System}
-\begin{figure}
-\centering
-\includegraphics[scale=.5]{graphics/composition}
-\end{figure}
+\begin{columns}
+	\begin{column}{0.55\textwidth}
+		Individual Recommendations
+		\begin{itemize}
+			\small
+			\item Trained matrix with the predicted individual ratings
+			\normalsize
+		\end{itemize}
+		Groups
+		\begin{itemize}
+			\small
+			\item Artificial constructed groups used for testing
+			\normalsize
+		\end{itemize}
+		Group Recommendation
+		\begin{itemize}
+			\item Preprocessing 
+			\begin{itemize}
+				\item Formatting individual lists into ranked top-k lists
+			\end{itemize}
+			\item Rank aggregation 
+			\begin{itemize}
+				\item Performing the aggregation and returns the recommendations
+			\end{itemize}
+		\end{itemize}
+		Evaluation
+		\begin{itemize}
+			\small
+			\item An extensive test setup for the evaluation
+			\normalsize
+		\end{itemize}
+	\end{column}
+	\begin{column}{0.45\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[scale=.5]{graphics/composition}
+		\end{figure}
+	\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}
 \frametitle{Alternative Aggregation Methods}
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
 		Voting systems
-\begin{itemize}
-\item Borda Count
-\end{itemize}
-Graph based methods
-\begin{itemize}
-\item Markov Chain 
-\item Spearman's Footrule
-\end{itemize}
-Others
-\begin{itemize}
-\item Average
-\end{itemize}
-		\end{column}
-		\begin{column}{0.5\textwidth}
+		\begin{itemize}
+			\item Borda Count
+		\end{itemize}
+		Graph based methods
+		\begin{itemize}
+			\item Markov Chain 
+			\item Spearman's Footrule
+		\end{itemize}
+		Others
+		\begin{itemize}
+			\item Average
+		\end{itemize}
+	\end{column}
+	\begin{column}{0.5\textwidth}
 		\begin{figure}
-		\centering
-		\includegraphics[scale=.4]{graphics/setuptransposed}
+			\centering
+			\includegraphics[scale=.4]{graphics/setuptransposed}
 		\end{figure}
-		\end{column}
+	\end{column}
 \end{columns}
 \end{frame}
 
