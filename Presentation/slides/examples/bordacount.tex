@@ -1,0 +1,63 @@
+\begin{frame}[t]
+\frametitle{Borda Count}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{align*}
+	bc(i) = \sum_{u\in U} \tau_u(i)
+\end{align*}
+\small
+\begin{align*}
+	bc(A) = \tau_{u_1}(A) + \tau_{u_2}(A) + \tau_{u_3}(A) + \tau_{u_4}(A)
+\end{align*}
+\normalsize
+\begin{align*}
+	bc(A) = 5 + 4 + 2 + 3 = 14
+\end{align*}
+
+\end{column}
+\begin{column}{0.5\textwidth}
+\small
+\vspace{-0.5cm}
+\begin{table}
+\captionsetup{font=footnotesize}
+\begin{tabular}{|l|lllll|} \hline
+Rank  & 1 & 2 & 3 & 4 & 5 \\\hline
+$u_1$ & A & B & C & D & E \\
+$u_2$ & C & D & F & A & E \\
+$u_3$ & E & A & G & B & D \\
+$u_4$ & G & H & A & E & F\\\hline
+\end{tabular}
+\caption{Top-k list of a group with 4 users}
+\end{table}
+
+\vspace{-1cm}
+\begin{table}
+\begin{tabular}{|l|llllllll|}\hline
+      & A & B & C & D & E & F & G & H \\\hline
+$u_1$ & 5 & 4 & 3 & 2 & 1 & 0 & 0 & 0 \\
+$u_2$ & 2 & 0 & 5 & 4 & 1 & 3 & 0 & 0 \\
+$u_3$ & 4 & 2 & 0 & 1 & 5 & 0 & 3 & 0 \\
+$u_4$ & 3 & 0 & 0 & 0 & 2 & 1 & 5 & 4 \\\hline
+Sum	  & 14& 6 & 8 & 7 & 9 & 4 & 8 & 4 \\\hline
+\end{tabular}
+\caption{Borda Count scores}
+\end{table}
+\normalsize
+\end{column}
+\end{columns}
+\begin{table}
+\begin{tabular}{llllll}
+Recommendations: & A & E & C & G & D
+\end{tabular}
+\end{table}
+\end{frame}
+
+%
+%\begin{columns}
+%\begin{column}{0.5\textwidth}
+%
+%\end{column}
+%\begin{column}{0.5\textwidth}
+%
+%\end{column}
+%\end{columns}

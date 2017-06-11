@@ -1,0 +1,187 @@
+\begin{frame}[t]
+\frametitle{Spearman's Footrule}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+Construct a weighted complete bipartite graph $G(I,P,W)$
+\begin{align*}
+W(i,p) = \displaystyle\sum_{n=1}^{k} |\frac{\tau_n(i)}{k} - \frac{p}{k}|
+\end{align*}
+
+\begin{align*}
+W(i,p) = \displaystyle\sum_{n=1}^{k} |\frac{\ell}{k} -\frac{p}{k}|
+\end{align*}
+\end{column}
+\begin{column}{0.5\textwidth}
+\definecolor{myblue}{RGB}{80,80,160}
+\definecolor{mygreen}{RGB}{80,160,80}
+\vspace{-1cm}
+\begin{figure}[h]
+\begin{tikzpicture}[thick,
+  every node/.style={draw,circle},
+  fsnode/.style={fill=myblue},
+  ssnode/.style={fill=mygreen},
+  every fit/.style={ellipse,draw,inner sep=-8pt,text width=2cm},
+  ->,shorten >= 2pt,shorten <= 2pt
+]
+
+% the vertices of U
+\begin{scope}[start chain=going below,node distance=4mm]
+\foreach \i in {A,B,C,D,E,F,G,H}
+  \node[fsnode,on chain] (f\i) [label=left: \i] {};
+\end{scope}
+
+% the vertices of V
+\begin{scope}[xshift=3cm,yshift=0cm,start chain=going below,node distance=4mm]
+\foreach \i in {1,2,...,8}
+  \node[ssnode,on chain] (s\i) [label=right: \i] {};
+\end{scope}
+
+% the set U
+\node [myblue,fit=(fA) (fH),label=above:$I$] {};
+% the set V
+\node [mygreen,fit=(s1) (s8),label=above:$P$] {};
+
+% the edges
+%\draw[-] (fA) --node[draw=none,fill=none, above]{\mytext[\normalsize]{1}} (s1);
+\draw[-] (fA) -- (s1);
+\draw[-] (fA) -- (s2);
+\draw[-] (fA) -- (s3);
+\draw[-] (fA) -- (s4);
+\draw[-] (fA) -- (s5);
+\draw[-] (fA) -- (s6);
+\draw[-] (fA) -- (s7);
+\draw[-] (fA) -- (s8);
+
+\draw[-] (fB) -- (s1);
+\draw[-] (fB) -- (s2);
+\draw[-] (fB) -- (s3);
+\draw[-] (fB) -- (s4);
+\draw[-] (fB) -- (s5);
+\draw[-] (fB) -- (s6);
+\draw[-] (fB) -- (s7);
+\draw[-] (fB) -- (s8);
+
+\draw[-] (fC) -- (s1);
+\draw[-] (fC) -- (s2);
+\draw[-] (fC) -- (s3);
+\draw[-] (fC) -- (s4);
+\draw[-] (fC) -- (s5);
+\draw[-] (fC) -- (s6);
+\draw[-] (fC) -- (s7);
+\draw[-] (fC) -- (s8);
+
+\draw[-] (fD) -- (s1);
+\draw[-] (fD) -- (s2);
+\draw[-] (fD) -- (s3);
+\draw[-] (fD) -- (s4);
+\draw[-] (fD) -- (s5);
+\draw[-] (fD) -- (s6);
+\draw[-] (fD) -- (s7);
+\draw[-] (fD) -- (s8);
+
+\draw[-] (fE) -- (s1);
+\draw[-] (fE) -- (s2);
+\draw[-] (fE) -- (s3);
+\draw[-] (fE) -- (s4);
+\draw[-] (fE) -- (s5);
+\draw[-] (fE) -- (s6);
+\draw[-] (fE) -- (s7);
+\draw[-] (fE) -- (s8);
+
+\draw[-] (fF) -- (s1);
+\draw[-] (fF) -- (s2);
+\draw[-] (fF) -- (s3);
+\draw[-] (fF) -- (s4);
+\draw[-] (fF) -- (s5);
+\draw[-] (fF) -- (s6);
+\draw[-] (fF) -- (s7);
+\draw[-] (fF) -- (s8);
+
+\draw[-] (fG) -- (s1);
+\draw[-] (fG) -- (s2);
+\draw[-] (fG) -- (s3);
+\draw[-] (fG) -- (s4);
+\draw[-] (fG) -- (s5);
+\draw[-] (fG) -- (s6);
+\draw[-] (fG) -- (s7);
+\draw[-] (fG) -- (s8);
+
+\draw[-] (fH) -- (s1);
+\draw[-] (fH) -- (s2);
+\draw[-] (fH) -- (s3);
+\draw[-] (fH) -- (s4);
+\draw[-] (fH) -- (s5);
+\draw[-] (fH) -- (s6);
+\draw[-] (fH) -- (s7);
+\draw[-] (fH) -- (s8);
+\end{tikzpicture}
+\caption{Complete bipartite graph}
+\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Spearman's Footrule}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{align*}
+W(i,p) = \displaystyle\sum_{n=1}^{k} |\frac{\tau_n(i)}{k} - \frac{p}{k}|
+\end{align*}
+
+\begin{align*}
+W(i,p) = \displaystyle\sum_{n=1}^{k} |\frac{\ell}{k} - \frac{p}{k}|
+\end{align*}
+\end{column}
+\begin{column}{0.5\textwidth}
+\small
+\begin{table}
+\captionsetup{font=footnotesize}
+\begin{tabular}{|l|lllll|} \hline
+Rank  & 1 & 2 & 3 & 4 & 5 \\\hline
+$u_1$ & A & B & C & D & E \\
+$u_2$ & C & D & F & A & E \\
+$u_3$ & E & A & G & B & D \\
+$u_4$ & G & H & A & E & F\\\hline
+\end{tabular}
+\caption{Top-k list of a group with 4 users}
+\end{table}
+\normalsize
+\vspace{1cm}
+\end{column}
+\end{columns}
+\begin{align*}
+W(A,1) = (1/5 - 1/5) + (4/5 - 1/5) + (2/5 - 1/5) + (3/5 - 1/5) = 1.2
+\end{align*}
+
+\begin{align*}
+W(B,1) = (2/5 - 1/5) + (6/5 - 1/5) + (4/5 - 1/5) + (6/5 - 1/5) = 2.8
+\end{align*}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Spearman's Footrule}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{table}[h]
+\footnotesize
+\begin{tabular}{|l|llllllll|}\hline
+  & 1   & 2   & 3   & 4   & 5   & 6   & 7   & 8   \\\hline
+A & 1.2 & 0.8 & 0.8 & 1.2 & 2   & 2.8 & 3.6 & 4.4 \\
+B & 2.8 & 2   & 1.6 & 1.2 & 1.2 & 1.2 & 2   & 2.8 \\
+C & 2.4 & 2   & 1.6 & 1.6 & 1.6 & 1.6 & 2.4 & 3.2 \\
+D & 2.6 & 1.8 & 1.4 & 1   & 1   & 1.4 & 2.2 & 3   \\
+E & 2.2 & 1.8 & 1.4 & 1   & 1   & 1.8 & 2.6 & 3.4 \\
+F & 3.2 & 2.4 & 1.6 & 1.2 & 0.8 & 0.8 & 1.6 & 2.4 \\
+G & 2.4 & 2   & 1.6 & 1.6 & 1.6 & 1.6 & 2.4 & 3.2 \\
+H & 3.2 & 2.4 & 2   & 1.6 & 1.2 & 0.8 & 1.6 & 2.4 \\\hline
+\end{tabular}
+\caption{Calculated weights for the bipartite graph}
+\end{table}
+\normalsize
+\end{column}
+\begin{column}{0.5\textwidth}
+
+\end{column}
+\end{columns}
+\end{frame}
