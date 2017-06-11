@@ -1,0 +1,58 @@
+\begin{frame}[t]
+\frametitle{Kendall Tau Distance}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\footnotesize
+\vspace{-0.5cm}
+\begin{table}[]
+\begin{tabular}{|l|l|l|l|l|}\hline
+Par    & $u_4$   & $\omega$ & Case      & Count \\\hline
+$G, H$ & $1 < 2$ & $G$      & $case_2$  &       \\
+$G, A$ & $1<3$   & $4>1$    & $case_1$  & x     \\
+$G,E$  & $1<4$   & $4>2$    & $case_1$  & x     \\
+$G,F$  & $1<5$   & $G$      & $case_2$  &       \\
+$G,C$  & $G$     & $4>3$    & $case_2$  & x     \\
+$G,D$  & $G$     & $4<5$    & $case_2$  &       \\
+$H,A$  & $2<3$   & $A$      & $case_2$  & x     \\
+$H,E$  & $2<4$   & $E$      & $case_2$  & x     \\
+$H,F$  & $2<5$   &          & $case_4$  & x     \\
+$H,C$  & $H$     & $C$      & $case_3$  & x     \\
+$H,D$  & $H$     & $D$      & $case_3$  & x     \\
+$A,E$  & $3<4$   & $1<2$    & $case_1$  &       \\
+$A,F$  & $3<5$   & $A$      & $case_2$  &       \\
+$A,C$  & $A$     & $1<3$    & $case_2$  &       \\
+$A,D$  & $A$     & $1<5$    & $case_2$  &       \\
+$E,F$  & $4<5$   & $E$      & $case_2$  &       \\
+$E,C$  & $E$     & $2<3$    & $case_2$  &       \\
+$E,D$  & $E$     & $2<5$    & $case_2$  &       \\
+$F,C$  & $E$     & $C$    	& $case_3$  & x     \\
+$F,D$  & $E$     & $D$      & $case_3$  & x     \\
+$C,D$  &         & $3<5$    & $case_4$  & x     \\\hline
+\end{tabular}
+\end{table}
+\end{column}
+\begin{column}{0.5\textwidth}
+\footnotesize
+\vspace{-2.5cm}
+\begin{table}
+\captionsetup{font=footnotesize}
+\begin{tabular}{|l|lllll|} \hline
+Rank  & 1 & 2 & 3 & 4 & 5 \\\hline
+$u_1$ & A & B & C & D & E \\
+$u_2$ & C & D & F & A & E \\
+$u_3$ & E & A & G & B & D \\
+$u_4$ & G & H & A & E & F\\\hline
+\end{tabular}
+\caption{Top-k list of a group with 4 users}
+\end{table}
+\normalsize
+\begin{itemize}
+\item $case_1$: both $i$ and $j$ is in both lists.
+\item $case_2$: both $i$ and $j$ is in one list but only one in the other
+\item $case_3$: only $i$ or $j$ is in one list and the opposite in the other
+\item $case_4$: both $i$ and $j$ is in one list and none in the other
+\end{itemize}
+
+\end{column}
+\end{columns}
+\end{frame}
