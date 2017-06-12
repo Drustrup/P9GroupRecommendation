@@ -1,0 +1,58 @@
+\begin{frame}[t]
+\frametitle{Ranking nDCG}
+\begin{columns}
+\begin{column}{0.45\textwidth}
+\begin{align*}
+\text{DCG}_k = \sum_{n=1}^{k}\frac{\textit{rel}_n}{\log_2(n + 1)}
+\end{align*}
+\begin{align*}
+\text{nDCG}_k = \frac{\text{DCG}_k}{\text{IDCG}_k}
+\end{align*}
+
+\end{column}
+\begin{column}{0.55\textwidth}
+\small
+\vspace{-0.5cm}
+\begin{table}
+\captionsetup{font=footnotesize}
+\begin{tabular}{|l|lllll|} \hline
+Rank  & 1 & 2 & 3 & 4 & 5 \\\hline
+$u_1$ & A & B & C & D & E \\
+$u_2$ & C & D & F & A & E \\
+$u_3$ & E & A & G & B & D \\
+$u_4$ & G & H & A & E & F\\\hline
+\end{tabular}
+\caption{Top-k list of a group with 4 users}
+\end{table}
+\normalsize
+Borda Count recommendation, $\omega$: \\
+\begin{table}
+\centering
+\begin{tabular}{lllll}
+ A & E & C & G & D
+\end{tabular}
+\end{table}
+\end{column}
+\end{columns}
+\small
+\begin{align*}
+DCG_{u_1, \omega} = 5/log2(2) + 1/log2(3) + 3/log2(4) + 0/log2(5) + 4/log2(6) \approx 8.68
+\end{align*}
+\begin{align*}
+IDCG_{u_1, \omega} = \frac{5}{\log_2(2)}+\frac{4}{\log_2(3)}+\frac{3}{\log_2(4)}+\frac{2}{\log_2(5)}+\frac{1}{\log_2(6)} \approx 10.27
+\end{align*}
+\begin{align*}
+nDCG_{u_1, \omega} = \frac{8.68}{10.27} \approx 0.84
+\end{align*}
+\normalsize
+\end{frame}
+
+%
+%\begin{columns}
+%\begin{column}{0.5\textwidth}
+%
+%\end{column}
+%\begin{column}{0.5\textwidth}
+%
+%\end{column}
+%\end{columns}
