@@ -3,7 +3,7 @@
 \begin{columns}
 \begin{column}{0.45\textwidth}
 \begin{align*}
-\text{DCG}_k = \sum_{n=1}^{k}\frac{\textit{rel}_n}{\log_2(n + 1)}
+\text{DCG}_k = \sum_{n=1}^{k}\frac{\textit{rel(n)}}{\log_2(n + 1)}
 \end{align*}
 \begin{align*}
 \text{nDCG}_k = \frac{\text{DCG}_k}{\text{IDCG}_k}
@@ -36,13 +36,13 @@ Borda Count recommendation, $\omega$: \\
 \end{columns}
 \small
 \begin{align*}
-DCG_{u_1, \omega} = 5/log2(2) + 1/log2(3) + 3/log2(4) + 0/log2(5) + 4/log2(6) \approx 8.68
+DCG_5(u_1, \omega) = 5/log2(2) + 1/log2(3) + 3/log2(4) + 0/log2(5) + 4/log2(6) \approx 8.68
 \end{align*}
 \begin{align*}
-IDCG_{u_1, \omega} = \frac{5}{\log_2(2)}+\frac{4}{\log_2(3)}+\frac{3}{\log_2(4)}+\frac{2}{\log_2(5)}+\frac{1}{\log_2(6)} \approx 10.27
+IDCG_5(u_1) = \frac{5}{\log_2(2)}+\frac{4}{\log_2(3)}+\frac{3}{\log_2(4)}+\frac{2}{\log_2(5)}+\frac{1}{\log_2(6)} \approx 10.27
 \end{align*}
 \begin{align*}
-nDCG_{u_1, \omega} = \frac{8.68}{10.27} \approx 0.84
+nDCG_5(u_1, \omega) = \frac{8.68}{10.27} \approx 0.84
 \end{align*}
 \normalsize
 \end{frame}

@@ -38,7 +38,7 @@
 \end{column}
 \begin{column}{0.5\textwidth}
 	\small
-	\vspace{-1cm}
+	\vspace{-1.5cm}
 	\begin{table}
 		\captionsetup{font=footnotesize}
 		\begin{tabular}{|l|lllll|} \hline
@@ -51,11 +51,16 @@
 		\caption{Top-k list of a group with 4 users}
 	\end{table}
 	\begin{align*}
-	p_{ij} = (\frac{|c_i|}{|I|})
+	p_{ij} = \frac{1}{|I-i|} \text{ if } i \in |c_j|
 	\end{align*}
-	\normalsize
 	\begin{align*}
-	p_{ii} = (\frac{|I|-|c_i|}{|I|})
+		p_{ij} = 0 \text{ if } i \notin |c_j|
+	\end{align*}
+	\begin{align*}
+	p_{B,A} = \frac{1}{7}
+	\end{align*}
+	\begin{align*}
+	p_{ii} = \frac{|c_i|}{|I-i|}
 	\end{align*}
 \end{column}
 \end{columns}
@@ -100,9 +105,11 @@
 			t & A & B & C & D & E & F & G & H \\ \hline
 			0 & $0.125$ & $0.125$ & $0.125$ & $0.125$ & $0.125$ & $0.125$ & $0.125$ & $0.125$ \\
 			1 & $0.25$ & $0.125$ & $0.125$ & $0.107$ & $0.196$ & $0.054$ & $0.125$ & $0.0179$ \\
-			10& $64$ & $0.125$ & $0.125$ & $0.031$ & $7.304$ & $6e^{-5}$ & $0.125$ & $3e^{-9}$ \\ \hline
+			10& $0.89$ & $0.002$ & $0.002$ & $4.32e^{-4}$ & $0.101$ & $8.37e^{-7}$ & $0.002$ & $4.18e^{-11}$ \\
+			%64 0.125 0.125 0.031 7.304 6e^{-5} 0.125 3e^{-9} \\
+			\hline
 		\end{tabular}
-		\caption{Distribution, unnormalized}
+		\caption{Distribution}
 	\end{table}
 	\begin{tabular}{llllll}
 		Recommendations: & A & E & G & C & B
