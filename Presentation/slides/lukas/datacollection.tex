@@ -12,17 +12,12 @@
 	\centering
 	\includegraphics[scale=.5]{graphics/surveystatus.png}
 \end{figure}
-\end{frame}
-
-\begin{frame}
-\frametitle{Intermediate results}
-Our measures
-	\begin{itemize}
-		\item Ranking nDCG
-		\item Rating nDCG
-		\item Kendall Tau Distance
-		\item Spearman's Footrule Distance
-	\end{itemize}
+\begin{itemize}
+	\item Amazon Mechanical Turk as a surveyee platform
+	\item External Survey Server
+	\item Shutdown of M.Turk Account
+	\item Alternative Data collection sources
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -53,6 +48,18 @@ Our measures
 
 \begin{frame}
 \frametitle{Intermediate results}
+Our measures
+\begin{itemize}
+	\item Ranking nDCG
+	\item Rating nDCG
+	\item Kendall Tau Distance
+	\item Spearman's Footrule Distance
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Intermediate results}
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|l|llllll|} \hline
@@ -63,6 +70,18 @@ Our measures
 		KTD	& $0.54287$	& $0.53961$	& $0.55176$	& $0.56376$ & $0.58471$ & $0.55654$ \\ \hline
 	\end{tabular}
 	\caption{Survey scores according to measures}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|llllllll|} \hline
+		& BC 4 & BC 8 & MC 4 & MC 8 & SF 4 & SF 8 & Avg 4 & Avg 8 \\ \hline
+		nDCG	& $0.60$	& $0.53$	& $0.59$	& $0.51$ & $0.56$ & $0.50$ & $0.53$ & $0.46$ \\
+		RnDCG	& $0.95$	& $0.95$	& $0.96$	& $0.95$ & $0.95$ & $0.95$ & $0.97$ & $0.97$ \\
+		SFD	& $0.69$	& $0.73$	& $0.68$	& $0.73$ & $0.67$ & $0.72$ & $0.73$ & $0.77$ \\
+		KTD	& $0.5$	& $0.54$	& $0.5$	& $0.54$ & $0.52$ & $0.55$ & $0.54$ & $0.57$\\ \hline
+	\end{tabular}
+	\caption{MovieLens Dataset scores}
 \end{table}
 \end{frame}
 
